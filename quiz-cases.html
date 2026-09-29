@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Готовы ли вы к роли C-level — Синергия MBA</title>
+<style>
+  /* ===== Фирстиль Школы бизнеса «Синергия» ===== */
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:400;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3864-3932-4235-b138-376533646139/HelveticaNeueCyr-Rom.woff') format('woff')}
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:500;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3465-3062-4333-b232-316465316261/HelveticaNeueCyr-Med.woff') format('woff')}
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:700;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild6232-6461-4632-b937-646336333262/HelveticaNeueCyr-Bol.woff') format('woff')}
+  @font-face{font-family:'Druk';font-weight:900;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3966-3332-4138-b662-373937366531/Druk_Cyr_Medium.woff') format('woff')}
+
+  :root{
+    --cream:#e5dfce; --cream2:#efeadd; --dark:#282828; --ink:#282828; --ink2:#5f5b52;
+    --accent:#e52d1e; --accent-dark:#c8281a; --line:#d3ccb8; --card:#fffdf7; --ok:#3d7a4a; --mid:#b98a2e;
+    --verify:#fff3a8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:840px;margin:0 auto;padding:0 22px}
+  section{padding:60px 0}
+
+  .display{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-weight:900;text-transform:uppercase;line-height:.98;letter-spacing:.005em}
+  h1.display{font-size:clamp(34px,6.4vw,66px)}
+  h2.display{font-size:clamp(26px,4.4vw,42px);margin-bottom:22px}
+  .accent{color:var(--accent)}
+  .eyebrow{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:18px}
+  .sub{font-size:19px;color:var(--ink2);margin-top:16px;line-height:1.5}
+
+  header.top{background:var(--dark);position:sticky;top:0;z-index:50}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:15px;padding-bottom:15px}
+  header.top svg{height:30px;width:auto;display:block}
+  header.top .tag{color:var(--cream);font-size:13px;font-weight:500;letter-spacing:.04em;opacity:.85}
+  @media(max-width:600px){header.top .tag{display:none}}
+
+  .hero{background:var(--dark);color:var(--cream);padding:64px 0 72px}
+  .hero .eyebrow{color:var(--accent)}
+  .hero h1{color:var(--cream)}
+  .hero .sub{color:#cfc9b8}
+  ul.checks{list-style:none;margin:26px 0}
+  ul.checks li{padding:8px 0 8px 32px;position:relative;font-size:17px}
+  ul.checks li::before{content:"";position:absolute;left:2px;top:14px;width:16px;height:3px;background:var(--accent)}
+  .hero ul.checks li{color:#e6e1d3}
+
+  .btn{display:inline-block;background:var(--accent);color:var(--cream);border:none;cursor:pointer;
+    font-family:'HelveticaNeueCyr',Arial,sans-serif;font-size:18px;font-weight:700;padding:17px 32px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.12);
+    transition:all .3s cubic-bezier(.22,.61,.36,1);text-align:center;text-decoration:none;line-height:1.2}
+  .btn:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 10px 26px rgba(229,45,30,.32)}
+  .btn:active{transform:translateY(-1px) scale(.985)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes pulseSoft{0%,100%{transform:translateY(0);box-shadow:0 6px 18px rgba(229,45,30,.22)}50%{transform:translateY(-3px);box-shadow:0 14px 30px rgba(229,45,30,.42)}}
+  #q-step, #q-result{animation:fadeUp .5s cubic-bezier(.22,.61,.36,1) both}
+  .opt{animation:fadeUp .45s cubic-bezier(.22,.61,.36,1) both}
+  .opt:nth-child(2){animation-delay:.05s}
+  .opt:nth-child(3){animation-delay:.1s}
+  .opt:nth-child(4){animation-delay:.15s}
+  .after, .case{animation:fadeUp .45s cubic-bezier(.22,.61,.36,1) both}
+  .hero .btn, #q-intro .btn, #cards .btn, #q-result form .btn{animation:pulseSoft 2.8s ease-in-out infinite}
+  .hero .btn:hover, #q-intro .btn:hover, #cards .btn:hover, #q-result form .btn:hover{animation-play-state:paused}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+  .btn-note{font-size:14px;margin-top:12px;opacity:.8}
+
+  .muted{background:var(--cream2)}
+  .cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .card b{display:block;margin-bottom:7px;font-size:17px}
+  .card p{font-size:15px;color:var(--ink2)}
+  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+
+  /* ===== Квиз ===== */
+  #quiz{background:var(--dark)}
+  #quiz-box{background:var(--card);border-radius:16px;padding:30px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  .progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}
+  .progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+  .q-count{font-size:13px;color:var(--ink2);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+  .q-zone{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
+  .q-title{font-size:22px;font-weight:700;line-height:1.28;margin-bottom:6px}
+  .q-hint{font-size:14px;color:var(--ink2);margin-bottom:16px}
+  .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;color:var(--ink);
+    background:var(--cream2);border:1.5px solid var(--line);border-radius:10px;padding:14px 17px;margin-bottom:10px;cursor:pointer;
+    transition:border-color .2s ease, background .2s ease, transform .2s ease;line-height:1.4}
+  .opt:hover{border-color:var(--accent);transform:translateX(2px);box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  .opt:active{transform:scale(.99)}
+  .opt.sel{border-color:var(--accent);background:#fbe6e3}
+  .after{border-left:3px solid var(--accent);padding:10px 0 10px 16px;margin:14px 0 4px;font-size:15px;color:var(--ink2);line-height:1.5}
+  .after b{color:var(--ink)}
+  .case{background:var(--cream);border-radius:10px;padding:15px 17px;margin:14px 0 4px;font-size:15px;line-height:1.5}
+  .case .lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);display:block;margin-bottom:6px}
+  .case a{color:var(--ink2)}
+  .verify{background:var(--verify);padding:0 4px;border-radius:3px}
+  .q-nav{display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap}
+  .back{background:none;border:none;font-family:inherit;font-size:15px;color:var(--ink2);cursor:pointer;padding:10px 4px}
+  .back:hover{color:var(--ink)}
+  .hidden{display:none}
+
+  /* слайдер */
+  .slider-wrap{margin:14px 0 6px}
+  .slider-val{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-size:56px;line-height:1;color:var(--accent);margin-bottom:10px}
+  .slider-val small{font-size:22px;color:var(--ink2);font-family:'HelveticaNeueCyr',Arial,sans-serif;font-weight:700}
+  input[type=range]{width:100%;accent-color:var(--accent);height:34px}
+  .slider-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);margin-top:2px}
+
+  /* результат */
+  .score{display:flex;align-items:flex-end;gap:18px;margin:6px 0 14px;flex-wrap:wrap}
+  .score .num{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-size:84px;line-height:.9;color:var(--accent)}
+  .score .diag{font-size:22px;font-weight:700;line-height:1.25;padding-bottom:6px}
+  .score .diag span{display:block;font-size:15px;color:var(--ink2);font-weight:400;margin-top:4px}
+  .zone-map{margin:14px 0 8px}
+  .zrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .zrow:last-child{border-bottom:none}
+  .zrow .zname{font-size:16px;font-weight:500}
+  .badge{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:5px 11px;border-radius:20px;white-space:nowrap}
+  .badge.strong{background:#e3f0e6;color:var(--ok)}
+  .badge.mid{background:#f6ecd6;color:var(--mid)}
+  .badge.grow{background:#fbe1de;color:var(--accent)}
+  .zbar{height:6px;border-radius:3px;background:var(--line);flex:0 0 84px;overflow:hidden}
+  .zbar i{display:block;height:100%}
+
+  .res-block{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:20px 0}
+  .res-block h3{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink2);margin-bottom:7px;font-weight:700}
+  .res-block p, .res-block li{font-size:16px}
+  .res-block ul{list-style:none}
+  .res-block li{padding:5px 0 5px 26px;position:relative}
+  .res-block li::before{content:"";position:absolute;left:2px;top:13px;width:14px;height:3px;background:var(--accent)}
+  .praise{background:#e3f0e6;color:var(--ok);border-radius:10px;padding:14px 17px;font-size:15px;margin:18px 0;font-weight:500}
+  .bonus{background:var(--cream);border-radius:10px;padding:15px 17px;font-size:15px;margin:20px 0}
+  form label{display:block;font-size:14px;font-weight:700;margin:15px 0 5px}
+  form input{width:100%;font-family:inherit;font-size:16px;padding:14px 15px;border:1.5px solid var(--line);border-radius:10px;background:var(--cream2)}
+  form input:focus{outline:none;border-color:var(--accent)}
+  .form-note{font-size:13px;color:var(--ink2);margin-top:12px}
+  .btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--ink);font-size:16px;padding:13px 22px}
+  .btn.ghost:hover{background:var(--ink);color:var(--cream)}
+  .success{text-align:center;padding:28px 6px}
+  .success .mark{font-size:44px;color:var(--ok);margin-bottom:10px}
+  .under-quiz{max-width:640px;margin:18px auto 0;text-align:center;font-size:14px;color:#cfc9b8;line-height:1.5}
+  .under-quiz a{color:#e5dfce}
+
+  footer{background:var(--dark);color:#b8b3a6;padding:28px 0 40px;font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- ===================== ШАПКА С ЛОГО ===================== -->
+<header class="top">
+  <div class="wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.00 14.53" role="img" aria-label="Синергия. Школа бизнеса"><path fill="#e5dfce" d="M18.0067 14.3197C18.0067 12.8597 18.0067 11.3997 18.0067 9.9397C18.4028 9.9397 18.7989 9.9397 19.195 9.9397C19.195 11.025 19.195 12.1103 19.195 13.1956C19.5603 13.1956 19.9256 13.1956 20.2909 13.1956C20.2909 12.1103 20.2909 11.025 20.2909 9.9397C20.687 9.9397 21.0831 9.9397 21.4792 9.9397C21.4792 11.025 21.4792 12.1103 21.4792 13.1956C21.8445 13.1956 22.2098 13.1956 22.5751 13.1956C22.5751 12.1103 22.5751 11.025 22.5751 9.9397C22.9712 9.9397 23.3673 9.9397 23.7633 9.9397C23.7633 11.3997 23.7633 12.8597 23.7633 14.3197C21.8445 14.3197 19.9256 14.3197 18.0067 14.3197Z"></path><path fill="#e5dfce" d="M24.8712 9.9397C25.2673 9.9397 25.6634 9.9397 26.0595 9.9397C26.0595 10.5031 26.0595 11.0665 26.0595 11.6299C26.5386 11.0665 27.0176 10.5031 27.4966 9.9397C27.9556 9.9397 28.4146 9.9397 28.8736 9.9397C28.3517 10.5446 27.8299 11.1495 27.3081 11.7544C27.8714 12.6095 28.4347 13.4646 28.9981 14.3197C28.5391 14.3197 28.0801 14.3197 27.6211 14.3197C27.2558 13.767 26.8904 13.2144 26.525 12.6617C26.3685 12.8397 26.2119 13.0176 26.0553 13.1956C26.0553 13.5717 26.0553 13.9477 26.0553 14.3237C25.6606 14.3237 25.2659 14.3237 24.8712 14.3237C24.8712 12.8624 24.8712 11.4011 24.8712 9.9397Z"></path><path fill="#e5dfce" d="M29.9335 13.7736C29.468 13.324 29.2351 12.778 29.2351 12.1316C29.2351 11.4853 29.468 10.9393 29.9335 10.4896C30.3993 10.04 30.9813 9.8152 31.6757 9.8152C32.3704 9.8152 32.9525 10.04 33.4182 10.4896C33.8837 10.9393 34.1166 11.4853 34.1166 12.1316C34.1166 12.778 33.8837 13.324 33.4182 13.7736C32.9525 14.2233 32.3704 14.4481 31.6757 14.4481C30.9813 14.4481 30.3953 14.2192 29.9335 13.7736ZM30.8088 11.2604C30.572 11.4973 30.4554 11.7864 30.4554 12.1276C30.4554 12.4689 30.572 12.7579 30.8088 12.9948C31.0457 13.2316 31.3347 13.3481 31.6757 13.3481C32.017 13.3481 32.3061 13.2316 32.5429 12.9948C32.7797 12.7579 32.8963 12.4689 32.8963 12.1276C32.8963 11.7864 32.7797 11.4973 32.5429 11.2604C32.3061 11.0236 32.017 10.9072 31.6757 10.9072C31.3305 10.9072 31.0457 11.0276 30.8088 11.2604Z"></path><path fill="#e5dfce" d="M34.5017 14.32C34.5017 13.9547 34.5017 13.5893 34.5017 13.224C34.542 13.24 34.5739 13.2521 34.594 13.2561C34.6662 13.2762 34.7266 13.2882 34.7828 13.2882C34.8833 13.2882 34.9714 13.2641 35.0476 13.212C35.1241 13.1598 35.1963 13.0674 35.2646 12.9309C35.3327 12.7944 35.3809 12.5937 35.4171 12.3247C35.4532 12.0557 35.4693 11.7225 35.4693 11.3251C35.4693 10.8647 35.4693 10.4044 35.4693 9.944C36.5959 9.944 37.7226 9.944 38.8493 9.944C38.8493 11.404 38.8493 12.864 38.8493 14.324C38.4532 14.324 38.0572 14.324 37.6612 14.324C37.6612 13.2387 37.6612 12.1534 37.6612 11.0681C37.3279 11.0681 36.9946 11.0681 36.6614 11.0681C36.6614 11.1511 36.6614 11.2341 36.6614 11.317C36.6614 11.8028 36.6374 12.2244 36.5851 12.5897C36.5329 12.955 36.4649 13.2561 36.3765 13.489C36.2882 13.7218 36.1758 13.9105 36.0432 14.055C35.9108 14.1996 35.7662 14.2999 35.6138 14.3601C35.4653 14.4204 35.2926 14.4485 35.0998 14.4485C34.9674 14.4485 34.8268 14.4284 34.6865 14.3842C34.6143 14.3601 34.5539 14.3401 34.5017 14.32Z"></path><path fill="#e5dfce" d="M39.4274 14.3197C39.98 12.8597 40.5326 11.3997 41.0852 9.9397C41.5228 9.9397 41.9603 9.9397 42.3978 9.9397C42.9505 11.3997 43.5032 12.8597 44.0559 14.3197C43.6277 14.3197 43.1995 14.3197 42.7713 14.3197C42.6669 14.0066 42.5626 13.6935 42.4582 13.3803C41.9791 13.3803 41.5 13.3803 41.0209 13.3803C40.9165 13.6935 40.8122 14.0066 40.7078 14.3197C40.281 14.3197 39.8542 14.3197 39.4274 14.3197ZM41.3342 12.4128C41.6058 12.4128 41.8775 12.4128 42.1491 12.4128C42.018 11.9952 41.8868 11.5777 41.7556 11.1602C41.7476 11.1602 41.7396 11.1602 41.7316 11.1602C41.5991 11.5777 41.4667 11.9952 41.3342 12.4128Z"></path><path fill="#e5dfce" d="M46.1159 14.3197C46.1159 12.8597 46.1159 11.3997 46.1159 9.9397C47.1797 9.9397 48.2435 9.9397 49.3073 9.9397C49.3073 10.2837 49.3073 10.6276 49.3073 10.9715C48.6396 10.9715 47.972 10.9715 47.3043 10.9715C47.3043 11.1281 47.3043 11.2847 47.3043 11.4412C47.5852 11.4412 47.8662 11.4412 48.1472 11.4412C48.609 11.4412 48.9863 11.5777 49.2754 11.8507C49.5645 12.1237 49.709 12.469 49.709 12.8785C49.709 13.288 49.5645 13.6332 49.2754 13.9062C48.9863 14.1792 48.609 14.3157 48.1472 14.3157C47.4701 14.3157 46.793 14.3157 46.1159 14.3157C46.1159 14.3171 46.1159 14.3184 46.1159 14.3197ZM47.3043 13.288C47.5652 13.288 47.8261 13.288 48.087 13.288C48.2115 13.288 48.3159 13.2478 48.4001 13.1675C48.4845 13.0872 48.5246 12.9909 48.5246 12.8785C48.5246 12.7661 48.4845 12.6697 48.4001 12.5894C48.3159 12.5091 48.2115 12.469 48.087 12.469C47.8261 12.469 47.5652 12.469 47.3043 12.469C47.3043 12.742 47.3043 13.015 47.3043 13.288Z"></path><path fill="#e5dfce" d="M50.5115 14.3197C50.5115 12.8597 50.5115 11.3997 50.5115 9.9397C50.9076 9.9397 51.3036 9.9397 51.6997 9.9397C51.6997 10.7427 51.6997 11.5456 51.6997 12.3485C52.3259 11.5456 52.9522 10.7427 53.5785 9.9397C53.9224 9.9397 54.2663 9.9397 54.6102 9.9397C54.6102 11.3997 54.6102 12.8597 54.6102 14.3197C54.2141 14.3197 53.818 14.3197 53.4218 14.3197C53.4218 13.5168 53.4218 12.7139 53.4218 11.9109C52.7956 12.7139 52.1695 13.5168 51.5433 14.3197C51.1994 14.3197 50.8554 14.3197 50.5115 14.3197Z"></path><path fill="#e5dfce" d="M55.2762 13.6929C55.505 13.4427 55.7338 13.1924 55.9627 12.9422C56.031 13.0265 56.1154 13.0947 56.2277 13.1469C56.4524 13.2794 56.6974 13.3476 56.9662 13.3476C57.175 13.3476 57.3317 13.3115 57.4359 13.2392C57.5403 13.167 57.5925 13.0786 57.5925 12.9743C57.5925 12.8699 57.5443 12.7816 57.444 12.7093C57.3436 12.637 57.2072 12.6009 57.0266 12.6009C56.8392 12.6009 56.6519 12.6009 56.4645 12.6009C56.4645 12.2677 56.4645 11.9345 56.4645 11.6012C56.6211 11.6012 56.7777 11.6012 56.9342 11.6012C57.1149 11.6012 57.2473 11.5691 57.3357 11.5089C57.424 11.4447 57.4681 11.3644 57.4681 11.26C57.4681 11.0312 57.2795 10.9148 56.906 10.9148C56.7254 10.9148 56.5368 10.9669 56.3361 11.0713C56.2718 11.1035 56.2035 11.1556 56.1233 11.2279C55.8944 10.9777 55.6656 10.7274 55.4368 10.4772C55.5613 10.3527 55.7058 10.2443 55.8624 10.152C56.2195 9.9312 56.6212 9.8188 57.0627 9.8188C57.5886 9.8188 58.0021 9.9392 58.303 10.1841C58.6042 10.429 58.7527 10.7221 58.7527 11.0713C58.7527 11.3764 58.6203 11.6253 58.3592 11.8221C58.2469 11.9023 58.1184 11.9626 57.9699 12.0108C58.1466 12.071 58.2951 12.1472 58.4196 12.2436C58.7247 12.4724 58.8772 12.7615 58.8772 13.1068C58.8772 13.4881 58.7166 13.8053 58.3995 14.0622C58.0823 14.3192 57.6368 14.4517 57.0627 14.4517C56.5851 14.4517 56.1433 14.3272 55.7501 14.0743C55.5694 13.9619 55.4128 13.8334 55.2762 13.6929Z"></path><path fill="#e5dfce" d="M59.7003 14.3197C59.7003 12.8597 59.7003 11.3997 59.7003 9.9397C60.0964 9.9397 60.4925 9.9397 60.8886 9.9397C60.8886 10.471 60.8886 11.0023 60.8886 11.5336C61.4199 11.5336 61.9511 11.5336 62.4824 11.5336C62.4824 11.0023 62.4824 10.471 62.4824 9.9397C62.8784 9.9397 63.2745 9.9397 63.6705 9.9397C63.6705 11.3997 63.6705 12.8597 63.6705 14.3197C63.2745 14.3197 62.8784 14.3197 62.4824 14.3197C62.4824 13.767 62.4824 13.2144 62.4824 12.6617C61.9511 12.6617 61.4199 12.6617 60.8886 12.6617C60.8886 13.2144 60.8886 13.767 60.8886 14.3197C60.4925 14.3197 60.0964 14.3197 59.7003 14.3197Z"></path><path fill="#e5dfce" d="M64.7822 14.3197C64.7822 12.8597 64.7822 11.3997 64.7822 9.9397C65.8982 9.9397 67.0142 9.9397 68.1303 9.9397C68.1303 10.2944 68.1303 10.649 68.1303 11.0036C67.4104 11.0036 66.6904 11.0036 65.9705 11.0036C65.9705 11.2124 65.9705 11.4211 65.9705 11.6299C66.5232 11.6299 67.0758 11.6299 67.6284 11.6299C67.6284 11.9631 67.6284 12.2964 67.6284 12.6296C67.0758 12.6296 66.5232 12.6296 65.9705 12.6296C65.9705 12.8383 65.9705 13.0471 65.9705 13.2559C66.7105 13.2559 67.4504 13.2559 68.1904 13.2559C68.1904 13.6105 68.1904 13.9651 68.1904 14.3197C67.0543 14.3197 65.9182 14.3197 64.7822 14.3197Z"></path><path fill="#e5dfce" d="M72.4299 12.7858C72.6694 13.0574 72.9088 13.3291 73.1483 13.6007C73.008 13.7653 72.8434 13.9058 72.6585 14.0263C72.2492 14.3073 71.7756 14.4438 71.2375 14.4438C70.5389 14.4438 69.9611 14.219 69.4953 13.7693C69.0296 13.3197 68.797 12.7737 68.797 12.1274C68.797 11.481 69.0296 10.935 69.4953 10.4854C69.9611 10.0357 70.5431 9.8109 71.2375 9.8109C71.7634 9.8109 72.2331 9.9514 72.6467 10.2364C72.8313 10.3649 72.9879 10.5054 73.1164 10.654C72.8768 10.9256 72.6373 11.1973 72.3977 11.4689C72.3014 11.3646 72.197 11.2722 72.0804 11.1879C71.8075 10.9992 71.5306 10.9069 71.2415 10.9069C70.9002 10.9069 70.6112 11.0233 70.3744 11.2602C70.1375 11.4971 70.0212 11.7861 70.0212 12.1274C70.0212 12.4686 70.1375 12.7576 70.3744 12.9945C70.6112 13.2314 70.9002 13.3478 71.2415 13.3478C71.5266 13.3478 71.8075 13.2555 72.0926 13.0668C72.2171 12.9825 72.3294 12.8901 72.4299 12.7858Z"></path><path fill="#e5dfce" d="M73.349 14.3197C73.9017 12.8597 74.4544 11.3997 75.0071 9.9397C75.4446 9.9397 75.8822 9.9397 76.3197 9.9397C76.8723 11.3997 77.4249 12.8597 77.9775 14.3197C77.5494 14.3197 77.1213 14.3197 76.6931 14.3197C76.5887 14.0066 76.4843 13.6935 76.3798 13.3803C75.9008 13.3803 75.4218 13.3803 74.9427 13.3803C74.8384 13.6935 74.734 14.0066 74.6297 14.3197C74.2028 14.3197 73.7759 14.3197 73.349 14.3197ZM75.2558 12.4128C75.5274 12.4128 75.7991 12.4128 76.0707 12.4128C75.9397 11.9952 75.8086 11.5777 75.6775 11.1602C75.6694 11.1602 75.6613 11.1602 75.6532 11.1602C75.5208 11.5777 75.3883 11.9952 75.2558 12.4128Z"></path><path fill="#e5dfce" d="M23.647 5.0665C24.0552 5.5282 24.4633 5.9899 24.8714 6.4515C24.6306 6.7285 24.3536 6.9694 24.0405 7.1782C23.342 7.6559 22.5351 7.8928 21.6198 7.8928C20.4315 7.8928 19.444 7.5114 18.6492 6.7446C17.8543 5.9778 17.4609 5.0464 17.4609 3.9464C17.4609 2.8464 17.8583 1.911 18.6492 1.1482C19.44 0.3854 20.4315 0 21.6198 0C22.515 0 23.3139 0.2409 24.0204 0.7267C24.3335 0.9475 24.5985 1.1843 24.8192 1.4413C24.4111 1.9029 24.003 2.3646 23.5949 2.8263C23.4303 2.6497 23.2496 2.4891 23.0489 2.3446C22.5873 2.0234 22.1096 1.8628 21.6198 1.8628C21.0377 1.8628 20.5439 2.0635 20.1425 2.465C19.741 2.8665 19.5403 3.3603 19.5403 3.9424C19.5403 4.5245 19.741 5.0183 20.1425 5.4198C20.5439 5.8212 21.0377 6.022 21.6198 6.022C22.1015 6.022 22.5873 5.8614 23.069 5.5402C23.2858 5.4077 23.4784 5.2471 23.647 5.0665Z"></path><path fill="#e5dfce" d="M25.7584 7.68C25.7584 5.1923 25.7584 2.7045 25.7584 0.2168C26.4341 0.2168 27.1099 0.2168 27.7857 0.2168C27.7857 1.5858 27.7857 2.9548 27.7857 4.3238C28.8521 2.9548 29.9186 1.5858 30.985 0.2168C31.5711 0.2168 32.1572 0.2168 32.7433 0.2168C32.7433 2.7045 32.7433 5.1923 32.7433 7.68C32.0677 7.68 31.392 7.68 30.7163 7.68C30.7163 6.311 30.7163 4.942 30.7163 3.573C29.6497 4.942 28.5832 6.311 27.5167 7.68C26.9306 7.68 26.3445 7.68 25.7584 7.68Z"></path><path fill="#e5dfce" d="M34.2685 7.68C34.2685 5.1923 34.2685 2.7045 34.2685 0.2168C34.9443 0.2168 35.6201 0.2168 36.2958 0.2168C36.2958 1.1227 36.2958 2.0287 36.2958 2.9347C37.2018 2.9347 38.1077 2.9347 39.0136 2.9347C39.0136 2.0287 39.0136 1.1227 39.0136 0.2168C39.6894 0.2168 40.3652 0.2168 41.0409 0.2168C41.0409 2.7045 41.0409 5.1923 41.0409 7.68C40.3652 7.68 39.6894 7.68 39.0136 7.68C39.0136 6.7379 39.0136 5.7958 39.0136 4.8537C38.1077 4.8537 37.2018 4.8537 36.2958 4.8537C36.2958 5.7958 36.2958 6.7379 36.2958 7.68C35.6201 7.68 34.9443 7.68 34.2685 7.68Z"></path><path fill="#e5dfce" d="M42.5631 0.2168C44.4646 0.2168 46.366 0.2168 48.2674 0.2168C48.2674 0.8216 48.2674 1.4265 48.2674 2.0314C47.0417 2.0314 45.8159 2.0314 44.5902 2.0314C44.5902 2.3874 44.5902 2.7433 44.5902 3.0993C45.5323 3.0993 46.4743 3.0993 47.4164 3.0993C47.4164 3.668 47.4164 4.2368 47.4164 4.8055C46.4743 4.8055 45.5323 4.8055 44.5902 4.8055C44.5902 5.1615 44.5902 5.5174 44.5902 5.8734C45.8521 5.8734 47.114 5.8734 48.3758 5.8734C48.3758 6.4783 48.3758 7.0832 48.3758 7.688C46.4383 7.688 44.5007 7.688 42.5631 7.688C42.5631 5.1976 42.5631 2.7072 42.5631 0.2168Z"></path><path fill="#e5dfce" d="M49.4754 0.2168C50.5954 0.2168 51.7155 0.2168 52.8356 0.2168C53.6545 0.2168 54.3209 0.4657 54.8347 0.9595C55.3484 1.4533 55.6095 2.0796 55.6095 2.8303C55.6095 3.5811 55.3526 4.2073 54.8347 4.7011C54.3209 5.1949 53.6545 5.4439 52.8356 5.4439C52.3913 5.4439 51.947 5.4439 51.5027 5.4439C51.5027 6.1906 51.5027 6.9373 51.5027 7.684C50.8269 7.684 50.1511 7.684 49.4754 7.684C49.4754 5.1949 49.4754 2.7059 49.4754 0.2168ZM51.5027 3.6292C51.9108 3.6292 52.319 3.6292 52.7272 3.6292C52.9601 3.6292 53.1608 3.5489 53.3293 3.3884C53.4978 3.2278 53.5782 3.0431 53.5782 2.8303C53.5782 2.6175 53.4939 2.4288 53.3293 2.2683C53.1647 2.1077 52.9601 2.0274 52.7272 2.0274C52.319 2.0274 51.9108 2.0274 51.5027 2.0274C51.5027 2.5613 51.5027 3.0953 51.5027 3.6292Z"></path><path fill="#e5dfce" d="M56.7051 7.68C56.7051 5.1923 56.7051 2.7045 56.7051 0.2168C58.4473 0.2168 60.1895 0.2168 61.9318 0.2168C61.9318 0.8564 61.9318 1.4961 61.9318 2.1358C60.8652 2.1358 59.7987 2.1358 58.7322 2.1358C58.7322 3.9839 58.7322 5.8319 58.7322 7.68C58.0565 7.68 57.3808 7.68 56.7051 7.68Z"></path><path fill="#e5dfce" d="M62.8157 7.68C62.8157 5.1923 62.8157 2.7045 62.8157 0.2168C63.4915 0.2168 64.1673 0.2168 64.843 0.2168C64.843 1.5858 64.843 2.9548 64.843 4.3238C65.9095 2.9548 66.9759 1.5858 68.0424 0.2168C68.6285 0.2168 69.2146 0.2168 69.8007 0.2168C69.8007 2.7045 69.8007 5.1923 69.8007 7.68C69.1249 7.68 68.4492 7.68 67.7734 7.68C67.7734 6.311 67.7734 4.942 67.7734 3.573C66.7069 4.942 65.6405 6.311 64.574 7.68C63.9879 7.68 63.4018 7.68 62.8157 7.68Z"></path><path fill="#e5dfce" d="M70.7396 7.68C71.2548 6.7553 71.7699 5.8306 72.2851 4.9059C72.0443 4.7935 71.8315 4.6369 71.6469 4.4362C71.2212 4.0106 71.0086 3.4566 71.0086 2.7741C71.0086 2.0475 71.2655 1.4412 71.7753 0.9514C72.2891 0.4617 72.9394 0.2168 73.7262 0.2168C74.8998 0.2168 76.0734 0.2168 77.247 0.2168C77.247 2.7045 77.247 5.1923 77.247 7.68C76.5712 7.68 75.8954 7.68 75.2197 7.68C75.2197 6.8985 75.2197 6.117 75.2197 5.3355C74.8463 5.3355 74.473 5.3355 74.0996 5.3355C73.6915 6.117 73.2834 6.8985 72.8753 7.68C72.1634 7.68 71.4515 7.68 70.7396 7.68ZM73.8306 3.5208C74.2923 3.5208 74.754 3.5208 75.2157 3.5208C75.2157 3.023 75.2157 2.5252 75.2157 2.0274C74.754 2.0274 74.2923 2.0274 73.8306 2.0274C73.5977 2.0274 73.4052 2.0996 73.2567 2.2402C73.108 2.3807 73.0317 2.5613 73.0317 2.7741C73.0317 2.9869 73.108 3.1635 73.2567 3.308C73.4052 3.4526 73.5977 3.5208 73.8306 3.5208Z"></path><path fill="#E52D1E" d="M8.7098 8.7202C8.228 8.2384 7.7463 7.7567 7.2646 7.2749C7.7463 6.7932 8.228 6.3114 8.7098 5.8296C8.7098 4.8648 8.7098 3.8999 8.7098 2.9351C7.2632 4.3817 5.8167 5.8283 4.3702 7.2749C5.8167 8.7215 7.2632 10.1681 8.7098 11.6147C8.7098 10.6499 8.7098 9.685 8.7098 8.7202Z"></path><path fill="#E52D1E" d="M0.0227 0.0358C0.0227 4.8627 0.0227 9.6897 0.0227 14.5166C4.8494 14.5166 9.676 14.5166 14.5026 14.5166C14.5026 9.6897 14.5026 4.8627 14.5026 0.0358C9.676 0.0358 4.8494 0.0358 0.0227 0.0358ZM12.4352 12.4451C8.9882 12.4451 5.5412 12.4451 2.0941 12.4451C2.0941 8.9978 2.0941 5.5506 2.0941 2.1033C5.5412 2.1033 8.9882 2.1033 12.4352 2.1033C12.4352 5.5506 12.4352 8.9978 12.4352 12.4451Z"></path></svg>
+  </div>
+</header>
+
+<!-- ===================== ПЕРВЫЙ ЭКРАН ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1 class="display">Кого позовут на&nbsp;место генерального — <span class="accent">вас или человека со&nbsp;стороны?</span></h1>
+    <p class="sub">За 6 ситуаций увидите, чего вам не хватает, чтобы позвали вас: по компетенциям и связям на рынке.</p>
+    <ul class="checks">
+      <li>Почему на&nbsp;освободившееся место генерального берут человека со&nbsp;стороны, а&nbsp;не&nbsp;вас</li>
+      <li>Чего вам не&nbsp;хватает, чтобы пройти отбор на&nbsp;C-level и&nbsp;просить в&nbsp;1,5–2 раза больше</li>
+      <li>Что в&nbsp;вашем опыте уже соответствует C-level, а&nbsp;что читается как «просто исполнитель»</li>
+      <li>Как стать заметным на&nbsp;рынке, чтобы вас хантили и&nbsp;выходили по&nbsp;рекомендациям</li>
+    </ul>
+    <a href="#quiz" class="btn kviz-top-c-level-start" data-goal="kviz-top-c-level-start" onclick="startQuiz();return false;">Хочу узнать, как вырасти до&nbsp;C-level</a>
+  </div>
+</section>
+
+<!-- ===================== КВИЗ ===================== -->
+<section id="quiz">
+  <div class="wrap">
+    <div id="quiz-box">
+
+      <!-- Старт -->
+      <div id="q-intro">
+        <div class="q-title">За 6 ситуаций определим, насколько вы готовы к C-level. Отвечайте, как вы действуете в работе, а не как правильно.</div>
+        <button class="btn kviz-top-c-level-start" data-goal="kviz-top-c-level-start" onclick="startQuiz()">Хочу узнать</button>
+      </div>
+
+      <!-- Вопрос -->
+      <div id="q-step" class="hidden">
+        <div class="q-zone" id="q-zone"></div>
+        <div class="q-title" id="q-title"></div>
+        <div class="q-hint" id="q-hint"></div>
+        <div id="q-opts"></div>
+        <div id="q-after"></div>
+        <div class="q-nav">
+          <button class="btn" id="q-next" disabled onclick="nextQ()">Дальше</button>
+          <button class="back" id="q-back" onclick="prevQ()">← Назад</button>
+        </div>
+      </div>
+
+      <!-- Результат -->
+      <div id="q-result" class="hidden"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ЧТО ВЫ ПОЛУЧИТЕ ===================== -->
+<section class="muted" id="cards">
+  <div class="wrap">
+    <h2 class="display">Что покажет карта компетенций</h2>
+    <div class="cards">
+      <div class="card"><b>Насколько вы соответствуете C-level</b><p>Оценка в процентах: насколько вы соответствуете тому, кого собственники рассматривают на место генерального.</p></div>
+      <div class="card"><b>Почему вас не повышают в компании</b><p>Где вас читают как исполнителя: влияние на прибыль, работа с людьми, решения, от которых зависит, куда развивается компания, разговор с советом, связи и известность на рынке.</p></div>
+      <div class="card"><b>Что сейчас мешает повышению</b><p>С чего начать, чтобы претендовать на з/п 50–100% выше.</p></div>
+    </div>
+    <p style="margin-top:26px"><a href="#quiz" class="btn kviz-top-c-level-start" data-goal="kviz-top-c-level-start" onclick="startQuiz();return false;">Забрать карту компетенций</a></p>
+  </div>
+</section>
+
+<script>
+// ===== Аналитика: цели Метрики. Префикс ленда kviz-top-c-level-*, заводить руками по списку внизу файла =====
+var METRIKA_ID = null; // [данные от школы] вставить номер счётчика
+function track(goal){ if (METRIKA_ID && typeof ym === 'function') ym(METRIKA_ID, 'reachGoal', goal); }
+
+// ===== Вопросы =====
+// type: 'choice' | 'slider'. score: null — не считается. zone — ось карты.
+var Q = [
+  {
+    type:'choice', zone:null, label:'Ваша цель',
+    title:'Где хотите быть через 3 года?',
+    hint:'Карта соберётся под эту цель. Можете ответить «Пока не знаю», если ещё не решили.',
+    opts:[
+      {t:'Генеральный директор', s:null, key:'ceo'},
+      {t:'Свой бизнес или партнёрство', s:null, key:'own'},
+      {t:'Та же роль, но в структуре крупнее', s:null, key:'bigger'},
+      {t:'Пока не знаю — хочу понять варианты', s:null, key:'unknown'}
+    ],
+    case:'<span class="lbl">Пример нашего выпускника</span>Уже во время обучения наша выпускница запустила крупный проект и&nbsp;<b>получила повышение до&nbsp;зама гендиректора</b> федерального офиса «Газпромбанк Автолизинг», не&nbsp;дожидаясь диплома.'
+  },
+  {
+    type:'choice', zone:'Финансы C-level', label:'Ситуация 1 из 6',
+    title:'Собственник спрашивает: «Выручка растёт, а прибыль падает — почему и что делать?» Насколько уверенно ответите?',
+    hint:'На C-level этот вопрос ваш, из какой бы функции вы ни пришли.',
+    opts:[
+      {t:'Разложу по цифрам сам', s:2},
+      {t:'Отвечу по сути, детали соберу у финансистов', s:1},
+      {t:'Это зона финансового директора, не моя', s:0}
+    ],
+    after:'<b>На C-level отвечают за прибыль целиком.</b>',
+    case:'<span class="lbl">Пример нашего выпускника</span>Наш выпускник, гендиректор «Башинформсвязи» (Ростелеком), дипломную работу сделал по своей компании: <b>200 млн ₽ экономии в год</b>. Пришёл учиться и вышел с результатом, который окупил обучение.'
+  },
+  {
+    type:'choice', zone:'Управление управленцами', label:'Ситуация 2 из 6',
+    title:'Вы взяли сильного директора с рынка на ключевое направление. Через четыре месяца команда идёт к вам в обход него, цифры хуже, чем до его прихода. Что делаете?',
+    hint:'',
+    opts:[
+      {t:'Признаю ошибку найма — расстаёмся, пока не поздно', s:0},
+      {t:'Беру его в ручное управление: еженедельные разборы, правлю решения', s:1},
+      {t:'Выясняю, в чём разрыв: он ломает то, что работало, или команда саботирует новое. И защищаю либо его, либо команду, но осознанно', s:2}
+    ],
+    after:'<b>Не разобравшись, почему не получилось, вы наймёте следующего и снова получите тот же результат.</b> На C-level не меняют людей по кругу: находят причину и доращивают человека.',
+    case:'<span class="lbl">Пример нашего выпускника</span>Гендиректор «Эксмо» назвал управление командой самым важным блоком, который вынес с обучения.<br><b>На программе он разработал свои методики отбора, мотивации и развития сотрудников.</b> Они применяются до сих пор, <b>а люди, которых он по ним растил, сейчас на ключевых позициях.</b>'
+  },
+  {
+    type:'choice', zone:'Мышление собственника', label:'Ситуация 3 из 6',
+    title:'Вы уверенно вложили 50 млн в новое направление, за год оно не окупилось. Собственник вызывает. С чем идёте?',
+    hint:'',
+    opts:[
+      {t:'Со списком причин, почему рынок и внешние факторы подвели', s:0},
+      {t:'Прошу ещё год — «вот-вот пойдёт»', s:1},
+      {t:'Иду с цифрами: что узнали, сколько ещё стоит проверить, при каких условиях выходим и когда честно закрываем', s:2}
+    ],
+    after:'<b>Акционера успокаивает не оправдание, а управляемость:</b> что сделали, почему не получилось и что предлагаете, чтобы исправить. Кто пришёл не с решением, а с причинами, тот уже проиграл.',
+    case:'<span class="lbl">Пример нашего выпускника</span>Владелец «ФК Гранд Капитал» <b>(оборот 250 млрд) назвал обучение апгрейдом управленческой операционной системы.</b><br>Стратегию <b>электронной коммерции</b> для своей фармы он собрал из разбора с однокурсником, директором завода канатов.<br><b>После поездки на заводы Китая пересмотрел скорость принятия решений во всей компании.</b><br>«Такого не добиться даже от дорогих отраслевых консультантов».'
+  },
+  {
+    type:'choice', zone:'Ответственность перед советом', label:'Ситуация 4 из 6',
+    title:'Проект, который вы защищали перед советом директоров, провалился. На совете вас спрашивают: почему?',
+    hint:'',
+    opts:[
+      {t:'Рассказываю, где подвели подрядчики и команда', s:0},
+      {t:'Признаю ошибку, беру ответственность и молчу', s:1},
+      {t:'Говорю: «ошибка была в такой-то предпосылке — вот что исправлено, чтобы это не повторилось»', s:2}
+    ],
+    after:'<b>На C-level ценят не тех, кто не ошибается, а тех, кто понимает причину ошибки и приходит с решением.</b> Ошибку простят. Не простят, если после неё в компании ничего не изменилось.',
+    case:'<span class="lbl">Пример нашего выпускника</span>Врач без управленческого образования построил сеть медицинских лабораторий (диагностика, анализы) с выручкой 2,7 млрд и упёрся в потолок ручного управления.<br>На программе MBA пересобрал компанию как систему: <b>переставил найм и KPI по технологиям с курса, вывел процессы на новый уровень и снял бизнес с ручника.</b>'
+  },
+  {
+    type:'choice', zone:'Связи с теми, кто решает', label:'Ситуация 5 из 6',
+    title:'Завтра вы решаете сменить работу на ступень выше. Насколько уверены, что вас порекомендуют те, кто решает такие назначения?',
+    hint:'Покажет, работают ли ваши связи на вас или до нужных людей придётся достукиваться самому.',
+    opts:[
+      {t:'Уверен — несколько человек, решающих такие назначения, назовут моё имя сами', s:2},
+      {t:'Кто-то вспомнит, если спросят, но специально продвигать не будет', s:1},
+      {t:'Придётся откликаться на вакансии и ждать', s:0}
+    ],
+    after:'<b>60% топ-позиций закрываются через знакомых.</b> Кто заслуживает повышения, часто просто не знает, через кого зайти, и проигрывает тем, кого вспомнили первыми.',
+    case:'<span class="lbl">Пример нашего выпускника</span>Наш выпускник нашёл среди однокурсников поставщика сырья и партнёров по маркетингу, а его производство сегодня поставляет продукцию в 12 стран. Нетворк он оценивает в 60–70% пользы от обучения.'
+  },
+  {
+    type:'choice', zone:'Видимость на рынке', label:'Ситуация 6 из 6',
+    title:'Завтра хедхантер ищет гендиректора в вашей отрасли. Он вас найдёт?',
+    hint:'Проверим, видит ли вас рынок для роли выше или вас знают только внутри компании.',
+    opts:[
+      {t:'Да, я на виду: выступления, публикации, рекомендации', s:2},
+      {t:'Меня знают внутри компании', s:1},
+      {t:'Скорее нет: работаю, а не свечусь', s:0}
+    ],
+    after:'<b>«10 лет результатов, а вас не видят» — самая частая ловушка этой ступени.</b> От видимости зависит, зовут вас на позиции или вы их просите.',
+    case:'<span class="lbl">Пример нашего выпускника</span>Наша выпускница пришла за повышением: во время учёбы запустила крупный проект и <b>получила повышение ещё до диплома</b> - зам гендиректора «Газпромбанк Автолизинг».'
+  }
+];
+
+var ZONES = ['Финансы C-level','Управление управленцами','Мышление собственника','Ответственность перед советом','Связи с теми, кто решает','Видимость на рынке'];
+var ZONE_ADVICE = {
+  'Финансы C-level':'финансы, с которыми вас ставят на прибыль всей компании, а не функции',
+  'Управление управленцами':'управление руководителями, а не задачами, чтобы команда решала без вас',
+  'Мышление собственника':'язык управляемости: что узнали, сколько ещё стоит, где стоп',
+  'Ответственность перед советом':'разговор с советом директоров: ошибка в предпосылке, а не в людях',
+  'Связи с теми, кто решает':'связи среди собственников и гендиров, через которых и закрывают такие позиции',
+  'Видимость на рынке':'видимость на рынке, чтобы звали вас, а не вы просили'
+};
+var ZONE_PRAISE = {
+  'Финансы C-level':'Вы уже говорите с собственником на языке прибыли, а не своей функции. Это редкость среди директоров.',
+  'Управление управленцами':'Вы уже управляете руководителями, а не задачами. Команда у вас решает сама.',
+  'Мышление собственника':'Вы уже мыслите как акционер: управляемость вместо оправданий.',
+  'Ответственность перед советом':'Вы умеете говорить с советом директоров об ошибках так, что вам доверяют дальше.',
+  'Связи с теми, кто решает':'Вы уже знакомы с теми, кто решает о назначениях. Это половина пути к роли.',
+  'Видимость на рынке':'Вас уже видит рынок, на такие позиции зовут, а не ждут заявок.'
+};
+
+var cur = -1, answers = {};
+
+function startQuiz(){
+  track('kviz-top-c-level-start');
+  document.getElementById('top').classList.add('hidden');
+  document.getElementById('cards').classList.add('hidden');
+  document.getElementById('q-intro').classList.add('hidden');
+  document.getElementById('q-result').classList.add('hidden');
+  document.getElementById('q-step').classList.remove('hidden');
+  cur = 0; renderQ();
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+}
+
+function renderQ(){
+  var q = Q[cur];
+  (function(s){s.style.animation='none';s.offsetHeight;s.style.animation='';})(document.getElementById('q-step'));
+  document.getElementById('q-zone').textContent = q.label + (q.zone ? ' · ' + q.zone : '');
+  document.getElementById('q-title').textContent = q.title;
+  document.getElementById('q-hint').textContent = q.hint || '';
+  var box = document.getElementById('q-opts'); box.innerHTML = '';
+  document.getElementById('q-after').innerHTML = '';
+  document.getElementById('q-back').style.visibility = cur === 0 ? 'hidden' : 'visible';
+  var next = document.getElementById('q-next'); next.disabled = true;
+
+  if (q.type === 'slider'){
+    var v = (answers[cur] !== undefined) ? answers[cur] : 50;
+    box.innerHTML = '<div class="slider-wrap"><div class="slider-val"><span id="sl-val">'+v+'</span><small>%</small></div>'
+      + '<input type="range" min="0" max="100" step="5" value="'+v+'" id="sl" oninput="onSlide(this.value)">'
+      + '<div class="slider-scale"><span>0 — только начинаю</span><span>100 — хоть завтра</span></div></div>';
+    answers[cur] = v; next.disabled = false;
+    return;
+  }
+
+  q.opts.forEach(function(o, i){
+    var b = document.createElement('button');
+    b.className = 'opt' + (answers[cur] === i ? ' sel' : '');
+    b.textContent = o.t;
+    b.onclick = function(){ pick(i); };
+    box.appendChild(b);
+  });
+  if (answers[cur] !== undefined) showAfter();
+}
+
+function onSlide(v){ document.getElementById('sl-val').textContent = v; answers[cur] = parseInt(v,10); }
+
+function pick(i){
+  answers[cur] = i;
+  var btns = document.querySelectorAll('#q-opts .opt');
+  btns.forEach(function(b, j){ b.classList.toggle('sel', j === i); });
+  showAfter();
+  document.getElementById('q-next').disabled = false;
+}
+
+function showAfter(){
+  var q = Q[cur], o = q.opts[answers[cur]], html = '';
+  if (o.kase) html += '<div class="case">' + o.kase + '</div>';
+  if (q.after) html += '<div class="after">' + q.after + '</div>';
+  if (q.case) html += '<div class="case">' + q.case + '</div>';
+  document.getElementById('q-after').innerHTML = html;
+}
+
+function nextQ(){
+  track('kviz-top-c-level-step-' + (cur+1));
+  if (cur < Q.length - 1){ cur++; renderQ(); document.getElementById('quiz-box').scrollIntoView({behavior:'smooth', block:'start'}); }
+  else showResult();
+}
+function prevQ(){ if (cur > 0){ cur--; renderQ(); } }
+
+// ===== Результат =====
+function showResult(){
+  track('kviz-top-c-level-result');
+  var goalKey = Q[0].opts[answers[0]].key;
+  var zones = {}, total = 0;
+  Q.forEach(function(q, i){ if (q.type === 'choice' && q.zone){ var s = q.opts[answers[i]].s; zones[q.zone] = s; total += s; } });
+  var pct = Math.round(total / (ZONES.length * 2) * 100);
+
+  var diag, diagSub;
+  if (pct >= 75){ diag = 'Готов к C-level'; diagSub = 'Осталось подтвердить уровень там, где о вас решают.'; }
+  else if (pct >= 50){ diag = 'Кандидат без билета'; diagSub = 'Компетенции есть, а знакомств и известности, которые приводят в роль, — нет.'; }
+  else if (pct >= 25){ diag = 'Капитал без упаковки'; diagSub = 'Опыт на миллионы, о котором знает только текущий работодатель.'; }
+  else { diag = 'Карьера на паузе'; diagSub = 'Не падение, а плато: каждый год увереннее в том же кресле.'; }
+
+  var goalText = {ceo:'генерального директора', own:'своего бизнеса или партнёрства', bigger:'той же роли в структуре крупнее', unknown:'роли C-level'}[goalKey];
+  var goalAim = {ceo:'кресла генерального', own:'своего бизнеса или партнёрства', bigger:'роли в структуре крупнее', unknown:'следующей ступени'}[goalKey];
+
+  var map = '<div class="zone-map">';
+  ZONES.forEach(function(z){
+    var s = zones[z], cls = s === 2 ? 'strong' : s === 1 ? 'mid' : 'grow';
+    var lab = s === 2 ? 'На уровне C-level' : s === 1 ? 'Середина' : 'Зона роста';
+    var col = s === 2 ? '#3d7a4a' : s === 1 ? '#b98a2e' : '#e52d1e';
+    map += '<div class="zrow"><span class="zname">' + z + '</span><span style="display:flex;align-items:center;gap:12px"><span class="zbar"><i style="width:' + (s/2*100) + '%;background:' + col + '"></i></span><span class="badge ' + cls + '">' + lab + '</span></span></div>';
+  });
+  map += '</div>';
+
+  // что добрать: две самые слабые зоны
+  var weak = ZONES.slice().sort(function(a,b){ return zones[a] - zones[b]; }).slice(0,2).filter(function(z){ return zones[z] < 2; });
+  var strong = ZONES.filter(function(z){ return zones[z] === 2; });
+  var praiseZone = strong.length ? strong[0] : ZONES.slice().sort(function(a,b){ return zones[b] - zones[a]; })[0];
+
+  var adviceHtml = weak.length
+    ? '<ul>' + weak.map(function(z){ return '<li><b>' + z + '</b> — ' + ZONE_ADVICE[z] + '.</li>'; }).join('') + '</ul>'
+    : '<p>Все шесть компетенций на уровне C-level. Следующий шаг — не добирать, а подтверждать уровень там, где о вас решают.</p>';
+
+  var html = ''
+    + '<div class="q-zone">Ваша карта · цель: ' + goalText + '</div>'
+    + '<div class="score"><div class="num">' + pct + '%</div><div class="diag">' + diag + '<span>' + diagSub + '</span></div></div>'
+    + map
+    + '<div class="praise">' + ZONE_PRAISE[praiseZone] + '</div>'
+    + '<div class="res-block"><h3>Каких компетенций не хватает, чтобы дорасти до ' + goalAim + ' и претендовать на доход на 50–100% выше</h3>' + adviceHtml + '</div>'
+    + '<div class="res-block"><h3>Что уже сделали наши выпускники во время обучения</h3><p style="margin-bottom:8px">Вы окупаете обучение ещё во время прохождения, а не получаете диплом для галочки.</p><ul>'
+    + '<li>Крупный контракт заключён прямо на выездном модуле, обучение окупилось одной сделкой</li>'
+    + '<li>Дипломная работа по своей компании дала экономию в сотни миллионов рублей в год</li>'
+    + '<li>Повышение ещё во время учёбы и переход в структуру крупнее с ростом дохода</li>'
+    + '</ul></div>'
+    + '<h2 class="display" style="font-size:clamp(22px,3.6vw,32px);margin:26px 0 8px">Разберём ваш маршрут до цели</h2>'
+    + '<p style="font-size:16px;color:var(--ink2);margin-bottom:6px">30 минут с экспертом школы: что добрать первым и с чего начать. Уйдёте с планом, даже если программа не подойдёт.</p>'
+    + '<form onsubmit="submitForm(event)">'
+    + '<label for="f-name">Имя</label><input id="f-name" type="text" required>'
+    + '<label for="f-phone">Телефон</label><input id="f-phone" type="tel" required placeholder="+7 …"><label for="f-email">Почта</label><input id="f-email" type="email" required placeholder="you@company.ru">'
+    + '<div style="margin-top:18px"><button class="btn kviz-top-c-level-consult" data-goal="kviz-top-c-level-consult" type="submit">Записаться на консультацию</button></div>'
+    + ''
+    + '</form>'
+    + '<p style="margin-top:22px"><button class="back" onclick="restart()">Пройти заново</button></p>';
+
+  document.getElementById('q-step').classList.add('hidden');
+  var r = document.getElementById('q-result'); r.innerHTML = html; r.classList.remove('hidden'); r.style.animation='none'; r.offsetHeight; r.style.animation='';
+  document.getElementById('quiz-box').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function submitForm(e){
+  e.preventDefault();
+  track('kviz-top-c-level-consult');
+  // [данные от школы] сюда — отправка в CRM. В лид передавать: цель, самооценку, %, статусы 6 зон, две слабые зоны.
+  var r = document.getElementById('q-result');
+  r.innerHTML = '<div class="success"><div class="mark">✓</div><div class="q-title">Заявка принята</div><p class="q-hint" style="margin-top:8px">Консультант по обучению свяжется с вами в рабочее время. Ваша карта уже у него, разговор начнётся с ваших зон роста, а не с нуля.</p></div>';
+}
+
+function restart(){ answers = {}; cur = 0; document.getElementById('top').classList.remove('hidden'); document.getElementById('cards').classList.remove('hidden'); document.getElementById('q-result').classList.add('hidden'); document.getElementById('q-step').classList.remove('hidden'); renderQ(); }
+
+/* ===== Цели Метрики для заведения руками (имя = class = data-goal) =====
+   kviz-top-c-level-start        — старт теста (кнопка на первом экране и в блоке)
+   kviz-top-c-level-step-1 … 7   — переход с каждого шага
+   kviz-top-c-level-result       — показан экран результата
+   kviz-top-c-level-consult      — отправлена заявка на консультацию
+*/
+</script>
+</body>
+</html>
