@@ -49,6 +49,16 @@
   ul.checks li::before{content:"";position:absolute;left:2px;top:14px;width:16px;height:3px;background:var(--accent)}
   .hero ul.checks li{color:#e6e1d3}
 
+  /* Поочерёдная подсветка пунктов */
+  @keyframes chkGlow{0%,100%{color:#9a958a;transform:translateX(0)}10%,22%{color:#fff;transform:translateX(5px)}}
+  @keyframes chkBar{0%,100%{width:16px;background:#7a2c25}10%,22%{width:30px;background:var(--accent)}}
+  .hero ul.checks li{animation:chkGlow 12s cubic-bezier(.4,0,.2,1) infinite}
+  .hero ul.checks li::before{animation:chkBar 12s cubic-bezier(.4,0,.2,1) infinite}
+  .hero ul.checks li:nth-child(1),.hero ul.checks li:nth-child(1)::before{animation-delay:0s}
+  .hero ul.checks li:nth-child(2),.hero ul.checks li:nth-child(2)::before{animation-delay:3s}
+  .hero ul.checks li:nth-child(3),.hero ul.checks li:nth-child(3)::before{animation-delay:6s}
+  .hero ul.checks li:nth-child(4),.hero ul.checks li:nth-child(4)::before{animation-delay:9s}
+
   .btn{display:inline-block;background:var(--accent);color:var(--cream);border:none;cursor:pointer;
     font-family:'HelveticaNeueCyr',Arial,sans-serif;font-size:18px;font-weight:700;padding:17px 32px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.12);
     transition:all .3s cubic-bezier(.22,.61,.36,1);text-align:center;text-decoration:none;line-height:1.2}
@@ -66,6 +76,35 @@
   .hero .btn, #q-intro .btn, #cards .btn, #q-result form .btn{animation:pulseSoft 2.8s ease-in-out infinite}
   .hero .btn:hover, #q-intro .btn:hover, #cards .btn:hover, #q-result form .btn:hover{animation-play-state:paused}
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+  /* ===== Мобильные ===== */
+  @media(max-width:640px){
+    .wrap{padding:0 16px}
+    section{padding:40px 0}
+    .hero{padding:40px 0 48px}
+    h1.display{font-size:clamp(28px,8vw,38px)}
+    h2.display{font-size:clamp(22px,6vw,28px)}
+    .sub{font-size:17px;margin-top:12px}
+    ul.checks li{font-size:16px;padding:7px 0 7px 28px}
+    ul.checks li::before{top:13px;width:14px}
+    .btn{width:100%;font-size:16px;padding:16px 18px}
+    #quiz-box{padding:20px 18px;border-radius:14px}
+    .q-title{font-size:19px}
+    .q-hint{font-size:13px}
+    .opt{font-size:15px;padding:13px 15px}
+    .after,.case{font-size:14px}
+    .score{gap:12px}
+    .score .num{font-size:60px}
+    .score .diag{font-size:19px}
+    .zrow{flex-wrap:wrap;gap:8px}
+    .zrow .zname{flex:1 1 100%;font-size:15px}
+    .zbar{flex:1 1 auto}
+    .card{padding:18px 18px}
+    .card b{font-size:17px}
+    .q-nav{gap:8px}
+    .back{font-size:14px}
+    form input{font-size:16px;padding:13px 14px}
+  }
   .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
   .btn-note{font-size:14px;margin-top:12px;opacity:.8}
 
