@@ -49,9 +49,11 @@
   ul.checks li::before{content:"";position:absolute;left:2px;top:14px;width:16px;height:3px;background:var(--accent)}
   .hero ul.checks li{color:#e6e1d3}
 
-  /* Поочерёдная подсветка пунктов */
-  @keyframes chkGlow{0%,100%{color:#9a958a;transform:translateX(0)}10%,22%{color:#fff;transform:translateX(5px)}}
-  @keyframes chkBar{0%,100%{width:16px;background:#7a2c25}10%,22%{width:30px;background:var(--accent)}}
+  /* Поочерёдная подсветка пунктов плашкой */
+  .hero ul.checks li{width:fit-content;max-width:100%;padding:9px 18px 9px 36px;border-radius:10px;transition:none}
+  .hero ul.checks li::before{left:14px;top:18px}
+  @keyframes chkGlow{0%,100%{background:transparent;color:#9a958a}8%{background:rgba(229,45,30,.25);color:#fff}12%,24%{background:var(--accent);color:#fff}30%{background:transparent;color:#9a958a}}
+  @keyframes chkBar{0%,100%{width:16px;background:#7a2c25}12%,24%{width:20px;background:#fff}}
   .hero ul.checks li{animation:chkGlow 12s cubic-bezier(.4,0,.2,1) infinite}
   .hero ul.checks li::before{animation:chkBar 12s cubic-bezier(.4,0,.2,1) infinite}
   .hero ul.checks li:nth-child(1),.hero ul.checks li:nth-child(1)::before{animation-delay:0s}
@@ -85,8 +87,8 @@
     h1.display{font-size:clamp(28px,8vw,38px)}
     h2.display{font-size:clamp(22px,6vw,28px)}
     .sub{font-size:17px;margin-top:12px}
-    ul.checks li{font-size:16px;padding:7px 0 7px 28px}
-    ul.checks li::before{top:13px;width:14px}
+    ul.checks li{font-size:16px;padding:8px 14px 8px 30px;border-radius:8px}
+    ul.checks li::before{top:17px;width:14px;left:10px}
     .btn{width:100%;font-size:16px;padding:16px 18px}
     #quiz-box{padding:20px 18px;border-radius:14px}
     .q-title{font-size:19px}
