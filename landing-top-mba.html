@@ -345,7 +345,7 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
       <div class="card"><h3>«У&nbsp;меня нет времени»</h3><p style="margin-top:8px;font-size:15.5px">Обучение проходит по&nbsp;выходным и&nbsp;вечерам, нужно выделить 4&nbsp;дня в&nbsp;полтора месяца. Мы&nbsp;продумали программу так, чтобы вы не&nbsp;выпадали из&nbsp;рабочих процессов.</p></div>
       <div class="card"><h3>«У&nbsp;меня уже есть MBA»</h3><p style="margin-top:8px;font-size:15.5px">Если вы учились 2–3&nbsp;года назад, инструменты и&nbsp;рынок уже поменялись: старые подходы не&nbsp;помогут сделать рывок в&nbsp;карьере.</p></div>
       <div class="card"><h3>«Работодатель не&nbsp;согласится оплатить обучение»</h3><p style="margin-top:8px;font-size:15.5px">Для компании это дешевле внешних консультантов. Вы&nbsp;берете в&nbsp;работу задачу своей компании и&nbsp;предлагаете решения уже во&nbsp;время обучения — на&nbsp;втором-третьем модуле, а&nbsp;не&nbsp;после диплома.</p></div>
-      <div class="card"><h3>«Лучше отложу эти деньги»</h3><p style="margin-top:8px;font-size:15.5px">Переход на&nbsp;следующую позицию — обычно +50–100% к&nbsp;доходу. Инвестиция возвращается со&nbsp;2–3&nbsp;месяца на&nbsp;новой позиции.</p></div>
+      <div class="card"><h3>«Лучше отложу эти деньги»</h3><p style="margin-top:8px;font-size:15.5px">Переход на&nbsp;следующую позицию — обычно +50–100% к&nbsp;доходу. Инвестиция возвращается за&nbsp;6&nbsp;месяцев на&nbsp;новой позиции.</p></div>
     </div>
   </div>
 </section>
@@ -395,33 +395,56 @@ document.querySelectorAll('.toggle-card').forEach(function(c){
 // карусели — листаются по кругу
 document.querySelectorAll('.slider').forEach(function(sl){
   var track = sl.querySelector('.slides'), dots = sl.querySelector('.dots');
-  var items = track.querySelectorAll('.slide'), cur = 0, lock = false;
+  var items = track.querySelectorAll('.slide'), cur = 0, lock = false, pages = 1;
+
+  // шаг прокрутки = ширина слайда + отступ
+  function step(){ return items[1] ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth; }
+  // сколько слайдов видно целиком → столько реальных положений прокрутки
+  function calcPages(){
+    var s = step(); if(!s) return 1;
+    var perView = Math.max(1, Math.round(track.clientWidth / s));
+    return Math.max(1, items.length - perView + 1);
+  }
   function paint(){
     dots.querySelectorAll('.dot').forEach(function(d, j){ d.classList.toggle('on', j === cur); });
   }
+  function buildDots(){
+    dots.innerHTML = '';
+    for(var i = 0; i < pages; i++){
+      (function(i){
+        var d = document.createElement('button');
+        d.type = 'button'; d.className = 'dot' + (i === cur ? ' on' : '');
+        d.setAttribute('aria-label', 'Слайд ' + (i + 1));
+        d.addEventListener('click', function(){ go(i); });
+        dots.appendChild(d);
+      })(i);
+    }
+  }
   function go(i){
-    cur = (i + items.length) % items.length;
+    cur = (i + pages) % pages;
     lock = true;
     track.scrollTo({left: items[cur].offsetLeft - items[0].offsetLeft, behavior:'smooth'});
     paint();
     setTimeout(function(){ lock = false; }, 450);
   }
-  items.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.type = 'button'; d.className = 'dot' + (i ? '' : ' on');
-    d.setAttribute('aria-label', 'Слайд ' + (i+1));
-    d.addEventListener('click', function(){ go(i); });
-    dots.appendChild(d);
-  });
+  function rebuild(){
+    var p = calcPages();
+    if(p !== pages){ pages = p; if(cur > pages - 1) cur = pages - 1; buildDots(); }
+  }
+
+  pages = calcPages();
+  buildDots();
+
   sl.querySelectorAll('.sl-btn').forEach(function(b){
     b.addEventListener('click', function(){ go(cur + parseInt(b.dataset.dir, 10)); });
   });
   track.addEventListener('scroll', function(){
     if(lock) return;
-    var step = items[1] ? items[1].offsetLeft - items[0].offsetLeft : 1;
-    cur = Math.max(0, Math.min(items.length - 1, Math.round(track.scrollLeft / step)));
+    var s = step(); if(!s) return;
+    cur = Math.max(0, Math.min(pages - 1, Math.round(track.scrollLeft / s)));
     paint();
   });
+  window.addEventListener('resize', rebuild);
 });
 // форма
 document.getElementById('lead-form').addEventListener('submit', function(e){
