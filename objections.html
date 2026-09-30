@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Отработка возражений топ-менеджеров — по разбору 223 звонков</title>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ШПАРГАЛКА ОТДЕЛА ПРОДАЖ · ВОЗРАЖЕНИЯ НАЁМНЫХ ТОП-МЕНЕДЖЕРОВ
+  Источник: разбор 223 уникальных звонков (68 встреч + 155 холодных).
+  Сегмент: C-level и C-1, 35–50 лет, компании 1–20 млрд. Только наёмные.
+  Кейсы выпускников — публичные интервью Forbes, ссылки в карточках.
+  Плейсхолдеры для данных школы помечены желтым: [так].
+  ═══════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#262626; --dark2:#1e1e1e; --beige:#e7e0d0; --cream:#f1ece1;
+  --red:#e63a2e; --ink:#242424; --muted:#6f6a5e; --white:#fff;
+  --line:#d8d0bc; --measure:760px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.55;
+  color:var(--ink);background:var(--beige);padding-bottom:96px}
+h1,h2,h3,.disp{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;
+  line-height:1.08;letter-spacing:.01em;font-weight:600}
+h1{font-size:clamp(28px,4.4vw,48px);margin-bottom:14px}
+h2{font-size:clamp(21px,2.8vw,31px);margin:44px 0 16px}
+h3{font-size:15px;font-weight:600;letter-spacing:.1em;color:var(--muted);margin-bottom:12px;
+  text-transform:uppercase}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.narrow{max-width:var(--measure)}
+.lead{font-size:18px;max-width:var(--measure);color:#3a362e}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;font-family:Inter,sans-serif}
+.kicker::before{content:"";display:inline-block;width:26px;height:3px;background:var(--red);
+  vertical-align:middle;margin-right:10px}
+mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;font-style:normal;color:inherit}
+
+/* ── шапка ── */
+.bar{position:sticky;top:0;z-index:60;background:rgba(231,224,208,.95);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)}
+.bar-in{max-width:1040px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;cursor:pointer;text-decoration:none;color:var(--ink)}
+.logo-sq{width:28px;height:28px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;
+  font-size:17px;display:flex;align-items:center;justify-content:center;border-radius:4px;flex:none}
+.logo-tx{font-size:11px;font-weight:700;letter-spacing:.12em;line-height:1.25;text-transform:uppercase}
+.logo-tx small{display:block;font-weight:400;color:var(--muted);letter-spacing:.1em}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{font-size:12.5px;color:var(--muted);background:var(--cream);border:1px solid var(--line);
+  border-radius:999px;padding:6px 13px;cursor:pointer;font-family:Inter,sans-serif;transition:.15s;
+  white-space:nowrap}
+.chip:hover{border-color:var(--red);color:var(--ink)}
+.chip.act{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+
+/* ── слайды ── */
+.slide{display:none;padding:44px 0 30px;animation:fade .25s ease}
+.slide.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ── карточки ── */
+.card{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:22px 24px;margin-bottom:14px}
+.card.say{background:#fff;border-left:4px solid var(--red);box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.card.no{background:#ece6d8;border-left:4px solid #b3aa96}
+.card.open{background:#efe9db;border-left:4px solid var(--muted)}
+.say-q{font-size:19px;line-height:1.6;color:var(--ink)}
+.say-q + .say-q{margin-top:13px}
+.say-q em{font-style:normal;color:var(--red);font-weight:600}
+.say-q b{font-weight:600}
+ul{list-style:none}
+li{position:relative;padding-left:19px;margin-bottom:9px;color:#3a362e;font-size:16px}
+li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.no li::before{background:#b3aa96}
+.q li{font-size:16px;font-style:italic;color:#3f3b33}
+.id{font-style:normal;color:#8d8778;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ── сетки ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.tile{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:22px 22px;
+  cursor:pointer;transition:.2s cubic-bezier(.22,.61,.36,1);position:relative;overflow:hidden}
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.1);border-color:var(--red)}
+.tile .n{font-family:Oswald;font-size:13px;color:var(--red);letter-spacing:.12em;margin-bottom:9px}
+.tile h4{font-family:Oswald;text-transform:uppercase;font-size:19px;font-weight:600;line-height:1.14;margin-bottom:8px}
+.tile p{font-size:14px;color:var(--muted);line-height:1.45}
+.tile .pct{position:absolute;top:15px;right:18px;font-family:Oswald;font-size:26px;color:#cdc4ae}
+.tile.tool{background:#fff}
+
+/* ── статистика ── */
+.stat{font-family:Oswald;font-size:40px;color:var(--red);line-height:1}
+.stat-label{font-size:14px;color:var(--muted);margin-top:6px}
+
+/* ── темные секции ── */
+.dark{background:var(--dark);color:#efece4;border-radius:12px;padding:30px 28px;margin-bottom:14px}
+.dark h2,.dark h4{color:#fff;margin-top:0}
+.dark h3{color:#b9b3a5}
+.dark li{color:#ddd8cd}
+.dark .id{color:#948d7e}
+.dark .card{background:#2f2f2f;border-color:#3d3d3d;color:#e8e4da}
+
+/* ── таблицы ── */
+.tw{overflow-x:auto;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:6px 4px}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:660px}
+th{text-align:left;font-family:Inter;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:14px;border-bottom:1px solid #e0d9c7;color:#3a362e;vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#eae3d3}
+td b{color:var(--ink);font-weight:600}
+.mod{display:inline-block;font-family:Oswald;font-size:13px;letter-spacing:.05em;color:#fff;
+  background:var(--red);border-radius:4px;padding:3px 8px;white-space:nowrap;margin-bottom:4px}
+.who-t{font-weight:600;color:var(--ink)}
+.reg{font-size:13px;color:var(--muted);display:block;margin-top:3px}
+
+/* ── кейсы ── */
+.case{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:24px;
+  display:flex;flex-direction:column}
+.case .fig{font-family:Oswald;font-size:38px;color:var(--red);line-height:1.02}
+.case .fig small{display:block;font-family:Inter;font-size:14px;color:var(--muted);margin-top:7px;font-weight:400}
+.case .who{font-family:Oswald;text-transform:uppercase;font-size:19px;margin:16px 0 4px}
+.case .role{font-size:13.5px;color:var(--muted);margin-bottom:13px;line-height:1.4}
+.case p{font-size:15px;margin-bottom:11px;color:#3a362e}
+.case .quote{border-left:3px solid var(--red);padding-left:12px;font-style:italic;color:var(--ink)}
+.case a{color:var(--muted);font-size:13.5px;text-decoration:none;border-bottom:1px solid var(--line);
+  align-self:flex-start;margin-top:auto;padding-top:10px}
+.case a:hover{color:var(--red);border-color:var(--red)}
+
+/* ── кнопки ── */
+.btn{display:inline-flex;align-items:center;gap:7px;background:transparent;border:1px solid var(--line);
+  color:var(--muted);border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;
+  font-family:Inter,sans-serif;transition:.15s}
+.btn:hover{border-color:var(--red);color:var(--ink)}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.btn.pri:hover{background:#f04a3d}
+.row{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px;align-items:center}
+
+/* ── калькулятор ── */
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:6px 0}
+.fld label{display:block;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;font-weight:700}
+.fld input{width:100%;background:#fff;border:1px solid var(--line);border-radius:8px;padding:13px 15px;
+  color:var(--ink);font-size:24px;font-family:Oswald;outline:none;transition:.15s}
+.fld input:focus{border-color:var(--red)}
+.fld small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+.res{background:var(--dark);color:#fff;border-radius:10px;padding:28px;margin-top:16px}
+.res .big{font-family:Oswald;text-transform:uppercase;font-size:clamp(28px,5vw,48px);line-height:1.06}
+.res .big u{text-decoration:none;color:#ff7b70}
+.res p{color:#cfc9bc;margin-top:12px;font-size:16px;max-width:780px}
+
+/* ── поиск ── */
+.search{width:100%;background:#fff;border:1px solid var(--line);border-radius:8px;padding:13px 16px;
+  color:var(--ink);font-size:16px;font-family:Inter;outline:none;margin-bottom:10px}
+.search:focus{border-color:var(--red)}
+
+/* ── предупреждение ── */
+.warn{border:1px solid #e0bcb7;background:#fbeeec;border-radius:8px;padding:15px 18px;
+  font-size:15px;color:#7a3129;margin-top:14px}
+.warn b{color:var(--red)}
+
+/* ── низ ── */
+.nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:55}
+.nav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--cream);
+  color:var(--ink);cursor:pointer;font-size:16px;transition:.15s;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.nav button:hover{border-color:var(--red);background:#fff}
+.foot{max-width:1040px;margin:30px auto 0;padding:18px 20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:10px}
+.foot a{color:var(--muted)}
+
+@media(max-width:700px){
+  h2{margin:32px 0 14px}
+  .chips{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .say-q{font-size:17px}
+}
+@media print{
+  .slide{display:block!important;page-break-after:always}
+  .bar,.nav{display:none}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="logo" onclick="go(0)">
+    <span class="logo-sq">С</span>
+    <span class="logo-tx">Синергия<small>Отработка возражений</small></span>
+  </a>
+  <div class="chips" id="chips"></div>
+</div></div>
+
+<div class="wrap">
+
+<!-- ══════════ 0. ГЛАВНАЯ ══════════ -->
+<section class="slide on" data-t="Главная">
+  <div class="kicker">Наёмные топ-менеджеры · C-level и C-1 · 35–50 лет · компании 1–20 млрд</div>
+  <h1>Что у них болит,<br>что они возражают<br>и что на это отвечать</h1>
+  <p class="lead">Собрано по разбору <b>223 звонков</b> (68 встреч и 155 холодных). Проценты — доля у наёмных топов.
+  «Не закрыто» — как часто менеджеры не справляются с темой, когда она звучит.
+  Нажмите карточку или клавиши <b>←</b> <b>→</b>.</p>
+
+  <div class="grid2" style="margin-top:26px">
+    <div class="card" style="text-align:center"><div class="stat">223</div><div class="stat-label">звонка в разборе</div></div>
+    <div class="card" style="text-align:center"><div class="stat">66%</div><div class="stat-label">возражений закрываются плохо</div></div>
+    <div class="card" style="text-align:center"><div class="stat">81%</div><div class="stat-label">не закрыто по ROI — худший блок</div></div>
+    <div class="card" style="text-align:center"><div class="stat">69%</div><div class="stat-label">не закрыто по «уже есть MBA»</div></div>
+  </div>
+
+  <h2>Сначала — боли</h2>
+  <div class="grid">
+    <div class="tile" onclick="go(1)"><div class="n">01</div>
+      <h4>С чем они приходят</h4>
+      <p>Шесть задач топа с частотами и дословными цитатами: чего хотят и чего боятся</p></div>
+  </div>
+
+  <h2>Пять возражений</h2>
+  <div class="grid">
+    <div class="tile" onclick="go(2)"><div class="pct">32%</div><div class="n">02</div>
+      <h4>«Дорого, а какой эффект»</h4><p>Не закрывается в 81% случаев — худший блок из всех</p></div>
+    <div class="tile" onclick="go(3)"><div class="pct">32%</div><div class="n">03</div>
+      <h4>«Решаю не я, платит компания»</h4><p>Слайда под это в деке нет — переслать наверх нечего</p></div>
+    <div class="tile" onclick="go(4)"><div class="pct">21%</div><div class="n">04</div>
+      <h4>«Уже есть MBA, перерос корочку»</h4><p>Не закрывается в 69%. Здесь чаще всего бросают трубку</p></div>
+    <div class="tile" onclick="go(5)"><div class="pct">16%</div><div class="n">05</div>
+      <h4>«Нет времени»</h4><p>Дни согласует работодатель, выходные — семья</p></div>
+    <div class="tile" onclick="go(6)"><div class="pct">16%</div><div class="n">06</div>
+      <h4>«Не актуально сейчас»</h4><p>Здесь теряют тёплых лидов дожимом</p></div>
+  </div>
+
+  <h2>Чем подкреплять</h2>
+  <div class="grid">
+    <div class="tile tool" onclick="go(7)"><div class="n">A</div>
+      <h4>Кейсы участников</h4><p>Пятеро выпускников с цифрами и ссылками на Forbes</p></div>
+    <div class="tile tool" onclick="go(8)"><div class="n">B</div>
+      <h4>Задача → модуль → спикер</h4><p>Двенадцать связок: кто в чём силён и что именно даст</p></div>
+    <div class="tile tool" onclick="go(9)"><div class="n">C</div>
+      <h4>Калькулятор окупаемости</h4><p>Считается при клиенте, его цифрами</p></div>
+    <div class="tile tool" onclick="go(10)"><div class="n">D</div>
+      <h4>«Не отвлечёт от работы»</h4><p>Четыре доказательства и арифметика времени</p></div>
+    <div class="tile tool" onclick="go(11)"><div class="n">E</div>
+      <h4>На чём плывут</h4><p>Три проверки на экспертность и что не показывать в деке</p></div>
+  </div>
+</section>
+
+<!-- ══════════ 1. БОЛИ ══════════ -->
+<section class="slide" data-t="01 · Боли">
+  <div class="kicker">Боли · что говорят и что их волнует</div>
+  <h1>С чем приходит<br>наёмный топ</h1>
+  <p class="lead">Ключевое отличие от собственника: <b>собственник приходит решать задачу бизнеса, топ — за своим ростом.</b>
+  47% его запросов — про личные компетенции и карьеру. Он думает про себя: следующую роль, уровень, «не отстать».</p>
+
+  <h2>01 · Следующий шаг — 26%</h2>
+  <p class="lead">Главный мотив. Карьерная цель названа прямо, но рядом — растерянность и скепсис к диплому.</p>
+  <div class="card q"><ul>
+    <li>«я сейчас поставила задачу перед собой — рост по карьере, наткнулась на ваше предложение» <span class="id">365353</span></li>
+    <li>«смотрю MBA не как прокачать скиллы финдиректора, а именно как executive на позицию» <span class="id">365271</span></li>
+    <li>«буду рассматривать себя как гендиректора конкретного направления — нужно подучиться» <span class="id">365286</span></li>
+    <li>«интересно сделать радикальный рывок вверх, оттолкнувшись от платформы, которая у меня имеется» <span class="id">361731</span></li>
+    <li>«войти в соответствующий круг общения, необходимые связи, которые позволяют развиваться» <span class="id">361731</span></li>
+  </ul></div>
+  <h3>Что при этом тревожит</h3>
+  <div class="card no"><ul>
+    <li>«вообще не знаю, с чего начать, <b>меня нужно направить</b>» <span class="id">365286</span> — растерянность, а не уверенность</li>
+    <li>«должности, на которые интересно, заняты людьми, которые MBA даже не касались» <span class="id">365113</span> — сомнение, что диплом вообще решает</li>
+    <li>«наличие компетенций не гарантирует карьерные взлеты» — страх, что вложит и не сработает</li>
+    <li>«немножко я перерос вот эту бумажку и галочку» <span class="id">365271</span></li>
+  </ul></div>
+  <div class="card say">
+    <p class="say-q">Что из этого следует для разговора: продавать <em>маршрут к роли</em> и доступ к практикам, а не диплом.
+    Фраза «меня нужно направить» — это прямой запрос на диагностику и персональный маршрут, а не на каталог модулей.</p>
+  </div>
+
+  <h2>02 · Обновить знания, не отстать — 21%</h2>
+  <p class="lead">Самый эмоциональный кластер. Триггер — страх отстать от молодых, от AI, от конкурентов.</p>
+  <div class="card q"><ul>
+    <li>«появляются молодые, пышущие здоровьем руководители, мы начинаем беседовать — и я понимаю, что где-то вообще не догоняю. <b>А вот это бесит</b>» <span class="id">365337</span></li>
+    <li>«только началась история с искусственным интеллектом, и я вижу, что мы отстаем» <span class="id">365102</span></li>
+    <li>«нейросети — понимать, какие системы нам помогут в работе. Понимаю, что мы сильно не догоняем» <span class="id">365176</span></li>
+    <li>«управление персоналом подустарело, люди входят в зону комфорта и работают по старинке» <span class="id">365107</span></li>
+    <li>«мы уже в этой рутине увязли и понимаем, что дергать информацию негде» <span class="id">365281</span></li>
+    <li>«хочется пересобрать свои знания, выйти на крепкий уровень» <span class="id">365326</span></li>
+  </ul></div>
+  <h3>Что при этом тревожит</h3>
+  <div class="card no"><ul>
+    <li>«чтобы свежую информацию получать, нужно заниматься только этим часами — у управленцев такой возможности нет» <span class="id">365294</span></li>
+    <li>«мой плюс — опыт, и мой же минус — что я только опытом и руководствуюсь» <span class="id">365337</span></li>
+  </ul></div>
+  <div class="card say">
+    <p class="say-q">Три темы они называют сами, без подсказки: <em>нейросети и AI</em> (3 из 12 звонков), <em>кризис-менеджмент</em>, <em>современное управление персоналом</em>.
+    Это и есть точки входа — см. <b>модуль 11 (Чумак)</b>, <b>модуль 2 (Еремина, Богданов)</b>, <b>модуль 4 (Коновалов)</b>.</p>
+    <div class="row"><button class="btn pri" onclick="go(8)">Кто из спикеров это закрывает →</button></div>
+  </div>
+
+  <h2>03 · Обучить команду — 16%</h2>
+  <p class="lead">Это уже B2B-запрос: топ думает не о себе, а о минус-первых. Решают собственник и HR.</p>
+  <div class="card q"><ul>
+    <li>«основной запрос — лидерство и лидерские компетенции для минус-1 и тренировка навыка преемственности» <span class="id">365099</span></li>
+    <li>«давайте переобучать свой кадровый резерв, нежели потом дорогостоящие кадры с рынка» <span class="id">365099</span></li>
+    <li>«я могу спроецировать это на других сотрудников — кто заслуживает, кому надо двигаться дальше» <span class="id">365110</span></li>
+  </ul></div>
+  <h3>Что при этом тревожит</h3>
+  <div class="card no"><ul>
+    <li>«любое обучение должно быть практикоприменимым — <b>бизнес должен понимать, за что он платит</b>» <span class="id">365290</span></li>
+    <li>«ключевых сотрудников на два года выгрузить не могу» <span class="id">365338</span></li>
+  </ul></div>
+
+  <h2>04 · Среда и коллаборации — 11%</h2>
+  <p class="lead">Нужна не «для знакомств», а под дело: свериться с равными, найти партнёра. Главный фильтр — состав группы.</p>
+  <div class="card q"><ul>
+    <li>«онлайн не дает того, чего я ожидала — не хватает опыта других студентов» <span class="id">365108</span></li>
+    <li>«общение с опытными людьми, от которых хотелось бы взять частичку» <span class="id">365108</span></li>
+    <li>«не надо бегать за коучами — все в одном месте» <span class="id">365219</span></li>
+    <li>«если идем в группу — <b>кто там присутствует, что за состав?</b>» <span class="id">365330</span></li>
+  </ul></div>
+  <div class="warn">Нетворк — обоюдоострый. Для одних это цель, для пресыщенных — раздражитель: «контактов и так хватает».
+  Подавать среду как инструмент решения задач, а не как «полезные знакомства». И <b>не открывать слайд 49</b>: там написано «Участники — собственники компаний», наёмный топ читает «я тут лишний».</div>
+
+  <h2>05 · Пресыщенные — 11%. Кого не звать</h2>
+  <p class="lead">Их вопросы легитимные, но переубеждать дорого. Узнавать на входе и не тратить время.</p>
+  <div class="card no q"><ul>
+    <li>«Последние шесть лет задаюсь: зачем это надо? Ответ не нашел. Не проще ли нанять коучей в областях, где западаешь, а не тратить два года?» <span class="id">365147</span></li>
+    <li>«Я для себя поставил бан на большие программы с обязательствами — скорость изменений такая, что сегодня возможность есть, завтра нет» <span class="id">365173</span></li>
+    <li>«краткосрочные тренинги дают больший эффект» <span class="id">365110</span></li>
+  </ul></div>
+
+  <h2>Что запускает интерес</h2>
+  <div class="tw"><table>
+    <tr><th>Триггер</th><th>Топ-менеджеры</th><th>Собственники — для сравнения</th></tr>
+    <tr><td><b>Подготовка к новой роли</b></td><td><b style="color:#e63a2e">21%</b></td><td>—</td></tr>
+    <tr><td>Рынок сужается, давление</td><td>11%</td><td>12%</td></tr>
+    <tr><td>Уперлись в потолок</td><td>5%</td><td>14%</td></tr>
+    <tr><td>Увидел рекламу</td><td>5%</td><td>12%</td></tr>
+  </table></div>
+  <p class="lead" style="margin-top:14px">Топа гонит <b>карьерный момент</b>, собственника — давление рынка. Отсюда и заход разный:
+  топу — «вы готовитесь возглавить направление», а не «ваш бизнес под давлением».</p>
+</section>
+
+<!-- ══════════ 2. ЦЕНА / ROI ══════════ -->
+<section class="slide" data-t="02 · Цена и ROI">
+  <div class="kicker">Возражение 02 · 32% · не закрывается в 81% случаев</div>
+  <h1>«Дорого,<br>а какой эффект»</h1>
+
+  <h3>Как звучит в звонках</h3>
+  <div class="card q"><ul>
+    <li>«а бизнес-эффективность программы составляет какой-то процент, чтобы понимать?» <span class="id">365290</span></li>
+    <li>«стоимость меня сначала отпугнула» <span class="id">365294</span></li>
+    <li>«стоимость — я думала, меньше будет» <span class="id">365353</span></li>
+    <li>«не проще ли нанять конкретных коучей в конкретных областях… не тратить на это два года?» <span class="id">365147</span></li>
+  </ul></div>
+  <p class="lead">Он спрашивает не «сколько стоит», а <b>«что конкретно изменится в моей жизни за эти деньги и через сколько»</b>.
+  Из 248 звонков просьбу «дайте цифру или кейс до-после» менеджеры получили 4 раза и ни разу не ответили.</p>
+
+  <h3>Какой слайд деки открыть</h3>
+  <div class="card open">Слайд <b>48</b> «По результатам обучения» и слайд <b>51</b> «Отзывы».
+  Слайда с ценой в текущей версии деки нет — если спросили цену, называем вилкой сразу, голосом, не откладывая на zoom.</div>
+
+  <h3>Что сказать</h3>
+  <div class="card say" id="say2">
+    <p class="say-q">«Процент эффективности программы я вам не назову — любая такая цифра будет выдумкой, и вы это поймёте быстрее меня. Могу показать, как считают участники. Гендиректор "Башинформсвязи" сделал дипломную работу не в стол, а по своей компании — оптимизация процессов дала ей <em>экономию 200 млн в год</em>, обучение окупилось за первый. Но это его проект по его задаче.</p>
+    <p class="say-q">Поэтому встречный вопрос: <em>какая задача у вас сейчас стоит такого масштаба</em>, чтобы её имело смысл разобрать в выпускном проекте? От этого и считаем, а не от программы».</p>
+    <div class="row">
+      <button class="btn" onclick="cp('say2',this)">Скопировать реплику</button>
+      <button class="btn pri" onclick="go(9)">Посчитать при клиенте →</button>
+    </div>
+  </div>
+  <p class="lead">Разворачивает разговор с «докажите мне» на «давайте посчитаем на вашей задаче».
+  Если задачи такого масштаба нет — честно сказать, что тогда окупаемость считается по грейду, и спросить, к какой должности он себя готовит.</p>
+
+  <h3>Чего не говорить</h3>
+  <div class="card no"><ul>
+    <li>«ENPS 97,5%» и «все отбили стоимость, но это скрытая информация» — так ответили в <span class="id">365290</span>. Спросили про деньги — ответили про удовлетворённость. Провал.</li>
+    <li>«Здесь я подумаю, как ответить… должна уточнить, что могу раскрыть» — клиент слышит «цифры нет».</li>
+    <li>Прятать цену до zoom. В <span class="id">365328</span> клиент сам себе сказал «понял, там подешевле» — и не пришёл.</li>
+    <li>Скидочную лестницу. В звонках цена падала 7,5 млн → 5 → 1,8 → 1,5 → 500 тыс. за записи — премиальность рушится на глазах.</li>
+  </ul></div>
+</section>
+
+<!-- ══════════ 3. ПЛАТИТ КОМПАНИЯ ══════════ -->
+<section class="slide" data-t="03 · Платит компания">
+  <div class="kicker">Возражение 03 · 32%</div>
+  <h1>«Решаю не я,<br>платит компания»</h1>
+
+  <h3>Как звучит в звонках</h3>
+  <div class="card q"><ul>
+    <li>«это уже решение собственника, буду разговаривать с ним» <span class="id">365350</span></li>
+    <li>«если компания не оплатит, индивидуально не пойду» <span class="id">365271</span></li>
+    <li>«присылайте предложение с описанием, наши специалисты по HR будут решать» <span class="id">361737</span></li>
+    <li>Обратный полюс: «образование — это личный капитал человека, а не организации» <span class="id">365364</span> · «я готов оплатить сам, для себя в первую очередь» <span class="id">365238</span></li>
+  </ul></div>
+
+  <h3>Какой слайд деки открыть</h3>
+  <div class="card open">Такого слайда <b>нет</b> — это дыра №1. До его появления работаем голосом и обещанием прислать одностраничник.</div>
+
+  <h3>Что сказать</h3>
+  <div class="card say" id="say3">
+    <p class="say-q">«Понял. Тогда давайте я соберу вам не презентацию программы, а то, с чем вы пойдёте к собственнику: <em>сколько ваших рабочих дней это займёт за год, что компания получит кроме вашего диплома, и сколько стоит</em>. Одной страницей, чтобы не пересказывать.</p>
+    <p class="say-q">Когда у вас с ним разговор? Я пришлю к этому времени и после наберу — узнать, какие вопросы он задал».</p>
+    <div class="row"><button class="btn" onclick="cp('say3',this)">Скопировать реплику</button></div>
+  </div>
+  <div class="warn">Обязательны две вещи: <b>дата разговора</b> с руководителем и <b>договорённость о своём звонке после</b>.
+  Здесь лид растворяется чаще всего — «пришлите на почту» приняли без следующего шага в девяти разобранных звонках подряд.</div>
+
+  <h3>Второй вопрос — без него теряется половина сегмента</h3>
+  <div class="card say" id="say3b">
+    <p class="say-q">«И отдельно: <em>если компания не согласует — вы для себя это рассматриваете?</em> Часть участников платит сама, есть рассрочка и вычет».</p>
+    <div class="row"><button class="btn" onclick="cp('say3b',this)">Скопировать</button></div>
+  </div>
+
+  <h3>Скрипт для топа: как он идёт к руководителю</h3>
+  <p class="lead">Идея простая: он идёт <b>не за обучением, а с рабочей задачей и планом, как её закрыть</b>. Обучение — способ, а не просьба.</p>
+  <div class="card say" id="say3c">
+    <p class="say-q"><em>1.</em> Назвать задачу, которая болит у руководителя, а не у него: «У нас в этом году стоит задача [сократить расходы на привлечение / навести порядок в процессах / запустить направление]».</p>
+    <p class="say-q"><em>2.</em> Показать, где она решается: «Есть программа, где этот блок ведёт [спикер] — [регалия]. Выпускной проект делается по нашей компании, то есть на выходе не диплом, а разбор именно этой задачи».</p>
+    <p class="say-q"><em>3.</em> Снять страх, что человек выпадет: «Занимает два рабочих дня в месяц, 24 за год. Остальное выходные».</p>
+    <div class="row">
+      <button class="btn" onclick="cp('say3c',this)">Скопировать скрипт</button>
+      <button class="btn pri" onclick="go(8)">Подобрать спикера под задачу →</button>
+    </div>
+  </div>
+
+  <h3>Если решает HR, а не собственник</h3>
+  <div class="card">
+    <p class="lead" style="margin-bottom:12px">Критерий у HR другой — не ROI, а удержание и кадровый резерв.</p>
+    <ul>
+      <li>Текучесть кадров в РФ — <b>29,1%</b>, и 91% сотрудников хотят персонализированного обучения (статья Рагини, Forbes, июль 2026). Обучение ключевого топа читается как инструмент удержания.</li>
+      <li>Их же язык, дословно: «давайте переобучать свой кадровый резерв, нежели потом дорогостоящие кадры с рынка» <span class="id">365099</span>.</li>
+    </ul>
+  </div>
+
+  <h3>Чего не говорить</h3>
+  <div class="card no"><ul>
+    <li>«Вдруг я уговорю вашего учредителя» <span class="id">365360</span> — клиент услышал, что его обходят.</li>
+    <li>«Будем ждать от вас звонка» — инициатива уходит и не возвращается.</li>
+  </ul></div>
+  <div class="warn">Чтобы это заработало, от школы нужны <b>одностраничное письмо-обоснование для руководителя</b> и <b>коммерческое на юрлицо</b>.</div>
+</section>
+
+<!-- ══════════ 4. УЖЕ ЕСТЬ MBA ══════════ -->
+<section class="slide" data-t="04 · Уже есть MBA">
+  <div class="kicker">Возражение 04 · 21% · не закрывается в 69% случаев</div>
+  <h1>«Уже есть MBA,<br>перерос корочку»</h1>
+
+  <h3>Как звучит в звонках</h3>
+  <div class="card q"><ul>
+    <li>«немножко я перерос вот эту бумажку и галочку» <span class="id">365271</span></li>
+    <li>«у меня уже одно есть, и мне этого достаточно» <span class="id">361733</span></li>
+    <li>«я в Сколково закончил уже MBI» <span class="id">365232</span></li>
+    <li>«как вы собираетесь менять парадигму мышления успешного человека?» <span class="id">365341</span></li>
+    <li>«пообщаться с экспертом-практиком — вот это ценность» <span class="id">365113</span></li>
+  </ul></div>
+
+  <h3>Какой слайд деки открыть</h3>
+  <div class="card open">Сначала <b>никакой</b> — сначала два вопроса.
+  Слайды <b>4</b>, <b>6</b> и <b>50</b> здесь работают против: 4-й говорит «это ступень к настоящей программе»,
+  6-й даёт список тем, неотличимый от уже пройденного MBA, 50-й — целиком про диплом.</div>
+
+  <h3>Что сказать — два вопроса вместо штампа</h3>
+  <div class="card say" id="say4">
+    <p class="say-q">«Если у вас уже есть MBA, за второй корочкой идти незачем — согласен. Вопрос один: <em>что из того обучения вы реально применили, а что так и осталось непокрытым?</em> От этого зависит, есть ли вам смысл сюда идти. Вполне может оказаться, что нет — тогда я так и скажу».</p>
+    <div class="row"><button class="btn" onclick="cp('say4',this)">Скопировать реплику</button></div>
+  </div>
+  <p class="lead">Право сказать «может оказаться, что нет» снимает давление. В <span class="id">365329</span> сработало именно это:
+  «спасибо за откровенность, ничего продавать не буду, давайте просто покажу» — и zoom в тот же день.</p>
+
+  <h3>Куда вести от ответа</h3>
+  <div class="tw"><table>
+    <tr><th style="width:26%">Что он ответит</th><th style="width:14%">Модуль</th><th>Что показывать и кто ведёт</th></tr>
+    <tr><td><b>«Стратегия была на западных кейсах»</b></td>
+      <td><span class="mod">слайд 30, 33</span></td>
+      <td><span class="who-t">Сергей Макшанов</span><span class="reg">эксперт по стратегии, управляющий ГК «Институт Тренинга — АРБ Про»</span>
+      <span class="who-t" style="display:block;margin-top:8px">Роман Копосов</span><span class="reg">руководитель направления «Стратегическое планирование» АРБ Про</span>
+      <p style="margin-top:9px;font-size:14.5px">Диагностика положения компании на рынке, «слабые сигналы», оценка ёмкости и карта рынка, декомпозиция стратегии до функциональных подразделений. <b>Кейсы российские</b> — это и есть ответ на «западные кейсы»</p></td></tr>
+    <tr><td><b>«Не было ничего про цифру и AI»</b></td>
+      <td><span class="mod">слайд 41, 13, 36</span></td>
+      <td><span class="who-t">Сергей Чумак</span><span class="reg">независимый директор, руководитель комитета по стратегии Ассоциации практиков цифровизации</span>
+      <p style="margin-top:9px;font-size:14.5px">Как встроить нейросети в свои IT-продукты и процессы, цифровые модели, роботизация, блокчейн. Плюс <b>Ольга Еремина</b> (Pro-trendwatching) — сканирование трендов, и <b>Андрей Коптелов</b> — цифровизация процессов</p></td></tr>
+    <tr><td><b>«Была теория, применять было нечего»</b></td>
+      <td><span class="mod">слайд 3, 38</span></td>
+      <td><span class="who-t">Александр Фридман</span><span class="reg">ведущий эксперт по регулярному менеджменту, управляющий партнёр Amadeus Group</span>
+      <p style="margin-top:9px;font-size:14.5px">Делегирование и контроль: «нейтрализация обезьян», «баланс между паранойей и попустительством». Плюс главное — <b>выпускной проект делается по своей задаче</b>, а не по учебному кейсу</p></td></tr>
+    <tr><td><b>«Мне нужна не программа, а точечно»</b></td>
+      <td><span class="mod">слайд 47</span></td>
+      <td>Индивидуальный коучинг — но честно про объём: <b>2 сессии по 1,5 часа</b>. Это навигация по маршруту, а не замена коучу. Если обещать больше, возражение вернётся</td></tr>
+  </table></div>
+
+  <h3>Чего не говорить</h3>
+  <div class="card no"><ul>
+    <li>«Программу пересобрали», «подходы устарели», «у каждого управленца сейчас программа есть» — в <span class="id">361862</span> после этого клиент бросил трубку: «Не хочу тратить своё время».</li>
+    <li>«А как давно, если не секрет?» четыре раза подряд <span class="id">365285</span> — анкетный допрос, трубка.</li>
+    <li>Переадресовывать главный вопрос «на интервью с Александром Георгиевичем» <span class="id">365341</span>.</li>
+  </ul></div>
+</section>
+
+<!-- ══════════ 5. НЕТ ВРЕМЕНИ ══════════ -->
+<section class="slide" data-t="05 · Нет времени">
+  <div class="kicker">Возражение 05 · 16%</div>
+  <h1>«Нет времени»</h1>
+
+  <h3>Как звучит в звонках</h3>
+  <div class="card q"><ul>
+    <li>«у меня ребенок, семья — выездной модуль проблематично» <span class="id">365353</span></li>
+    <li>«смущает обучение в Дубае, я не уверена, что смогу поехать» <span class="id">365319</span></li>
+    <li>«это прямо полный день? или это вечер?» <span class="id">365113</span></li>
+    <li>«выездные модули отнимают время, учредители не отпустят» <span class="id">365360</span></li>
+  </ul></div>
+  <p class="lead">Особенность сегмента: у наёмного топа отпуск и командировки согласует работодатель.
+  «4 дня с четверга по воскресенье» для него — это <b>два рабочих дня, которые надо отпросить, и два выходных, которые надо отнять у семьи</b>.</p>
+
+  <h3>Какой слайд деки открыть</h3>
+  <div class="card open">Слайд <b>5</b> «Модули обучения» и слайды <b>26–27</b> «Дубай».</div>
+
+  <h3>Что сказать — цифрами, а не рефреймом</h3>
+  <div class="card say" id="say5">
+    <p class="say-q">«12 модулей за год, один в месяц, с четверга по воскресенье. В переводе на ваш график это <em>два рабочих дня в месяц — 24 за год</em> — и два выходных. Для сравнения: обычная командировка съедает столько же, а отпуск — 28 дней сразу.</p>
+    <p class="say-q">Что из этого для вас сложнее согласовать: <em>рабочие дни или выходные?</em>»</p>
+    <div class="row">
+      <button class="btn" onclick="cp('say5',this)">Скопировать реплику</button>
+      <button class="btn pri" onclick="go(10)">Доказательства «не отвлечёт» →</button>
+    </div>
+  </div>
+  <p class="lead">Последнее — вопрос, а не аргумент. Он вскрывает, где реальный барьер: у работодателя или дома.</p>
+
+  <h3>Про Дубай говорить самому, не дожидаясь вопроса</h3>
+  <div class="card say" id="say5b">
+    <p class="say-q">«Один модуль выездной, в Дубае, в нашем кампусе. Скажу сразу: если поехать не получится — <mark>[данные от школы: чем заменяется, что теряете]</mark>. Перелёт и проживание в стоимость не входят».</p>
+    <div class="row"><button class="btn" onclick="cp('say5b',this)">Скопировать</button></div>
+  </div>
+  <div class="warn">Сейчас топ смотрит на слайд с Дубаем и <b>молча вычёркивает программу</b> — вопрос он не задаёт.</div>
+
+  <h3>Чего не говорить</h3>
+  <div class="card no"><ul>
+    <li>«К нам идут, чтобы время появилось» в отрыве от всего. Это штамп; в <span class="id">365363</span> он сработал только потому, что рядом были конкретный кейс и конкретный слот.</li>
+  </ul></div>
+</section>
+
+<!-- ══════════ 6. НЕ АКТУАЛЬНО ══════════ -->
+<section class="slide" data-t="06 · Не актуально">
+  <div class="kicker">Возражение 06 · 16%</div>
+  <h1>«Не актуально<br>сейчас»</h1>
+
+  <h3>Как звучит в звонках</h3>
+  <div class="card q"><ul>
+    <li>«я решение так не принимаю… это как минимум месяц у меня на осмысление» <span class="id">365326</span></li>
+    <li>«сейчас время мобилизации — пока не учиться, а действовать» <span class="id">365336</span></li>
+    <li>«я честно не знаю, зачем мне это нужно и нужно ли» <span class="id">365147</span></li>
+  </ul></div>
+
+  <h3>Какой слайд деки открыть</h3>
+  <div class="card open"><b>Никакой.</b> На этом возражении слайды не помогают — помогает не дожимать.</div>
+
+  <h3>Что сказать</h3>
+  <div class="card say" id="say6">
+    <p class="say-q">«Хорошо, уговаривать не буду. Скажите только, чтобы я понимал: <em>это "сейчас не до этого" или "вообще не надо"?</em> Если первое — когда имеет смысл вернуться?»</p>
+    <p class="say-q">Если назвал причину «надо действовать, а не учиться» — согласиться вслух:<br>
+    «Это нормально и, честно говоря, правильно. Ближайший поток стартует <mark>[данные от школы]</mark>, следующий — <mark>[данные от школы]</mark>. Наберу вас в [месяц], без предложения — просто спросить, как пошло».</p>
+    <div class="row"><button class="btn" onclick="cp('say6',this)">Скопировать реплику</button></div>
+  </div>
+
+  <h3>Стоп-правило</h3>
+  <div class="card">После <b>второго</b> явного «нет» — либо вопрос о причине, либо мягкий выход с открытой дверью. Никакого «последний аргумент».</div>
+
+  <h3>Чего не говорить</h3>
+  <div class="card no"><ul>
+    <li>«Последний аргумент…» — в <span class="id">365326</span> это был тёплый лид, ответ: «Я чувствую манипуляции. Надо уважать чужие границы».</li>
+    <li>Продолжать скрипт поверх прощания <span class="id">365190, 361729</span> — «Не убедили. До свидания».</li>
+    <li>Обратная крайность: «благодарю за обратную связь, до свидания» на первое «нет», без единого вопроса <span class="id">365344</span>.</li>
+  </ul></div>
+</section>
+
+<!-- ══════════ 7. КЕЙСЫ ══════════ -->
+<section class="slide" data-t="A · Кейсы">
+  <div class="kicker">Чем подкреплять · A</div>
+  <h1>Кейсы участников</h1>
+  <p class="lead">Первые три — люди, которые на момент обучения были <b>в найме</b>, а не собственниками. Именно их показывать топам.
+  Два последних — про то, что программа не отвлекает от работы. Все публичные, со ссылкой на Forbes.</p>
+
+  <h2>Наёмные руководители</h2>
+  <div class="grid2">
+    <div class="case">
+      <div class="fig">200 млн ₽<small>экономии в год для компании</small></div>
+      <div class="who">Сергей Нищев</div>
+      <div class="role">Гендиректор «Башинформсвязи», группа «Ростелеком». 25 лет в найме</div>
+      <p>Пришёл «подтянуть знания в области бизнес-процессов и финансов». Дипломную работу сделал не в стол, а по своей компании: оптимизация процессов дала компании годовую экономию 200 млн ₽.</p>
+      <p class="quote">«Строчка "выпускник Executive MBA" в резюме — это "десятая" причина идти на обучение. Главное — знания и навыки».</p>
+      <p style="font-size:14px;color:#6f6a5e">Чем полезен: закрывает ROI-скепсис и одновременно «перерос корочку» — его же словами.</p>
+      <a href="https://www.forbes.ru/club/559152-sergej-nisev-basinformsvaz-gendirektor-dolzen-byt-mnogozadacnym-i-effektivnym" target="_blank" rel="noopener">Forbes, март 2026 →</a>
+    </div>
+    <div class="case">
+      <div class="fig">До диплома<small>получила повышение</small></div>
+      <div class="who">Ольга Волкова</div>
+      <div class="role">Зам гендиректора федерального офиса «Газпромбанк Автолизинг». 10+ лет в лизинге и банках</div>
+      <p>Упёрлась в потолок — «не хватало стратегического видения и компетенций для перехода на следующую должность». Это дословно то же, что говорят в звонках.</p>
+      <p>Ещё во время учёбы запустила крупный проект по продаже изъятой техники. По итогам — повышение до заместителя директора департамента продаж.</p>
+      <p style="font-size:14px;color:#6f6a5e">Чем полезен: главный кейс под «следующий шаг» — 26% запросов сегмента.</p>
+      <a href="https://www.forbes.ru/club/562142-ol-ga-volkova-gazprombank-avtolizing-biznes-ese-ne-prosnulsa" target="_blank" rel="noopener">Forbes, июнь 2026 →</a>
+    </div>
+    <div class="case">
+      <div class="fig">«Бомбора»<small>бренд родился на обучении</small></div>
+      <div class="who">Евгений Капьев</div>
+      <div class="role">Генеральный директор издательства «Эксмо»</div>
+      <p>Руководитель в найме в крупнейшем издательстве. В период обучения оформилась идея отдельного бренда — так появилось издательство «Бомбора».</p>
+      <p>«Самый важный блок, который я вынес, — управление командой»: разработал свои методики отбора, мотивации и развития. Люди, которых он по ним растил, сейчас на ключевых позициях.</p>
+      <p style="font-size:14px;color:#6f6a5e">Чем полезен: под запрос «обучить команду и кадровый резерв» — 16% сегмента.</p>
+      <a href="https://www.forbes.ru/club/550321-glava-eksmo-evgenij-kap-ev-vokrug-knig-formiruetsa-edinaa-ekosistema" target="_blank" rel="noopener">Forbes, апрель 2026 →</a>
+    </div>
+  </div>
+
+  <h2>Внедряли прямо во время учёбы</h2>
+  <div class="grid2">
+    <div class="case">
+      <div class="fig">+5–7%<small>маржинальности после модуля «Стратегии»</small></div>
+      <div class="who">Николай Кузяков</div>
+      <div class="role">Соучредитель «Ванюшкины сладости»: выручка 2+ млрд, 200+ сотрудников, 11 цехов, экспорт в 12 стран</div>
+      <p>Внедрял после каждого модуля, а не «после выпуска»:</p>
+      <ul style="margin:4px 0 10px">
+        <li>«Стратегии» → план оптимизации всей производственной цепочки, <b>маржинальность +5–7%</b></li>
+        <li>«Цифровизация» → нейросети на контроле санитарных норм и качества продукции</li>
+        <li>«Маркетинг» → просмотры в соцсетях <b>с 5 до 10 млн</b>, рост продаж и узнаваемости</li>
+      </ul>
+      <p>Среди однокурсников нашёл поставщика сырья и партнёров по маркетингу — нетворк оценивает как «60–70% полезности обучения».</p>
+      <p style="font-size:14px;color:#6f6a5e">Чем полезен: самое наглядное доказательство, что программа не отвлекает, а сразу ложится в работу.</p>
+      <a href="https://www.forbes.ru/club/partners/556451-dubajskij-sokolad-i-vkus-pihty-kak-ulavlivat-trendy-v-konditerskoj-otrasli" target="_blank" rel="noopener">Forbes, март 2026 →</a>
+    </div>
+    <div class="case">
+      <div class="fig">Учился командой<small>с исполнительным директором</small></div>
+      <div class="who">Андрей Исаев</div>
+      <div class="role">Сооснователь и гендиректор ДНКОМ, сеть лабораторий, выручка 2,7 млрд ₽</div>
+      <p>Врач по образованию: «учёба в медицинском вузе не предполагает получения знаний ни по менеджменту, ни по маркетингу». Бизнес рос, а управление держалось на интуиции.</p>
+      <p>Учился вместе с женой и исполнительным директором — поэтому изменения внедрялись сразу всей верхушкой компании: пересобрал команду, пересмотрел KPI, перестроил найм.</p>
+      <p style="font-size:14px;color:#6f6a5e">Чем полезен: под запрос «обучить своих замов» и для разговора с HR про кадровый резерв.</p>
+      <a href="https://www.forbes.ru/club/partners/557929-andrej-isaev-osnovatel-dnkom-ludi-vidat-cto-platnaa-medicina-effektivna" target="_blank" rel="noopener">Forbes, апрель 2026 →</a>
+    </div>
+  </div>
+
+  <div class="warn">Все перечисленные — с программы <b>Executive MBA</b>. Кейсов Foundation в базе нет.
+  Не умножать 200 млн на стоимость Foundation и не выдавать это за «окупаемость программы»:
+  Нищев учился на EMBA, и 200 млн — экономия его компании, а не его доход.
+  Говорить строго как в источнике: «дипломная работа дала компании экономию 200 млн ₽ в год, обучение окупилось для компании в первый же год».</div>
+</section>
+
+<!-- ══════════ 8. ЗАДАЧА → СПИКЕР ══════════ -->
+<section class="slide" data-t="B · Задача → спикер">
+  <div class="kicker">Чем подкреплять · B</div>
+  <h1>Задача → модуль → спикер</h1>
+  <p class="lead">Двенадцать связок: с какой рабочей задачей топ идёт к руководителю, где она разбирается, кто её ведёт и почему этот человек в ней силён.
+  Годится и для звонка, и для письма-обоснования наверх.</p>
+
+  <input class="search" id="q" placeholder="Поиск: «процессы», «ФОТ», «Фридман», «нейросети», «продажи»…" oninput="flt()">
+  <div class="tw"><table id="tbl">
+    <tr><th style="width:24%">Задача, с которой топ идёт к руководителю</th><th style="width:12%">Модуль</th><th style="width:26%">Кто ведёт и чем силён</th><th>Что конкретно вынесет</th></tr>
+
+    <tr><td><b>Сократить расходы на привлечение и удержание клиентов</b></td>
+      <td><span class="mod">3, день 2</span><br><span class="id">слайд 17</span></td>
+      <td><span class="who-t">Сергей Худовеков</span><span class="reg">партнёр креативного агентства Paper Planes, эксперт по клиентоцентричности и маркетинговым стратегиям</span></td>
+      <td>Формула прибыли, расчёт ROMI, сегментирование по JTBD и RFM-анализ базы, ценностно-стоимостная карта, CJM. Самый конкретный слайд всего каталога</td></tr>
+
+    <tr><td><b>Навести порядок в процессах, убрать потери</b></td>
+      <td><span class="mod">9</span><br><span class="id">слайд 36</span></td>
+      <td><span class="who-t">Андрей Коптелов</span><span class="reg">вице-президент российского отделения международной ассоциации BPM-профессионалов (ABPMP)</span></td>
+      <td>Дерево целей, КПР и источники данных для них, функционально-стоимостной анализ, классификация и моделирование процессов, зрелость процессного управления, цифровизация</td></tr>
+
+    <tr><td><b>Перестать тащить всё на себе, разгрузить руководителей</b></td>
+      <td><span class="mod">10, дни 1–2</span><br><span class="id">слайд 38</span></td>
+      <td><span class="who-t">Александр Фридман</span><span class="reg">ведущий эксперт по регулярному менеджменту, управляющий партнёр Amadeus Group</span></td>
+      <td>Технология передачи заданий и контроля: «нейтрализация обезьян», «баланс между паранойей и попустительством». По его формулировке, правильность этой компетенции на 80% определяет продуктивность персонала</td></tr>
+
+    <tr><td><b>Снизить долю ФОТ, переделать систему оплаты труда</b></td>
+      <td><span class="mod">4, дни 1–3</span><br><span class="id">слайд 21</span></td>
+      <td><span class="who-t">Андрей Коновалов</span><span class="reg">операционный директор, член совета директоров ряда компаний</span></td>
+      <td>HR-аналитика, выработка, доля ФОТ и экономика труда, эффективная система оплаты, нематериальная мотивация «если денег нет», профилирование должностей</td></tr>
+
+    <tr><td><b>Защитить бюджет проекта перед советом директоров</b></td>
+      <td><span class="mod">5, дни 1–2</span><br><span class="id">слайд 24</span></td>
+      <td><span class="who-t">Зоя Стрелкова</span><span class="reg">ведущий финансовый аналитик, руководитель направления «Экономика компании» ГК «Институт тренинга — АРБ Про»</span></td>
+      <td>ROI и дисконтирование денежных потоков, маржинальный анализ, анализ альтернатив, планирование в условиях неопределённости, приборная панель для управления проектом</td></tr>
+
+    <tr><td><b>Собрать стратегию направления, которое возглавляет</b></td>
+      <td><span class="mod">7 + 8</span><br><span class="id">слайды 30, 33</span></td>
+      <td><span class="who-t">Сергей Макшанов</span><span class="reg">эксперт по стратегии, управляющий ГК «Институт Тренинга — АРБ Про»</span>
+        <span class="who-t" style="display:block;margin-top:8px">Роман Копосов</span><span class="reg">руководитель направления «Стратегическое планирование» АРБ Про</span></td>
+      <td>Диагностика стратегического положения на рынке, работа с управленческими критериями и «слабыми сигналами», оценка ёмкости и карта рынка, декомпозиция стратегии до функциональных подразделений, преодоление трудностей внедрения</td></tr>
+
+    <tr><td><b>Внедрить нейросети в процессы</b></td>
+      <td><span class="mod">11, дни 1–2</span><br><span class="id">слайд 41</span></td>
+      <td><span class="who-t">Сергей Чумак</span><span class="reg">независимый директор, руководитель комитета по стратегии Ассоциации практиков цифровизации</span></td>
+      <td>Как встроить нейросети в собственные IT-продукты и процессы, цифровые модели и шаблоны инноваций, интернет вещей, роботизация, блокчейн и ЦФА</td></tr>
+
+    <tr><td><b>Провести изменения, которые буксуют</b></td>
+      <td><span class="mod">10, дни 3–4</span><br><span class="id">слайд 39</span></td>
+      <td><span class="who-t">Антон Толмаков</span><span class="reg">сертифицированный консультант Института Адизеса, гендиректор и собственник бизнеса с 20-летним опытом, Certified Adizes Associate</span></td>
+      <td>Роли менеджмента и стили руководства по Адизесу (PAEI), жизненный цикл организаций и «болезни» роста, управление кросс-функциональными группами.
+      <b>Отдельный сертификат Adizes Business Consulting</b> — осязаемый результат, который видно компании</td></tr>
+
+    <tr><td><b>Перестроить отдел продаж</b></td>
+      <td><span class="mod">11, дни 3–4</span><br><span class="id">слайд 42</span></td>
+      <td><span class="who-t">Виталий Новиков</span><span class="reg">эксперт по продажам и клиентскому сервису</span></td>
+      <td>Модели активных и пассивных продаж, вертикаль «анализ — планирование — контроль», явные и скрытые потребности покупателя, комплектование подразделений, мотивация продавцов, автоматизация</td></tr>
+
+    <tr><td><b>Запустить проектный офис</b></td>
+      <td><span class="mod">8, дни 3–4</span><br><span class="id">слайд 34</span></td>
+      <td><span class="who-t">Всеволод Сафаров</span><span class="reg">эксперт по разработке операционной стратегии и проектного управления, по запуску проектного офиса</span></td>
+      <td>Отличие постановки задачи от делегирования, жизненный цикл проекта, PMBoK против Agile, управление стоимостью, сроками, рисками и командой проекта, модель инноваций Ларри Кили</td></tr>
+
+    <tr><td><b>Понять, куда рынок пойдёт через 5–10 лет</b></td>
+      <td><span class="mod">2, день 1</span><br><span class="id">слайд 13</span></td>
+      <td><span class="who-t">Ольга Еремина</span><span class="reg">основатель компании Pro-trendwatching, эксперт по формированию долгосрочного видения будущего</span></td>
+      <td>Система сканирования трендов и отрасли-лакмусы, иерархия «мегатренды → макротренды → тренды → сигналы», практикумы: видение будущего на 10 лет и отраслевой тренд-радар</td></tr>
+
+    <tr><td><b>Научиться защищать решения перед советом директоров</b></td>
+      <td><span class="mod">12, дни 1–2</span><br><span class="id">слайд 44</span></td>
+      <td><span class="who-t">Владислава Друтько</span><span class="reg">партнёр Школы бизнеса «Синергия», эксперт по лидерству и управлению персоналом</span></td>
+      <td>Алгоритм подготовки к любому публичному выступлению, приёмы удержания внимания аудитории, управление своими эмоциями, убедительная и выразительная речь</td></tr>
+  </table></div>
+  <p class="lead" style="margin-top:14px">Если задача клиента в таблицу не попала — спросить её дословно и подобрать модуль, а не продавать программу целиком.
+  В звонках трижды теряли клиента ровно потому, что он говорил «мне нужно другое», а ему отвечали «вам точно нужно идти именно на эту программу».</p>
+</section>
+
+<!-- ══════════ 9. КАЛЬКУЛЯТОР ══════════ -->
+<section class="slide" data-t="C · Окупаемость">
+  <div class="kicker">Чем подкреплять · C</div>
+  <h1>Калькулятор окупаемости</h1>
+  <p class="lead">Главная ошибка — пытаться назвать «процент эффективности программы». Такой цифры не существует, и топ это знает.
+  Работает другое: <b>посчитать вслух на его числах</b>. Тогда цифру называет он сам, и спорить ему не с чем.</p>
+
+  <h3>Разговор в три вопроса</h3>
+  <div class="card say" id="say9">
+    <p class="say-q">«Какой у вас сейчас годовой доход в текущей роли?»</p>
+    <p class="say-q">«А в той роли, к которой готовитесь, — сколько это примерно?»</p>
+    <p class="say-q">«Разница какая получается?»</p>
+    <div class="row"><button class="btn" onclick="cp('say9',this)">Скопировать вопросы</button></div>
+  </div>
+
+  <h3>Считаем</h3>
+  <div class="calc">
+    <div class="fld"><label>Доход сейчас, млн ₽ / год</label>
+      <input id="c1" type="number" step="0.1" value="6" oninput="calc()"><small>спросить у клиента</small></div>
+    <div class="fld"><label>Целевая роль, млн ₽ / год</label>
+      <input id="c2" type="number" step="0.1" value="9" oninput="calc()"><small>его же оценка</small></div>
+    <div class="fld"><label>Стоимость программы, млн ₽</label>
+      <input id="c3" type="number" step="0.1" value="1.8" oninput="calc()"><small>сверить актуальную версию</small></div>
+  </div>
+  <div class="res"><div class="big" id="r1">—</div><p id="r2"></p></div>
+
+  <h3>Вторая опора — для тех, кто считает не по доходу, а по задаче</h3>
+  <div class="card say" id="say9b">
+    <p class="say-q">«Есть и второй способ считать — через задачу. Выпускной проект вы делаете по своей компании. Гендиректор "Башинформсвязи" сделал дипломную по оптимизации процессов — она дала компании <em>200 млн экономии в год</em>. Это его проект по его задаче, ваш будет другим. Вопрос: <em>какая задача у вас сейчас стоит такого масштаба?</em>»</p>
+    <div class="row">
+      <button class="btn" onclick="cp('say9b',this)">Скопировать</button>
+      <button class="btn pri" onclick="go(7)">Кейсы целиком →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 10. НЕ ОТВЛЕЧЁТ ══════════ -->
+<section class="slide" data-t="D · Не отвлечёт">
+  <div class="kicker">Чем подкреплять · D</div>
+  <h1>«Программа не отвлечёт<br>от рабочих задач»</h1>
+  <p class="lead">Сейчас в деке этого аргумента нет вообще. А он самый сильный для наёмного топа: снимает сразу и «нет времени», и «зачем компании меня отпускать».</p>
+
+  <h3>Главный тезис одной фразой</h3>
+  <div class="card say" id="say10">
+    <p class="say-q">«Программа устроена так, что <em>ваша рабочая задача и есть учебный материал</em>. Вы не уходите от работы на год — вы приносите сюда то, что и так лежит у вас на столе, и разбираете это с практиком».</p>
+    <div class="row"><button class="btn" onclick="cp('say10',this)">Скопировать реплику</button></div>
+  </div>
+
+  <h3>Чем подтверждать — сделано не после, а во время обучения</h3>
+  <div class="tw"><table>
+    <tr><th style="width:24%">Кто</th><th>Что сделал во время обучения</th></tr>
+    <tr><td><b>Сергей Нищев</b><span class="reg">гендиректор «Башинформсвязи»</span></td>
+      <td>Дипломная работа — не учебный кейс, а проект оптимизации процессов его компании. Результат: <b>200 млн ₽ экономии в год</b></td></tr>
+    <tr><td><b>Ольга Волкова</b><span class="reg">«Газпромбанк Автолизинг»</span></td>
+      <td>Крупный проект по продаже изъятой техники запустила во время учёбы. <b>Повышение получила до диплома</b></td></tr>
+    <tr><td><b>Николай Кузяков</b><span class="reg">«Ванюшкины сладости», 2+ млрд, 11 цехов</span></td>
+      <td>Внедрял после каждого модуля: «Стратегии» → план оптимизации производственной цепочки, <b>маржинальность +5–7%</b>; «Цифровизация» → нейросети на контроле санитарных норм и качества; «Маркетинг» → просмотры в соцсетях <b>с 5 до 10 млн</b></td></tr>
+    <tr><td><b>Андрей Исаев</b><span class="reg">ДНКОМ, выручка 2,7 млрд</span></td>
+      <td>Учился командой — с женой и исполнительным директором, поэтому изменения внедрялись сразу всей верхушкой, а не «после выпуска»</td></tr>
+  </table></div>
+  <p class="lead" style="margin-top:14px">Кейс Кузякова — самый наглядный: видно, что после каждого модуля что-то попадало в работу. Его стоит показывать целиком, модуль за модулем.</p>
+
+  <h3>Арифметика времени — произносить вслух</h3>
+  <div class="card say" id="say10b">
+    <p class="say-q">«12 модулей за год, один в месяц, с четверга по воскресенье. В вашем графике это <em>два рабочих дня в месяц — 24 за год</em>, остальное выходные. Для сравнения: обычная командировка съедает столько же, а отпуск — 28 дней сразу».</p>
+    <div class="row"><button class="btn" onclick="cp('say10b',this)">Скопировать</button></div>
+  </div>
+
+  <h3>Что ещё работает в эту же сторону</h3>
+  <div class="card"><ul>
+    <li><b>Выпускной проект по своей задаче</b> (слайд 3, пункт 1) — сейчас спрятан в мелком тексте, а это главный аргумент.</li>
+    <li><b>Индивидуальный коучинг</b> (слайд 47) — маршрут под целевую роль. Честно: 2 сессии по 1,5 часа.</li>
+    <li><b>Сертификат Института Адизеса</b> (слайд 39) — отдельный осязаемый результат для компании, кроме диплома.</li>
+  </ul></div>
+</section>
+
+<!-- ══════════ 11. НА ЧЁМ ПЛЫВУТ ══════════ -->
+<section class="slide" data-t="E · На чём плывут">
+  <div class="kicker">Чем подкреплять · E</div>
+  <h1>Вопросы, на которых<br>плывут чаще всего</h1>
+  <p class="lead">Не возражения, а проверка на экспертность. Три таких вопроса подряд без ответа роняют доверие так, что дальше не помогает никакой скрипт.</p>
+
+  <div class="tw"><table>
+    <tr><th style="width:23%">Вопрос клиента</th><th style="width:26%">Как отвечают сейчас</th><th>Что отвечать</th></tr>
+    <tr>
+      <td><b>«Какой фреймворк стратегии используется — Портер, System Thinking?»</b> <span class="id">365130</span></td>
+      <td>«Точно слышала про Портер, но по контенту не подскажу, это Александр Георгиевич»</td>
+      <td>Открыть <b>слайды 30 и 33</b> и назвать темы дословно: диагностика стратегического положения, работа с управленческими критериями и «слабыми сигналами», оценка ёмкости рынка и карта рынка, декомпозиция стратегии до функциональных подразделений.
+      Ведёт <b>Сергей Макшанов</b>, управляющий ГК «Институт Тренинга — АРБ Про»</td></tr>
+    <tr>
+      <td><b>«Это реальные профессора или ваш слэнг?»</b> <span class="id">365364</span></td>
+      <td>«Или слэнг, или правда»</td>
+      <td>Назвать проверяемое: <b>Толмаков</b> — сертифицированный консультант Института Адизеса, участники модуля получают сертификат Adizes Business Consulting (сл. 39); <b>Коптелов</b> — вице-президент российского отделения ABPMP (сл. 7); <b>Худовеков</b> — партнёр Paper Planes; <b>Стрелкова</b> — АРБ Про</td></tr>
+    <tr>
+      <td><b>«А сколько человек в группе? Кто там?»</b> <span class="id">365113, 365330</span></td>
+      <td>35 / 45 / 46 — в разных звонках</td>
+      <td>Одна согласованная цифра на всех плюс состав: доли собственников и наёмных топов, отрасли. <mark>[данные от школы]</mark></td></tr>
+  </table></div>
+
+  <div class="warn">Это упирается в общий пункт: <b>нужен единый лист фактов</b>. Сейчас менеджеры называют разный средний возраст
+  (30–32 / 35 / 43 / 45 / 52), разный оборот участников и разный размер группы — а клиенты сверяют это между звонками
+  и ловят на противоречиях.</div>
+
+  <h2>Что не показывать в текущей деке</h2>
+  <div class="card"><ul>
+    <li>Слайд <b>49</b> «MBA клуб»: «Участники — собственники компаний». Наёмный топ читает «я тут лишний».</li>
+    <li>Слайд <b>48</b> «По результатам обучения»: все 7 пунктов про компанию собственника, топу присвоить нечего.</li>
+    <li>Слайд <b>50</b>: на скане диплома остался водяной знак <b>Make Watermark</b> — не показывать, пока не заменят.</li>
+    <li>Слайд <b>2</b>: «400+ преподавателей» и тут же «более 1500 преподавателей со всего мира» — не называть обе цифры.</li>
+    <li>Слайд <b>4</b>: продаёт Executive MBA до того, как продан Foundation. Топу с MBA это подтверждает «это подготовишка».</li>
+  </ul></div>
+
+  <h2>Что работает — забрать в скрипт</h2>
+  <div class="dark">
+    <ul>
+      <li><b>Снять давление и сразу зафиксировать шаг:</b> «пока покупать не буду, просто сравниваю» → «спасибо за откровенность, ничего продавать не буду, давайте просто покажу» → zoom в тот же день <span class="id">365329</span></li>
+      <li><b>Возраст — конкретикой:</b> «я старый учиться» → «средний возраст [цифра], идут не за дипломом, а за инструментами и нетворком» <span class="id">361710, 365333</span></li>
+      <li><b>Сколково — цифрами:</b> «бенчмарк 24 преподавателя — у нас 60; у них 2 выезда — у нас 6 стран» <span class="id">365129, 365219</span></li>
+      <li><b>Западный MBA — акцентом на локальность:</b> «у нас акцент на российских кейсах, старые подходы устарели к 2026–2028» → согласие на zoom <span class="id">365365, 365232</span></li>
+      <li><b>Бронь слота с подстраховкой:</b> «предварительно забронирую, за сутки напишу — нет так нет, перенесём» — стабильно конвертит холодные <span class="id">365191, 365116, 365150</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="foot">
+  <span>Источник: разбор 223 звонков · кейсы — публичные интервью Forbes</span>
+  <span><a href="index.html">← ко всем материалам</a></span>
+</div>
+
+</div>
+
+<div class="nav">
+  <button onclick="go(0)" title="На главную">⌂</button>
+  <button onclick="step(-1)" title="Назад">‹</button>
+  <button onclick="step(1)" title="Вперёд">›</button>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+const chips=document.getElementById('chips');
+slides.forEach((s,i)=>{
+  if(i===0) return;
+  const b=document.createElement('button');
+  b.className='chip'; b.textContent=s.dataset.t; b.onclick=()=>go(i);
+  chips.appendChild(b);
+});
+function go(i){
+  if(i<0||i>=slides.length) return;
+  slides[cur].classList.remove('on');
+  cur=i; slides[cur].classList.add('on');
+  [...chips.children].forEach((c,k)=>c.classList.toggle('act',k+1===i));
+  window.scrollTo({top:0,behavior:'instant'});
+  history.replaceState(null,'',i?('#s'+i):location.pathname);
+}
+function step(d){go(Math.min(slides.length-1,Math.max(0,cur+d)))}
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(e.target.tagName))return;
+  if(e.key==='ArrowRight'){e.preventDefault();step(1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}
+  if(e.key==='Escape')go(0);
+});
+function cp(id,btn){
+  const el=document.getElementById(id).cloneNode(true);
+  el.querySelectorAll('.row').forEach(r=>r.remove());
+  const t=el.innerText.trim().replace(/\n{3,}/g,'\n\n');
+  navigator.clipboard.writeText(t).then(()=>{
+    const old=btn.textContent; btn.textContent='Скопировано';
+    setTimeout(()=>btn.textContent=old,1500);
+  }).catch(()=>{btn.textContent='Выделите вручную'});
+}
+function calc(){
+  const a=parseFloat(document.getElementById('c1').value)||0;
+  const b=parseFloat(document.getElementById('c2').value)||0;
+  const p=parseFloat(document.getElementById('c3').value)||0;
+  const d=b-a, r1=document.getElementById('r1'), r2=document.getElementById('r2');
+  if(p<=0){r1.textContent='Укажите стоимость';r2.textContent='';return}
+  if(d<=0){
+    r1.innerHTML='Разницы нет';
+    r2.textContent='Целевая роль должна быть выше текущей — иначе считаем не по доходу, а по задаче: какой проект окупит обучение для компании.';
+    return;
+  }
+  const m=p/d*12;
+  const txt=m<12?(Math.round(m)+' мес.'):(m/12).toFixed(1).replace('.',',')+' года';
+  r1.innerHTML='Окупается за <u>'+txt+'</u>';
+  r2.innerHTML='Разница в доходе — <b>+'+d.toFixed(1).replace('.',',')+' млн ₽ в год</b>. При стоимости '+
+    p.toFixed(1).replace('.',',')+' млн программа окупается за первые '+txt+
+    ' в новой роли. Дальше разница идёт каждый год, а не один раз.';
+}
+calc();
+function flt(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  [...document.querySelectorAll('#tbl tr')].slice(1).forEach(r=>{
+    r.style.display=(!q||r.innerText.toLowerCase().includes(q))?'':'none';
+  });
+}
+if(location.hash.startsWith('#s')){const n=parseInt(location.hash.slice(2));if(n>0&&n<slides.length)go(n)}
+</script>
+</body>
+</html>

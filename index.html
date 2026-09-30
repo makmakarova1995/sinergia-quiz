@@ -24,6 +24,15 @@
   a.card b{display:block;font-size:20px;margin-bottom:6px}
   a.card span{font-size:15px;color:var(--ink2)}
   .note{margin-top:30px;font-size:14px;color:var(--ink2)}
+  .sep{display:flex;align-items:center;gap:14px;margin:34px 0 18px;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+  .sep::before,.sep::after{content:"";height:1px;background:var(--line);flex:1}
+  a.card.accent{border-color:var(--accent);border-width:2px;background:#fff}
+  a.card.accent b{color:var(--accent)}
+  a.card.accent em{display:inline-block;margin-top:14px;font-style:normal;font-weight:700;
+    font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#fff;
+    background:var(--accent);border-radius:8px;padding:11px 22px}
+  a.card.accent:hover em{background:#c9251a}
 </style>
 </head>
 <body>
@@ -44,6 +53,14 @@
   <a class="card" href="quiz-modules.html">
     <b>Версия 2: с модулями программы</b>
     <span>После каждого вопроса — где эту тему разбирают в программе</span>
+  </a>
+
+  <div class="sep"><span>Для отдела продаж</span></div>
+
+  <a class="card accent" href="objections.html">
+    <b>Отработка возражений со звонков</b>
+    <span>Слайды для менеджера: боли топ-менеджеров дословно, пять возражений и что на них отвечать, кейсы выпускников, подбор спикера под задачу клиента, калькулятор окупаемости. По разбору 223 звонков.</span>
+    <em>Открыть слайды →</em>
   </a>
 
 </div>
