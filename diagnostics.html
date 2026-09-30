@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Диагностика клиента — вопросы для звонка</title>
+<!--
+  ДИАГНОСТИКА · что спросить у наёмного топ-менеджера до того, как открыт дек и названа цена
+  Источник: разбор 223 звонков, вопросы квиза, кейсы из публичных интервью Forbes.
+  Плейсхолдеры школы: [так]
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#262626;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;
+  --muted:#6f6a5e;--line:#d8d0bc}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--ink);
+  background:var(--beige);padding-bottom:70px}
+h1,h2,h4{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.06;font-weight:600}
+h1{font-size:clamp(26px,4vw,44px);margin-bottom:8px}
+h2{font-size:clamp(19px,2.4vw,26px);margin:40px 0 12px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin-bottom:12px}
+.kicker::before{content:"";display:inline-block;width:24px;height:3px;background:var(--red);
+  vertical-align:middle;margin-right:9px}
+mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:inherit}
+.lead{color:var(--muted);max-width:760px;margin-bottom:8px}
+
+/* шапка */
+.bar{position:sticky;top:0;z-index:60;background:rgba(231,224,208,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)}
+.bar-in{max-width:1000px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
+.logo-sq{width:27px;height:27px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;
+  font-size:16px;display:flex;align-items:center;justify-content:center;border-radius:4px;flex:none}
+.logo-tx{font-size:10.5px;font-weight:700;letter-spacing:.12em;line-height:1.25;text-transform:uppercase}
+.logo-tx small{display:block;font-weight:400;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{font-size:12px;color:var(--muted);background:var(--cream);border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px;cursor:pointer;text-decoration:none;transition:.15s;white-space:nowrap}
+.chip:hover{border-color:var(--red);color:var(--ink)}
+.chip.go{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.head{padding:36px 0 4px}
+
+/* блок «строка»: метка | контент */
+.b{display:grid;grid-template-columns:132px 1fr;gap:18px;background:var(--cream);
+  border:1px solid var(--line);border-radius:9px;padding:17px 20px;margin-bottom:9px}
+.b > .lbl{font-family:Oswald;text-transform:uppercase;font-size:13px;letter-spacing:.06em;
+  color:var(--muted);padding-top:2px}
+.b.say{background:#fff;border-left:4px solid var(--red)}
+.b.say > .lbl{color:var(--red);font-size:20px}
+.b.no{background:#ece6d8}
+.b.case{background:#fff;border-left:4px solid var(--dark)}
+.b p{margin-bottom:6px}
+.b p:last-child{margin-bottom:0}
+.b.say p{font-size:18px;line-height:1.5}
+.b.say em{font-style:normal;color:var(--red);font-weight:600}
+.b.say p.why{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:7px}
+.q,td.q{font-style:italic;color:#3f3b33}
+.id{font-style:normal;color:#8d8778;font-size:12.5px;white-space:nowrap}
+ul{list-style:none}
+li{position:relative;padding-left:17px;margin-bottom:6px}
+li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--red)}
+.no li::before{background:#b3aa96}
+.case li::before{background:var(--dark)}
+.mod{display:inline-block;font-family:Oswald;font-size:12px;letter-spacing:.04em;color:#fff;
+  background:var(--red);border-radius:3px;padding:2px 7px;margin-right:6px;white-space:nowrap}
+.fig{font-family:Oswald;color:var(--red);font-size:19px}
+
+/* таблица */
+.tw{overflow-x:auto;background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:4px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;padding:11px 13px;border-bottom:1px solid var(--line)}
+td{padding:12px 13px;border-bottom:1px solid #e0d9c7;vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#eae3d3}
+.reg{font-size:12.5px;color:var(--muted);display:block}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--line);
+  color:var(--muted);border-radius:999px;padding:8px 16px;font-size:12.5px;cursor:pointer;
+  font-family:Inter;text-decoration:none;transition:.15s}
+.btn:hover{border-color:var(--red);color:var(--ink)}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+/* проверка */
+.dx{background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:4px 0;margin-bottom:9px}
+.dxh{font-family:Oswald;text-transform:uppercase;font-size:12.5px;letter-spacing:.09em;color:var(--muted);
+  padding:15px 18px 7px}
+.dxr{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:12px 18px;
+  border-bottom:1px solid #e0d9c7}
+.dx .dxr:last-child{border-bottom:none}
+.dxr p{font-size:15.5px;line-height:1.4}
+.yn{display:flex;gap:6px;flex:none}
+.yn button{font-family:Inter;font-size:13px;border:1px solid var(--line);background:#fff;color:var(--muted);
+  border-radius:999px;padding:7px 16px;cursor:pointer;transition:.15s}
+.yn button:hover{border-color:var(--red);color:var(--ink)}
+.yn button.y.on{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.yn button.n.on{background:var(--dark);border-color:var(--dark);color:#fff;font-weight:600}
+.res{background:var(--dark);color:#fff;border-radius:9px;padding:24px;margin-top:13px;
+  position:sticky;bottom:14px;box-shadow:0 8px 26px rgba(0,0,0,.18)}
+.res .big{font-family:Oswald;text-transform:uppercase;font-size:clamp(25px,4.4vw,40px);line-height:1.06}
+.res .big u{text-decoration:none;color:#ff7b70}
+.res p{color:#cfc9bc;margin-top:10px;font-size:15px}
+.res ul{margin-top:12px}
+.res ul li{color:#cfc9bc;font-size:14.5px}
+.res ul li::before{background:#ff7b70}
+.res ul li b{color:#fff}
+.warn{border:1px solid #e0bcb7;background:#fbeeec;border-radius:8px;padding:13px 17px;
+  font-size:14.5px;color:#7a3129;margin-top:12px}
+.warn b{color:var(--red)}
+.foot{max-width:1000px;margin:40px auto 0;padding:16px 20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:8px}
+.foot a{color:var(--muted)}
+
+@media(max-width:700px){
+  .b{grid-template-columns:1fr;gap:7px}
+  .b > .lbl{font-size:12px}
+  .b.say > .lbl{font-size:17px}
+  .b.say p{font-size:16.5px}
+  .dxr{grid-template-columns:1fr;gap:10px}
+  .chips{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}
+  .res{position:static}
+}
+@media print{.bar{display:none}.res{position:static}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="logo" href="index.html">
+    <span class="logo-sq">С</span>
+    <span class="logo-tx">Синергия<small>Диагностика клиента</small></span>
+  </a>
+  <div class="chips">
+    <a class="chip" href="#voprosy">Вопросы</a>
+    <a class="chip" href="#proverka">Надо ли ему MBA</a>
+    <a class="chip" href="#tablica">Что это значит</a>
+    <a class="chip" href="#crm">В CRM</a>
+    <a class="chip go" href="objections.html">Возражения →</a>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+<div class="head">
+  <div class="kicker">До того, как открыт дек и названа цена</div>
+  <h1>Диагностика: надо ли ему MBA</h1>
+  <p class="lead">Продаёт не программа, а задача клиента, названная его словами. Пока задачи нет — любой аргумент звучит как впаривание. Восемь вопросов, дальше проверка на шесть признаков и честный вердикт, включая «не наш клиент». По разбору 223 звонков.</p>
+</div>
+
+<h2 id="voprosy">Восемь вопросов подряд</h2>
+
+<div class="b say" id="d1"><div class="lbl">1</div><div>
+  <p>«Расскажите, за что вы сейчас отвечаете цифрами — за свою функцию или за прибыль целиком?»</p>
+  <p class="why">Отличает C-level от C-1. От этого зависит, чем закрывать: у C-1 боль «следующий шаг», у C-level — «не отстать» и «обучить команду».</p>
+  <div class="row"><button class="btn" onclick="cp('d1',this)">Копировать</button></div>
+</div></div>
+
+<div class="b say" id="d2"><div class="lbl">2</div><div>
+  <p>«Где хотите быть через три года: генеральным, та же роль в структуре крупнее, свой бизнес? Или пока выбираете?»</p>
+  <p class="why">Тот же вопрос, что первым в квизе. «Пока не знаю» — не отказ: это прямой заход на коучинг <span class="mod">сл. 47</span>, две сессии под маршрут. «Вообще не знаю, с чего начать, меня нужно направить» <span class="id">365286</span>.</p>
+  <div class="row"><button class="btn" onclick="cp('d2',this)">Копировать</button></div>
+</div></div>
+
+<div class="b say" id="d3"><div class="lbl">3</div><div>
+  <p>«Что должно измениться, чтобы туда попасть? Чего конкретно сейчас не хватает?»</p>
+  <p class="why">Главный вопрос звонка. Ответ записать дословно — им же и продавать. «Должности, на которые интересно, заняты людьми, которые MBA даже не касались» <span class="id">365113</span>.</p>
+  <div class="row"><button class="btn" onclick="cp('d3',this)">Копировать</button></div>
+</div></div>
+
+<div class="b say" id="d4"><div class="lbl">4</div><div>
+  <p>«Вы это уже пробовали решать? Что делали и почему не вышло?»</p>
+  <p class="why">Отделяет настоящий разрыв от разговора. Пробовал коучей, тренинги, найм и не сработало — MBA обоснован. Не пробовал ничего — задача не болит, продавать нечего.</p>
+  <div class="row"><button class="btn" onclick="cp('d4',this)">Копировать</button></div>
+</div></div>
+
+<div class="b say" id="d5"><div class="lbl">5</div><div>
+  <p>«Если ничего не менять — что у вас будет через год?»</p>
+  <p class="why">Срочность называет он сам, а не менеджер. Это замена дожиму, на котором теряли тёплых: «Я чувствую манипуляции» <span class="id">365326</span>.</p>
+  <div class="row"><button class="btn" onclick="cp('d5',this)">Копировать</button></div>
+</div></div>
+
+<div class="b say" id="d6"><div class="lbl">6</div><div>
+  <p>«Кто у вас в компании решает про обучение топов и как это обычно проходит? Бывало уже, что согласовывали?»</p>
+  <p class="why">Спрашивать <b>до</b> цены, а не после. 32% возражений — «решаю не я». Если путь к деньгам известен заранее, возражение не возникает: сразу готовим одностраничник собственнику.</p>
+  <div class="row"><button class="btn" onclick="cp('d6',this)">Копировать</button>
+  <a class="btn pri" href="objections.html#s2">Что говорить дальше →</a></div>
+</div></div>
+
+<div class="b say" id="d7"><div class="lbl">7</div><div>
+  <p>«Когда вы такое решение принимаете — сейчас или после какого-то события: закрытия года, назначения, бюджета?»</p>
+  <p class="why">Вместо «не актуально сейчас» получаем дату. «Я решение так не принимаю… это как минимум месяц на осмысление» <span class="id">365326</span> — нормальный ответ, если записан срок возврата.</p>
+  <div class="row"><button class="btn" onclick="cp('d7',this)">Копировать</button></div>
+</div></div>
+
+<div class="b say" id="d8"><div class="lbl">8</div><div>
+  <p>«По чему вы через год поймёте, что деньги потрачены не зря?»</p>
+  <p class="why">Его же ответ подставляется в калькулятор и в тему выпускного проекта. Закрывает «дорого, какой эффект» до того, как оно прозвучало, — без выдуманных процентов.</p>
+  <div class="row"><button class="btn" onclick="cp('d8',this)">Копировать</button>
+  <a class="btn pri" href="objections.html#s10">Посчитать окупаемость →</a></div>
+</div></div>
+
+<div class="b no"><div class="lbl">Не спрашивать</div><div><ul>
+  <li>«А как давно, если не секрет?» четыре раза подряд — допрос вместо диагностики <span class="id">365285</span></li>
+  <li>Вопросы без связки с ответом: спросили и пошли по скрипту дальше. Каждый ответ должен куда-то вести</li>
+  <li>«Вы же понимаете, что без этого не вырастете» — оценка вместо вопроса</li>
+  <li>Квалифицировать по бюджету первым вопросом. Сначала задача, потом деньги</li>
+</ul></div></div>
+
+<h2 id="proverka">Проверка: надо ли ему MBA</h2>
+<p class="lead" style="margin-bottom:12px">Отметить по итогам звонка. Три верхних признака — потребность, три нижних — возможность купить. Вердикт считается внизу и подсказывает, чего не добрали.</p>
+
+<div class="dx">
+  <div class="dxh">Потребность · решает ли программа его задачу</div>
+  <div class="dxr"><p>Назвал конкретную задачу или роль своими словами, не «просто интересно посмотреть»</p>
+    <div class="yn"><button class="y" onclick="dx('n1',1,this)">Да</button><button class="n" onclick="dx('n1',0,this)">Нет</button></div></div>
+  <div class="dxr"><p>Пробовал закрыть её сам — коучи, тренинги, найм, внутренние проекты — и не вышло</p>
+    <div class="yn"><button class="y" onclick="dx('n2',1,this)">Да</button><button class="n" onclick="dx('n2',0,this)">Нет</button></div></div>
+  <div class="dxr"><p>Его задача есть в таблице «Задача → спикер»: нашёлся модуль и конкретный человек</p>
+    <div class="yn"><button class="y" onclick="dx('n3',1,this)">Да</button><button class="n" onclick="dx('n3',0,this)">Нет</button></div></div>
+  <div class="dxh">Возможность · дойдёт ли до оплаты</div>
+  <div class="dxr"><p>Известно, кто решает и кто платит: он сам, компания или оба</p>
+    <div class="yn"><button class="y" onclick="dx('r1',1,this)">Да</button><button class="n" onclick="dx('r1',0,this)">Нет</button></div></div>
+  <div class="dxr"><p>Есть срок: назвал, когда принимает решение или после какого события</p>
+    <div class="yn"><button class="y" onclick="dx('r2',1,this)">Да</button><button class="n" onclick="dx('r2',0,this)">Нет</button></div></div>
+  <div class="dxr"><p>24 рабочих дня за год и выездные модули он в принципе может согласовать</p>
+    <div class="yn"><button class="y" onclick="dx('r3',1,this)">Да</button><button class="n" onclick="dx('r3',0,this)">Нет</button></div></div>
+</div>
+
+<div class="res"><div class="big" id="dv">Ответьте на шесть пунктов</div><p id="dt">Отмечено 0 из 6.</p><ul id="dl" style="display:none"></ul></div>
+
+<h2 id="tablica">Ответ клиента → что это значит → куда вести</h2>
+<div class="tw"><table>
+  <tr><th style="width:31%">Говорит</th><th style="width:22%">Диагноз</th><th>Куда вести</th></tr>
+  <tr><td class="q">«Смотрю MBA не как прокачать скиллы финдиректора, а именно как executive на позицию» <span class="id">365271</span></td>
+    <td><b>Следующий шаг</b><span class="reg">26%, самая частая</span></td>
+    <td>Коучинг <span class="mod">сл. 47</span> под маршрут, <b>Стрелкова</b> <span class="mod">5 · сл. 24</span> — финансы, <b>Друтько</b> <span class="mod">12 · сл. 44</span> — защита решений. Кейс Волковой: повышение до диплома</td></tr>
+  <tr><td class="q">«Молодые руководители — я понимаю, что где-то вообще не догоняю. А вот это бесит» <span class="id">365337</span></td>
+    <td><b>Не отстать</b><span class="reg">21%</span></td>
+    <td><b>Чумак</b> <span class="mod">11 · сл. 41</span> — нейросети, <b>Еремина</b> <span class="mod">2 · сл. 13</span> — тренд-радар. Кейс Кузякова: нейросети на контроле качества</td></tr>
+  <tr><td class="q">«Запрос на лидерство для минус-1 и тренировку преемственности» <span class="id">365099</span></td>
+    <td><b>Обучить команду</b><span class="reg">16%, часто это HR</span></td>
+    <td><b>Коновалов</b> <span class="mod">4 · сл. 21</span>, <b>Кукушкин</b> <span class="mod">4 · сл. 22</span>. Кейс Исаева: учился вместе с исполнительным директором</td></tr>
+  <tr><td class="q">«Если идём в группу — кто там присутствует, что за состав?» <span class="id">365330</span></td>
+    <td><b>Среда</b><span class="reg">11%, покупает людей, а не контент</span></td>
+    <td>Состав группы по отраслям <mark>[данные от школы]</mark>. Кейс Кузякова: нетворк — <span class="fig">60–70%</span> пользы. <b>MBA клуб не открывать</b></td></tr>
+  <tr><td class="q">«Немножко я перерос вот эту бумажку и галочку» <span class="id">365271</span></td>
+    <td><b>Диагноза ещё нет</b><span class="reg">это не возражение, а отсутствие задачи</span></td>
+    <td>Не спорить. Два вопроса: «Где и когда учились?» → «Какую задачу тот MBA так и не закрыл?» И дальше от ответа</td></tr>
+  <tr><td class="q">«Не проще ли нанять коучей в областях, где западаешь, а не тратить два года?» <span class="id">365147</span></td>
+    <td><b>Потребности нет</b><span class="reg">11%, пресыщенный</span></td>
+    <td>Проверить один раз вопросом 4. Если пробовал и его устраивает — не продавать. Оставить контакт и выйти</td></tr>
+</table></div>
+
+<h2>Когда честно сказать «вам сюда не надо»</h2>
+<div class="b no"><div class="lbl">Не наш клиент</div><div><ul>
+  <li>«Я поставил бан на большие программы с обязательствами» <span class="id">365173</span> и «краткосрочные тренинги дают больший эффект» <span class="id">365110</span> — покупает формат, которого у нас нет</li>
+  <li>За весь звонок не названо ни одной своей задачи, только общий интерес</li>
+  <li>Задачи нет в таблице модулей, и подобрать спикера не получается</li>
+  <li>Второе явное «нет» — дальше только вопрос о причине или мягкий выход</li>
+</ul></div></div>
+
+<div class="b say" id="d9"><div class="lbl">Сказать</div><div>
+  <p>«Судя по тому, что вы рассказали, <em>вам сюда не надо</em> — года на программу это не стоит. Если задача поменяется, наберите, разберём».</p>
+  <p class="why">Та же фраза, которой открывают разговор с «переросшими»: «Может оказаться, что вам сюда не надо — тогда я так и скажу». Она работает ровно потому, что менеджер её действительно выполняет.</p>
+  <div class="row"><button class="btn" onclick="cp('d9',this)">Копировать</button></div>
+</div></div>
+
+<h2 id="crm">Что должно остаться в CRM после звонка</h2>
+<div class="b case"><div class="lbl">Пять строк</div><div><ul>
+  <li><b>Задача клиента его словами</b> — дословная цитата, не пересказ</li>
+  <li><b>Целевая роль или результат</b>, к которому он идёт</li>
+  <li><b>Кто решает и кто платит</b> + когда у него разговор с этим человеком</li>
+  <li><b>Модуль и спикер</b>, которыми закрывается задача</li>
+  <li><b>Дата следующего касания</b> — названная им, а не «перезвоню на неделе»</li>
+</ul>
+<p style="margin-top:9px;color:var(--muted);font-size:14px">Если заполнены не все пять — диагностики не было, и следующий звонок начнётся с нуля.</p>
+</div></div>
+<div class="warn">Так потеряно <b>9 звонков подряд</b>: «пришлите на почту» приняли без даты следующего касания.</div>
+
+<div class="row" style="margin-top:26px">
+  <a class="btn pri" href="objections.html">Дальше: отработка возражений →</a>
+  <a class="btn" href="index.html">← ко всем материалам</a>
+</div>
+
+<div class="foot">
+  <span>Разбор 223 звонков · кейсы — публичные интервью Forbes</span>
+  <span><a href="objections.html">Шпаргалка по возражениям →</a></span>
+</div>
+</div>
+
+<script>
+function cp(id,btn){const el=document.getElementById(id).cloneNode(true);
+  el.querySelectorAll('.row,.lbl,.why').forEach(r=>r.remove());
+  navigator.clipboard.writeText(el.innerText.trim().replace(/\n{3,}/g,'\n\n')).then(()=>{
+    const o=btn.textContent;btn.textContent='Скопировано';setTimeout(()=>btn.textContent=o,1400)
+  }).catch(()=>{btn.textContent='Выделите вручную'})}
+
+const DX={},MISS={
+  n1:'Задачи нет. Вернуться к вопросу 3: «что должно измениться, чтобы туда попасть»',
+  n2:'Не проверено, пробовал ли он решать сам. Спросить вопрос 4 — иначе непонятно, чем MBA лучше коуча',
+  n3:'Модуль под его задачу не найден. Искать в таблице «Задача → спикер». Если нет — не наш клиент',
+  r1:'Неизвестно, кто платит. Спросить вопрос 6 до того, как названа цена',
+  r2:'Нет срока. Спросить вопрос 7 и записать дату, названную им',
+  r3:'Дни не проверены. Проговорить самому: 2 рабочих дня в месяц, 24 за год, и про Дубай'};
+function dx(k,v,btn){DX[k]=v;
+  [...btn.parentNode.children].forEach(b=>b.classList.remove('on'));btn.classList.add('on');dxsum()}
+function dxsum(){const N=['n1','n2','n3'],R=['r1','r2','r3'],all=[...N,...R];
+  const done=all.filter(k=>DX[k]!==undefined).length;
+  const n=N.filter(k=>DX[k]===1).length,r=R.filter(k=>DX[k]===1).length;
+  const v=document.getElementById('dv'),t=document.getElementById('dt'),l=document.getElementById('dl');
+  if(done<6){v.textContent='Ответьте на шесть пунктов';t.textContent='Отмечено '+done+' из 6.';
+    l.style.display='none';return}
+  const gaps=all.filter(k=>DX[k]===0);
+  if(n<=1){v.innerHTML='Не продавать <u>эту программу</u>';
+    t.innerHTML='Задачи, которую закрывает MBA, у него нет — год обучения он не окупит, а дожим стоит репутации школы. Сказать прямо и оставить контакт.';
+    l.style.display='none';return}
+  if(r>=2){v.innerHTML='Вести на <u>zoom</u>';
+    t.innerHTML='Потребность названа и путь к решению виден. Zoom в ближайшие дни, дек собрать под его задачу, окупаемость считать его цифрами.'}
+  else{v.innerHTML='Потребность есть, <u>пути нет</u>';
+    t.innerHTML='Работать не с программой, а с препятствием. Программу он уже принял — не пересказывать её заново.'}
+  if(gaps.length){l.style.display='';l.innerHTML=gaps.map(k=>'<li>'+MISS[k]+'</li>').join('')}
+  else{l.style.display='none'}}
+</script>
+</body>
+</html>
