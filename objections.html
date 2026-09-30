@@ -182,157 +182,22 @@ tr:hover td{background:#eae3d3}
 
   <h2>Возражения</h2>
   <div class="grid">
-    <div class="tile" onclick="go(2)"><div class="pct">32%</div><h4>Дорого, какой эффект</h4><p>не закрывается в 81% случаев</p></div>
-    <div class="tile" onclick="go(3)"><div class="pct">32%</div><h4>Решаю не я, платит компания</h4><p>наверх ему нести нечего</p></div>
-    <div class="tile" onclick="go(4)"><div class="pct">21%</div><h4>Уже есть MBA</h4><p>не закрывается в 69%</p></div>
-    <div class="tile" onclick="go(5)"><div class="pct">16%</div><h4>Нет времени</h4><p>дни согласует работодатель</p></div>
-    <div class="tile" onclick="go(6)"><div class="pct">16%</div><h4>Не актуально сейчас</h4><p>теряют тёплых дожимом</p></div>
+    <div class="tile" onclick="go(1)"><div class="pct">32%</div><h4>Дорого, какой эффект</h4><p>не закрывается в 81% случаев</p></div>
+    <div class="tile" onclick="go(2)"><div class="pct">32%</div><h4>Решаю не я, платит компания</h4><p>наверх ему нести нечего</p></div>
+    <div class="tile" onclick="go(3)"><div class="pct">21%</div><h4>Уже есть MBA</h4><p>не закрывается в 69%</p></div>
+    <div class="tile" onclick="go(4)"><div class="pct">16%</div><h4>Нет времени</h4><p>дни согласует работодатель</p></div>
+    <div class="tile" onclick="go(5)"><div class="pct">16%</div><h4>Не актуально сейчас</h4><p>теряют тёплых дожимом</p></div>
   </div>
 
   <h2>Боли и опора</h2>
   <div class="grid">
-    <div class="tile" onclick="go(7)"><h4>Чего они хотят</h4><p>пять болей и чем закрывать</p></div>
-    <div class="tile" onclick="go(8)"><h4>Где отбить вложения</h4><p>разбор программы: что сделает у себя на работе в каждом из 12 модулей</p></div>
-    <div class="tile" onclick="go(9)"><h4>Кейсы</h4><p>пять выпускников с цифрами</p></div>
-    <div class="tile" onclick="go(10)"><h4>Задача → спикер</h4><p>12 связок, поиск</p></div>
-    <div class="tile" onclick="go(11)"><h4>Калькулятор</h4><p>окупаемость при клиенте</p></div>
-    <div class="tile" onclick="go(12)"><h4>Стоп-лист</h4><p>на чём плывут менеджеры</p></div>
+    <div class="tile" onclick="go(6)"><h4>Чего они хотят</h4><p>пять болей и чем закрывать</p></div>
+    <div class="tile" onclick="go(7)"><h4>Где отбить вложения</h4><p>разбор программы: что сделает у себя на работе в каждом из 12 модулей</p></div>
+    <div class="tile" onclick="go(8)"><h4>Кейсы</h4><p>пять выпускников с цифрами</p></div>
+    <div class="tile" onclick="go(9)"><h4>Задача → спикер</h4><p>12 связок, поиск</p></div>
+    <div class="tile" onclick="go(10)"><h4>Калькулятор</h4><p>окупаемость при клиенте</p></div>
+    <div class="tile" onclick="go(11)"><h4>Стоп-лист</h4><p>на чём плывут менеджеры</p></div>
   </div>
-</section>
-
-<!-- ═══ 1 ДИАГНОСТИКА ═══ -->
-<section class="slide" data-t="Диагностика">
-  <div class="kicker">До того, как открыт дек и названа цена</div>
-  <h1>Диагностика: надо ли ему MBA</h1>
-  <p style="color:var(--muted);max-width:760px;margin-bottom:8px">Продаёт не программа, а его задача, названная его словами. Пока задачи нет — любой аргумент звучит как впаривание. Восемь вопросов, дальше — проверка на шесть признаков и честный вердикт, включая «не наш клиент».</p>
-
-  <h2>Восемь вопросов подряд</h2>
-  <div class="b say" id="d1"><div class="lbl">1 · Уровень</div><div>
-    <p>«Расскажите, за что вы сейчас отвечаете цифрами — за свою функцию или за прибыль целиком?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Отличает C-level от C-1. От этого зависит, чем закрывать: у C-1 боль «следующий шаг», у C-level — «не отстать» и «обучить команду».</p>
-    <div class="row"><button class="btn" onclick="cp('d1',this)">Копировать</button></div>
-  </div></div>
-
-  <div class="b say" id="d2"><div class="lbl">2 · Цель</div><div>
-    <p>«Где хотите быть через три года: генеральным, та же роль в структуре крупнее, свой бизнес? Или пока выбираете?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Тот же вопрос, что первым в квизе. «Пока не знаю» — не отказ: это прямой заход на коучинг <span class="mod">сл. 47</span>, две сессии под маршрут.</p>
-    <div class="row"><button class="btn" onclick="cp('d2',this)">Копировать</button></div>
-  </div></div>
-
-  <div class="b say" id="d3"><div class="lbl">3 · Разрыв</div><div>
-    <p>«Что должно измениться, чтобы туда попасть? Чего конкретно сейчас не хватает?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Главный вопрос звонка. Ответ записать дословно — им же и продавать. «Меня нужно направить» <span class="id">365286</span>, «должности заняты людьми, которые MBA даже не касались» <span class="id">365113</span>.</p>
-    <div class="row"><button class="btn" onclick="cp('d3',this)">Копировать</button></div>
-  </div></div>
-
-  <div class="b say" id="d4"><div class="lbl">4 · Попытки</div><div>
-    <p>«Вы это уже пробовали решать? Что делали и почему не вышло?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Отделяет настоящий разрыв от разговора. Если пробовал коучей, тренинги, книги и не сработало — MBA обоснован. Если не пробовал ничего, задача не болит.</p>
-    <div class="row"><button class="btn" onclick="cp('d4',this)">Копировать</button></div>
-  </div></div>
-
-  <div class="b say" id="d5"><div class="lbl">5 · Цена бездействия</div><div>
-    <p>«Если ничего не менять — что у вас будет через год?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Срочность создаёт он сам, а не менеджер. Это замена дожиму, на котором теряли тёплых: «Я чувствую манипуляции» <span class="id">365326</span>.</p>
-    <div class="row"><button class="btn" onclick="cp('d5',this)">Копировать</button></div>
-  </div></div>
-
-  <div class="b say" id="d6"><div class="lbl">6 · Кто решает</div><div>
-    <p>«Кто у вас в компании решает про обучение топов и как это обычно проходит? Бывало уже, что согласовывали?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Спрашивать <b>до</b> цены, а не после. 32% возражений — «решаю не я». Если путь к деньгам известен заранее, возражение не возникает: сразу готовим одностраничник собственнику <span class="mod">→ слайд «Платит компания»</span>.</p>
-    <div class="row"><button class="btn" onclick="cp('d6',this)">Копировать</button>
-    <button class="btn pri" onclick="go(3)">Что дальше →</button></div>
-  </div></div>
-
-  <div class="b say" id="d7"><div class="lbl">7 · Срок</div><div>
-    <p>«Когда вы такое решение принимаете — сейчас или после какого-то события: закрытия года, назначения, бюджета?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Вместо «не актуально сейчас» получаем дату. «Это как минимум месяц на осмысление» <span class="id">365326</span> — нормальный ответ, если записан срок возврата.</p>
-    <div class="row"><button class="btn" onclick="cp('d7',this)">Копировать</button></div>
-  </div></div>
-
-  <div class="b say" id="d8"><div class="lbl">8 · Критерий</div><div>
-    <p>«По чему вы через год поймёте, что деньги потрачены не зря?»</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Его же ответ подставляется в калькулятор и в выпускной проект. Закрывает «дорого, какой эффект» до того, как оно прозвучало — без выдуманных процентов.</p>
-    <div class="row"><button class="btn" onclick="cp('d8',this)">Копировать</button>
-    <button class="btn pri" onclick="go(11)">Посчитать →</button></div>
-  </div></div>
-
-  <div class="b no"><div class="lbl">Не спрашивать</div><div><ul>
-    <li>«А как давно, если не секрет?» четыре раза подряд — допрос вместо диагностики <span class="id">365285</span></li>
-    <li>Вопросы без связки с ответом: спросили и пошли по скрипту дальше. Каждый ответ должен куда-то вести</li>
-    <li>«Вы же понимаете, что без этого не вырастете» — оценка вместо вопроса</li>
-    <li>Квалифицировать по бюджету первым вопросом. Сначала задача, потом деньги</li>
-  </ul></div></div>
-
-  <h2>Проверка: надо ли ему MBA</h2>
-  <p style="color:var(--muted);margin-bottom:12px">Отметить по итогам звонка. Три верхних признака — потребность, три нижних — возможность купить. Вердикт внизу.</p>
-
-  <div class="dx">
-    <div class="dxh">Потребность · решает ли программа его задачу</div>
-    <div class="dxr"><p>Назвал конкретную задачу или роль своими словами, не «просто интересно посмотреть»</p>
-      <div class="yn"><button class="y" onclick="dx('n1',1,this)">Да</button><button class="n" onclick="dx('n1',0,this)">Нет</button></div></div>
-    <div class="dxr"><p>Пробовал закрыть её сам — коучи, тренинги, найм, внутренние проекты — и не вышло</p>
-      <div class="yn"><button class="y" onclick="dx('n2',1,this)">Да</button><button class="n" onclick="dx('n2',0,this)">Нет</button></div></div>
-    <div class="dxr"><p>Его задача есть в таблице «Задача → спикер»: нашёлся модуль и конкретный человек</p>
-      <div class="yn"><button class="y" onclick="dx('n3',1,this)">Да</button><button class="n" onclick="dx('n3',0,this)">Нет</button></div></div>
-    <div class="dxh">Возможность · дойдёт ли до оплаты</div>
-    <div class="dxr"><p>Известно, кто решает и кто платит: он сам, компания или оба</p>
-      <div class="yn"><button class="y" onclick="dx('r1',1,this)">Да</button><button class="n" onclick="dx('r1',0,this)">Нет</button></div></div>
-    <div class="dxr"><p>Есть срок: назвал, когда принимает решение или после какого события</p>
-      <div class="yn"><button class="y" onclick="dx('r2',1,this)">Да</button><button class="n" onclick="dx('r2',0,this)">Нет</button></div></div>
-    <div class="dxr"><p>24 рабочих дня за год и выездные модули он в принципе может согласовать</p>
-      <div class="yn"><button class="y" onclick="dx('r3',1,this)">Да</button><button class="n" onclick="dx('r3',0,this)">Нет</button></div></div>
-  </div>
-
-  <div class="res"><div class="big" id="dv">Ответьте на шесть пунктов</div><p id="dt">Отмечено 0 из 6.</p><ul id="dl" style="display:none"></ul></div>
-
-  <h2>Ответ клиента → что это значит → куда вести</h2>
-  <div class="tw"><table>
-    <tr><th style="width:31%">Говорит</th><th style="width:22%">Диагноз</th><th>Куда вести</th></tr>
-    <tr><td class="q">«Смотрю MBA не как прокачать скиллы финдиректора, а именно как executive на позицию» <span class="id">365271</span></td>
-      <td><b>Следующий шаг</b><span class="reg">26%, самая частая</span></td>
-      <td>Коучинг под маршрут, <b>Стрелкова</b> <span class="mod">модуль 5</span> — финансы, <b>Друтько</b> <span class="mod">модуль 12</span> — защита решений. Кейс Волковой: повышение до диплома</td></tr>
-    <tr><td class="q">«Молодые руководители — я понимаю, что где-то вообще не догоняю. А вот это бесит» <span class="id">365337</span></td>
-      <td><b>Не отстать</b><span class="reg">21%</span></td>
-      <td><b>Чумак</b> <span class="mod">модуль 11</span> — нейросети, <b>Еремина</b> <span class="mod">модуль 2</span> — тренд-радар. Кейс Кузякова: нейросети на контроле качества</td></tr>
-    <tr><td class="q">«Запрос на лидерство для минус-1 и тренировку преемственности» <span class="id">365099</span></td>
-      <td><b>Обучить команду</b><span class="reg">16%, часто это HR</span></td>
-      <td><b>Коновалов</b> <span class="mod">модуль 4</span>, <b>Кукушкин</b> <span class="mod">модуль 4</span>. Кейс Исаева: учился вместе с исполнительным директором</td></tr>
-    <tr><td class="q">«Если идём в группу — кто там присутствует, что за состав?» <span class="id">365330</span></td>
-      <td><b>Среда</b><span class="reg">11%, покупает людей, а не контент</span></td>
-      <td>Состав группы по отраслям <mark>[данные от школы]</mark>. Кейс Кузякова: нетворк — 60–70% пользы. <b>MBA клуб не открывать</b></td></tr>
-    <tr><td class="q">«Немножко я перерос вот эту бумажку и галочку» <span class="id">365271</span></td>
-      <td><b>Диагноза ещё нет</b><span class="reg">это не возражение, а отсутствие задачи</span></td>
-      <td>Не спорить. Два вопроса: «Где и когда учились?» → «Какую задачу тот MBA так и не закрыл?» И дальше от ответа</td></tr>
-    <tr><td class="q">«Не проще ли нанять коучей в областях, где западаешь, а не тратить два года?» <span class="id">365147</span></td>
-      <td><b>Потребности нет</b><span class="reg">11%, пресыщенный</span></td>
-      <td>Проверить один раз вопросом 4. Если пробовал и его устраивает — не продавать. Оставить контакт и выйти</td></tr>
-  </table></div>
-
-  <h2>Когда честно сказать «вам сюда не надо»</h2>
-  <div class="b no"><div class="lbl">Не наш клиент</div><div><ul>
-    <li>«Я поставил бан на большие программы с обязательствами» <span class="id">365173</span> и «краткосрочные тренинги дают больший эффект» <span class="id">365110</span> — покупает формат, которого у нас нет</li>
-    <li>За весь звонок не названо ни одной своей задачи, только общий интерес</li>
-    <li>Задачи нет в таблице модулей, и подобрать спикера не получается</li>
-    <li>Второе явное «нет» — дальше только вопрос о причине или мягкий выход</li>
-  </ul></div></div>
-
-  <div class="b say" id="d9"><div class="lbl">Сказать</div><div>
-    <p>«Судя по тому, что вы рассказали, <em>вам сюда не надо</em> — года на программу это не стоит. Если задача поменяется, наберите, разберём».</p>
-    <p class="reg" style="color:var(--muted);font-size:13.5px">Это та же фраза, которой открывают разговор с «переросшими»: «Может оказаться, что вам сюда не надо — тогда я так и скажу». Она работает, потому что менеджер её действительно выполняет.</p>
-    <div class="row"><button class="btn" onclick="cp('d9',this)">Копировать</button></div>
-  </div></div>
-
-  <h2>Что должно остаться в CRM после звонка</h2>
-  <div class="b case"><div class="lbl">Пять строк</div><div><ul>
-    <li><b>Задача клиента его словами</b> — дословная цитата, не пересказ</li>
-    <li><b>Целевая роль или результат</b>, к которому он идёт</li>
-    <li><b>Кто решает и кто платит</b> + когда у него разговор с этим человеком</li>
-    <li><b>Модуль и спикер</b>, которыми закрывается задача</li>
-    <li><b>Дата следующего касания</b> — названная им, а не «перезвоню на неделе»</li>
-  </ul>
-  <p style="margin-top:9px;color:var(--muted);font-size:14px">Если заполнены не все пять — диагностики не было, и следующий звонок начнётся с нуля. Так потеряно 9 звонков подряд на «пришлите на почту» без даты.</p>
-  </div></div>
 </section>
 
 <!-- ═══ ЦЕНА ═══ -->
@@ -359,7 +224,7 @@ tr:hover td{background:#eae3d3}
   <div class="b say" id="s1"><div class="lbl">Сказать</div><div>
     <p>«Процент не назову — это будет выдумка. Считаем на вашей задаче: <em>какая у вас сейчас стоит такого масштаба, чтобы разобрать её в выпускном проекте?</em>»</p>
     <div class="row"><button class="btn" onclick="cp('s1',this)">Копировать</button>
-    <button class="btn pri" onclick="go(10)">Посчитать →</button></div>
+    <button class="btn pri" onclick="go(9)">Посчитать →</button></div>
   </div></div>
 </section>
 
@@ -389,7 +254,7 @@ tr:hover td{background:#eae3d3}
     <p>«Соберу одностраничник для собственника: <em>ваши рабочие дни, что получит компания, цена</em>. Когда у вас с ним разговор?»</p>
     <p>И сразу: «<em>Если не согласует — вы для себя рассматриваете?</em> Есть рассрочка и вычет».</p>
     <div class="row"><button class="btn" onclick="cp('s2',this)">Копировать</button>
-    <button class="btn pri" onclick="go(10)">Подобрать модуль под задачу →</button></div>
+    <button class="btn pri" onclick="go(9)">Подобрать модуль под задачу →</button></div>
   </div></div>
 </section>
 
@@ -621,7 +486,7 @@ tr:hover td{background:#eae3d3}
   <div class="b say" id="s12"><div class="lbl">Сказать</div><div>
     <p>«Деньги отбиваются не дипломом. Вы за год делаете <em>двенадцать рабочих артефактов по своей компании</em> — карту процессов, расчёт окупаемости, регламент делегирования. Один из них становится выпускным проектом с цифрой. Дальше это ваш кейс на переговорах о следующей роли».</p>
     <div class="row"><button class="btn" onclick="cp('s12',this)">Копировать</button>
-    <button class="btn pri" onclick="go(11)">Посчитать окупаемость →</button></div>
+    <button class="btn pri" onclick="go(10)">Посчитать окупаемость →</button></div>
   </div></div>
 </section>
 
@@ -764,7 +629,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="foot">
   <span>Разбор 223 звонков · кейсы — публичные интервью Forbes</span>
-  <span><a href="index.html">← ко всем материалам</a></span>
+  <span><a href="diagnostics.html">Диагностика клиента</a> · <a href="index.html">← ко всем материалам</a></span>
 </div>
 </div>
 
