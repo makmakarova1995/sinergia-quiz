@@ -4,13 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Отработка возражений топ-менеджеров — шпаргалка ОП</title>
-<!--
-  ШПАРГАЛКА ОП · наёмные топ-менеджеры (C-level и C-1, 35–50, компании 1–20 млрд)
-  Формат каждого блока: ГОВОРИТ → В ПРОГРАММЕ → КЕЙС → СКАЗАТЬ → НЕ ГОВОРИТЬ
-  Источник возражений: разбор 223 звонков. Кейсы: публичные интервью Forbes.
-  Плейсхолдеры школы: [так]
--->
+<title>Инфо для работодателя — MBA «Синергия»</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -19,20 +13,19 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Inter,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--ink);
   background:var(--beige);padding-bottom:92px}
-h1,h2,h4{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.06;font-weight:600}
+h1,h2{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.06;font-weight:600}
 h1{font-size:clamp(26px,4vw,44px);margin-bottom:8px}
 h2{font-size:clamp(19px,2.4vw,26px);margin:34px 0 12px}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   color:var(--red);margin-bottom:12px}
 .kicker::before{content:"";display:inline-block;width:24px;height:3px;background:var(--red);
   vertical-align:middle;margin-right:9px}
 mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:inherit}
 
-/* шапка */
 .bar{position:sticky;top:0;z-index:60;background:rgba(231,224,208,.96);backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line)}
-.bar-in{max-width:1000px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.bar-in{max-width:1180px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:8px;cursor:pointer}
 .logo-sq{width:27px;height:27px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;
   font-size:16px;display:flex;align-items:center;justify-content:center;border-radius:4px;flex:none}
@@ -44,56 +37,42 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
 .chip:hover{border-color:var(--red);color:var(--ink)}
 .chip.act{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
 
-/* слайды */
 .slide{display:none;padding:36px 0 24px;animation:f .22s ease}
 .slide.on{display:block}
 @keyframes f{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 
-/* блок «строка»: метка | контент */
+.tw{overflow-x:auto;background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:4px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:900px}
+th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;padding:11px 13px;border-bottom:1px solid var(--line)}
+td{padding:13px;border-bottom:1px solid #e0d9c7;vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#eae3d3}
+.reg{font-size:12.5px;color:var(--muted);display:block}
+.mod{display:inline-block;font-family:Oswald;font-size:12px;letter-spacing:.04em;color:#fff;
+  background:var(--red);border-radius:3px;padding:2px 7px;white-space:nowrap}
+.fig{font-family:Oswald;color:var(--red);font-size:17px}
+.case-c{background:#fffdf7}
+tr:hover .case-c{background:#f6efdf}
+
+.search{width:100%;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 15px;
+  font-size:15px;font-family:Inter;outline:none;margin-bottom:9px;color:var(--ink)}
+.search:focus{border-color:var(--red)}
+.warn{border:1px solid #e0bcb7;background:#fbeeec;border-radius:8px;padding:13px 17px;
+  font-size:14.5px;color:#7a3129;margin-top:12px}
+.warn b{color:var(--red)}
+
 .b{display:grid;grid-template-columns:132px 1fr;gap:18px;background:var(--cream);
   border:1px solid var(--line);border-radius:9px;padding:17px 20px;margin-bottom:9px}
 .b > .lbl{font-family:Oswald;text-transform:uppercase;font-size:13px;letter-spacing:.06em;
   color:var(--muted);padding-top:2px}
 .b.say{background:#fff;border-left:4px solid var(--red)}
 .b.say > .lbl{color:var(--red)}
-.b.no{background:#ece6d8}
 .b.case{background:#fff;border-left:4px solid var(--dark)}
-.b p{margin-bottom:6px}
-.b p:last-child{margin-bottom:0}
-.b .q,td.q{font-style:italic;color:#3f3b33}
 .b.say p{font-size:18px;line-height:1.5}
 .b.say em{font-style:normal;color:var(--red);font-weight:600}
-.id{font-style:normal;color:#8d8778;font-size:12.5px;white-space:nowrap}
-ul{list-style:none}
-li{position:relative;padding-left:17px;margin-bottom:6px}
-li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--red)}
-.no li::before{background:#b3aa96}
-.case li::before{background:var(--dark)}
-.mod{display:inline-block;font-family:Oswald;font-size:12px;letter-spacing:.04em;color:#fff;
-  background:var(--red);border-radius:3px;padding:2px 7px;margin-right:6px;white-space:nowrap}
 .sp{font-weight:600}
-.fig{font-family:Oswald;color:var(--red);font-size:19px}
 
-/* сетка плиток */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
-.tile{background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:18px 19px;
-  cursor:pointer;transition:.18s;position:relative}
-.tile:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.1);border-color:var(--red)}
-.tile h4{font-size:18px;margin-bottom:5px}
-.tile p{font-size:13.5px;color:var(--muted);line-height:1.4}
-.tile .pct{position:absolute;top:14px;right:17px;font-family:Oswald;font-size:24px;color:#cdc4ae}
-
-/* таблица */
-.tw{overflow-x:auto;background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:4px}
-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:620px}
-th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-  font-weight:700;padding:11px 13px;border-bottom:1px solid var(--line)}
-td{padding:12px 13px;border-bottom:1px solid #e0d9c7;vertical-align:top;line-height:1.45}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#eae3d3}
-.reg{font-size:12.5px;color:var(--muted);display:block}
-
-/* кнопки */
 .btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--line);
   color:var(--muted);border-radius:999px;padding:8px 16px;font-size:12.5px;cursor:pointer;
   font-family:Inter;transition:.15s}
@@ -101,7 +80,6 @@ tr:hover td{background:#eae3d3}
 .btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
 .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 
-/* калькулятор */
 .calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
 .fld label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
   margin-bottom:7px;font-weight:700}
@@ -112,45 +90,17 @@ tr:hover td{background:#eae3d3}
 .res .big{font-family:Oswald;text-transform:uppercase;font-size:clamp(25px,4.4vw,40px);line-height:1.06}
 .res .big u{text-decoration:none;color:#ff7b70}
 .res p{color:#cfc9bc;margin-top:10px;font-size:15px}
-.search{width:100%;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 15px;
-  font-size:15px;font-family:Inter;outline:none;margin-bottom:9px;color:var(--ink)}
-.search:focus{border-color:var(--red)}
-.warn{border:1px solid #e0bcb7;background:#fbeeec;border-radius:8px;padding:13px 17px;
-  font-size:14.5px;color:#7a3129;margin-top:12px}
-.warn b{color:var(--red)}
-
-/* диагностика */
-.dx{background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:4px 0;margin-bottom:9px}
-.dxh{font-family:Oswald;text-transform:uppercase;font-size:12.5px;letter-spacing:.09em;color:var(--muted);
-  padding:15px 18px 7px}
-.dxr{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:12px 18px;
-  border-bottom:1px solid #e0d9c7}
-.dx .dxr:last-child{border-bottom:none}
-.dxr p{font-size:15.5px;line-height:1.4}
-.yn{display:flex;gap:6px;flex:none}
-.yn button{font-family:Inter;font-size:13px;border:1px solid var(--line);background:#fff;color:var(--muted);
-  border-radius:999px;padding:7px 16px;cursor:pointer;transition:.15s}
-.yn button:hover{border-color:var(--red);color:var(--ink)}
-.yn button.y.on{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
-.yn button.n.on{background:var(--dark);border-color:var(--dark);color:#fff;font-weight:600}
-.res ul li::before{background:#ff7b70}
-.res ul{margin-top:12px}
-.res ul li{color:#cfc9bc;font-size:14.5px}
-.res ul li b{color:#fff}
-.qn{counter-reset:qn}
-.qn .b > .lbl{font-family:Oswald;font-size:21px;color:var(--red)}
 
 .nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:55}
 .nav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--cream);
   color:var(--ink);cursor:pointer;font-size:15px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
 .nav button:hover{border-color:var(--red);background:#fff}
-.foot{max-width:1000px;margin:26px auto 0;padding:16px 20px;border-top:1px solid var(--line);
+.foot{max-width:1180px;margin:26px auto 0;padding:16px 20px;border-top:1px solid var(--line);
   display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:8px}
 .foot a{color:var(--muted)}
 
 @media(max-width:700px){
   .b{grid-template-columns:1fr;gap:7px}
-  .b > .lbl{font-size:12px}
   .b.say p{font-size:16.5px}
   .chips{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}
 }
@@ -162,474 +112,137 @@ tr:hover td{background:#eae3d3}
 <div class="bar"><div class="bar-in">
   <div class="logo" onclick="go(0)">
     <span class="logo-sq">С</span>
-    <span class="logo-tx">Синергия<small>Возражения топов</small></span>
+    <span class="logo-tx">Синергия<small>Инфо для работодателя</small></span>
   </div>
   <div class="chips" id="chips"></div>
 </div></div>
 
 <div class="wrap">
 
-<!-- ═══ 0 ГЛАВНАЯ ═══ -->
-<section class="slide on" data-t="Главная">
-  <div class="kicker">Наёмные топ-менеджеры · C-level и C-1 · 35–50 лет · 1–20 млрд</div>
-  <h1>Говорит → факт из программы → кейс</h1>
-  <p style="color:var(--muted);max-width:700px;margin-bottom:8px">По разбору 223 звонков. Проценты — доля возражения у топов. Стрелки ← →.</p>
+<!-- ═══ 0 · ИНФО ДЛЯ РАБОТОДАТЕЛЯ ═══ -->
+<section class="slide on" data-t="Инфо для работодателя">
+  <div class="kicker">Задача → модуль → спикер → кто уже сделал</div>
+  <h1>Инфо для работодателя</h1>
 
-  <h2>Сначала диагноз</h2>
-  <div class="grid">
-    <div class="tile" onclick="location.href='diagnostics.html'"><h4>Диагностика клиента →</h4><p>восемь вопросов для звонка и проверка, надо ли ему MBA вообще. С этого начинается разговор — возражения ниже нужны уже после. Отдельная страница</p></div>
-  </div>
+  <input class="search" id="q" placeholder="Поиск: «процессы», «ФОТ», «Фридман», «нейросети», «продажи»…" oninput="flt()">
 
-  <h2>Возражения</h2>
-  <div class="grid">
-    <div class="tile" onclick="go(1)"><div class="pct">32%</div><h4>Дорого, какой эффект</h4><p>не закрывается в 81% случаев</p></div>
-    <div class="tile" onclick="go(2)"><div class="pct">32%</div><h4>Решаю не я, платит компания</h4><p>наверх ему нести нечего</p></div>
-    <div class="tile" onclick="go(3)"><div class="pct">21%</div><h4>Уже есть MBA</h4><p>не закрывается в 69%</p></div>
-    <div class="tile" onclick="go(4)"><div class="pct">16%</div><h4>Нет времени</h4><p>дни согласует работодатель</p></div>
-    <div class="tile" onclick="go(5)"><div class="pct">16%</div><h4>Не актуально сейчас</h4><p>теряют тёплых дожимом</p></div>
-  </div>
+  <div class="tw"><table id="tbl">
+    <tr>
+      <th style="width:16%">Задача компании</th>
+      <th style="width:14%">Модуль</th>
+      <th style="width:17%">Кто ведёт</th>
+      <th style="width:27%">Что сотрудник вынесет</th>
+      <th style="width:26%">У кого уже получилось</th>
+    </tr>
 
-  <h2>Боли и опора</h2>
-  <div class="grid">
-    <div class="tile" onclick="go(6)"><h4>Чего они хотят</h4><p>пять болей и чем закрывать</p></div>
-    <div class="tile" onclick="go(7)"><h4>Где отбить вложения</h4><p>разбор программы: что сделает у себя на работе в каждом из 12 модулей</p></div>
-    <div class="tile" onclick="go(8)"><h4>Кейсы</h4><p>пять выпускников с цифрами</p></div>
-    <div class="tile" onclick="go(9)"><h4>Задача → спикер</h4><p>12 связок, поиск</p></div>
-    <div class="tile" onclick="go(10)"><h4>Калькулятор</h4><p>окупаемость при клиенте</p></div>
-    <div class="tile" onclick="go(11)"><h4>Стоп-лист</h4><p>на чём плывут менеджеры</p></div>
-  </div>
-</section>
+    <tr><td><b>Сократить расходы на привлечение клиентов</b></td>
+      <td><span class="mod">модуль 10</span><span class="reg">Управление маркетингом</span></td>
+      <td><b>Сергей Худовеков</b><span class="reg">партнёр Paper Planes</span></td>
+      <td>Формула прибыли, расчёт ROMI, RFM-анализ базы, ценностно-стоимостная карта, CJM</td>
+      <td class="case-c"><b>Николай Кузяков</b>, «Ванюшкины сладости»<span class="reg">после модуля «Маркетинг» просмотры в соцсетях выросли <span class="fig">с 5 до 10 млн</span>, выросли продажи и узнаваемость</span></td></tr>
 
-<!-- ═══ ЦЕНА ═══ -->
-<section class="slide" data-t="Дорого">
-  <div class="kicker">32% · не закрывается в 81% случаев</div>
-  <h1>«Дорого, а какой эффект»</h1>
+    <tr><td><b>Навести порядок в процессах, убрать потери</b></td>
+      <td><span class="mod">модуль 7</span><span class="reg">Стратегия: рыночный анализ. Операционная стратегия</span></td>
+      <td><b>Андрей Коптелов</b><span class="reg">вице-президент российского отделения ABPMP</span></td>
+      <td>Дерево целей, КПР и источники данных для них, функционально-стоимостной анализ, моделирование и автоматизация процессов</td>
+      <td class="case-c"><b>Сергей Нищев</b>, гендиректор «Башинформсвязи»<span class="reg">дипломная работа по оптимизации процессов дала компании <span class="fig">200 млн ₽</span> экономии в год</span></td></tr>
 
-  <div class="b"><div class="lbl">Возражение</div><div>
-    <p>Не видит, что изменится за эти деньги и через сколько. Считает, что дешевле нанять коучей под конкретные пробелы.</p>
-  </div></div>
+    <tr><td><b>Разгрузить руководителей, перестать тащить всё на себе</b></td>
+      <td><span class="mod">модуль 3</span><span class="reg">Управление изменениями. Регулярный менеджмент</span></td>
+      <td><b>Александр Фридман</b><span class="reg">управляющий партнёр Amadeus Group</span></td>
+      <td>Технология делегирования и контроля: «нейтрализация обезьян», баланс между паранойей и попустительством</td>
+      <td class="case-c"><b>Андрей Исаев</b>, ДНКОМ (выручка 2,7 млрд)<span class="reg">пересобрал команду и перестроил найм, вывел процессы «на качественно иной уровень»</span></td></tr>
 
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li><span class="mod">модуль 5</span><span class="sp">Зоя Стрелкова</span>, ведущий финаналитик АРБ Про — ROI, дисконтирование денежных потоков, маржинальный анализ, анализ альтернатив</li>
-    <li><span class="mod">модуль 3</span><span class="sp">Сергей Худовеков</span>, партнёр Paper Planes — формула прибыли, расчёт ROMI, RFM-анализ базы</li>
-    <li><span class="mod">модуль 9</span><span class="sp">Андрей Коптелов</span>, вице-президент ABPMP — функционально-стоимостной анализ: где компания теряет деньги</li>
-    <li>Выпускной проект — по своей рабочей задаче, а не по учебному кейсу</li>
-  </ul></div></div>
+    <tr><td><b>Снизить долю ФОТ, переделать систему оплаты труда</b></td>
+      <td><span class="mod">модуль 2</span><span class="reg">HR-стратегия. Корпоративная культура</span></td>
+      <td><b>Андрей Коновалов</b><span class="reg">операционный директор, член советов директоров</span></td>
+      <td>HR-аналитика, выработка, доля ФОТ и экономика труда, система оплаты, нематериальная мотивация</td>
+      <td class="case-c"><b>Евгений Капьев</b>, гендиректор «Эксмо»<span class="reg">разработал свои методики отбора, мотивации и развития — люди, которых он по ним растил, сейчас на ключевых позициях</span></td></tr>
 
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Сергей Нищев</span>, гендиректор «Башинформсвязи»: дипломная по оптимизации процессов дала компании <span class="fig">200 млн ₽</span> экономии в год — окупилось за первый</li>
-    <li><span class="sp">Николай Кузяков</span>, «Ванюшкины сладости»: после модуля «Стратегии» — маржинальность <span class="fig">+5–7%</span></li>
-  </ul></div></div>
+    <tr><td><b>Защитить бюджет проекта перед советом директоров</b></td>
+      <td><span class="mod">модуль 6</span><span class="reg">Финансовые и инвестиционные стратегии</span></td>
+      <td><b>Зоя Стрелкова</b><span class="reg">ведущий финаналитик АРБ Про</span></td>
+      <td>ROI и дисконтирование денежных потоков, маржинальный анализ, анализ альтернатив, приборная панель проекта</td>
+      <td class="case-c"><b>Сергей Нищев</b>, «Башинформсвязь»<span class="reg">довёл проект до цифры, которую принял бизнес: <span class="fig">200 млн ₽</span> экономии в год, окупилось за первый</span></td></tr>
+
+    <tr><td><b>Собрать стратегию направления</b></td>
+      <td><span class="mod">модуль 7 и 11</span><span class="reg">Рыночный анализ и стратегическое управление</span></td>
+      <td><b>Сергей Макшанов</b><span class="reg">управляющий ГК «Институт Тренинга — АРБ Про»</span><b>Роман Копосов</b><span class="reg">«Стратегическое планирование» АРБ Про</span></td>
+      <td>Диагностика положения на рынке, «слабые сигналы», ёмкость и карта рынка, декомпозиция стратегии до подразделений</td>
+      <td class="case-c"><b>Николай Кузяков</b>, «Ванюшкины сладости»<span class="reg">после модуля «Стратегии» — план оптимизации всей производственной цепочки, маржинальность <span class="fig">+5–7%</span></span></td></tr>
+
+    <tr><td><b>Внедрить нейросети в процессы</b></td>
+      <td><span class="mod">модуль 8</span><span class="reg">Цифровая трансформация бизнеса</span></td>
+      <td><b>Сергей Чумак</b><span class="reg">руководитель комитета по стратегии Ассоциации практиков цифровизации</span></td>
+      <td>Как встроить нейросети в свои IT-продукты и процессы, цифровые модели, роботизация, блокчейн и ЦФА</td>
+      <td class="case-c"><b>Николай Кузяков</b>, «Ванюшкины сладости»<span class="reg">после модуля «Цифровизация» поставил нейросети на контроль санитарных норм и качества продукции</span></td></tr>
+
+    <tr><td><b>Провести изменения, которые буксуют</b></td>
+      <td><span class="mod">модуль 3</span><span class="reg">Управление изменениями. Регулярный менеджмент</span></td>
+      <td><b>Антон Толмаков</b><span class="reg">сертифицированный консультант Института Адизеса</span></td>
+      <td>PAEI, жизненный цикл организации и «болезни» роста, управление кросс-функциональными группами. <b>Отдельный сертификат Adizes Business Consulting</b></td>
+      <td class="case-c"><b>Андрей Исаев</b>, ДНКОМ<span class="reg">учился вместе с женой и исполнительным директором — изменения внедряли сразу всей верхушкой компании</span></td></tr>
+
+    <tr><td><b>Перестроить отдел продаж</b></td>
+      <td><span class="mod">модуль 4</span><span class="reg">Управление проектами. Управление продажами</span></td>
+      <td><b>Виталий Новиков</b><span class="reg">эксперт по продажам и клиентскому сервису</span></td>
+      <td>Модели продаж, вертикаль «анализ — планирование — контроль», комплектование подразделений, мотивация продавцов</td>
+      <td class="case-c"><b>Ольга Волкова</b>, «Газпромбанк Автолизинг»<span class="reg">во время учёбы организовала продажу изъятой техники → повышение до замдиректора департамента продаж</span></td></tr>
+
+    <tr><td><b>Запустить проектный офис</b></td>
+      <td><span class="mod">модуль 4</span><span class="reg">Управление проектами. Управление продажами</span></td>
+      <td><b>Всеволод Сафаров</b><span class="reg">эксперт по запуску проектного офиса</span></td>
+      <td>Жизненный цикл проекта, PMBoK против Agile, управление стоимостью, сроками, рисками и командой</td>
+      <td class="case-c"><b>Ольга Волкова</b>, «Газпромбанк Автолизинг»<span class="reg">довела крупный проект до результата ещё до получения диплома</span></td></tr>
+
+    <tr><td><b>Понять, куда рынок пойдёт через 5–10 лет</b></td>
+      <td><span class="mod">модуль 5</span><span class="reg">Трендвотчинг. Управленческая экономика</span></td>
+      <td><b>Ольга Еремина</b><span class="reg">основатель Pro-trendwatching</span></td>
+      <td>Сканирование трендов, отрасли-лакмусы, тренд-радар, видение будущего на 10 лет, макрориски и санкционное давление</td>
+      <td class="case-c"><b>Анастасия Юдицкая</b>, Pirouette<span class="reg">«Учёба в бизнес-школе помогла мне принять решение о выходе на зарубежные рынки» — открыла направление в ОАЭ</span></td></tr>
+
+    <tr><td><b>Научить защищать решения перед советом директоров</b></td>
+      <td><span class="mod">модуль 12</span><span class="reg">Навыки презентации и публичного выступления</span></td>
+      <td><b>Владислава Друтько</b><span class="reg">партнёр Школы бизнеса «Синергия»</span></td>
+      <td>Алгоритм подготовки к публичному выступлению, удержание внимания аудитории, убедительная речь</td>
+      <td class="case-c"><b>Денис Ременяко</b>, «ФК Гранд Капитал»<span class="reg">поставил публичные выступления — перешёл от импровизации к жёсткой структуре речи</span></td></tr>
+  </table></div>
+
+  <div class="warn">Если задачи компании в таблице нет — подобрать модуль под неё, а не предлагать программу целиком.
+  Кейсы публичные, из интервью Forbes, все с программы Executive MBA.<br>Нумерация и названия модулей — по официальному перечню <b>Foundation MBA</b> (12 модулей). Привязка спикеров к модулям собрана по темам: перед звонком сверить с расписанием потока.</div>
 
   <div class="b say" id="s1"><div class="lbl">Сказать</div><div>
-    <p>«Процент не назову — это будет выдумка. Считаем на вашей задаче: <em>какая у вас сейчас стоит такого масштаба, чтобы разобрать её в выпускном проекте?</em>»</p>
+    <p>«Деньги отбиваются не дипломом. Сотрудник за год делает <em>рабочие артефакты по вашей компании</em> — карту процессов, расчёт окупаемости, регламент делегирования. Один из них становится выпускным проектом с цифрой».</p>
     <div class="row"><button class="btn" onclick="cp('s1',this)">Копировать</button>
-    <button class="btn pri" onclick="go(9)">Посчитать →</button></div>
+    <button class="btn pri" onclick="go(1)">Посчитать окупаемость →</button></div>
   </div></div>
 </section>
 
-<!-- ═══ КОМПАНИЯ ═══ -->
-<section class="slide" data-t="Платит компания">
-  <div class="kicker">32%</div>
-  <h1>«Решаю не я, платит компания»</h1>
-
-  <div class="b"><div class="lbl">Возражение</div><div>
-    <p>Решение за собственником или HR. Сам он идти не готов, а наверх ему нести нечего.</p>
-  </div></div>
-
-  <div class="b"><div class="lbl">В программе</div><div>
-    <p style="margin-bottom:8px;color:var(--muted)">Что получает компания, кроме диплома сотрудника:</p><ul>
-    <li><span class="mod">модуль 10</span><span class="sp">Антон Толмаков</span>, сертифицированный консультант Института Адизеса — <span class="sp">отдельный сертификат Adizes Business Consulting</span> и система управления изменениями</li>
-    <li><span class="mod">модуль 9</span><span class="sp">Андрей Коптелов</span>, ABPMP — КПР, карта и регламенты процессов, автоматизация</li>
-    <li><span class="mod">модуль 4</span><span class="sp">Андрей Коновалов</span>, член советов директоров — доля ФОТ, экономика труда, система оплаты</li>
-    <li>Выпускной проект — по задаче его компании. 24 рабочих дня за год, сотрудник не выпадает</li>
-  </ul></div></div>
-
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Сергей Нищев</span>, «Башинформсвязь»: компания получила <span class="fig">200 млн ₽</span> экономии в год с его дипломного проекта</li>
-    <li><span class="sp">Андрей Исаев</span>, ДНКОМ (выручка 2,7 млрд): учился с исполнительным директором — пересобрали команду, KPI и найм сразу всей верхушкой</li>
-  </ul></div></div>
-
-  <div class="b say" id="s2"><div class="lbl">Сказать</div><div>
-    <p>«Соберу одностраничник для собственника: <em>ваши рабочие дни, что получит компания, цена</em>. Когда у вас с ним разговор?»</p>
-    <p>И сразу: «<em>Если не согласует — вы для себя рассматриваете?</em> Есть рассрочка и вычет».</p>
-    <div class="row"><button class="btn" onclick="cp('s2',this)">Копировать</button>
-    <button class="btn pri" onclick="go(9)">Подобрать модуль под задачу →</button></div>
-  </div></div>
-</section>
-
-<!-- ═══ УЖЕ ЕСТЬ MBA ═══ -->
-<section class="slide" data-t="Уже есть MBA">
-  <div class="kicker">21% · не закрывается в 69% случаев</div>
-  <h1>«Уже есть MBA, перерос корочку»</h1>
-
-  <div class="b"><div class="lbl">Возражение</div><div>
-    <p>Учился 10–15 лет назад, диплом как таковой не нужен. Не верит, что услышит что-то новое.</p>
-  </div></div>
-
-  <div class="b"><div class="lbl">В программе</div><div>
-    <p style="margin-bottom:8px;color:var(--muted)">Чего не было в его MBA десятилетней давности:</p><ul>
-    <li><span class="mod">модуль 11</span><span class="sp">Сергей Чумак</span>, руководитель комитета по стратегии Ассоциации практиков цифровизации — как встроить нейросети в свои IT-продукты и процессы, блокчейн и ЦФА</li>
-    <li><span class="mod">модуль 2</span><span class="sp">Ольга Еремина</span>, основатель Pro-trendwatching — сканирование трендов, тренд-радар, видение будущего на 10 лет</li>
-    <li><span class="mod">модуль 10</span><span class="sp">Александр Фридман</span>, Amadeus Group — делегирование и контроль: «нейтрализация обезьян», баланс между паранойей и попустительством</li>
-    <li><span class="mod">модуль 7</span><span class="sp">Сергей Макшанов</span>, АРБ Про — стратегия на российских кейсах и ограничениях, а не на западных</li>
-  </ul></div></div>
-
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Сергей Нищев</span>: «Строчка "выпускник Executive MBA" в резюме — это десятая причина идти на обучение. Главное — знания и навыки»</li>
-    <li><span class="sp">Евгений Капьев</span>, гендиректор «Эксмо»: на обучении оформилась идея издательства <span class="fig">«Бомбора»</span> и собственные методики развития людей</li>
-  </ul></div></div>
-
-  <div class="b say" id="s3"><div class="lbl">Сказать</div><div>
-    <p>Два вопроса: «<em>Где и когда учились?</em>» → «<em>Какую задачу тот MBA так и не закрыл?</em>» Дальше отвечать модулем и спикером под его ответ.</p>
-    <div class="row"><button class="btn" onclick="cp('s3',this)">Копировать</button></div>
-  </div></div>
-</section>
-
-<!-- ═══ НЕТ ВРЕМЕНИ ═══ -->
-<section class="slide" data-t="Нет времени">
-  <div class="kicker">16%</div>
-  <h1>«Нет времени»</h1>
-
-  <div class="b"><div class="lbl">Возражение</div><div>
-    <p>Рабочие дни согласует работодатель, выходные забирает семья. Выездной модуль читает как отдельную проблему.</p>
-  </div></div>
-
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li>12 модулей, 4 дня с четверга по воскресенье — <span class="sp">2 рабочих дня в месяц, 24 за год</span></li>
-    <li>Дубай — <span class="sp">один модуль из двенадцати</span></li>
-    <li><span class="mod">модуль 9</span><span class="sp">Андрей Коптелов</span> — карту процессов уносят с модуля готовой</li>
-    <li><span class="mod">модуль 10</span><span class="sp">Александр Фридман</span> — технологию делегирования применяют на следующей неделе</li>
-  </ul></div></div>
-
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Николай Кузяков</span>, «Ванюшкины сладости»: внедрял <span class="sp">после каждого модуля</span> — «Стратегии» → маржинальность <span class="fig">+5–7%</span>, «Цифровизация» → нейросети на контроле качества, «Маркетинг» → просмотры <span class="fig">5 → 10 млн</span></li>
-    <li><span class="sp">Ольга Волкова</span>, «Газпромбанк Автолизинг»: крупный проект запустила во время учёбы, повышение получила <span class="fig">до диплома</span></li>
-  </ul></div></div>
-
-  <div class="b say" id="s4"><div class="lbl">Сказать</div><div>
-    <p>«Два рабочих дня в месяц, 24 за год. <em>Что сложнее согласовать: рабочие дни или выходные?</em>»</p>
-    <div class="row"><button class="btn" onclick="cp('s4',this)">Копировать</button></div>
-  </div></div>
-</section>
-
-<!-- ═══ НЕ АКТУАЛЬНО ═══ -->
-<section class="slide" data-t="Не актуально">
-  <div class="kicker">16%</div>
-  <h1>«Не актуально сейчас»</h1>
-
-  <div class="b"><div class="lbl">Возражение</div><div>
-    <p>Сейчас надо действовать, а не учиться. Длинные программы с обязательствами не берёт.</p>
-  </div></div>
-
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li><span class="mod">модуль 2</span><span class="sp">Дмитрий Богданов</span> — санкционное давление, управление в неопределённой среде, базовый риск-менеджмент</li>
-    <li><span class="mod">модуль 10</span><span class="sp">Антон Толмаков</span>, Институт Адизеса — природа проблем и кризисов, диагностика и действия по оздоровлению</li>
-    <li>Программа идёт <span class="sp">год</span>, а не два. Старт ближайшего потока — <mark>[данные от школы]</mark></li>
-  </ul></div></div>
-
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Николай Кузяков</span>: результат пошёл с первых модулей — маржинальность <span class="fig">+5–7%</span></li>
-    <li><span class="sp">Ольга Волкова</span>: повышение <span class="fig">ещё до диплома</span></li>
-  </ul></div></div>
-
-  <div class="b say" id="s5"><div class="lbl">Сказать</div><div>
-    <p>«Уговаривать не буду. <em>Это "сейчас не до этого" или "вообще не надо"?</em> Если первое — когда вернуться?»</p>
-    <div class="row"><button class="btn" onclick="cp('s5',this)">Копировать</button></div>
-  </div></div>
-</section>
-
-<!-- ═══ БОЛИ ═══ -->
-<section class="slide" data-t="Боли">
-  <div class="kicker">С чем приходит наёмный топ</div>
-  <h1>Чего они хотят</h1>
-
-  <h2>1 · Следующий шаг — 26%</h2>
-  <div class="b"><div class="lbl">Хочет</div><div>
-    <p>Перейти в роль первого лица или возглавить направление. Не знает, с чего начать.</p>
-  </div></div>
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li><span class="sp">Индивидуальный коучинг</span>, 2 сессии по 1,5 часа — маршрут под целевую роль</li>
-    <li><span class="mod">модуль 5</span><span class="sp">Зоя Стрелкова</span>, АРБ Про — финансы для нефинансиста: отчётность, ROI, бюджетирование</li>
-    <li><span class="mod">модуль 12</span><span class="sp">Владислава Друтько</span> — как защищать свои решения перед советом директоров</li>
-  </ul></div></div>
-  <div class="b case"><div class="lbl">В кейсах</div><div>
-    <p><span class="sp">Ольга Волкова</span>, «Газпромбанк Автолизинг»: повышение до замдиректора департамента продаж <span class="fig">ещё до диплома</span>.</p>
-  </div></div>
-
-  <h2>2 · Не отстать — 21%</h2>
-  <div class="b"><div class="lbl">Хочет</div><div>
-    <p>Не отставать от молодых руководителей и от нейросетей. Чувствует, что методы управления устарели.</p>
-  </div></div>
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li><span class="mod">модуль 11</span><span class="sp">Сергей Чумак</span> — нейросети в процессах и IT-продуктах, роботизация, ЦФА</li>
-    <li><span class="mod">модуль 2</span><span class="sp">Ольга Еремина</span>, Pro-trendwatching — тренд-радар, видение будущего на 10 лет</li>
-    <li><span class="mod">модуль 9</span><span class="sp">Андрей Коптелов</span>, ABPMP — цифровизация и автоматизация процессов</li>
-  </ul></div></div>
-  <div class="b case"><div class="lbl">В кейсах</div><div>
-    <p><span class="sp">Николай Кузяков</span>: после модуля «Цифровизация» внедрил нейросети на контроль санитарных норм и качества продукции.</p>
-  </div></div>
-
-  <h2>3 · Обучить команду — 16%</h2>
-  <div class="b"><div class="lbl">Хочет</div><div>
-    <p>Вырастить минус-первых и кадровый резерв вместо дорогого найма с рынка.</p>
-  </div></div>
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li><span class="mod">модуль 4</span><span class="sp">Андрей Коновалов</span> — HR-аналитика, доля ФОТ, подбор и оценка персонала, мотивация «если денег нет»</li>
-    <li><span class="mod">модуль 4</span><span class="sp">Марк Кукушкин</span> — корпкультура, форматы корпоративного обучения</li>
-    <li><span class="mod">модуль 1</span><span class="sp">Владислава Друтько</span> — управление командой на разных этапах, модель компетенций руководителя</li>
-  </ul></div></div>
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Евгений Капьев</span>, «Эксмо»: свои методики отбора и развития — люди по ним выросли до ключевых позиций</li>
-    <li><span class="sp">Андрей Исаев</span>, ДНКОМ: учился командой, пересобрал команду и перестроил найм</li>
-  </ul></div></div>
-
-  <h2>4 · Среда и коллаборации — 11%</h2>
-  <div class="b"><div class="lbl">Хочет</div><div>
-    <p>Свериться с равными и найти партнёров под проект. Спрашивает состав группы.</p>
-  </div></div>
-  <div class="b"><div class="lbl">В программе</div><div><ul>
-    <li><span class="mod">модуль 1</span>Деловая игра «Москва Сити» — каждый получает должность и задание, разбор на живых решениях</li>
-    <li><span class="mod">модуль 12</span>Финальная бизнес-симуляция: конкурирующие команды ведут компанию через 7 игровых лет</li>
-    <li><span class="mod">модуль 6</span>Дубай — визиты в компании и встречи с предпринимателями, ведущими бизнес в ОАЭ</li>
-    <li>Состав и размер группы — <mark>[данные от школы]</mark></li>
-  </ul></div></div>
-  <div class="b case"><div class="lbl">В кейсах</div><div><ul>
-    <li><span class="sp">Николай Кузяков</span>: среди однокурсников нашёл поставщика сырья и партнёров по маркетингу — <span class="fig">60–70%</span> пользы обучения</li>
-    <li><span class="sp">Денис Ременяко</span>, «ФК Гранд Капитал»: стратегию e-commerce в фарме собрал из разбора с однокурсником — директором завода канатов</li>
-  </ul></div></div>
-
-  <h2>5 · Пресыщенные — 11%</h2>
-  <div class="b"><div class="lbl">Хочет</div><div>
-    <p>Ничего. Считает, что точечные коучи и короткие тренинги эффективнее. Рекламой не звать.</p>
-  </div></div>
-</section>
-
-<!-- ═══ РАЗБОР ПРОГРАММЫ ═══ -->
-<section class="slide" data-t="Где отбить вложения">
-  <div class="kicker">Разбор программы по модулям</div>
-  <h1>Что он сделает у себя<br>на работе</h1>
-  <p style="color:var(--muted);max-width:760px;margin-bottom:18px">Каждый модуль — не лекция, а рабочий артефакт, который участник забирает в свою компанию. Из них и складывается выпускной проект с цифрой и строчка в резюме.</p>
-
-  <div class="tw"><table>
-    <tr><th style="width:13%">Модуль</th><th style="width:22%">Кто ведёт</th><th style="width:33%">Что сделает у себя</th><th>Чем измеряется</th></tr>
-
-    <tr><td><span class="mod">1</span><br>Командообразование и лидерство</td>
-      <td><b>Антон Емельянов</b><span class="reg">Smart Creative Solutions</span><b>Владислава Друтько</b><span class="reg">партнёр Школы бизнеса</span></td>
-      <td>Модель компетенций своей команды, план работы с минус-первыми. На игре «Москва Сити» получает должность и задание — репетиция следующей роли</td>
-      <td>Готовый план развития замов</td></tr>
-
-    <tr><td><span class="mod">2</span><br>Трендвотчинг и управленческая экономика</td>
-      <td><b>Ольга Еремина</b><span class="reg">Pro-trendwatching</span><b>Дмитрий Богданов</b><span class="reg">макроэкономические исследования</span></td>
-      <td>Тренд-радар своей отрасли и видение на 10 лет. Карта макрорисков: санкционное давление, ставка, инфляция — как это бьёт по его компании</td>
-      <td>Документ, который несут на совет директоров</td></tr>
-
-    <tr><td><span class="mod">3</span><br>Маркетинг и digital</td>
-      <td><b>Сергей Худовеков</b><span class="reg">партнёр Paper Planes</span><b>Дмитрий Сендеров</b><span class="reg">группа STRONG</span><b>Дмитрий Юрков</b><span class="reg">Synergy Digital</span></td>
-      <td>Пересчитанный ROMI, RFM-сегментация базы, ценностно-стоимостная карта, CJM. Видно, где расходы на привлечение и удержание режутся</td>
-      <td><b>Прямая экономия бюджета</b></td></tr>
-
-    <tr><td><span class="mod">4</span><br>HR-стратегия и корпкультура</td>
-      <td><b>Андрей Коновалов</b><span class="reg">член советов директоров</span><b>Марк Кукушкин</b><span class="reg">лидерство и корпкультура</span></td>
-      <td>Пересчитанная доля ФОТ и экономика труда, новая система оплаты в своём подразделении, профили должностей</td>
-      <td><b>Экономия ФОТ в рублях</b></td></tr>
-
-    <tr><td><span class="mod">5</span><br>Финансы и инвестиции</td>
-      <td><b>Зоя Стрелкова</b><span class="reg">ведущий финаналитик АРБ Про</span><b>Демид Голиков</b><span class="reg">АРБ Про</span></td>
-      <td>Приборная панель своего проекта, расчёт окупаемости через ROI и дисконтирование, маржинальный анализ альтернатив</td>
-      <td>То, чем защищают бюджет наверху</td></tr>
-
-    <tr><td><span class="mod">6</span><br>Дубай, выездной</td>
-      <td><span class="reg">Кампус Школы бизнеса в ОАЭ</span></td>
-      <td>Визиты в компании, встречи с предпринимателями, ведущими бизнес в ОАЭ — если у компании есть планы на Ближний Восток</td>
-      <td>Контакты и понимание входа на рынок</td></tr>
-
-    <tr><td><span class="mod">7</span><br>Стратегическое управление</td>
-      <td><b>Сергей Макшанов</b><span class="reg">управляющий ГК «Институт Тренинга — АРБ Про»</span></td>
-      <td>Диагностика стратегического положения своей компании на рынке, работа со «слабыми сигналами», базовые стратегические выборы</td>
-      <td>Оценка «где мы на самом деле»</td></tr>
-
-    <tr><td><span class="mod">8</span><br>Рыночный анализ и проекты</td>
-      <td><b>Роман Копосов</b><span class="reg">«Стратегическое планирование» АРБ Про</span><b>Всеволод Сафаров</b><span class="reg">запуск проектного офиса</span></td>
-      <td>Практикум на своём рынке: ёмкость и карта рынка, декомпозиция стратегии до подразделений, пул стратегических проектов своей компании</td>
-      <td>Стратегия направления на бумаге</td></tr>
-
-    <tr><td><span class="mod">9</span><br>Операционная стратегия и процессы</td>
-      <td><b>Андрей Коптелов</b><span class="reg">вице-президент российского отделения ABPMP</span></td>
-      <td>Карта процессов, дерево целей, КПР с источниками данных, функционально-стоимостной анализ — где компания теряет деньги</td>
-      <td><b>Здесь Нищев нашёл 200 млн ₽ в год</b></td></tr>
-
-    <tr><td><span class="mod">10</span><br>Регулярный менеджмент и изменения</td>
-      <td><b>Александр Фридман</b><span class="reg">Amadeus Group</span><b>Антон Толмаков</b><span class="reg">Институт Адизеса</span></td>
-      <td>Регламент делегирования и контроля в своём подразделении. Диагностика «болезней» роста по Адизесу, система управления изменениями</td>
-      <td><b>Отдельный сертификат Adizes</b> в резюме</td></tr>
-
-    <tr><td><span class="mod">11</span><br>Инновации, цифра и продажи</td>
-      <td><b>Сергей Чумак</b><span class="reg">Ассоциация практиков цифровизации</span><b>Виталий Новиков</b><span class="reg">продажи и клиентский сервис</span></td>
-      <td>Нейросеть, встроенная в конкретный свой процесс или IT-продукт. Перестроенная вертикаль в отделе продаж и мотивация продавцов</td>
-      <td><b>Кузяков здесь поставил нейросети на контроль качества</b></td></tr>
-
-    <tr><td><span class="mod">12</span><br>Презентация и финальная симуляция</td>
-      <td><b>Владислава Друтько</b><span class="reg">партнёр Школы бизнеса</span><b>Антон Емельянов</b><span class="reg">игровые технологии</span></td>
-      <td>Отработанная защита своего решения перед советом директоров. В симуляции команды ведут компанию через 7 игровых лет до IPO</td>
-      <td>Навык, который видно на первой же защите</td></tr>
-  </table></div>
-
-  <h2>Из чего складывается его ценность на рынке</h2>
-  <div class="b case"><div class="lbl">На выходе</div><div><ul>
-    <li><span class="sp">Выпускной проект по своей компании с цифрой</span> — то, что показывают собственнику и на собеседовании в следующую роль</li>
-    <li><span class="sp">Сертификат Института Адизеса</span> — отдельный документ, кроме диплома MBA</li>
-    <li><span class="sp">Диплом о профпереподготовке</span> с квалификацией Master of Business Administration и европейским приложением Diploma Supplement</li>
-    <li><span class="sp">Круг однокурсников</span> — Кузяков оценивает его как 60–70% пользы обучения</li>
-  </ul></div></div>
-
-  <div class="b say" id="s12"><div class="lbl">Сказать</div><div>
-    <p>«Деньги отбиваются не дипломом. Вы за год делаете <em>двенадцать рабочих артефактов по своей компании</em> — карту процессов, расчёт окупаемости, регламент делегирования. Один из них становится выпускным проектом с цифрой. Дальше это ваш кейс на переговорах о следующей роли».</p>
-    <div class="row"><button class="btn" onclick="cp('s12',this)">Копировать</button>
-    <button class="btn pri" onclick="go(10)">Посчитать окупаемость →</button></div>
-  </div></div>
-</section>
-
-<!-- ═══ 7 КЕЙСЫ ═══ -->
-<section class="slide" data-t="Кейсы">
-  <div class="kicker">Публичные интервью Forbes · ссылки кликабельны</div>
-  <h1>Кейсы</h1>
-
-  <div class="tw"><table>
-    <tr><th style="width:19%">Кто</th><th style="width:16%">Цифра</th><th>Что сделал</th><th style="width:19%">Под какое возражение</th></tr>
-    <tr>
-      <td><b>Сергей Нищев</b><span class="reg">гендиректор «Башинформсвязи», группа «Ростелеком». 25 лет в найме</span></td>
-      <td><span class="fig">200 млн ₽</span><span class="reg">экономии в год</span></td>
-      <td>Дипломную сделал по своей компании — оптимизация процессов. Окупилось за первый год.<br>
-        «Строчка "выпускник Executive MBA" в резюме — десятая причина идти. Главное — знания и навыки»<br>
-        <a href="https://www.forbes.ru/club/559152-sergej-nisev-basinformsvaz-gendirektor-dolzen-byt-mnogozadacnym-i-effektivnym" target="_blank" rel="noopener">Forbes, март 2026 →</a></td>
-      <td>Дорого · Платит компания · Перерос корочку</td></tr>
-    <tr>
-      <td><b>Ольга Волкова</b><span class="reg">зам гендиректора «Газпромбанк Автолизинг». 10+ лет в найме</span></td>
-      <td><span class="fig">До диплома</span><span class="reg">получила повышение</span></td>
-      <td>«Не хватало компетенций для перехода на следующую должность». Проект по продаже изъятой техники запустила во время учёбы → повышение до замдиректора департамента продаж.<br>
-        <a href="https://www.forbes.ru/club/562142-ol-ga-volkova-gazprombank-avtolizing-biznes-ese-ne-prosnulsa" target="_blank" rel="noopener">Forbes, июнь 2026 →</a></td>
-      <td>Следующий шаг · Нет времени</td></tr>
-    <tr>
-      <td><b>Николай Кузяков</b><span class="reg">«Ванюшкины сладости»: 2+ млрд, 11 цехов, экспорт в 12 стран</span></td>
-      <td><span class="fig">+5–7%</span><span class="reg">маржинальности</span></td>
-      <td>Внедрял после каждого модуля: «Стратегии» → оптимизация производственной цепочки; «Цифровизация» → нейросети на контроле качества; «Маркетинг» → просмотры 5 → 10 млн. Поставщика сырья нашёл среди однокурсников.<br>
-        <a href="https://www.forbes.ru/club/partners/556451-dubajskij-sokolad-i-vkus-pihty-kak-ulavlivat-trendy-v-konditerskoj-otrasli" target="_blank" rel="noopener">Forbes, март 2026 →</a></td>
-      <td>Нет времени · Не отстать · Среда</td></tr>
-    <tr>
-      <td><b>Евгений Капьев</b><span class="reg">гендиректор издательства «Эксмо»</span></td>
-      <td><span class="fig">«Бомбора»</span><span class="reg">бренд родился на обучении</span></td>
-      <td>На обучении оформилась идея отдельного издательства. «Самый важный блок — управление командой»: свои методики отбора и развития, люди по ним выросли до ключевых позиций.<br>
-        <a href="https://www.forbes.ru/club/550321-glava-eksmo-evgenij-kap-ev-vokrug-knig-formiruetsa-edinaa-ekosistema" target="_blank" rel="noopener">Forbes, апрель 2026 →</a></td>
-      <td>Обучить команду · Перерос корочку</td></tr>
-    <tr>
-      <td><b>Андрей Исаев</b><span class="reg">сооснователь ДНКОМ, сеть лабораторий, 2,7 млрд</span></td>
-      <td><span class="fig">Командой</span><span class="reg">с исполнительным директором</span></td>
-      <td>Врач по образованию, управление держалось на интуиции. Учился вместе с женой и исполнительным директором — изменения внедряли сразу всей верхушкой: пересобрал команду, KPI, найм.<br>
-        <a href="https://www.forbes.ru/club/partners/557929-andrej-isaev-osnovatel-dnkom-ludi-vidat-cto-platnaa-medicina-effektivna" target="_blank" rel="noopener">Forbes, апрель 2026 →</a></td>
-      <td>Платит компания · Обучить команду</td></tr>
-  </table></div>
-
-  <div class="warn">Все — с программы <b>Executive MBA</b>. Кейсов Foundation в базе нет. Не умножать 200 млн на стоимость Foundation: это экономия компании Нищева, а не его доход.</div>
-</section>
-
-<!-- ═══ 8 СПИКЕРЫ ═══ -->
-<section class="slide" data-t="Задача → спикер">
-  <div class="kicker">Для разговора топа с руководителем</div>
-  <h1>Задача → модуль → спикер</h1>
-  <input class="search" id="q" placeholder="Поиск: «процессы», «ФОТ», «Фридман», «нейросети», «продажи»…" oninput="flt()">
-  <div class="tw"><table id="tbl">
-    <tr><th style="width:24%">Задача</th><th style="width:13%">Модуль</th><th style="width:25%">Кто ведёт</th><th>Что вынесет</th></tr>
-    <tr><td><b>Сократить расходы на привлечение клиентов</b></td><td><span class="mod">модуль 3</span></td>
-      <td><b>Сергей Худовеков</b><span class="reg">партнёр Paper Planes</span></td>
-      <td>Формула прибыли, ROMI, RFM-анализ, ценностно-стоимостная карта, CJM</td></tr>
-    <tr><td><b>Навести порядок в процессах</b></td><td><span class="mod">модуль 9</span></td>
-      <td><b>Андрей Коптелов</b><span class="reg">вице-президент рос. отделения ABPMP</span></td>
-      <td>Дерево целей, КПР, функционально-стоимостной анализ, моделирование и автоматизация процессов</td></tr>
-    <tr><td><b>Перестать тащить всё на себе</b></td><td><span class="mod">модуль 10</span></td>
-      <td><b>Александр Фридман</b><span class="reg">управляющий партнёр Amadeus Group</span></td>
-      <td>Делегирование и контроль, «нейтрализация обезьян», баланс между паранойей и попустительством</td></tr>
-    <tr><td><b>Снизить долю ФОТ, переделать оплату труда</b></td><td><span class="mod">модуль 4</span></td>
-      <td><b>Андрей Коновалов</b><span class="reg">операционный директор, член советов директоров</span></td>
-      <td>HR-аналитика, выработка, доля ФОТ, система оплаты, нематериальная мотивация</td></tr>
-    <tr><td><b>Защитить бюджет перед советом директоров</b></td><td><span class="mod">модуль 5</span></td>
-      <td><b>Зоя Стрелкова</b><span class="reg">ведущий финаналитик АРБ Про</span></td>
-      <td>ROI, дисконтирование потоков, маржинальный анализ, приборная панель проекта</td></tr>
-    <tr><td><b>Собрать стратегию своего направления</b></td><td><span class="mod">модуль 7 и 8</span></td>
-      <td><b>Сергей Макшанов</b><span class="reg">управляющий ГК «Институт Тренинга — АРБ Про»</span><b>Роман Копосов</b><span class="reg">рук. направления «Стратегическое планирование» АРБ Про</span></td>
-      <td>Диагностика положения на рынке, «слабые сигналы», ёмкость и карта рынка, декомпозиция стратегии до подразделений</td></tr>
-    <tr><td><b>Внедрить нейросети в процессы</b></td><td><span class="mod">модуль 11</span></td>
-      <td><b>Сергей Чумак</b><span class="reg">рук. комитета по стратегии Ассоциации практиков цифровизации</span></td>
-      <td>Нейросети в своих IT-продуктах и процессах, цифровые модели, роботизация, блокчейн и ЦФА</td></tr>
-    <tr><td><b>Провести изменения, которые буксуют</b></td><td><span class="mod">модуль 10</span></td>
-      <td><b>Антон Толмаков</b><span class="reg">сертиф. консультант Института Адизеса</span></td>
-      <td>PAEI, «болезни» роста, кросс-функциональные группы. <b>Сертификат Adizes</b> — отдельный результат для компании</td></tr>
-    <tr><td><b>Перестроить отдел продаж</b></td><td><span class="mod">модуль 11</span></td>
-      <td><b>Виталий Новиков</b><span class="reg">эксперт по продажам и клиентскому сервису</span></td>
-      <td>Модели продаж, вертикаль «анализ — планирование — контроль», комплектование, мотивация продавцов</td></tr>
-    <tr><td><b>Запустить проектный офис</b></td><td><span class="mod">модуль 8</span></td>
-      <td><b>Всеволод Сафаров</b><span class="reg">эксперт по запуску проектного офиса</span></td>
-      <td>Жизненный цикл проекта, PMBoK против Agile, управление стоимостью, сроками, рисками</td></tr>
-    <tr><td><b>Понять, куда рынок пойдёт через 5–10 лет</b></td><td><span class="mod">модуль 2</span></td>
-      <td><b>Ольга Еремина</b><span class="reg">основатель Pro-trendwatching</span></td>
-      <td>Сканирование трендов, отрасли-лакмусы, тренд-радар, видение будущего на 10 лет</td></tr>
-    <tr><td><b>Защищать решения перед советом директоров</b></td><td><span class="mod">модуль 12</span></td>
-      <td><b>Владислава Друтько</b><span class="reg">партнёр Школы бизнеса «Синергия»</span></td>
-      <td>Алгоритм подготовки к выступлению, удержание внимания, убедительная речь</td></tr>
-  </table></div>
-  <div class="warn">Если задачи клиента в таблице нет — подобрать модуль под неё, а не продавать программу целиком. На «мне нужно другое» отвечали «вам точно нужно идти именно на эту программу» — и теряли клиента.</div>
-</section>
-
-<!-- ═══ 9 КАЛЬКУЛЯТОР ═══ -->
+<!-- ═══ 1 · КАЛЬКУЛЯТОР ═══ -->
 <section class="slide" data-t="Калькулятор">
   <div class="kicker">Считать при клиенте, его цифрами</div>
   <h1>Окупаемость</h1>
-  <div class="b say" id="s9"><div class="lbl">Спросить</div><div>
+
+  <div class="b say" id="s2"><div class="lbl">Спросить</div><div>
     <p>«Какой у вас сейчас годовой доход? А в той роли, к которой готовитесь? Разница какая?»</p>
-    <div class="row"><button class="btn" onclick="cp('s9',this)">Копировать</button></div>
+    <div class="row"><button class="btn" onclick="cp('s2',this)">Копировать</button></div>
   </div></div>
+
   <div class="calc">
     <div class="fld"><label>Доход сейчас, млн ₽ / год</label><input id="c1" type="number" step="0.1" value="6" oninput="calc()"></div>
     <div class="fld"><label>Целевая роль, млн ₽ / год</label><input id="c2" type="number" step="0.1" value="9" oninput="calc()"></div>
     <div class="fld"><label>Стоимость, млн ₽</label><input id="c3" type="number" step="0.1" value="1.8" oninput="calc()"></div>
   </div>
   <div class="res"><div class="big" id="r1">—</div><p id="r2"></p></div>
-  <div class="b case" style="margin-top:14px"><div class="lbl">Второй способ</div><div>
-    <p>Считать через задачу: «Выпускной проект вы делаете по своей компании. У Нищева такой проект дал <span class="fig">200 млн</span> экономии в год. Какая задача такого масштаба есть у вас?»</p>
+
+  <div class="b case"><div class="lbl">Второй способ</div><div>
+    <p>Считать через задачу: «Выпускной проект делается по вашей компании. У Нищева такой проект дал <span class="fig">200 млн ₽</span> экономии в год. Какая задача такого масштаба есть у вас?»</p>
   </div></div>
 </section>
 
-<!-- ═══ 10 СТОП-ЛИСТ ═══ -->
-<section class="slide" data-t="Стоп-лист">
-  <div class="kicker">Проверки на экспертность</div>
-  <h1>Стоп-лист</h1>
-
-  <h2>На чём плывут</h2>
-  <div class="tw"><table>
-    <tr><th style="width:26%">Вопрос</th><th style="width:24%">Как отвечают сейчас</th><th>Что отвечать</th></tr>
-    <tr><td><b>«Какой фреймворк стратегии — Портер, System Thinking?»</b> <span class="id">365130</span></td>
-      <td>«По контенту не подскажу, это Александр Георгиевич»</td>
-      <td><b>Модуль 7</b>, Макшанов (АРБ Про): диагностика стратегического положения, «слабые сигналы». <b>Модуль 8</b>, Копосов: ёмкость и карта рынка, декомпозиция стратегии до подразделений</td></tr>
-    <tr><td><b>«Это реальные профессора или ваш слэнг?»</b> <span class="id">365364</span></td>
-      <td>«Или слэнг, или правда»</td>
-      <td><b>Толмаков</b> — Институт Адизеса + сертификат участникам; <b>Коптелов</b> — вице-президент ABPMP; <b>Худовеков</b> — Paper Planes; <b>Стрелкова</b> — АРБ Про</td></tr>
-    <tr><td><b>«Сколько человек в группе? Кто там?»</b> <span class="id">365113, 365330</span></td>
-      <td>35 / 45 / 46 — в разных звонках</td>
-      <td>Одна цифра на всех + состав по отраслям и долям. <mark>[данные от школы]</mark></td></tr>
-  </table></div>
-
-  <h2>Что работает</h2>
-  <div class="b case"><div class="lbl">В скрипт</div><div><ul>
-    <li>«Ничего продавать не буду, давайте просто покажу» → zoom в тот же день <span class="id">365329</span></li>
-    <li>Сколково — цифрами: «у них 24 преподавателя, у нас 60; у них 2 выезда, у нас 6 стран» <span class="id">365129, 365219</span></li>
-    <li>«Забронирую предварительно, за сутки напишу — нет так нет, перенесём» <span class="id">365191, 365116</span></li>
-    <li>Западный MBA — локальностью: «у нас российские кейсы, старые подходы устарели» <span class="id">365365, 365232</span></li>
-  </ul></div></div>
-</section>
-
 <div class="foot">
-  <span>Разбор 223 звонков · кейсы — публичные интервью Forbes</span>
-  <span><a href="diagnostics.html">Диагностика клиента</a> · <a href="index.html">← ко всем материалам</a></span>
+  <span>Кейсы — публичные интервью Forbes</span>
+  <span><a href="index.html">← ко всем материалам</a></span>
 </div>
 </div>
 
@@ -665,31 +278,6 @@ function calc(){const a=+document.getElementById('c1').value||0,b=+document.getE
   r1.innerHTML='Окупается за <u>'+t+'</u>';
   r2.innerHTML='Разница <b>+'+d.toFixed(1).replace('.',',')+' млн ₽ в год</b>. Дальше идёт каждый год, а не один раз.'}
 calc();
-const DX={},MISS={
-  n1:'Задачи нет. Вернуться к вопросу 3: «что должно измениться, чтобы туда попасть»',
-  n2:'Не проверено, пробовал ли он решать сам. Спросить вопрос 4 — иначе непонятно, чем MBA лучше коуча',
-  n3:'Модуль под его задачу не найден. Искать в таблице «Задача → спикер». Если нет — не наш клиент',
-  r1:'Неизвестно, кто платит. Спросить вопрос 6 до того, как названа цена',
-  r2:'Нет срока. Спросить вопрос 7 и записать дату, названную им',
-  r3:'Дни не проверены. Проговорить самому: 2 рабочих дня в месяц, 24 за год, и про Дубай'};
-function dx(k,v,btn){DX[k]=v;
-  [...btn.parentNode.children].forEach(b=>b.classList.remove('on'));btn.classList.add('on');dxsum()}
-function dxsum(){const N=['n1','n2','n3'],R=['r1','r2','r3'],all=[...N,...R];
-  const done=all.filter(k=>DX[k]!==undefined).length;
-  const n=N.filter(k=>DX[k]===1).length,r=R.filter(k=>DX[k]===1).length;
-  const v=document.getElementById('dv'),t=document.getElementById('dt'),l=document.getElementById('dl');
-  if(done<6){v.textContent='Ответьте на шесть пунктов';t.textContent='Отмечено '+done+' из 6.';
-    l.style.display='none';return}
-  const gaps=all.filter(k=>DX[k]===0);
-  if(n<=1){v.innerHTML='Не продавать <u>эту программу</u>';
-    t.innerHTML='Задачи, которую закрывает MBA, у него нет — год обучения он не окупит, а дожим стоит репутации школы. Сказать прямо и оставить контакт.';
-    l.style.display='none';return}
-  if(r>=2){v.innerHTML='Вести на <u>zoom</u>';
-    t.innerHTML='Потребность названа и путь к решению виден. Zoom в ближайшие дни, дек собрать под его задачу, окупаемость считать его цифрами.'}
-  else{v.innerHTML='Потребность есть, <u>пути нет</u>';
-    t.innerHTML='Работать не с программой, а с препятствием. Программу он уже принял — не пересказывать её заново.'}
-  if(gaps.length){l.style.display='';l.innerHTML=gaps.map(k=>'<li>'+MISS[k]+'</li>').join('')}
-  else{l.style.display='none'}}
 function flt(){const q=document.getElementById('q').value.toLowerCase().trim();
   [...document.querySelectorAll('#tbl tr')].slice(1).forEach(r=>{
     r.style.display=(!q||r.innerText.toLowerCase().includes(q))?'':'none'})}
