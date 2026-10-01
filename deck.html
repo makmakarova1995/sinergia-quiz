@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Персональная презентация — MBA Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#FF003D;--tx:#f2f2f2;--tx2:#b9b9b9;--tx3:#7a7a7a;--card:#1C1C1C;--line:#2c2c2c;
+  --serif:'Playfair Display','Times New Roman',Georgia,serif;
+  --sans:'Manrope','Inter',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;line-height:1.5}
+
+/* ── панель сборки (не печатается) ── */
+.panel{background:#161616;border-bottom:1px solid var(--line);padding:20px;position:sticky;top:0;z-index:99}
+.panel-in{max-width:1180px;margin:0 auto}
+.panel h2{font-family:var(--serif);font-size:19px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.panel .hint{color:var(--tx3);font-size:13px;margin-bottom:16px}
+.who{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.who input{background:#0d0d0d;border:1px solid var(--line);border-radius:7px;padding:10px 14px;
+  color:#fff;font-family:var(--sans);font-size:14px;min-width:230px;outline:none}
+.who input:focus{border-color:var(--red)}
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:7px;margin-bottom:16px}
+.pick{display:flex;gap:9px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+  border-radius:7px;padding:11px 13px;cursor:pointer;font-size:14px;color:var(--tx2);transition:.14s}
+.pick:hover{border-color:#444}
+.pick.on{border-color:var(--red);color:#fff;background:#1f1517}
+.pick input{accent-color:var(--red);margin-top:2px;flex:none}
+.acts{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.btn{background:transparent;border:1px solid var(--line);color:var(--tx2);border-radius:999px;
+  padding:9px 18px;font-size:13px;cursor:pointer;font-family:var(--sans);transition:.14s}
+.btn:hover{border-color:var(--red);color:#fff}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.cnt{color:var(--tx3);font-size:13px}
+
+/* ── слайды ── */
+.deck{max-width:1180px;margin:0 auto;padding:26px 20px 60px}
+.slide{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
+  border:1px solid #242424;border-radius:10px;padding:5.2% 6%;margin-bottom:18px;overflow:hidden;
+  display:flex;flex-direction:column}
+.slide .mark{position:absolute;top:4.4%;right:5%;width:30px;height:30px;border:2px solid var(--red);
+  display:flex;align-items:center;justify-content:center}
+.slide .mark::before{content:'❮';color:#fff;font-size:12px}
+.slide .ft{position:absolute;bottom:4%;left:6%;right:6%;display:flex;justify-content:space-between;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4a4a4a}
+.kick{color:var(--red);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.slide h1{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.04;
+  font-size:clamp(26px,3.6vw,50px)}
+.slide h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.08;
+  font-size:clamp(20px,2.5vw,34px);margin-bottom:18px}
+.slide h3{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);
+  font-weight:600;margin-bottom:9px}
+.quote{font-family:var(--serif);font-size:clamp(17px,2vw,27px);line-height:1.34;color:#fff;font-weight:500}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:3.4%;flex:1;min-height:0}
+.box{background:rgba(255,255,255,.035);border-left:2px solid var(--red);border-radius:5px;padding:3.4% 3.8%}
+.box.dim{border-left-color:#4a4a4a}
+.box p,.box li{font-size:clamp(11.5px,1.07vw,15px);color:var(--tx2);line-height:1.5}
+.box b{color:#fff;font-weight:600}
+ul{list-style:none}
+li{position:relative;padding-left:15px;margin-bottom:7px}
+li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--red)}
+.box.dim li::before{background:#555}
+.fig{font-family:var(--serif);color:var(--red);font-size:1.22em}
+.who-t{color:#fff;font-weight:600}
+.reg{display:block;color:var(--tx3);font-size:.86em}
+.modn{display:inline-block;font-family:var(--serif);font-size:.82em;letter-spacing:.06em;color:#fff;
+  background:var(--red);border-radius:3px;padding:1px 7px;margin-right:7px}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:1.6% 3.4%;flex:1;align-content:start}
+.mods div{font-size:clamp(10.5px,.98vw,14px);color:var(--tx2);padding:1.5% 0;border-bottom:1px solid #1e1e1e}
+.mods .no{font-family:var(--serif);color:var(--red);margin-right:9px}
+.teach{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4% 3%;flex:1;align-content:start}
+.teach div{font-size:clamp(10px,.92vw,13px);color:var(--tx3);line-height:1.38}
+.teach b{display:block;color:#fff;font-weight:600;font-size:1.1em;margin-bottom:3px;
+  font-family:var(--serif);text-transform:uppercase;letter-spacing:.02em}
+.empty{color:var(--tx3);text-align:center;padding:70px 20px;font-size:15px}
+
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff}
+  .panel,.noprint{display:none!important}
+  .deck{max-width:none;padding:0;margin:0}
+  .slide{border:none;border-radius:0;margin:0;page-break-after:always;break-after:page;
+    width:100vw;height:100vh;aspect-ratio:auto;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="panel noprint"><div class="panel-in">
+  <h2>Персональная презентация</h2>
+  <p class="hint">Отметьте задачи, которые клиент назвал на звонке. Презентация соберётся ниже: титул → по слайду на каждую задачу → все модули → преподаватели. Кнопка «Сохранить в PDF» открывает печать: выбрать «Сохранить как PDF», ориентация альбомная, фон включён.</p>
+  <div class="who">
+    <input id="nm" placeholder="Имя клиента" oninput="render()">
+    <input id="co" placeholder="Компания" oninput="render()">
+  </div>
+  <div class="picks" id="picks"></div>
+  <div class="acts">
+    <button class="btn pri" onclick="window.print()">Сохранить в PDF</button>
+    <button class="btn" onclick="all(true)">Отметить все</button>
+    <button class="btn" onclick="all(false)">Снять все</button>
+    <span class="cnt" id="cnt"></span>
+  </div>
+</div></div>
+
+<div class="deck" id="deck"></div>
+
+<script>
+const MODULES=[
+ 'Командообразование и лидерство',
+ 'Трендвотчинг. Управленческая экономика',
+ 'Управление маркетингом. Digital маркетинг',
+ 'HR-стратегия. Корпоративная культура',
+ 'Финансовые и инвестиционные стратегии',
+ 'Практика ведения бизнеса на рынках Ближнего Востока — выездной модуль в Дубае',
+ 'Стратегическое управление в условиях изменений. Интернет-стратегия',
+ 'Стратегия: рыночный анализ. Управление проектами',
+ 'Операционная стратегия и оптимизация бизнес-процессов',
+ 'Технологии регулярного менеджмента. Управление изменениями в организациях',
+ 'Инновации и цифровая трансформация. Управление продажами',
+ 'Навыки презентации и публичного выступления. Финальная бизнес-игра'
+];
+
+const TEACHERS=[
+ ['Сергей Макшанов','Эксперт по стратегии, управляющий ГК «Институт Тренинга — АРБ Про»'],
+ ['Александр Фридман','Эксперт по регулярному менеджменту, управляющий партнёр Amadeus Group'],
+ ['Андрей Коптелов','Вице-президент российского отделения ассоциации BPM-профессионалов'],
+ ['Антон Толмаков','Сертифицированный консультант Института Адизеса'],
+ ['Зоя Стрелкова','Ведущий финансовый аналитик, «Экономика компании» АРБ Про'],
+ ['Сергей Чумак','Независимый директор, комитет по стратегии Ассоциации практиков цифровизации'],
+ ['Андрей Коновалов','Операционный директор, член советов директоров ряда компаний'],
+ ['Марк Кукушкин','Эксперт по развитию лидерства и корпоративной культуры'],
+ ['Дмитрий Сендеров','Директор коммуникационной группы STRONG'],
+ ['Владислава Друтько','Партнёр Школы бизнеса «Синергия», лидерство и коммуникация'],
+ ['Дмитрий Богданов','Эксперт в области макроэкономических исследований'],
+ ['Дмитрий Юрков','Генеральный директор Synergy Digital'],
+ ['Ольга Еремина','Основатель Pro-trendwatching'],
+ ['Роман Копосов','Руководитель направления «Стратегическое планирование» АРБ Про'],
+ ['Всеволод Сафаров','Эксперт по запуску проектного офиса и операционной стратегии'],
+ ['Виталий Новиков','Эксперт по продажам и клиентскому сервису']
+];
+
+const ITEMS=[
+{k:'roi',t:'Сократить расходы на привлечение клиентов',
+ q:'«Маркетинг съедает бюджет, а я не могу показать, что из него работает»',
+ ch:['Перестаёте платить за всех клиентов одинаково: видно, какие сегменты приносят прибыль, а какие съедают бюджет',
+     'Реклама и скидки перераспределяются по сегментам — стоимость привлечения падает',
+     'Есть расчёт, который можно принести собственнику вместо «кажется, стало лучше»'],
+ mods:[[3,'Худовеков, Сендеров, Юрков']],
+ who:[['Сергей Худовеков','партнёр агентства Paper Planes'],['Дмитрий Сендеров','коммуникационная группа STRONG']],
+ case:'<b>Николай Кузяков</b>, «Ванюшкины сладости» (2+ млрд, 11 цехов): после модуля по маркетингу просмотры в соцсетях выросли <span class="fig">с 5 до 10 млн</span>, за ними выросли продажи и узнаваемость'},
+
+{k:'proc',t:'Навести порядок в процессах, убрать потери',
+ q:'«Компания выросла, а управление осталось ручным — потери большие»',
+ ch:['Процессы описаны и измеряются: видно, на каком шаге теряются деньги и время',
+     'Появляются показатели, по которым можно спросить с руководителей, а не разбираться вручную',
+     'Часть операций уходит в автоматизацию и перестаёт зависеть от конкретных людей'],
+ mods:[[9,'Коптелов']],
+ who:[['Андрей Коптелов','вице-президент российского отделения ABPMP']],
+ case:'<b>Сергей Нищев</b>, гендиректор «Башинформсвязи»: дипломную работу сделал по своей компании — оптимизация процессов дала <span class="fig">200 млн ₽</span> экономии в год, обучение окупилось за первый'},
+
+{k:'deleg',t:'Разгрузить руководителей, перестать тащить всё на себе',
+ q:'«Всё держится на мне, делегирую — приходится переделывать»',
+ ch:['Задачи уходят вниз и возвращаются сделанными — без доделывания за подчинёнными',
+     'Есть правило, как ставить задачу и как контролировать, чтобы не скатиться в микроменеджмент',
+     'Высвобождается время на то, за что с вас спрашивают на самом деле'],
+ mods:[[10,'Фридман']],
+ who:[['Александр Фридман','управляющий партнёр Amadeus Group']],
+ case:'<b>Андрей Исаев</b>, ДНКОМ (выручка 2,7 млрд): управление держалось на интуиции — пересобрал команду, KPI и найм, вывел процессы «на качественно иной уровень»'},
+
+{k:'fot',t:'Снизить долю ФОТ, переделать систему оплаты труда',
+ q:'«Фонд оплаты растёт быстрее выработки, а платить меньше нечем»',
+ ch:['Понятно, сколько компания платит за результат, а не за присутствие',
+     'Оплата труда пересобрана так, что фонд не обгоняет выработку',
+     'Есть инструменты мотивации, когда поднимать оклады нельзя'],
+ mods:[[4,'Коновалов, Кукушкин']],
+ who:[['Андрей Коновалов','операционный директор, член советов директоров'],['Марк Кукушкин','лидерство и корпоративная культура']],
+ case:'<b>Евгений Капьев</b>, гендиректор «Эксмо»: разработал собственные методики отбора, мотивации и развития — люди, которых он по ним растил, сейчас на ключевых позициях'},
+
+{k:'budget',t:'Защитить бюджет проекта перед советом директоров',
+ q:'«Прихожу с инициативой, а меня разворачивают: не доказал»',
+ ch:['На совет приходите с расчётом, а не с просьбой: сколько стоит, когда окупается, что будет, если не делать',
+     'Есть приборная панель проекта — статус виден без отдельных совещаний',
+     'Альтернативы просчитаны, и решение защищается цифрой'],
+ mods:[[5,'Стрелкова, Голиков']],
+ who:[['Зоя Стрелкова','ведущий финансовый аналитик АРБ Про'],['Демид Голиков','эксперт по инвестиционной стратегии, АРБ Про']],
+ case:'<b>Сергей Нищев</b>: довёл проект до цифры, которую принял бизнес — <span class="fig">200 млн ₽</span> экономии в год'},
+
+{k:'strat',t:'Собрать стратегию направления',
+ q:'«План есть — "вырасти на 20%", а как именно, никто не знает»',
+ ch:['Вместо плана процентом — картина рынка и шаги, разложенные по подразделениям',
+     'Каждый руководитель знает, какую часть цифры закрывает он',
+     'Видно, где компания на рынке на самом деле и за счёт чего растёт'],
+ mods:[[7,'Макшанов'],[8,'Копосов']],
+ who:[['Сергей Макшанов','управляющий ГК «Институт Тренинга — АРБ Про»'],['Роман Копосов','«Стратегическое планирование» АРБ Про']],
+ case:'<b>Николай Кузяков</b>: после модуля по стратегии — план оптимизации всей производственной цепочки, маржинальность <span class="fig">+5–7%</span>'},
+
+{k:'ai',t:'Внедрить нейросети в процессы',
+ q:'«Все внедряют ИИ, а я не понимаю, куда его у нас девать»',
+ ch:['Нейросети стоят на конкретных операциях, а не «изучаются»',
+     'Часть рутины уходит из людей в систему, и видно, сколько это сэкономило',
+     'Есть свой план цифровизации, а не набор чужих кейсов'],
+ mods:[[11,'Чумак']],
+ who:[['Сергей Чумак','независимый директор, комитет по стратегии Ассоциации практиков цифровизации']],
+ case:'<b>Николай Кузяков</b>: после модуля по цифровизации поставил нейросети на контроль санитарных норм и качества продукции на производстве'},
+
+{k:'change',t:'Провести изменения, которые буксуют',
+ q:'«Решение приняли, а через месяц всё вернулось как было»',
+ ch:['Изменения перестают глохнуть на середине: видно, кто сопротивляется и почему',
+     'Есть способ проводить решения через подразделения, которые друг с другом не дружат',
+     'На руках сертификат Института Адизеса — отдельный документ, кроме диплома'],
+ mods:[[10,'Толмаков']],
+ who:[['Антон Толмаков','сертифицированный консультант Института Адизеса, Certified Adizes Associate']],
+ case:'<b>Андрей Исаев</b>, ДНКОМ: учился вместе с исполнительным директором — изменения внедряли сразу всей верхушкой компании, а не «после выпуска»'},
+
+{k:'sales',t:'Перестроить отдел продаж',
+ q:'«Продажи держатся на двух людях, уйдут — встанем»',
+ ch:['Есть процесс, по которому работает весь отдел, а не только сильные продавцы',
+     'Мотивация считается так, что не разоряет компанию',
+     'Понятно, кого и под какие задачи набирать'],
+ mods:[[11,'Новиков']],
+ who:[['Виталий Новиков','эксперт по продажам и клиентскому сервису']],
+ case:'<b>Ольга Волкова</b>, «Газпромбанк Автолизинг»: во время учёбы организовала продажу изъятой техники — и получила повышение до замдиректора департамента продаж <span class="fig">ещё до диплома</span>'},
+
+{k:'pmo',t:'Запустить проектный офис',
+ q:'«Проекты идут как получится, сроки плывут у всех»',
+ ch:['Сроки, бюджеты и ответственные зафиксированы',
+     'Заранее видно, какой проект поедет, а какой нет',
+     'Риски считаются до старта, а не после срыва'],
+ mods:[[8,'Сафаров']],
+ who:[['Всеволод Сафаров','эксперт по запуску проектного офиса и операционной стратегии']],
+ case:'<b>Ольга Волкова</b>: довела крупный проект до результата ещё в период обучения'},
+
+{k:'trend',t:'Понять, куда рынок пойдёт через 5–10 лет',
+ q:'«Решения принимаем по вчерашним данным, рынок разворачивается быстрее»',
+ ch:['Есть свой набор сигналов, по которым разворот рынка виден раньше, чем по отчётам',
+     'Тренд-радар отрасли и смежных — куда идут деньги в ближайшие годы',
+     'Макрориски — ставка, инфляция, санкции — учтены в решениях'],
+ mods:[[2,'Еремина, Богданов']],
+ who:[['Ольга Еремина','основатель Pro-trendwatching'],['Дмитрий Богданов','эксперт по макроэкономическим исследованиям']],
+ case:'<b>Анастасия Юдицкая</b>, Pirouette: «Учёба в бизнес-школе помогла мне принять решение о выходе на зарубежные рынки» — открыла направление в ОАЭ'},
+
+{k:'speak',t:'Научиться защищать решения перед советом директоров',
+ q:'«Идея нормальная, но донести так, чтобы согласовали, не получается»',
+ ch:['Выступление готовится по структуре, а не на импровизации',
+     'Внимание зала удерживается до конца, решение доводится до утверждения',
+     'Есть алгоритм подготовки к любому публичному выступлению'],
+ mods:[[12,'Друтько']],
+ who:[['Владислава Друтько','партнёр Школы бизнеса «Синергия», лидерство и коммуникация']],
+ case:'<b>Денис Ременяко</b>, «ФК Гранд Капитал»: поставил публичные выступления — перешёл от импровизации к жёсткой структуре речи'}
+];
+
+const sel=new Set();
+
+function picks(){
+  document.getElementById('picks').innerHTML=ITEMS.map(it=>
+    `<label class="pick${sel.has(it.k)?' on':''}" data-k="${it.k}">
+      <input type="checkbox" ${sel.has(it.k)?'checked':''} onchange="tog('${it.k}')">
+      <span>${it.t}</span></label>`).join('');
+  document.getElementById('cnt').textContent=sel.size?`Слайдов: ${sel.size+3}`:'Ничего не отмечено';
+}
+function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
+function all(v){sel.clear();if(v)ITEMS.forEach(i=>sel.add(i.k));picks();render()}
+
+function ft(n){
+  return `<div class="ft"><span>MBA Foundation · Школа бизнеса «Синергия»</span><span>${n}</span></div><div class="mark"></div>`;
+}
+
+function render(){
+  const nm=document.getElementById('nm').value.trim();
+  const co=document.getElementById('co').value.trim();
+  const list=ITEMS.filter(i=>sel.has(i.k));
+  const d=document.getElementById('deck');
+  if(!list.length){d.innerHTML='<p class="empty noprint">Отметьте задачи клиента выше — презентация соберётся здесь.</p>';return}
+
+  let n=0, out='';
+
+  // 1 · титул
+  n++;
+  out+=`<section class="slide">${ft(n)}
+    <div style="margin:auto 0">
+      <div class="kick">Школа бизнеса «Синергия» · с 1988 года</div>
+      <h1>MBA<br>Foundation</h1>
+      <p style="color:var(--tx2);margin-top:18px;max-width:62%;font-size:clamp(12px,1.15vw,16px)">
+        Первая ступень бизнес-образования для топ-менеджеров и собственников.
+        12 модулей, выездной модуль в Дубае, индивидуальный коучинг.</p>
+      ${(nm||co)?`<p style="margin-top:24px;font-family:var(--serif);font-size:clamp(14px,1.5vw,21px);color:#fff">
+        ${nm?nm:''}${nm&&co?' · ':''}${co?co:''}</p>`:''}
+    </div></section>`;
+
+  // 2..N · по слайду на задачу
+  list.forEach(it=>{
+    n++;
+    const mods=it.mods.map(m=>`<li><span class="modn">модуль ${m[0]}</span>${MODULES[m[0]-1]}<span class="reg">${m[1]}</span></li>`).join('');
+    const who=it.who.map(w=>`<li><span class="who-t">${w[0]}</span><span class="reg">${w[1]}</span></li>`).join('');
+    out+=`<section class="slide">${ft(n)}
+      <div class="kick">Задача</div>
+      <h2>${it.t}</h2>
+      <p class="quote" style="margin-bottom:3.4%">${it.q}</p>
+      <div class="cols">
+        <div class="box">
+          <h3>Что поменяется в работе</h3>
+          <ul>${it.ch.map(c=>`<li>${c}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <div class="box dim" style="margin-bottom:3%">
+            <h3>Где в программе</h3>
+            <ul>${mods}${who}</ul>
+          </div>
+          <div class="box">
+            <h3>У кого уже получилось</h3>
+            <p>${it.case}</p>
+          </div>
+        </div>
+      </div></section>`;
+  });
+
+  // N+1 · все модули
+  n++;
+  out+=`<section class="slide">${ft(n)}
+    <div class="kick">Программа целиком</div>
+    <h2>12 модулей</h2>
+    <div class="mods">${MODULES.map((m,i)=>
+      `<div><span class="no">${String(i+1).padStart(2,'0')}</span>${m}</div>`).join('')}</div>
+    </section>`;
+
+  // N+2 · преподаватели
+  n++;
+  out+=`<section class="slide">${ft(n)}
+    <div class="kick">Практики, а не теоретики</div>
+    <h2>Преподаватели</h2>
+    <div class="teach">${TEACHERS.map(t=>`<div><b>${t[0]}</b>${t[1]}</div>`).join('')}</div>
+    </section>`;
+
+  d.innerHTML=out;
+}
+
+// подхват отметок из диагностики
+try{
+  const pre=JSON.parse(localStorage.getItem('deckPicks')||'[]');
+  pre.forEach(k=>sel.add(k));
+}catch(e){}
+const qs=new URLSearchParams(location.search);
+if(qs.get('p'))qs.get('p').split(',').filter(Boolean).forEach(k=>sel.add(k));
+if(qs.get('nm'))document.addEventListener('DOMContentLoaded',()=>document.getElementById('nm').value=qs.get('nm'));
+
+picks();render();
+</script>
+</body>
+</html>
