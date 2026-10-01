@@ -15,29 +15,32 @@
 body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;line-height:1.5}
 
 /* ── панель сборки (не печатается) ── */
-.panel{background:#161616;border-bottom:1px solid var(--line);padding:20px;position:sticky;top:0;z-index:99}
-.panel-in{max-width:1180px;margin:0 auto}
-.panel h2{font-family:var(--serif);font-size:19px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
-.panel .hint{color:var(--tx3);font-size:13px;margin-bottom:16px}
-.who{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.who input{background:#0d0d0d;border:1px solid var(--line);border-radius:7px;padding:10px 14px;
-  color:#fff;font-family:var(--sans);font-size:14px;min-width:230px;outline:none}
+.panel{background:#161616;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:99}
+.panel-in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.panel .ttl{font-family:var(--serif);font-size:13px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--tx2);white-space:nowrap}
+.who{display:flex;gap:7px;flex-wrap:wrap}
+.who input{background:#0d0d0d;border:1px solid var(--line);border-radius:6px;padding:7px 11px;
+  color:#fff;font-family:var(--sans);font-size:13px;width:140px;outline:none}
 .who input:focus{border-color:var(--red)}
-.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:7px;margin-bottom:16px}
-.pick{display:flex;gap:9px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
-  border-radius:7px;padding:11px 13px;cursor:pointer;font-size:14px;color:var(--tx2);transition:.14s}
+.acts{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-left:auto}
+.btn{background:transparent;border:1px solid var(--line);color:var(--tx2);border-radius:999px;
+  padding:7px 15px;font-size:12.5px;cursor:pointer;font-family:var(--sans);transition:.14s;white-space:nowrap}
+.btn:hover{border-color:var(--red);color:#fff}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.cnt{color:var(--tx3);font-size:12.5px;white-space:nowrap}
+.cnt b{color:#fff}
+.drawer{max-width:1180px;margin:0 auto;padding:0 20px;overflow:hidden;max-height:0;transition:max-height .22s ease}
+.drawer.open{max-height:460px;overflow-y:auto;padding-bottom:14px}
+.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px;padding-top:4px}
+.pick{display:flex;gap:8px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+  border-radius:6px;padding:9px 11px;cursor:pointer;font-size:13px;color:var(--tx2);transition:.14s}
 .pick:hover{border-color:#444}
 .pick.on{border-color:var(--red);color:#fff;background:#1f1517}
 .pick input{accent-color:var(--red);margin-top:2px;flex:none}
-.acts{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.btn{background:transparent;border:1px solid var(--line);color:var(--tx2);border-radius:999px;
-  padding:9px 18px;font-size:13px;cursor:pointer;font-family:var(--sans);transition:.14s}
-.btn:hover{border-color:var(--red);color:#fff}
-.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
-.cnt{color:var(--tx3);font-size:13px}
 
 /* ── слайды ── */
-.deck{max-width:1180px;margin:0 auto;padding:26px 20px 60px}
+.deck{max-width:1180px;margin:0 auto;padding:16px 20px 50px}
 .slide{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
   border:1px solid #242424;border-radius:10px;padding:5.2% 6%;margin-bottom:18px;overflow:hidden;
   display:flex;flex-direction:column}
@@ -91,20 +94,20 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
 <body>
 
 <div class="panel noprint"><div class="panel-in">
-  <h2>Персональная презентация</h2>
-  <p class="hint">Отметьте задачи, которые клиент назвал на звонке. Презентация соберётся ниже: титул → по слайду на каждую задачу → все модули → преподаватели. Кнопка «Сохранить в PDF» открывает печать: выбрать «Сохранить как PDF», ориентация альбомная, фон включён.</p>
+  <span class="ttl">Презентация для работодателя</span>
   <div class="who">
     <input id="nm" placeholder="Имя клиента" oninput="render()">
     <input id="co" placeholder="Компания" oninput="render()">
   </div>
-  <div class="picks" id="picks"></div>
   <div class="acts">
-    <button class="btn pri" onclick="window.print()">Сохранить в PDF</button>
-    <button class="btn" onclick="all(true)">Отметить все</button>
-    <button class="btn" onclick="all(false)">Снять все</button>
     <span class="cnt" id="cnt"></span>
+    <button class="btn" onclick="dr()">Задачи ▾</button>
+    <button class="btn" onclick="all(true)">Все</button>
+    <button class="btn" onclick="all(false)">Снять</button>
+    <button class="btn pri" onclick="window.print()">Сохранить в PDF</button>
   </div>
-</div></div>
+</div>
+<div class="drawer" id="drawer"><div class="picks" id="picks"></div></div></div>
 
 <div class="deck" id="deck"></div>
 
@@ -162,7 +165,7 @@ const ITEMS=[
  who:[['Андрей Коптелов','вице-президент российского отделения ABPMP']],
  case:'<b>Сергей Нищев</b>, гендиректор «Башинформсвязи» (группа «Ростелеком»). Дипломную работу сделал не в стол, а по своей компании — проект оптимизации бизнес-процессов дал <span class="fig">200 млн ₽</span> экономии в год, обучение окупилось за первый'},
 
-{k:'deleg',t:'Разгрузить руководителей, перестать тащить всё на себе',
+{k:'deleg',t:'Выстроить делегирование в подразделении',
  q:'«Мои руководители тащат всё на себе и не выходят из операционки»',
  ch:['<b>Научится</b> делегировать и контролировать без скатывания в микроменеджмент',
      '<b>В работе:</b> задачи уходят вниз и возвращаются сделанными, подразделение работает без него',
@@ -225,15 +228,6 @@ const ITEMS=[
  who:[['Виталий Новиков','эксперт по продажам и клиентскому сервису']],
  case:'<b>Ольга Волкова</b>, «Газпромбанк Автолизинг». Во время учёбы запустила проект по продаже изъятой лизинговой техники — направление, которое до этого не было выстроено. По итогам получила повышение до заместителя директора департамента продаж'},
 
-{k:'pmo',t:'Запустить проектный офис',
- q:'«Проекты срывают сроки, и я узнаю об этом последним»',
- ch:['<b>Научится</b> вести портфель проектов: сроки, бюджеты, риски, команда, PMBoK и Agile',
-     '<b>В работе:</b> заранее показывает, какой проект поедет, а какой надо закрыть до вложений',
-     '<b>Деньги компании:</b> меньше сорванных сроков и замороженных проектов'],
- mods:[[8,'Сафаров']],
- who:[['Всеволод Сафаров','запуск проектных офисов, операционная стратегия']],
- case:'<b>Ольга Волкова</b>, «Газпромбанк Автолизинг»: 10+ лет в лизинге и банках, не хватало стратегического видения для следующей должности. Довела крупный проект по продаже изъятой техники до результата <span class="fig">ещё до получения диплома</span>'},
-
 {k:'trend',t:'Понять, куда рынок пойдёт через 5–10 лет',
  q:'«Мы реагируем на рынок с опозданием, решения принимаем по вчерашним данным»',
  ch:['<b>Научится</b> сканировать тренды и оценивать макрориски: ставка, инфляция, санкционное давление',
@@ -253,6 +247,20 @@ const ITEMS=[
  case:'<b>Денис Ременяко</b>, владелец и гендиректор «ФК Гранд Капитал» — четвёртый фармдистрибьютор России, оборот 250 млрд ₽. Поставил публичные выступления: перешёл от импровизации к жёсткой структуре речи'}
 ];
 
+const FIN={
+ roi:'<b>Научится считать P&amp;L направления:</b> куда уходит бюджет и что реально приносит прибыль',
+ proc:'<b>Увидит, где компания теряет деньги</b>, и покажет это цифрами, а не ощущениями',
+ deleg:'<b>Погрузится в рутину управления</b> и начнёт растить сильных сотрудников, а не тянуть всё сам',
+ fot:'<b>Научится управлять фондом оплаты:</b> платить за результат, а не за присутствие',
+ budget:'<b>Будет приходить с решениями, а не с вопросами</b> — с расчётом, сколько стоит и когда окупится',
+ strat:'<b>Сможет видеть, как масштабировать бизнес</b> — станет советником, а не исполнителем, которому надо объяснять, что делать',
+ ai:'<b>Узнает, как внедрить нейросети для ускорения работы</b>, и поставит их на конкретные операции',
+ change:'<b>Научится доводить изменения до конца</b>, а не до совещания',
+ sales:'<b>Построит систему продаж</b>, которая не рухнет с уходом сильного продавца',
+ trend:'<b>Научится видеть, куда идёт рынок</b>, раньше, чем это станет видно по отчётам',
+ speak:'<b>Научится защищать решения</b> так, чтобы их утверждали с первого раза'
+};
+
 const sel=new Set();
 
 function picks(){
@@ -260,9 +268,10 @@ function picks(){
     `<label class="pick${sel.has(it.k)?' on':''}" data-k="${it.k}">
       <input type="checkbox" ${sel.has(it.k)?'checked':''} onchange="tog('${it.k}')">
       <span>${it.t}</span></label>`).join('');
-  document.getElementById('cnt').textContent=sel.size?`Слайдов: ${sel.size+3}`:'Ничего не отмечено';
+  document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b> · слайдов <b>${sel.size+4}</b>`:'Задачи не отмечены';
 }
 function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
+function dr(){document.getElementById('drawer').classList.toggle('open')}
 function all(v){sel.clear();if(v)ITEMS.forEach(i=>sel.add(i.k));picks();render()}
 
 function ft(n){
@@ -340,14 +349,14 @@ function render(){
 
   // финал · что изменится в компании во время обучения
   n++;
-  const names=list.map(i=>i.t.charAt(0).toLowerCase()+i.t.slice(1));
+  const names=list.map(i=>FIN[i.k]||i.t);
   const tm=[...new Set(list.flatMap(i=>i.who.map(w=>w[0]+' — '+w[1])))].slice(0,4);
   out+=`<section class="slide">${ft(n)}
     <div class="kick">Итог</div>
     <h2>Что изменится в вашей компании<br>во время обучения сотрудника</h2>
     <div class="cols">
       <div class="box">
-        <h3>Закроет, пока учится</h3>
+        <h3>Какие задачи он сможет закрыть</h3>
         <ul>${names.map(x=>`<li>${x}</li>`).join('')}</ul>
         <p style="margin-top:4%">Каждый модуль заканчивается <b>рабочим артефактом по вашей компании</b>: картой процессов, расчётом окупаемости, регламентом делегирования. Их внедряют по ходу, а не после выпуска.</p>
       </div>
@@ -380,6 +389,7 @@ if(qs.get('p'))qs.get('p').split(',').filter(Boolean).forEach(k=>sel.add(k));
 if(qs.get('nm'))document.addEventListener('DOMContentLoaded',()=>document.getElementById('nm').value=qs.get('nm'));
 
 picks();render();
+if(!sel.size)document.getElementById('drawer').classList.add('open');
 </script>
 </body>
 </html>
