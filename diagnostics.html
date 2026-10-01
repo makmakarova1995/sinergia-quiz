@@ -16,7 +16,7 @@
 :root{--dark:#262626;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;
   --muted:#6f6a5e;--line:#d8d0bc}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--ink);
+body{padding-bottom:86px;font-family:Inter,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--ink);
   background:var(--beige);padding-bottom:70px}
 h1,h2,h4{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.06;font-weight:600}
 h1{font-size:clamp(26px,4vw,44px);margin-bottom:8px}
@@ -134,6 +134,33 @@ tr:hover td{background:#eae3d3}
   .res{position:static}
 }
 @media print{.bar{display:none}.res{position:static}}
+
+/* ── кликабельные варианты ── */
+.pk{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px;margin:0 6px 6px 0;font-size:14px;cursor:pointer;
+  font-family:Inter;color:var(--ink);transition:.14s;text-align:left;line-height:1.3}
+.pk:hover{border-color:#bdb49c}
+.pk.on{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.pk .bx{width:15px;height:15px;border:2px solid #c3bba6;border-radius:4px;flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1}
+.pk.on .bx{background:#fff;border-color:#fff;color:var(--red)}
+.pk.on .bx::after{content:'✓'}
+.pklbl{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:12px 0 7px}
+/* ── нижняя панель ── */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(38,38,38,.97);
+  backdrop-filter:blur(8px);padding:12px 20px}
+.dock-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dock .cnt{color:#cfc9bc;font-size:14px}
+.dock .cnt b{color:#fff}
+.dock input{background:#1b1b1b;border:1px solid #3a3a3a;border-radius:7px;padding:9px 13px;
+  color:#fff;font-family:Inter;font-size:14px;min-width:140px;outline:none}
+.dock input:focus{border-color:var(--red)}
+.dock .go{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.dock .btn{border-color:#4a4a4a;color:#cfc9bc}
+.dock .btn:hover{border-color:var(--red);color:#fff}
+.dock .btn[disabled]{opacity:.4;pointer-events:none}
+@media(max-width:700px){.dock .go{margin-left:0;width:100%}}
 </style>
 </head>
 <body>
@@ -147,7 +174,7 @@ tr:hover td{background:#eae3d3}
     <a class="chip" href="#voprosy">Вопросы</a>
     <a class="chip" href="#situacii">Шесть ситуаций</a>
     <a class="chip go" href="objections.html">Возражения →</a>
-    <a class="chip go" href="deck.html">Собрать презентацию →</a>
+    
   </div>
 </div></div>
 
@@ -161,7 +188,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d1"><div class="lbl">1</div><div>
   <p>«Расскажите, за что вы сейчас отвечаете цифрами — за свою функцию или за прибыль целиком?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «За свою функцию — маркетинг, финансы, производство» · «За P&amp;L направления» · «За прибыль компании целиком» · «Формально за функцию, а спрашивают за всё»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="roi" onclick="pk(this)"><span class="bx"></span>За свою функцию: маркетинг, финансы, производство</button><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>За P&amp;L направления</button><button class="pk" data-k="strat" onclick="pk(this)"><span class="bx"></span>За прибыль компании целиком</button><button class="pk" data-k="deleg" onclick="pk(this)"><span class="bx"></span>Формально за функцию, спрашивают за всё</button></div>
   <p class="why">Отличает C-level от C-1. От этого зависит, чем закрывать: у C-1 боль «следующий шаг», у C-level — «не отстать» и «обучить команду».</p>
   <div class="row"><button class="btn" onclick="cp('d1',this)">Копировать</button></div>
 </div></div>
@@ -170,7 +197,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d2"><div class="lbl">2</div><div>
   <p>«Где хотите быть через три года: генеральным, та же роль в структуре крупнее, свой бизнес? Или пока выбираете?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Генеральным здесь же» · «Та же роль, но в компании крупнее» · «Свой бизнес» · «Пока выбираю»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="strat" onclick="pk(this)"><span class="bx"></span>Генеральным здесь же</button><button class="pk" data-k="speak" onclick="pk(this)"><span class="bx"></span>Та же роль, но в компании крупнее</button><button class="pk" data-k="trend" onclick="pk(this)"><span class="bx"></span>Свой бизнес</button><button class="pk" data-k="trend" onclick="pk(this)"><span class="bx"></span>Пока выбираю</button></div>
   <p class="why">Тот же вопрос, что первым в квизе. «Пока не знаю» — не отказ: это прямой заход на коучинг <span class="mod">сл. 47</span>, две сессии под маршрут. «Вообще не знаю, с чего начать, меня нужно направить» <span class="id">365286</span>.</p>
   <div class="row"><button class="btn" onclick="cp('d2',this)">Копировать</button></div>
 </div></div>
@@ -179,7 +206,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d3"><div class="lbl">3</div><div>
   <p>«Что должно измениться, чтобы туда попасть? Чего конкретно сейчас не хватает?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Не хватает финансов и экономики» · «Не умею собирать команду» · «Сижу в операционке, нет стратегического видения» · «Не умею показывать результат наверх» · «Сам не знаю, чего не хватает»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>Не хватает финансов и экономики</button><button class="pk" data-k="fot" onclick="pk(this)"><span class="bx"></span>Не умею собирать команду</button><button class="pk" data-k="deleg" onclick="pk(this)"><span class="bx"></span>Сижу в операционке</button><button class="pk" data-k="speak" onclick="pk(this)"><span class="bx"></span>Не умею показывать результат наверх</button><button class="pk" data-k="strat" onclick="pk(this)"><span class="bx"></span>Сам не знаю</button></div>
   <p class="why">Главный вопрос звонка. Ответ записать дословно — им же и продавать. «Должности, на которые интересно, заняты людьми, которые MBA даже не касались» <span class="id">365113</span>.</p>
   <div class="row"><button class="btn" onclick="cp('d3',this)">Копировать</button></div>
 </div></div>
@@ -188,7 +215,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d4"><div class="lbl">4</div><div>
   <p>«Вы это уже пробовали решать? Что делали и почему не вышло?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Нанимал коучей — точечно, системы не дало» · «Ходил на короткие тренинги — забылось» · «Искал людей с рынка — не прижились» · «Ничего не делал, руки не доходили»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="deleg" onclick="pk(this)"><span class="bx"></span>Нанимал коучей — системы не дало</button><button class="pk" data-k="change" onclick="pk(this)"><span class="bx"></span>Короткие тренинги — забылось</button><button class="pk" data-k="fot" onclick="pk(this)"><span class="bx"></span>Искал людей с рынка — не прижились</button><button class="pk" data-k="proc" onclick="pk(this)"><span class="bx"></span>Ничего не делал</button></div>
   <p class="why">Отделяет настоящий разрыв от разговора. Пробовал коучей, тренинги, найм и не сработало — MBA обоснован. Не пробовал ничего — задача не болит, продавать нечего.</p>
   <div class="row"><button class="btn" onclick="cp('d4',this)">Копировать</button></div>
 </div></div>
@@ -197,7 +224,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d5"><div class="lbl">5</div><div>
   <p>«Если ничего не менять — что у вас будет через год?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Останусь там же» · «Подвинут, придёт кто-то моложе» · «Компания не вытянет план, спросят с меня» · «Выгорю и уйду сам»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="strat" onclick="pk(this)"><span class="bx"></span>Останусь там же</button><button class="pk" data-k="ai" onclick="pk(this)"><span class="bx"></span>Подвинут, придёт кто-то моложе</button><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>Не вытянем план, спросят с меня</button><button class="pk" data-k="deleg" onclick="pk(this)"><span class="bx"></span>Выгорю и уйду сам</button></div>
   <p class="why">Срочность называет он сам, а не менеджер. Это замена дожиму, на котором теряли тёплых: «Я чувствую манипуляции» <span class="id">365326</span>.</p>
   <div class="row"><button class="btn" onclick="cp('d5',this)">Копировать</button></div>
 </div></div>
@@ -206,7 +233,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d6"><div class="lbl">6</div><div>
   <p>«Кто у вас в компании решает про обучение топов и как это обычно проходит? Бывало уже, что согласовывали?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Решаю сам и плачу сам» · «Решает собственник» · «Решает HR, бюджет защищают заранее» · «Был прецедент, коллегу уже обучали» · «Такого у нас никогда не было»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>Решаю и плачу сам</button><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>Решает собственник</button><button class="pk" data-k="fot" onclick="pk(this)"><span class="bx"></span>Решает HR</button><button class="pk" data-k="change" onclick="pk(this)"><span class="bx"></span>Коллегу уже обучали</button><button class="pk" data-k="proc" onclick="pk(this)"><span class="bx"></span>Такого не было</button></div>
   <p class="why">Спрашивать <b>до</b> цены, а не после. 32% возражений — «решаю не я». Если путь к деньгам известен заранее, возражение не возникает: сразу готовим одностраничник собственнику.</p>
   <div class="row"><button class="btn" onclick="cp('d6',this)">Копировать</button>
   <a class="btn pri" href="objections.html">Инфо для работодателя →</a></div>
@@ -216,7 +243,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d7"><div class="lbl">7</div><div>
   <p>«Когда вы такое решение принимаете — сейчас или после какого-то события: закрытия года, назначения, бюджета?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Сейчас, вопрос решённый» · «После закрытия года» · «После назначения или разговора с собственником» · «После утверждения бюджета» · «Нужен месяц на осмысление»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="strat" onclick="pk(this)"><span class="bx"></span>Сейчас</button><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>После закрытия года</button><button class="pk" data-k="speak" onclick="pk(this)"><span class="bx"></span>После назначения</button><button class="pk" data-k="budget" onclick="pk(this)"><span class="bx"></span>После утверждения бюджета</button><button class="pk" data-k="trend" onclick="pk(this)"><span class="bx"></span>Нужен месяц на осмысление</button></div>
   <p class="why">Вместо «не актуально сейчас» получаем дату. «Я решение так не принимаю… это как минимум месяц на осмысление» <span class="id">365326</span> — нормальный ответ, если записан срок возврата.</p>
   <div class="row"><button class="btn" onclick="cp('d7',this)">Копировать</button></div>
 </div></div>
@@ -225,7 +252,7 @@ tr:hover td{background:#eae3d3}
 
 <div class="b say" id="d8"><div class="lbl">8</div><div>
   <p>«По чему вы через год поймёте, что деньги потрачены не зря?»</p>
-  <p class="opts"><span>Варианты, если тормозит:</span> «Выросла должность или доход» · «Принёс компании конкретную экономию» · «Собрал команду, которая работает без меня» · «Понял, куда идти дальше»</p>
+  <div class="pklbl">Отметьте, что ответил клиент</div><div><button class="pk" data-k="speak" onclick="pk(this)"><span class="bx"></span>Выросла должность или доход</button><button class="pk" data-k="proc" onclick="pk(this)"><span class="bx"></span>Принёс компании экономию</button><button class="pk" data-k="deleg" onclick="pk(this)"><span class="bx"></span>Собрал команду, которая работает без меня</button><button class="pk" data-k="strat" onclick="pk(this)"><span class="bx"></span>Понял, куда идти дальше</button></div>
   <p class="why">Его же ответ подставляется в калькулятор и в тему выпускного проекта. Закрывает «дорого, какой эффект» до того, как оно прозвучало, — без выдуманных процентов.</p>
   <div class="row"><button class="btn" onclick="cp('d8',this)">Копировать</button>
   <a class="btn pri" href="objections.html#s1">Посчитать окупаемость →</a></div>
@@ -462,6 +489,38 @@ function dxsum(){const N=['n1','n2','n3'],R=['r1','r2','r3'],all=[...N,...R];
     t.innerHTML='Работать не с программой, а с препятствием. Программу он уже принял — не пересказывать её заново.'}
   if(gaps.length){l.style.display='';l.innerHTML=gaps.map(k=>'<li>'+MISS[k]+'</li>').join('')}
   else{l.style.display='none'}}
+</script>
+
+<div class="dock"><div class="dock-in">
+  <span class="cnt" id="cnt">Отмечено <b>0</b></span>
+  <input id="nm" placeholder="Имя клиента" oninput="upd()">
+  <input id="co" placeholder="Компания" oninput="upd()">
+  <div class="go">
+    <button class="btn" onclick="clr()">Снять все</button>
+    <a class="btn pri" id="go" href="#">Собрать презентацию →</a>
+  </div>
+</div></div>
+<script>
+const sel=new Set();
+function pk(el){
+  const k=el.dataset.k;
+  el.classList.toggle('on');
+  document.querySelectorAll('.pk[data-k="'+k+'"]').forEach(e=>e.classList.toggle('on',el.classList.contains('on')));
+  el.classList.contains('on')?sel.add(k):sel.delete(k);
+  upd();
+}
+function clr(){sel.clear();document.querySelectorAll('.pk').forEach(e=>e.classList.remove('on'));upd()}
+function upd(){
+  document.getElementById('cnt').innerHTML='Отмечено <b>'+sel.size+'</b>';
+  const g=document.getElementById('go');
+  const q=new URLSearchParams();
+  q.set('p',[...sel].join(','));
+  const nm=document.getElementById('nm').value.trim(), co=document.getElementById('co').value.trim();
+  if(nm)q.set('nm',nm); if(co)q.set('co',co);
+  g.href='deck.html?'+q.toString();
+  g.toggleAttribute('disabled',sel.size===0);
+}
+upd();
 </script>
 </body>
 </html>
