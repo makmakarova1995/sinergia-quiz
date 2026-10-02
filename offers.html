@@ -59,6 +59,23 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
   display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:8px}
 .foot a{color:var(--muted)}
 @media(max-width:700px){.chips{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}}
+
+.ofr[data-creo]{cursor:pointer;position:relative;transition:.16s}
+.ofr[data-creo]:hover{border-color:var(--red);box-shadow:0 8px 22px rgba(0,0,0,.09)}
+.ofr[data-creo]::after{content:"Есть креатив · нажмите";position:absolute;top:18px;right:20px;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--red);
+  border-radius:999px;padding:4px 11px;font-weight:600}
+#lb{position:fixed;inset:0;z-index:200;background:rgba(18,18,18,.92);display:none;
+  align-items:center;justify-content:center;padding:28px;backdrop-filter:blur(4px)}
+#lb.on{display:flex;flex-direction:column;gap:14px}
+#lb img{max-width:min(560px,90vw);max-height:72vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#lb .cap{color:#e9e4d7;font-size:15px;max-width:560px;text-align:center;line-height:1.4}
+#lb .acts{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}
+#lb a,#lb button{font-family:Inter;font-size:13px;border-radius:999px;padding:9px 18px;cursor:pointer;
+  text-decoration:none;border:1px solid #4a4a4a;background:transparent;color:#cfc9bc}
+#lb a:hover,#lb button:hover{border-color:var(--red);color:#fff}
+#lb .close{position:fixed;top:18px;right:22px;font-size:26px;color:#cfc9bc;background:none;border:none;
+  cursor:pointer;padding:6px 12px}
 </style>
 </head>
 <body>
@@ -101,7 +118,7 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
   <p class="seg">Общий заход: человек хочет понять свою ситуацию, а не выбрать программу.</p>
 </div>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/kpi-tiger.png" data-ttl="Устали оправдываться за невыполнение KPI?">
   <div class="n">03</div>
   <h3>Устали оправдываться за невыполнение KPI?</h3>
   <p>За 6 вопросов разберём, какие ошибки в решениях чаще всего стоят топ-менеджеру повышения.</p>
@@ -159,7 +176,7 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
 
 <h2>Разбор карьеры</h2>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/worn-out.png" data-ttl="Усердно работаете, а повышения нет годами?">
   <div class="n">10</div>
   <h3>Усердно работаете, а повышения нет годами?</h3>
   <p>Бесплатный разбор с экспертом школы: что добрать, чтобы дойти до роли генерального.</p>
@@ -178,28 +195,28 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
 
 <h2 id="lending">Офферы для лендинга</h2>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/market-down.png" data-ttl="Рынок просел, а цели по прибыли не снизили?">
   <div class="n">01</div>
   <h3>Рынок просел, а цели по прибыли не снизили?</h3>
   <p>Узнайте на карьерной консультации MBA, как топ-менеджеру вытягивать KPI, когда рынок не растёт.</p>
   <span class="to">Карьерная консультация</span>
 </div>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/ebitda-dog.png" data-ttl="Снова объясняете акционерам, почему EBITDA не дотянула до плана?">
   <div class="n">02</div>
   <h3>Снова объясняете акционерам, почему EBITDA не дотянула до плана?</h3>
   <p>Разберём на карьерной консультации MBA, где у вас теряется маржа и с чем приходить к собственнику вместо объяснений.</p>
   <span class="to">Карьерная консультация</span>
 </div>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/promotion-gone.png" data-ttl="Повышение снова ушло другому?">
   <div class="n">03</div>
   <h3>Повышение снова ушло другому?</h3>
   <p>Разберём на карьерной консультации MBA ваш карьерный трек: как получить повышение и рост дохода.</p>
   <span class="to">Карьерная консультация</span>
 </div>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/ebitda-note.png" data-ttl="EBITDA не сходится, и вы остаётесь крайним?">
   <div class="n">04</div>
   <h3>EBITDA не сходится, и вы остаётесь крайним?</h3>
   <p>Узнайте на карьерной консультации MBA, как стать топ-менеджером, который умеет растить компанию.</p>
@@ -213,14 +230,14 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
   <span class="to alt">Презентация для работодателя</span>
 </div>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/not-fired.png" data-ttl="Как стать тем, кого не сократят в кризис?">
   <div class="n">06</div>
   <h3>Как стать тем, кого не сократят в кризис?</h3>
   <p>Проведём разбор вашей карьеры по системе MBA: каких компетенций вам не хватает, чтобы быть востребованным на рынке.</p>
   <span class="to alt">Карьерный разбор</span>
 </div>
 
-<div class="ofr">
+<div class="ofr" data-creo="creo/first-candidate.png" data-ttl="Как стать первым кандидатом на генерального?">
   <div class="n">07</div>
   <h3>Как стать первым кандидатом на генерального?</h3>
   <p>Разберём ваш карьерный трек на консультации MBA.</p>
@@ -244,5 +261,27 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:i
   <span><a href="index.html">← ко всем материалам</a></span>
 </div>
 </div>
+
+<div id="lb" onclick="if(event.target===this)lbClose()">
+  <button class="close" onclick="lbClose()">×</button>
+  <img id="lbi" alt="">
+  <div class="cap" id="lbcap"></div>
+  <div class="acts">
+    <a id="lbd" download>Скачать</a>
+    <button onclick="lbClose()">Закрыть</button>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.ofr[data-creo]').forEach(e=>{
+  e.addEventListener('click',()=>{
+    document.getElementById('lbi').src=e.dataset.creo;
+    document.getElementById('lbd').href=e.dataset.creo;
+    document.getElementById('lbcap').textContent=e.dataset.ttl;
+    document.getElementById('lb').classList.add('on');
+  });
+});
+function lbClose(){document.getElementById('lb').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lbClose()});
+</script>
 </body>
 </html>
