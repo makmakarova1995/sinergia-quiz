@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Готовы ли вы к роли C-level — Синергия MBA</title>
 <style>
   /* ===== Фирстиль Школы бизнеса «Синергия» ===== */
@@ -22,8 +23,10 @@
     --verify:#fff3a8;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  /* scroll-padding-top — чтобы липкая шапка не накрывала верх блока при scrollIntoView */
+  html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+    overflow-wrap:break-word;word-break:break-word}
   .wrap{max-width:840px;margin:0 auto;padding:0 22px}
   section{padding:60px 0}
 
@@ -79,34 +82,9 @@
   .hero .btn:hover, #q-intro .btn:hover, #cards .btn:hover, #q-result form .btn:hover{animation-play-state:paused}
   @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 
-  /* ===== Мобильные ===== */
-  @media(max-width:640px){
-    .wrap{padding:0 16px}
-    section{padding:40px 0}
-    .hero{padding:40px 0 48px}
-    h1.display{font-size:clamp(28px,8vw,38px)}
-    h2.display{font-size:clamp(22px,6vw,28px)}
-    .sub{font-size:17px;margin-top:12px}
-    ul.checks li{font-size:16px;padding:8px 14px 8px 30px;border-radius:8px}
-    ul.checks li::before{top:17px;width:14px;left:10px}
-    .btn{width:100%;font-size:16px;padding:16px 18px}
-    #quiz-box{padding:20px 18px;border-radius:14px}
-    .q-title{font-size:19px}
-    .q-hint{font-size:13px}
-    .opt{font-size:15px;padding:13px 15px}
-    .after,.case{font-size:14px}
-    .score{gap:12px}
-    .score .num{font-size:60px}
-    .score .diag{font-size:19px}
-    .zrow{flex-wrap:wrap;gap:8px}
-    .zrow .zname{flex:1 1 100%;font-size:15px}
-    .zbar{flex:1 1 auto}
-    .card{padding:18px 18px}
-    .card b{font-size:17px}
-    .q-nav{gap:8px}
-    .back{font-size:14px}
-    form input{font-size:16px;padding:13px 14px}
-  }
+  /* ВНИМАНИЕ: мобильные медиазапросы живут в конце файла — там, где они
+     перекрывают базовые правила, а не наоборот. Выше их поднимать нельзя. */
+
   .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
   .btn-note{font-size:14px;margin-top:12px;opacity:.8}
 
@@ -118,8 +96,8 @@
   @media(max-width:560px){.cards{grid-template-columns:1fr}}
 
   /* ===== Квиз ===== */
-  #quiz{background:var(--dark)}
-  #quiz-box{background:var(--card);border-radius:16px;padding:30px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  #quiz{background:var(--dark);scroll-margin-top:76px}
+  #quiz-box{background:var(--card);border-radius:16px;padding:30px;box-shadow:0 18px 50px rgba(0,0,0,.35);scroll-margin-top:76px}
   .progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}
   .progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
   .q-count{font-size:13px;color:var(--ink2);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
@@ -186,6 +164,114 @@
   .under-quiz a{color:#e5dfce}
 
   footer{background:var(--dark);color:#b8b3a6;padding:28px 0 40px;font-size:13px}
+
+  /* ================= МОБИЛЬНЫЕ =================
+     Блок стоит последним специально: медиазапрос не добавляет вес селектору,
+     поэтому выше по файлу его перебивали бы базовые правила. */
+
+  /* планшет портрет и крупные телефоны */
+  @media(max-width:760px){
+    .wrap{padding:0 18px}
+    #quiz-box{padding:26px 22px}
+  }
+
+  /* телефоны: 381–640 */
+  @media(max-width:640px){
+    .wrap{padding:0 16px}
+    section{padding:40px 0}
+    .hero{padding:40px 0 48px}
+    h1.display{font-size:clamp(28px,8vw,38px)}
+    h2.display{font-size:clamp(22px,6vw,28px)}
+    .sub{font-size:17px;margin-top:12px}
+    ul.checks li{font-size:16px;padding:8px 14px 8px 30px;border-radius:8px}
+    ul.checks li::before{top:17px;width:14px;left:10px}
+    .btn{width:100%;font-size:16px;padding:16px 18px}
+    #quiz-box{padding:20px 18px;border-radius:14px}
+    .q-title{font-size:19px}
+    .q-hint{font-size:13px}
+    .opt{font-size:15px;padding:13px 15px}
+    .after,.case{font-size:14px}
+    .score{gap:12px}
+    .score .num{font-size:60px}
+    .score .diag{font-size:19px}
+    .zrow{flex-wrap:wrap;gap:8px}
+    .zrow .zname{flex:1 1 100%;font-size:15px}
+    .zbar{flex:1 1 auto}
+    .card{padding:18px 18px}
+    .card b{font-size:17px}
+    .q-nav{gap:8px}
+    .back{font-size:14px}
+    form input{font-size:16px;padding:13px 14px}
+    .slider-val{font-size:48px}
+  }
+
+  /* узкие телефоны: 320–380 (iPhone SE, бюджетные андроиды) */
+  @media(max-width:380px){
+    .wrap{padding:0 13px}
+    section{padding:32px 0}
+    .hero{padding:32px 0 38px}
+    h1.display{font-size:26px}
+    h2.display{font-size:20px}
+    .sub{font-size:15.5px}
+    ul.checks li{font-size:15px;padding:7px 10px 7px 26px}
+    ul.checks li::before{left:7px;width:12px;top:16px}
+    .btn{font-size:15px;padding:15px 12px}
+    #quiz-box{padding:16px 14px;border-radius:12px}
+    .q-title{font-size:17.5px}
+    .q-hint{font-size:12.5px}
+    .opt{font-size:14.5px;padding:12px 13px}
+    .after,.case{font-size:13.5px}
+    .score .num{font-size:50px}
+    .score .diag{font-size:17.5px}
+    .zrow .zname{font-size:14.5px}
+    .badge{font-size:11px;padding:4px 9px}
+    .zbar{flex:1 1 auto;min-width:48px}
+    .res-block{padding-left:14px}
+    .res-block p,.res-block li{font-size:15px}
+    .card{padding:15px}
+    .card b{font-size:16px}
+    .slider-val{font-size:42px}
+    .slider-scale{font-size:11px}
+    .success .mark{font-size:36px}
+  }
+
+  /* тач-зоны не меньше 44 px */
+  .back{min-height:44px}
+  .opt{min-height:44px}
+
+  /* телефон в альбомной ориентации: липкая шапка съедала бы треть экрана */
+  @media(max-height:500px) and (orientation:landscape){
+    header.top{position:static}
+    html{scroll-padding-top:0}
+    #quiz,#quiz-box{scroll-margin-top:0}
+    .hero{padding:28px 0 32px}
+    section{padding:28px 0}
+    .btn{width:auto;min-width:260px}
+  }
+
+  /* ===== «Дальше» всегда на экране =====
+     После ответа появляются разбор и кейс и уталкивают кнопку под сгиб:
+     на 320–414 до нее приходилось листать. Прижимаем ряд навигации
+     к низу экрана, пока карточка вопроса выше его. */
+  @media(max-width:640px){
+    .q-nav{position:sticky;bottom:0;z-index:5;
+      flex-wrap:nowrap;flex-direction:row-reverse;gap:10px;
+      margin:14px -18px -20px;padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+      background:var(--card);border-top:1px solid var(--line);border-radius:0 0 14px 14px}
+    .q-nav .btn{width:auto;flex:1 1 auto;margin:0}
+    .q-nav .back{flex:0 0 auto;white-space:nowrap;padding:10px 2px;min-height:44px}
+    /* чуть плотнее, чтобы вопрос и разбор влезали выше кнопки */
+    .opt{margin-bottom:8px}
+    .after{margin:12px 0 2px;padding:8px 0 8px 14px}
+    .case{margin:12px 0 2px;padding:13px 15px}
+    .q-title{margin-bottom:4px}
+    .q-hint{margin-bottom:12px}
+    .q-count{margin-bottom:12px}
+  }
+  @media(max-width:380px){
+    .q-nav{margin:12px -14px -16px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+      border-radius:0 0 12px 12px}
+  }
 </style>
 </head>
 <body>

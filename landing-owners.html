@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Executive MBA «Синергия» для собственников бизнеса</title>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  СОБСТВЕННИКИ · ВАРИАНТ 1 (ОСНОВНОЙ) · ВЕРСИЯ 06.10.2026
+  База — темный редизайн «после встречи» (варианты заголовка под A/B).
+  Смыслы — по AJTBD-картам 1–3 и правкам Александра со встречи 23.07:
+  · запретные формулировки с той встречи вычищены; полный список —
+    «анализ по встрече с Александром/РАЗБОР-встречи-что-править.md», п. 1.1–1.3
+    и «план-правок-лендов.md», раздел ЛЕНД СОБСТВЕННИКОВ (табу-слова в П3)
+  · главный мотив — Карта 1 «снова гореть»: среда, идеи, круг (его на старом
+    ленде не было вообще)
+  · система — по формуле Александра: «настроить систему, чтобы бизнес рос
+    и не держался на вас одном» (владелец остается у руля)
+  · оборот в форме — вилкой с объяснением «чтобы подобрать группу равных»
+  · закрытие — «пройти отбор» и консультация по индивидуальной траектории
+    с консультантом по обучению
+  · цены на ленде нет (конкуренты озвучивают только квалифицированным)
+
+  ПРАВКИ 06.10.2026:
+  · блок-вход в квиз «Сколько дней компания проработает без вас» с прямой
+    ссылкой на quiz-owners-cases.html и своей целью
+  · приемы из разбора ДОД РАНХиГС (2026-10-01_приемы-возражений-из-дод-ранхигс.md):
+    состав группы цифрой, «не конкурируют с вами», смена запроса — норма,
+    честное «легко не будет» + регулярность модулей, антипродажа про модули,
+    граница атрибуции в кейсе с цифрой результата
+  · 4-й вариант H1 (личный мотив) добавлен рядом, существующие не тронуты
+  · цели разведены по действиям: три маршрута считаются по отдельности
+  ВНИМАНИЕ: числа РАНХиГС (40/60, 30 человек, 650 часов) — их, не наши.
+  В плейсхолдеры подставлять только данные школы.
+
+  Переключатель вариантов заголовка — кнопки-табы над H1.
+  Префикс целей Метрики: emba-own-
+  Цели для заведения (имя = class = data-goal):
+    emba-own-hero-cta       — кнопка первого экрана
+    emba-own-cta-cifry      — кнопка в блоке цифр отбора
+    emba-own-route-fire     — карточка маршрута «глаз не горит»
+    emba-own-route-system   — карточка маршрута «все замкнуто на мне»
+    emba-own-route-growth   — карточка маршрута «растем, а я не понимаю почему»
+    emba-own-routes-cta     — кнопка после маршрутов
+    emba-own-quiz-teaser    — переход в квиз из плашки-тизера (высоко)
+    emba-own-cta-keysy      — в квиз из середины блока кейсов Forbes
+    emba-own-cta-zachem     — в квиз из конца блока кейсов Forbes
+    emba-own-cta-sreda-mid  — в квиз из середины блока «Среда»
+    emba-own-cta-sreda      — в квиз из конца блока «Среда»
+    emba-own-cta-format-mid — к форме из середины блока «Формат»
+    emba-own-cta-format     — к форме из конца блока «Формат»
+    emba-own-cta-missii     — к форме из конца блока «Бизнес-миссии»
+    emba-own-cta-sravnenie  — к форме из конца блока «Сравнение»
+    emba-own-cta-otbor      — к форме из конца блока «Как проходит отбор»
+    emba-own-quiz-cta       — переход в квиз из блока-входа (перед формой)
+    emba-own-forbes-out     — уход читать интервью выпускника в Forbes
+                              (одна цель на все ссылки: действие одно)
+    emba-own-form-submit    — отправка формы
+  Счетчик: заменить YM_ID на номер счетчика — его дает школа.
+  Плейсхолдеры для данных школы помечены желтым: [так].
+  Типографика: кавычки-елочки, длинное тире, неразрывные пробелы.
+  ═══════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#262626;--dark2:#1e1e1e;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;--muted:#6f6a5e;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,-apple-system,sans-serif;font-size:17px;line-height:1.55;color:var(--ink);background:var(--beige)}
+h1,h2{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.08;font-weight:600}
+h1{font-size:clamp(30px,4.6vw,52px)}
+h2{font-size:clamp(24px,3.2vw,36px);margin-bottom:14px}
+h3{font-size:19px;font-weight:600;line-height:1.3}
+section{padding:64px 20px}
+.wrap{max-width:1040px;margin:0 auto}
+.narrow{max-width:var(--measure)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.kicker::before{content:"";display:inline-block;width:26px;height:3px;background:var(--red);vertical-align:middle;margin-right:10px}
+.lead{font-size:18px;max-width:var(--measure)}
+.btn{display:inline-block;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:Oswald;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:18px 34px;border-radius:6px;text-decoration:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-note{font-size:14px;color:var(--muted);margin-top:10px}
+.dark{background:var(--dark);color:#efece4}
+.dark h2{color:#fff}
+.dark .btn-note{color:#b9b3a5}
+mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:inherit}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--cream);border-radius:10px;padding:22px;border:1px solid #d8d0bc}
+.dark .card{background:#2f2f2f;border-color:#3d3d3d;color:#e8e4da}
+.dark .card h3{color:#fff}
+.stat{font-family:Oswald;font-size:40px;color:var(--red);line-height:1}
+.stat-label{font-size:14px;color:var(--muted);margin-top:6px}
+.dark .stat-label{color:#b9b3a5}
+.q{border-left:4px solid var(--red);padding:12px 18px;background:var(--cream);border-radius:0 8px 8px 0;margin-bottom:12px;font-size:16px}
+.dark .q{background:#2f2f2f}
+.toggle-card{cursor:pointer}
+.toggle-card .a{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #d8d0bc;font-size:15.5px}
+.dark .toggle-card .a{border-color:#3d3d3d}
+.toggle-card.open .a{display:block}
+.toggle-card .hint{color:var(--red);font-size:14px;font-weight:600;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #d8d0bc;vertical-align:top}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+input,select,textarea{width:100%;padding:14px;border:1px solid #cfc7b2;border-radius:6px;font:inherit;font-size:16px;background:#fff;margin-bottom:12px}
+label{font-size:13.5px;font-weight:600;display:block;margin-bottom:5px}
+.hero{background:radial-gradient(circle at 78% 12%, #e63a2e55 0%, transparent 45%), var(--dark);color:#fff;padding:0 20px 80px;min-height:92vh;display:flex;flex-direction:column}
+.hero-top{display:flex;align-items:center;gap:10px;padding:26px 0}
+.logo-sq{width:34px;height:34px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.logo-tx{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}
+.logo-tx small{display:block;font-weight:400;color:#cfc9bc;letter-spacing:.1em}
+.hero-body{margin:auto 0;max-width:840px}
+.hero h1 .hl{color:var(--red)}
+.hero .hv-sub{margin-top:18px;font-size:19px;line-height:1.45;color:#f1ece1;max-width:var(--measure)}
+.hero .lead{margin:16px 0 28px;color:#b9b3a5;font-size:16.5px}
+.hero-points{list-style:none;margin-top:38px;max-width:640px}
+.hero-points li{padding:13px 0 13px 26px;border-top:1px solid #ffffff26;position:relative;font-size:15.5px;color:#dcd6c9}
+.hero-points li::before{content:"";position:absolute;left:0;top:20px;width:10px;height:10px;background:var(--red);border-radius:2px}
+.vtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.vtab{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border:1px solid #ffffff45;border-radius:100px;cursor:pointer;color:#cfc9bc}
+.vtab.active{border-color:var(--red);color:#fff;background:#e63a2e33}
+ul.clean{list-style:none}
+ul.clean li{padding-left:22px;position:relative;margin-bottom:9px}
+ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;background:var(--red);border-radius:2px}
+.ok-msg{display:none;background:var(--cream);border:1px solid var(--red);border-radius:10px;padding:22px;text-align:center}
+.fcase h3{font-size:19px;line-height:1.25}
+.fcase .who{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:10px 0 12px;padding-bottom:10px;border-bottom:1px solid #d8d0bc}
+.dark .fcase .who{color:#b9b3a5;border-color:#3d3d3d}
+.fcase p{font-size:15px}
+.fcase .how{color:var(--muted);font-size:14px;margin-top:10px}
+.dark .fcase .how{color:#b9b3a5}
+.fcase .flink{display:inline-block;margin-top:8px;padding:8px 0;color:var(--red);font-weight:600;font-size:14px;text-decoration:none;border-bottom:1px solid #e63a2e55}
+.dark .fcase .flink{color:#ffb3ab}
+footer{background:var(--dark2);color:#8f897c;font-size:13.5px;padding:26px 20px;text-align:center}
+@media(max-width:640px){section{padding:44px 16px}}
+
+/* ===== Мобильная адаптация (06.10) ===== */
+img,svg,video{max-width:100%;height:auto}
+h1,h2,h3{overflow-wrap:break-word}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+@media(max-width:700px){
+  body{font-size:16.5px}
+  section{padding:40px 16px}
+  h1{font-size:clamp(26px,7.4vw,34px)}
+  h2{font-size:clamp(22px,6vw,28px);margin-bottom:12px}
+  h3{font-size:17.5px}
+  .kicker{font-size:12px;letter-spacing:.12em;margin-bottom:12px}
+  .kicker::before{width:20px;margin-right:8px}
+  .lead{font-size:17px}
+  /* первый экран: не тянем на всю высоту, иначе на айфоне часть уходит под адресную строку */
+  .hero{min-height:auto;padding:0 16px 54px;background:radial-gradient(circle at 88% 8%, #e63a2e55 0%, transparent 52%), var(--dark)}
+  .hero-top{padding:18px 0}
+  .hero-body{margin:26px 0 0}
+  .hero .hv-sub{font-size:17px;margin-top:15px}
+  .hero .lead{font-size:15.5px;margin:14px 0 24px}
+  .hero-points{margin-top:26px}
+  .hero-points li{font-size:15px;padding:11px 0 11px 22px}
+  .hero-points li::before{top:17px;width:8px;height:8px}
+  /* переключатель вариантов H1: тап-таргет был 30px, стало 40px */
+  .vtabs{gap:6px;margin-bottom:14px}
+  .vtab{padding:11px 14px;font-size:11.5px}
+  .btn{display:block;width:100%;text-align:center;padding:17px 16px;font-size:15.5px;letter-spacing:.04em}
+  .btn-note{font-size:13.5px}
+  .grid2,.grid3{grid-template-columns:1fr;gap:12px}
+  .card{padding:18px}
+  .stat{font-size:34px}
+  .stat-label{font-size:13.5px}
+  .q{padding:11px 14px;font-size:15.5px}
+  .toggle-card .a{font-size:15px}
+  .toggle-card .hint{font-size:13.5px}
+  ul.clean li{padding-left:20px;margin-bottom:8px}
+  /* таблица сравнения: две колонки раскладываются в блоки, иначе первая колонка сжимается в столбик букв */
+  table{font-size:15.5px}
+  table tr{display:block;padding:13px 0;border-bottom:1px solid #d8d0bc}
+  table tr:last-child{border-bottom:none}
+  table td{display:block;border:none;padding:0}
+  table td:first-child{margin-bottom:5px}
+  .dark table tr{border-color:#3d3d3d}
+  label{font-size:13px}
+  input,select,textarea{padding:13px;font-size:16px}
+  .fcase h3{font-size:17.5px}
+  /* ссылка на интервью была высотой 23px — мало для пальца */
+  .fcase .flink{padding:9px 0;font-size:14.5px;margin-top:6px}
+  .fcase p{font-size:15px}
+  .ok-msg{padding:18px}
+  footer{padding:22px 16px;font-size:13px}
+}
+@media(max-width:380px){
+  h1{font-size:25px}
+  h2{font-size:21px}
+  .vtab{padding:10px 10px;font-size:10.5px;letter-spacing:.04em}
+  .stat{font-size:30px}
+}
+
+
+@media(max-width:700px) and (max-height:720px){
+  .hero{padding-bottom:40px}
+  .hero-top{padding:11px 0}
+  h1{font-size:24px}
+  .hero .hv-sub{font-size:16px;margin-top:12px}
+  .hero .lead{font-size:15px;margin:11px 0 16px}
+  .hero-points{margin-top:18px}
+  .hero-points li{font-size:14px;padding:9px 0 9px 20px}
+  .hero-points li::before{top:15px}
+  .vtabs{margin-bottom:11px}
+  .vtab{padding:9px 12px}
+  .btn{padding:15px 16px}
+}
+
+/* Кнопка под текстом в конце каждого блока: действие всегда рядом с тем, что человек прочитал */
+.btn.ghost{background:transparent;color:var(--red);border:2px solid var(--red);padding:16px 30px}
+.btn.ghost:hover{background:var(--red);color:#fff}
+.dark .btn.ghost{color:#fff;border-color:#ffffff66}
+.dark .btn.ghost:hover{background:#fff;color:var(--dark)}
+.sec-cta{margin-top:30px}
+.sec-cta .btn-note{margin-top:10px}
+@media(max-width:700px){ .sec-cta{margin-top:24px} }
+
+@media(max-width:700px){
+  /* переключатель вариантов H1 занимал четыре строки и утапливал кнопку — теперь один прокручиваемый ряд */
+  .vtabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+  .vtabs::-webkit-scrollbar{display:none}
+  .vtab{flex:0 0 auto;white-space:nowrap}
+  .hero-top{padding:14px 0}
+  .hero .lead{margin:12px 0 20px}
+}
+
+@media(max-width:700px) and (max-height:720px){
+  /* на коротких экранах ужимаем воздух, чтобы кнопка блока попадала в первый экран блока */
+  section{padding:30px 16px}
+  h2{margin-bottom:10px}
+  .card{padding:15px}
+  .grid2,.grid3{gap:10px}
+  .sec-cta{margin-top:18px}
+  .sec-cta .btn-note{margin-top:8px}
+  .q{padding:10px 13px;margin-bottom:10px}
+  ul.clean li{margin-bottom:6px}
+  .toggle-card .a{margin-top:10px;padding-top:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ГЕРОЙ с переключателем вариантов -->
+<div class="hero">
+  <div class="wrap hero-top" style="width:100%">
+    <div class="logo-sq">С</div>
+    <div class="logo-tx">Синергия<small>Executive MBA</small></div>
+  </div>
+  <div class="wrap hero-body" style="width:100%">
+    <div class="kicker" style="color:#ffb3ab">Executive MBA для собственников · Синергия</div>
+    <!--
+      A/B заголовка: финальную формулировку Александр отложил на отдельную встречу,
+      поэтому ни один вариант не выбран и не удален. Вариант D добавлен 06.10 как
+      предложение (личный мотив из ч.2, 21–33 — «идут с собой разобраться»), на
+      согласовании. Подзаголовок у каждого варианта свой — он должен совпадать
+      с обещанием H1; общий оффер-абзац и CTA ниже одни на все варианты,
+      потому что закрытие зафиксировано Александром («пройти отбор»).
+    -->
+    <div class="vtabs">
+      <div class="vtab active" data-v="a">Вариант A · среда и идеи</div>
+      <div class="vtab" data-v="b">Вариант B · система и кризис</div>
+      <div class="vtab" data-v="c">Вариант C · объединенный</div>
+      <div class="vtab" data-v="d">Вариант D · личный мотив (новый)</div>
+    </div>
+    <div class="hv" id="hv-a">
+      <h1>Новая среда, идеи и&nbsp;<span class="hl">круг собственников</span>, с&nbsp;которыми бизнес выходит на&nbsp;следующий уровень</h1>
+      <p class="hv-sub">Дело не&nbsp;в&nbsp;том, что бизнес работает плохо. Дело в&nbsp;том, что кончились идеи, с&nbsp;которыми его вести дальше, — а&nbsp;внутри компании они и&nbsp;не&nbsp;появятся.</p>
+    </div>
+    <div class="hv" id="hv-b" style="display:none">
+      <h1>Система управления, с&nbsp;которой бизнес <span class="hl">растет в&nbsp;кризис</span> — и&nbsp;не&nbsp;держится на&nbsp;вас одном</h1>
+      <p class="hv-sub">Перегруз — не&nbsp;от&nbsp;того, что вы много работаете, а&nbsp;от&nbsp;того, что система еще не&nbsp;настроена: полномочия, зоны ответственности, KPI. Вы остаетесь у&nbsp;руля.</p>
+    </div>
+    <div class="hv" id="hv-c" style="display:none">
+      <h1>Круг равных, новые идеи и&nbsp;<span class="hl">система</span>, с&nbsp;которой бизнес выдерживает кризис и&nbsp;растет</h1>
+      <p class="hv-sub">Чужие работающие практики, система управления под ваш масштаб и&nbsp;круг, в&nbsp;котором крупное решение проверяют до&nbsp;того, как вы его примете.</p>
+    </div>
+    <div class="hv" id="hv-d" style="display:none">
+      <h1>Вернуть интерес к&nbsp;делу, которое вы построили: <span class="hl">идеи, круг равных</span> и&nbsp;система, с&nbsp;которой бизнес растет дальше</h1>
+      <p class="hv-sub">Бизнес работает, деньги есть — а&nbsp;глаз не&nbsp;горит. Это не&nbsp;про бизнес: это про среду, которая вокруг вас не&nbsp;менялась годами.</p>
+    </div>
+    <p class="lead">Первый шаг — консультация по&nbsp;индивидуальной траектории: смотрим ваши задачи, показываем программу и&nbsp;решаем, подходим ли&nbsp;друг другу. В&nbsp;группу — по&nbsp;отбору.</p>
+    <a href="#form" class="btn emba-own-hero-cta" data-goal="emba-own-hero-cta">Пройти отбор&nbsp;↗</a>
+    <p class="btn-note">Консультация — 60&nbsp;минут, бесплатно. С&nbsp;вами говорит консультант по&nbsp;обучению, а&nbsp;не&nbsp;продавец со&nbsp;скриптом.</p>
+    <ul class="hero-points">
+      <li>новые идеи и&nbsp;практики из&nbsp;других отраслей — те, что внутри своей компании не&nbsp;появятся;</li>
+      <li>система управления, с&nbsp;которой бизнес выдерживает кризис и&nbsp;растет в&nbsp;нем;</li>
+      <li>круг собственников вашего масштаба: старшие товарищи, партнеры, преподаватели-практики.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ЦИФРЫ ОТБОРА -->
+<section class="dark" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid3">
+      <!-- прием 6 из разбора РАНХиГС: состав группы — цифрой, а не словами
+           «руководители крупных компаний». Числа только наши, [данные от школы]. -->
+      <div class="card"><div class="stat"><mark>[N]</mark></div><div class="stat-label">человек в&nbsp;группе · <mark>[доля]</mark> собственники, <mark>[доля]</mark> наемные руководители топ-уровня</div></div>
+      <div class="card"><div class="stat"><mark>[X]</mark>&nbsp;млрд&nbsp;₽</div><div class="stat-label">оборот от&nbsp;— порог входа в&nbsp;круг</div></div>
+      <div class="card"><div class="stat"><mark>[дата]</mark></div><div class="stat-label">старт ближайшего потока · отбор до&nbsp;<mark>[дата]</mark></div></div>
+    </div>
+
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-cifry" data-goal="emba-own-cta-cifry">Пройти отбор&nbsp;↗</a></p>
+    <p class="btn-note">Если ваш масштаб ниже порога — скажем прямо на&nbsp;первом разговоре.</p>
+  </div>
+</section>
+
+<!-- ТРИ МАРШРУТА (по AJTBD-картам) -->
+<section>
+  <div class="wrap">
+    <div class="kicker">С чем приходят</div>
+    <h2>Узнаете себя? Нажмите — покажем маршрут</h2>
+    <div class="grid3" style="margin-top:20px">
+      <div class="card toggle-card emba-own-route-fire" data-goal="emba-own-route-fire">
+        <h3>«Бизнес работает, а&nbsp;глаз не&nbsp;горит»</h3>
+        <p style="margin-top:8px;font-size:15.5px">Новых идей нет, команда спрашивает «куда идем» — а&nbsp;ответить нечего.</p>
+        <div class="hint">Это про меня&nbsp;→</div>
+        <div class="a">Энергия возвращается со&nbsp;сменой среды: круг равных, чужие работающие практики, первая идея, которую захотелось внедрить. Слушатели приходят домой с&nbsp;программой «не&nbsp;грустными, а&nbsp;веселыми» — и&nbsp;с&nbsp;пониманием, куда вести людей.</div>
+      </div>
+      <div class="card toggle-card emba-own-route-system" data-goal="emba-own-route-system">
+        <h3>«Все замкнуто на&nbsp;мне — страшно брать больше»</h3>
+        <p style="margin-top:8px;font-size:15.5px">Отказываетесь от&nbsp;крупных заказов и&nbsp;новых рынков: система не&nbsp;вытянет.</p>
+        <div class="hint">Это про меня&nbsp;→</div>
+        <div class="a">Дело не&nbsp;в&nbsp;том, что вы много работаете, — не&nbsp;настроена система: полномочия, зоны ответственности, процессы, KPI. Настроите ее&nbsp;— сможете брать заказы, филиалы и&nbsp;рынки, которые сейчас страшно брать. Вы остаетесь у&nbsp;руля и&nbsp;занимаетесь развитием, а&nbsp;не&nbsp;тушением пожаров. Проверка простая: уехали на&nbsp;модуль — ничего не&nbsp;рухнуло.</div>
+      </div>
+      <div class="card toggle-card emba-own-route-growth" data-goal="emba-own-route-growth">
+        <h3>«Растем, а&nbsp;я&nbsp;не&nbsp;понимаю почему»</h3>
+        <p style="margin-top:8px;font-size:15.5px">Выросли «на&nbsp;сошедшихся звездах» — и&nbsp;страшно, что рост кончится так&nbsp;же внезапно.</p>
+        <div class="hint">Это про меня&nbsp;→</div>
+        <div class="a">Разберете механику собственного роста с&nbsp;практиками: что работает — повторять осознанно, что нет — убрать. Пока прет — самое время взять рост под управление, а&nbsp;не&nbsp;наблюдать за&nbsp;ним. Сюда же&nbsp;— чужие методы из&nbsp;других отраслей и&nbsp;стран: внутри своей компании они не&nbsp;появятся.</div>
+      </div>
+    </div>
+    <!-- прием 4 из разбора РАНХиГС: легализовать смену запроса -->
+    <p class="q" style="margin-top:22px;max-width:var(--measure)">Ошибиться в&nbsp;выборе маршрута нельзя. Почти все заходят с&nbsp;одним запросом, а&nbsp;к&nbsp;середине программы формулируют другой — это норма, а&nbsp;не&nbsp;сбой. Маршрут нужен, чтобы понять, с&nbsp;чего начать разговор.</p>
+    <p style="margin-top:22px"><a href="#form" class="btn emba-own-routes-cta" data-goal="emba-own-routes-cta">Обсудить мою траекторию&nbsp;↗</a></p>
+  </div>
+</section>
+
+<!-- КВИЗ-ТИЗЕР (квиз одобрен Александром как диагностика системы).
+     Полный блок-вход в тот же квиз — ниже, перед формой (#quiz). -->
+<div class="dark" style="padding:18px 20px;text-align:center;font-size:15px;border-top:1px solid #3d3d3d;border-bottom:1px solid #3d3d3d">
+  Проверьте прочность своей системы управления: <a href="quiz-owners-cases.html" class="emba-own-quiz-teaser" data-goal="emba-own-quiz-teaser" style="color:#ffb3ab;font-weight:600;display:inline-block;padding:7px 0">тест «Сколько дней компания проработает без&nbsp;вас»&nbsp;→</a>
+  <span style="color:#8f897c"> · 8&nbsp;вопросов, результат сразу на&nbsp;экране</span>
+</div>
+
+<!-- КЕЙСЫ ВЫПУСКНИКОВ (Forbes, проверяемые) -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Выпускники</div>
+    <h2>Зачем сюда пришли те, у&nbsp;кого все было хорошо</h2>
+    <p class="lead" style="margin-bottom:22px">Не&nbsp;наши слова — интервью выпускников Forbes. По&nbsp;каждому кейсу — ссылка.</p>
+    <div class="grid3">
+      <div class="card fcase">
+        <h3>«Такого не&nbsp;добиться даже от&nbsp;дорогих отраслевых консультантов»</h3>
+        <p class="who">Денис Ременяко · владелец «ФК Гранд Капитал» · оборот 250&nbsp;млрд&nbsp;₽</p>
+        <p>Пришел не&nbsp;за&nbsp;дипломом, а&nbsp;за&nbsp;«апгрейдом управленческой операционной системы». Стратегию e-commerce для фармы собрал из&nbsp;разборов с&nbsp;однокурсником — директором завода канатов: взгляд с&nbsp;радикально иных позиций.</p>
+        <p class="how">Кросс-отраслевой круг — то, чего нет ни&nbsp;у&nbsp;консультантов, ни&nbsp;внутри компании.</p>
+        <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/553123-denis-remenako-a-vizu-v-sebe-celoveka-kotoryj-vosstanovil-spravedlivost" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+      </div>
+      <p class="sec-cta" style="margin:4px 0 18px"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-keysy" data-goal="emba-own-cta-keysy">Узнать индекс автономности&nbsp;↗</a></p>
+      <div class="card fcase">
+        <h3>Пришла с&nbsp;сетью школ в&nbsp;России — вышла на&nbsp;рынок Дубая</h3>
+        <p class="who">Анастасия Юдицкая · основательница Pirouette</p>
+        <p>Работающий бизнес в&nbsp;Москве и&nbsp;Петербурге, решения — интуитивно. «Учеба помогла мне принять решение о&nbsp;выходе на&nbsp;зарубежные рынки» — открыла направление в&nbsp;ОАЭ.</p>
+        <p class="how">«EMBA помог мыслить как предприниматель, который строит международный бренд».</p>
+        <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/564039-anastasia-udickaa-pirouette-v-sporte-i-biznese-vyigryvaet-samyj-posledovatel-nyj" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+      </div>
+      <div class="card fcase">
+        <h3>Маржа +5–7%, просмотры 5&nbsp;→&nbsp;10&nbsp;млн, поставщик сырья — из&nbsp;однокурсников</h3>
+        <p class="who">Николай Кузяков · «Ванюшкины сладости» · выручка 2+&nbsp;млрд&nbsp;₽</p>
+        <p>Каждый модуль закрыл живую задачу: «Стратегии» — план оптимизации цепочки с&nbsp;ростом маржинальности, «Цифровизация» — нейросети на&nbsp;производстве, «Маркетинг» — рост просмотров вдвое. Нетворкинг оценивает как «60–70% полезности обучения».</p>
+        <!-- прием 9 из разбора РАНХиГС: граница атрибуции там, где есть цифра результата -->
+        <p class="how">Это его проект по&nbsp;его задаче, и&nbsp;считал он&nbsp;сам. Мы&nbsp;не&nbsp;приписываем эти цифры программе — проверить их&nbsp;можно по&nbsp;интервью.</p>
+        <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/556451-dubajskij-sokolad-i-vkus-pihty-kak-ulavlivat-trendy-v-konditerskoj-otrasli" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+      </div>
+    </div>
+
+    <p class="sec-cta"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-zachem" data-goal="emba-own-cta-zachem">Узнать индекс автономности&nbsp;↗</a></p>
+    <p class="btn-note">8 вопросов, 3 минуты. Результат сразу на&nbsp;экране, без&nbsp;звонка.</p>
+  </div>
+</section>
+
+<!-- ЧТО ВНУТРИ / СРЕДА -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Что вы получаете</div>
+    <h2>Среда, в&nbsp;которой бизнес выходит на&nbsp;следующий уровень</h2>
+    <div class="grid2" style="margin-top:20px">
+      <div class="card"><h3>Круг собственников вашего масштаба</h3><p style="margin-top:8px;font-size:15.5px"><mark>[N]</mark> человек в&nbsp;группе, отбор по&nbsp;масштабу: <mark>[доля]</mark> собственники, <mark>[доля]</mark> наемные руководители топ-уровня. Здесь проверяют решения о&nbsp;сделке, преемнике, новом рынке — и&nbsp;находят партнеров. Случайных людей нет.</p><p style="margin-top:10px;font-size:15.5px">Главное свойство круга: рядом люди, которые <b>не&nbsp;конкурируют с&nbsp;вами</b>, говорят с&nbsp;вами на&nbsp;одном языке и&nbsp;могут помочь с&nbsp;вашим вопросом. Ни&nbsp;в&nbsp;своей отрасли, ни&nbsp;внутри компании такого разговора нет.</p></div>
+      <p class="sec-cta" style="margin:4px 0 18px"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-sreda-mid" data-goal="emba-own-cta-sreda-mid">Узнать индекс автономности&nbsp;↗</a></p>
+      <div class="card"><h3>Идеи из&nbsp;других отраслей</h3><p style="margin-top:8px;font-size:15.5px">Практики, которые внутри своей компании не&nbsp;появятся: как считают деньги, строят команды и&nbsp;принимают решения в&nbsp;бизнесах другого профиля и&nbsp;масштаба.</p></div>
+      <div class="card"><h3>Система, которая переживает кризис</h3><p style="margin-top:8px;font-size:15.5px">Полномочия, контуры ответственности, преемники на&nbsp;ключевых ролях — по&nbsp;образцам компаний, где это уже работает. Бизнес растет и&nbsp;не&nbsp;держится на&nbsp;вас.</p></div>
+      <div class="card"><h3>Преподаватели-практики</h3><p style="margin-top:8px;font-size:15.5px">Не&nbsp;консультанты и&nbsp;не&nbsp;профессора — те, кто сам управлял бизнесом. <mark>[Фото + факты: кто, чем управлял, какой оборот]</mark></p></div>
+    </div>
+
+    <p class="sec-cta"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-sreda" data-goal="emba-own-cta-sreda">Узнать индекс автономности&nbsp;↗</a></p>
+    <p class="btn-note">Сначала посмотрите, насколько система держится без&nbsp;вас.</p>
+  </div>
+</section>
+
+<!-- ФОРМАТ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Формат</div>
+    <h2>Уважает ваше время</h2>
+    <div class="grid3" style="margin-top:20px">
+      <div class="card"><h3>Короткие интенсивы</h3><p style="margin-top:8px;font-size:15.5px">Выездные сессии и&nbsp;модули вместо еженедельных пар. <mark>[Расписание: Москва / Петербург / зарубежный модуль]</mark></p><p style="margin-top:10px;font-size:15.5px">Ритм — <mark>[модуль раз в месяц]</mark>, а&nbsp;не&nbsp;заезд на&nbsp;неделю раз в&nbsp;полгода: за&nbsp;месяц связи в&nbsp;группе не&nbsp;рвутся, вы возвращаетесь к&nbsp;тем&nbsp;же людям и&nbsp;к&nbsp;тем&nbsp;же задачам.</p></div>
+      <div class="card"><h3>Бизнес не&nbsp;останавливается</h3><p style="margin-top:8px;font-size:15.5px">Уехали на&nbsp;модуль — компания работает: настройка системы начинается с&nbsp;первых модулей, на&nbsp;вашем живом бизнесе.</p></div>
+      <p class="sec-cta" style="margin:4px 0 18px"><a href="#form" class="btn ghost emba-own-cta-format-mid" data-goal="emba-own-cta-format-mid">Пройти отбор&nbsp;↗</a></p>
+      <div class="card"><h3>Ваш бизнес — сквозной проект</h3><p style="margin-top:8px;font-size:15.5px">Разбираете не&nbsp;чужие кейсы, а&nbsp;свою компанию — со&nbsp;спикерами и&nbsp;группой. Решения внедряете по&nbsp;ходу программы.</p></div>
+      <!-- прием из раздела 3 разбора РАНХиГС: честное «легко не будет» рядом
+           с арифметикой нагрузки. Число дней — [данные от школы]. -->
+      <div class="card"><h3>Легко не&nbsp;будет</h3><p style="margin-top:8px;font-size:15.5px">Это полные дни, и&nbsp;к&nbsp;концу модуля вы устанете: не&nbsp;вечерние вебинары под кофе. Зато в&nbsp;вашем графике это <mark>[N]</mark> рабочих дней в&nbsp;месяц, а&nbsp;не&nbsp;год вне работы.</p></div>
+    </div>
+    <div class="card fcase" style="margin-top:16px;max-width:var(--measure)">
+      <h3>Учеба — не&nbsp;«параллельная жизнь», а&nbsp;работа над своей компанией</h3>
+      <p class="who">Андрей Исаев · сооснователь ДНКОМ · выручка 2,7&nbsp;млрд&nbsp;₽</p>
+      <p>Врач по&nbsp;образованию, управлял на&nbsp;интуиции. Учился командой — с&nbsp;женой и&nbsp;исполнительным директором: изменения внедрялись сразу всей верхушкой. Пересобрал команду, перестроил найм, пересмотрел KPI.</p>
+      <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/557929-andrej-isaev-osnovatel-dnkom-ludi-vidat-cto-platnaa-medicina-effektivna" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+    </div>
+
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-format" data-goal="emba-own-cta-format">Пройти отбор&nbsp;↗</a></p>
+    <p class="btn-note">Консультация по&nbsp;траектории — 60&nbsp;минут, с&nbsp;консультантом по&nbsp;обучению.</p>
+  </div>
+</section>
+
+<!-- БИЗНЕС-МИССИИ: СДЕЛКИ ДО ВЫПУСКА -->
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Бизнес-миссии</div>
+    <h2>Не&nbsp;экскурсия, а&nbsp;сделка</h2>
+    <p class="lead" style="margin-bottom:20px">Деловую программу миссий собирают под задачи участников. Кейсы — без имен, по&nbsp;договоренности с&nbsp;участниками.</p>
+    <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div class="card fcase">
+        <h3>Полетел на&nbsp;модуль в&nbsp;Индию — вернулся с&nbsp;подписанными контрактами</h3>
+        <p>Под участника организовали перелет к&nbsp;фармпроизводителю: договоры на&nbsp;поставку препарата в&nbsp;Россию и&nbsp;на&nbsp;экспорт российской продукции в&nbsp;Индию.</p>
+      </div>
+      <div class="card fcase">
+        <h3>Одна встреча в&nbsp;Китае — расширенный контракт с&nbsp;«дочкой» Alibaba</h3>
+        <p>Гендиректору логистической компании организовали встречу с&nbsp;вице-президентом Cainiao: договоры на&nbsp;новые категории грузов в&nbsp;Россию.</p>
+      </div>
+    </div>
+
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-missii" data-goal="emba-own-cta-missii">Пройти отбор&nbsp;↗</a></p>
+    <p class="btn-note">Расписание выездных модулей покажем на&nbsp;консультации.</p>
+  </div>
+</section>
+
+<!-- СРАВНЕНИЕ -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">Почему не другое</div>
+    <h2>Чем это отличается от&nbsp;того, что у&nbsp;вас уже есть</h2>
+    <!-- прием 5 из разбора РАНХиГС: антипродажа — сами снимаем аргумент «модули и спикеры» -->
+    <p class="lead" style="margin-top:4px">Сразу честно: набором модулей вас никто не&nbsp;удивит — похожий список можно собрать из&nbsp;коучей и&nbsp;консультантов. Разница в&nbsp;двух вещах: кто сидит рядом с&nbsp;вами в&nbsp;группе и&nbsp;то, что проект вы делаете по&nbsp;своей компании, а&nbsp;не&nbsp;по&nbsp;учебному кейсу.</p>
+    <div class="tscroll"><table style="margin-top:20px">
+      <tr><td><b>Бизнес-клубы</b></td><td>Общение есть — методов и&nbsp;системы нет. Здесь уходите не&nbsp;со&nbsp;знакомствами, а&nbsp;с&nbsp;работающей системой управления.</td></tr>
+      <tr><td><b>Зарубежные школы и&nbsp;Сколково</b></td><td>Академия и&nbsp;западные кейсы. Здесь — действующие собственники РФ и&nbsp;решения под сегодняшние ограничения.</td></tr>
+      <tr><td><b>Консультанты</b></td><td>Сделают отчет и&nbsp;уйдут — знание останется у&nbsp;них. Здесь вы разбираете свой бизнес сами, навык остается в&nbsp;компании.</td></tr>
+      <tr><td><b>Отпуск и&nbsp;«перетерпеть»</b></td><td>Переключает, но&nbsp;не&nbsp;дает ни&nbsp;идей, ни&nbsp;круга. Через месяц все возвращается.</td></tr>
+    </table></div>
+
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-sravnenie" data-goal="emba-own-cta-sravnenie">Пройти отбор&nbsp;↗</a></p>
+    <p class="btn-note">Разберём вашу задачу и&nbsp;скажем прямо, ваша это группа или&nbsp;нет.</p>
+  </div>
+</section>
+
+<!-- БЛОК-ВХОД В КВИЗ.
+     Квиз одобрен Александром (ч.2, 142–143) как диагностика хрупкой системы.
+     Обещание входа — «настроить систему, чтобы бизнес рос и не держался на вас
+     одном», не «выйти» куда-либо. Ссылка относительная: ../квиз-...кейсы...html —
+     это вариант A сплита; вариант B лежит рядом (...модули...), подменяется
+     в ссылке руками при заливке второй версии ленда.
+     Цель перехода — emba-own-quiz-cta (у плашки-тизера выше своя: emba-own-quiz-teaser). -->
+<section class="dark" id="quiz">
+  <div class="wrap">
+    <div class="kicker">Если говорить пока рано</div>
+    <h2>Сначала посмотрите, насколько система держится без&nbsp;вас</h2>
+    <p class="lead" style="margin-bottom:22px">Восемь вопросов о&nbsp;том, как в&nbsp;компании принимаются решения, когда вас нет. Это диагностика, а&nbsp;не&nbsp;заявка: контакт нужен только если захотите обсудить результат.</p>
+    <a href="quiz-owners-cases.html" class="btn emba-own-quiz-cta" data-goal="emba-own-quiz-cta">Узнать индекс автономности&nbsp;↗</a>
+    <p class="btn-note">8&nbsp;вопросов, 3&nbsp;минуты. Результат — сразу на&nbsp;экране, без&nbsp;регистрации и&nbsp;без&nbsp;звонка.</p>
+    <div class="grid3" style="margin-bottom:24px">
+      <div class="card"><h3>Индекс автономности 0–10</h3><p style="margin-top:8px;font-size:15.5px">Сколько компания проработает без&nbsp;ваших решений — и&nbsp;насколько это совпало с&nbsp;вашей собственной оценкой в&nbsp;днях.</p></div>
+      <div class="card"><h3>Карта семи узлов</h3><p style="margin-top:8px;font-size:15.5px">Где компания упирается в&nbsp;вас лично: решения, готовность к&nbsp;росту, процессы, вторая линия руководителей, ваш ресурс.</p></div>
+      <div class="card"><h3>С&nbsp;чего начать</h3><p style="margin-top:8px;font-size:15.5px">Один узел, с&nbsp;которого система развязывается быстрее всего. Задача — настроить систему, чтобы бизнес рос и&nbsp;не&nbsp;держался на&nbsp;вас одном.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ПОПАСТЬ -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">Как попасть</div>
+    <h2>В&nbsp;группу — через отбор</h2>
+    <ul class="clean" style="margin-top:16px">
+      <li><b>Заявка.</b> Имя и&nbsp;телефон — этого достаточно.</li>
+      <li><b>Консультация по&nbsp;траектории — 60&nbsp;минут.</b> Смотрим ваши задачи и&nbsp;масштаб, показываем программу и&nbsp;состав группы, отвечаем на&nbsp;вопросы — включая стоимость.</li>
+      <li><b>Решение — обоюдное.</b> Собеседование с&nbsp;руководителем программы: решаем, ваша это группа или нет. Если уровень не&nbsp;ваш — скажем прямо и&nbsp;не&nbsp;будем уговаривать.</li>
+    </ul>
+    <p class="q" style="margin-top:18px">В&nbsp;группу попадают не&nbsp;все — состав держим отбором, чтобы вы учились со&nbsp;своими. Закрытость тут не&nbsp;маркетинг, а&nbsp;условие: такой разговор работает только среди равных.</p>
+
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-otbor" data-goal="emba-own-cta-otbor">Пройти отбор&nbsp;↗</a></p>
+    <p class="btn-note">Имя и&nbsp;телефон — этого достаточно для&nbsp;первого шага.</p>
+  </div>
+</section>
+
+<!-- ФОРМА -->
+<section class="dark" id="form">
+  <div class="wrap narrow">
+    <div class="kicker">Отбор в группу</div>
+    <h2>Пройти отбор</h2>
+    <p class="lead" style="margin-bottom:20px">Оставьте контакт — договоримся о&nbsp;консультации по&nbsp;индивидуальной траектории.</p>
+    <form id="lead-form" novalidate>
+      <label for="f-name">Имя</label>
+      <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+      <label for="f-phone">Телефон или Telegram</label>
+      <input id="f-phone" type="tel" placeholder="+7 …" required>
+      <label for="f-scale">Масштаб компании — чтобы подобрать группу равных</label>
+      <select id="f-scale">
+        <option>Выберите вилку</option>
+        <option>до 500 млн ₽ в год</option>
+        <option>500 млн – 1 млрд ₽</option>
+        <option>1–5 млрд ₽</option>
+        <option>больше 5 млрд ₽</option>
+      </select>
+      <label for="f-note">Какой вопрос сейчас перед вами (по желанию)</label>
+      <textarea id="f-note" rows="3" placeholder="Например: выросли в 3 раза за два года, хочу понять, как удержать темп и не тащить все самому"></textarea>
+      <button type="submit" class="btn emba-own-form-submit" data-goal="emba-own-form-submit" style="width:100%">Пройти отбор&nbsp;↗</button>
+      <p class="btn-note" style="text-align:center">Нажимая кнопку, вы соглашаетесь с&nbsp;обработкой персональных данных.</p>
+    </form>
+    <div class="ok-msg" id="ok-msg">
+      <h3>Заявка принята</h3>
+      <p style="margin-top:8px">Свяжемся, чтобы договориться о&nbsp;консультации. Один разговор по&nbsp;делу — без рассылок и&nbsp;звонков по&nbsp;скрипту.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Executive MBA «Синергия» · для собственников бизнеса · <mark>[юридическая информация, лицензия]</mark></footer>
+
+
+<script>
+// YM_ID оставлен пустым: номер счетчика дает школа. Пока null — цели не уходят,
+// но вся разметка на месте, подставить номер достаточно в одном месте.
+var YM_ID = null;
+
+// cb вызывается после отправки цели (или сразу, если счетчика нет),
+// чтобы переход на другую страницу не обрывал запрос в Метрику.
+// Каждая цель уходит один раз за просмотр страницы: карточки маршрутов
+// открываются и закрываются, иначе одно и то же действие считалось бы по многу раз.
+var sentGoals = {};
+function goal(n, cb){
+  var done = false;
+  function next(){ if(done) return; done = true; if(cb) cb(); }
+  if(YM_ID && window.ym && !sentGoals[n]){
+    sentGoals[n] = 1;
+    ym(YM_ID, 'reachGoal', n, next);
+    setTimeout(next, 400);
+  } else { next(); }
+}
+
+document.addEventListener('click', function(e){
+  var g = e.target.closest('[data-goal]');
+  if(!g) return;
+  // отправку формы считает обработчик submit — иначе цель ушла бы дважды
+  if(g.tagName === 'BUTTON' && g.type === 'submit') return;
+  var href = g.getAttribute('href') || '';
+  var leaves = g.tagName === 'A' && href && href.charAt(0) !== '#' && g.target !== '_blank';
+  if(leaves){
+    e.preventDefault();
+    goal(g.getAttribute('data-goal'), function(){ window.location.href = href; });
+  } else {
+    goal(g.getAttribute('data-goal'));
+  }
+});
+// переключатель вариантов заголовка
+document.querySelectorAll('.vtab').forEach(function(t){
+  t.addEventListener('click', function(){
+    document.querySelectorAll('.vtab').forEach(function(x){x.classList.remove('active')});
+    t.classList.add('active');
+    document.querySelectorAll('.hv').forEach(function(h){h.style.display='none'});
+    document.getElementById('hv-'+t.dataset.v).style.display='block';
+  });
+});
+// карточки маршрутов
+document.querySelectorAll('.toggle-card').forEach(function(c){
+  c.addEventListener('click', function(){ c.classList.toggle('open'); });
+});
+document.getElementById('lead-form').addEventListener('submit', function(e){
+  e.preventDefault(); goal('emba-own-form-submit');
+  this.style.display='none'; document.getElementById('ok-msg').style.display='block';
+});
+
+</script>
+
+</body>
+</html>
