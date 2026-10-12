@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Закрытый круг собственников от 5 млрд — Executive MBA «Синергия»</title>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  СОБСТВЕННИКИ · ВАРИАНТ 3 · КРУГ СОБСТВЕННИКОВ · ВЕРСИЯ 2 (21.08)
+  Пересобран после вопроса Ксении «за что тут платить 7,5 млн?»
+  по разборам зарубежных аналогов из бэкап-папки:
+  · Hampton ($15k/год): «Stop making $50M decisions alone. Lonely
+    decisions are expensive» — продают ЦЕНУ ОДИНОЧНОГО РЕШЕНИЯ,
+    не принадлежность. Скидок принципиально нет.
+  · Vistage ($16,5k/год): продают МЕХАНИКУ — полный день в месяц,
+    12–16 неконкурирующих CEO, Chair-ведущий, 2 ч 1:1, «день НАД
+    бизнесом»; главная задача клиента — «проверить решение о равных»
+  · Атланты 750к/Club 500 820к/Эквиум 450к: отбор+СБ+голосование
+    резидентов, событийная программа — но БЕЗ планки 5 млрд
+  Главные изменения:
+  · оффер = цена непроверенного решения, а не «попасть в круг»
+  · блок «Что входит в год» — в штуках (сессии, разборы, ведущий)
+  · блок «Как проходит разбор вашего вопроса» — механика по шагам
+  · честный ответ «почему 7,5 млн, если клуб стоит 750 тысяч»
+  Числа состава года — плейсхолдеры [VERIFY], сверить со школой.
+  Префикс целей Метрики: krug-own- (цели не менялись)
+  Цели: krug-own-hero-cta, krug-own-mid-cta, krug-own-form-submit
+  ═══════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#262626;--dark2:#1e1e1e;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;--muted:#6f6a5e;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,-apple-system,sans-serif;font-size:17px;line-height:1.55;color:var(--ink);background:var(--beige)}
+h1,h2{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.08;font-weight:600}
+h1{font-size:clamp(30px,4.6vw,50px)}
+h2{font-size:clamp(22px,3vw,32px);margin-bottom:14px}
+h3{font-size:18px;font-weight:600;line-height:1.3}
+section{padding:60px 20px}
+.wrap{max-width:960px;margin:0 auto}
+.narrow{max-width:var(--measure)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.kicker::before{content:"";display:inline-block;width:26px;height:3px;background:var(--red);vertical-align:middle;margin-right:10px}
+.lead{font-size:18px;max-width:var(--measure)}
+.btn{display:inline-block;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:Oswald;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:18px 34px;border-radius:6px;text-decoration:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-note{font-size:14px;color:var(--muted);margin-top:10px}
+.dark{background:var(--dark);color:#efece4}
+.dark h2{color:#fff}
+.dark .btn-note{color:#b9b3a5}
+mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:inherit}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--cream);border-radius:10px;padding:22px;border:1px solid #d8d0bc}
+.dark .card{background:#2f2f2f;border-color:#3d3d3d;color:#e8e4da}
+.dark .card h3{color:#fff}
+.num{font-family:Oswald;font-size:30px;color:var(--red);line-height:1;margin-bottom:8px}
+.big{font-family:Oswald;font-size:34px;color:var(--red);line-height:1;margin-bottom:8px}
+.q{border-left:4px solid var(--red);padding:12px 18px;background:var(--cream);border-radius:0 8px 8px 0;margin-bottom:12px;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #d8d0bc;vertical-align:top}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.dark th,.dark td{border-color:#3d3d3d}
+input,select,textarea{width:100%;padding:14px;border:1px solid #cfc7b2;border-radius:6px;font:inherit;font-size:16px;background:#fff;margin-bottom:12px}
+label{font-size:13.5px;font-weight:600;display:block;margin-bottom:5px}
+.hero{background:radial-gradient(circle at 80% 15%, #e63a2e44 0%, transparent 45%), var(--dark);color:#fff;padding:0 20px 70px}
+.hero-top{display:flex;align-items:center;gap:10px;padding:26px 0;max-width:960px;margin:0 auto}
+.logo-sq{width:34px;height:34px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.logo-tx{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}
+.logo-tx small{display:block;font-weight:400;color:#cfc9bc}
+.hero-body{max-width:840px;margin:40px auto 0}
+.hero .lead{margin:22px 0 28px;color:#dcd6c9}
+.hero h1 .hl{color:var(--red)}
+ul.clean{list-style:none}
+ul.clean li{padding-left:22px;position:relative;margin-bottom:9px}
+ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;background:var(--red);border-radius:2px}
+.ok-msg{display:none;background:var(--cream);border:1px solid var(--red);border-radius:10px;padding:22px;text-align:center}
+footer{background:var(--dark2);color:#8f897c;font-size:13.5px;padding:24px 20px;text-align:center}
+@media(max-width:640px){section{padding:44px 16px}}
+</style>
+</head>
+<body>
+
+<!-- ГЕРОЙ: цена одиночного решения, не «попадание в круг» -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="logo-sq">С</div>
+    <div class="logo-tx">Синергия<small>Executive MBA</small></div>
+  </div>
+  <div class="hero-body">
+    <div class="kicker" style="color:#ffb3ab">Executive MBA · для собственников бизнеса от&nbsp;<mark>[5]</mark>&nbsp;млрд</div>
+    <h1>Решения ценой в&nbsp;сотни миллионов — единственное, что вы до&nbsp;сих пор делаете <span class="hl">в&nbsp;одиночку</span></h1>
+    <p class="lead">Сделка, преемник, новый рынок. Топам нельзя показать сомнения, семья не&nbsp;поймет, советники заинтересованы. Закрытый круг из&nbsp;<mark>[25]</mark> собственников бизнеса от&nbsp;<mark>[5]</mark>&nbsp;млрд&nbsp;₽ с&nbsp;ведущим — чтобы проверять такие решения о&nbsp;равных до&nbsp;того, как ошибка станет дорогой.</p>
+    <a href="#form" class="btn krug-own-hero-cta" data-goal="krug-own-hero-cta">Разобрать вашу ситуацию с&nbsp;практиком вашего уровня</a>
+    <p class="btn-note">Первый разговор — бесплатно и&nbsp;без обязательств. Не&nbsp;лекция и&nbsp;не&nbsp;рассылка: один разбор вашего конкретного вопроса.</p>
+  </div>
+</div>
+
+<!-- ПОЧЕМУ ОДНОМУ — ДОРОГО -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Во что обходится решать одному</div>
+    <h2>Непроверенное решение стоит дороже, чем весь круг</h2>
+    <div class="grid3" style="margin-top:20px">
+      <div class="card"><h3>Советники — заинтересованы</h3><p style="margin-top:8px;font-size:15.5px">Консультант продает следующий контракт, банк — сделку, партнер — свою долю. Внешний взгляд без интереса в&nbsp;вашем решении взять негде.</p></div>
+      <div class="card"><h3>Своим — не&nbsp;покажешь сомнения</h3><p style="margin-top:8px;font-size:15.5px">Перед топами нельзя сомневаться вслух. В&nbsp;круге равных можно: здесь ни&nbsp;один не&nbsp;ваш подчиненный и&nbsp;ни&nbsp;один ничего вам не&nbsp;продает.</p></div>
+      <div class="card"><h3>Свой круг — тот&nbsp;же пузырь</h3><p style="margin-top:8px;font-size:15.5px">Люди, которые знают вас двадцать лет, думают как вы. Ошибку в&nbsp;сделке видно снаружи — из&nbsp;другой отрасли и&nbsp;другого опыта.</p></div>
+    </div>
+    <p style="margin-top:18px;font-size:15.5px;color:var(--muted);max-width:var(--measure)">На&nbsp;обороте от&nbsp;5&nbsp;млрд цена одной непроверенной сделки, затянувшейся передачи преемнику или неверного рынка измеряется сотнями миллионов. Стоимость круга — меньше цены одной такой ошибки.</p>
+  </div>
+</section>
+
+<!-- ЧТО ВХОДИТ В ГОД -->
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">За что вы платите</div>
+    <h2>Что входит в&nbsp;год — в&nbsp;штуках</h2>
+    <p class="lead" style="margin-bottom:20px">Не&nbsp;«членство» и&nbsp;не&nbsp;«атмосфера». Регулярный рабочий контур для ваших стратегических решений.</p>
+    <div class="grid3">
+      <div class="card"><div class="big"><mark>[10]</mark></div><h3>Закрытых сессий в&nbsp;год</h3><p style="margin-top:8px;font-size:15px">Полный день раз в&nbsp;месяц над бизнесом, а&nbsp;не&nbsp;в&nbsp;нем. Ваш личный совет директоров — который вам не&nbsp;подчинен и&nbsp;ничего вам не&nbsp;продает.</p></div>
+      <div class="card"><div class="big"><mark>[3–4]</mark></div><h3>Разбора лично вашего вопроса</h3><p style="margin-top:8px;font-size:15px">Каждый участник выносит свой вопрос на&nbsp;разбор по&nbsp;регламенту несколько раз в&nbsp;год — это право, а&nbsp;не&nbsp;лотерея.</p></div>
+      <div class="card"><div class="big">1:1</div><h3>Личный ведущий круга</h3><p style="margin-top:8px;font-size:15px">Модерирует разборы и&nbsp;встречается с&nbsp;вами один на&nbsp;один <mark>[N раз в&nbsp;год]</mark>: держит вашу цель на&nbsp;году, а&nbsp;не&nbsp;от&nbsp;встречи к&nbsp;встрече.</p></div>
+      <div class="card"><div class="big"><mark>[2]</mark></div><h3>Выездных модуля и&nbsp;бизнес-миссии</h3><p style="margin-top:8px;font-size:15px">Встречи организуют под вашу задачу. Из&nbsp;практики: участнику устроили перелет к&nbsp;фармпроизводителю в&nbsp;Индии — подписаны контракты на&nbsp;поставку и&nbsp;экспорт; гендиректору логистической компании — встречу с&nbsp;вице-президентом Cainiao (группа Alibaba).</p></div>
+      <div class="card"><div class="big">Т-30</div><h3>Спикеры — бывшие первые лица топ-30&nbsp;РФ</h3><p style="margin-top:8px;font-size:15px">Не&nbsp;консультанты и&nbsp;не&nbsp;профессора: те, кто сам управлял оборотами вашего порядка.</p></div>
+      <div class="card"><div class="big">24/7</div><h3>Прямой доступ к&nbsp;участникам</h3><p style="margin-top:8px;font-size:15px">Между сессиями — не&nbsp;«нетворк», а&nbsp;люди, которым можно позвонить по&nbsp;конкретной сделке. Обсуждения не&nbsp;выходят за&nbsp;пределы круга.</p></div>
+    </div>
+    <p style="margin-top:16px;font-size:14px;color:#b9b3a5"><mark>[Числа состава года сверить со&nbsp;школой до&nbsp;публикации — не&nbsp;обещать то, чего нет в&nbsp;продукте]</mark></p>
+  </div>
+</section>
+
+<!-- МЕХАНИКА РАЗБОРА -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Механика</div>
+    <h2>Как проходит разбор вашего вопроса</h2>
+    <p class="lead" style="margin-bottom:20px">Не&nbsp;«обсудили и&nbsp;разошлись» — регламент, который доводит до&nbsp;решения.</p>
+    <div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+      <div class="card"><div class="num">1</div><h3>Вы приносите вопрос</h3><p style="margin-top:8px;font-size:15px">Сделка, преемник, рынок, выход. Ведущий помогает сформулировать его до&nbsp;сессии.</p></div>
+      <div class="card"><div class="num">2</div><h3>Сначала вопросы, не&nbsp;советы</h3><p style="margin-top:8px;font-size:15px">Группа задает вопросы, пока не&nbsp;увидит картину целиком, — слепые зоны вскрываются уже здесь.</p></div>
+      <div class="card"><div class="num">3</div><h3>Опыт, а&nbsp;не&nbsp;мнения</h3><p style="margin-top:8px;font-size:15px">Каждый говорит не&nbsp;«я&nbsp;бы посоветовал», а&nbsp;«я&nbsp;в&nbsp;такой ситуации сделал так — вот что вышло». Опыт людей со&nbsp;своими деньгами на&nbsp;кону.</p></div>
+      <div class="card"><div class="num">4</div><h3>Решение с&nbsp;контролем</h3><p style="margin-top:8px;font-size:15px">Вы уходите с&nbsp;картой вариантов — а&nbsp;на&nbsp;следующей сессии группа спросит, что вы сделали. Это дисциплина, которой у&nbsp;первого лица нет нигде.</p></div>
+    </div>
+    <p style="margin-top:16px;font-size:14px;color:var(--muted)"><mark>[Регламент сверить с&nbsp;тем, как реально идут сессии, — формат описан по&nbsp;лучшей мировой практике закрытых групп]</mark></p>
+  </div>
+</section>
+
+<!-- УЗНАЕТЕ СЕБЯ -->
+<section class="dark">
+  <div class="wrap narrow">
+    <div class="kicker">Узнаете себя?</div>
+    <ul class="clean" style="margin-top:6px">
+      <li>Готовите сделку по&nbsp;продаже доли или M&A — нужен внешний взгляд, которому можно доверять.</li>
+      <li>Преемник в&nbsp;семье или команде пока не&nbsp;вытягивает.</li>
+      <li>Появились свободные деньги и&nbsp;время — ищете, во&nbsp;что вложить себя.</li>
+      <li>Знакомый ушел в&nbsp;Сколково, Эквиум или Атланты — и&nbsp;вы задумались о&nbsp;том&nbsp;же.</li>
+      <li>Устали быть «экспертом по&nbsp;всему» и&nbsp;отвечать за&nbsp;каждое решение в&nbsp;одиночку.</li>
+      <li>Хотите держать актуальную картину технологий и&nbsp;геополитики — не&nbsp;из&nbsp;своего пузыря.</li>
+    </ul>
+    <p style="margin-top:22px"><a href="#form" class="btn krug-own-mid-cta" data-goal="krug-own-mid-cta">Разобрать вашу ситуацию</a></p>
+  </div>
+</section>
+
+<!-- СОСТАВ КРУГА -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">Состав круга</div>
+    <h2>Кто внутри — по&nbsp;компаниям и&nbsp;оборотам</h2>
+    <p style="margin:12px 0 18px;font-size:15.5px;color:var(--muted)">Имена не&nbsp;публикуются. Состав показываем через отрасли, обороты и&nbsp;типы сделок — полный список увидите на&nbsp;первом разговоре.</p>
+    <table>
+      <tr><th>Отрасль</th><th>Оборот</th><th>Тип задачи</th></tr>
+      <tr><td><mark>[Производство]</mark></td><td><mark>[8 млрд ₽]</mark></td><td><mark>[продал долю в 2025]</mark></td></tr>
+      <tr><td><mark>[Ритейл]</mark></td><td><mark>[12 млрд ₽]</mark></td><td><mark>[выход в новый регион]</mark></td></tr>
+      <tr><td><mark>[Девелопмент]</mark></td><td><mark>[6 млрд ₽]</mark></td><td><mark>[передача преемнику]</mark></td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--muted);margin-top:12px">В&nbsp;круге нет конкурентов: из&nbsp;одной ниши берем одного. <mark>[Заполнить реальными обезличенными данными. Если данных нет — блок не&nbsp;публиковать, не&nbsp;выдумывать]</mark></p>
+  </div>
+</section>
+
+<!-- ПЕРВЫЙ РАЗГОВОР -->
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Первый шаг — без риска</div>
+    <h2>Один разбор — бесплатно и&nbsp;без обязательств</h2>
+    <p class="lead" style="margin-bottom:20px">Вы проверяете уровень круга на&nbsp;своем живом вопросе. Дальше сами решаете, ваш это уровень или нет.</p>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>Раскладываем ваш вопрос</h3><p style="margin-top:8px;font-size:15.5px">За&nbsp;40&nbsp;минут разбираем реальную ситуацию — сделку, преемника или рост — с&nbsp;тем, кто прошел это в&nbsp;своем бизнесе.</p></div>
+      <div class="card"><div class="num">2</div><h3>Показываем состав круга</h3><p style="margin-top:8px;font-size:15.5px">Отрасли, обороты, типы сделок участников. Вы видите уровень людей до&nbsp;того, как принять решение.</p></div>
+      <div class="card"><div class="num">3</div><h3>Даем карту вариантов</h3><p style="margin-top:8px;font-size:15.5px">Не&nbsp;общая теория, а&nbsp;конкретные ходы: куда расти, что проверить, где слепые зоны. Карта остается у&nbsp;вас в&nbsp;любом случае.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- СОМНЕНИЯ -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">У вас есть сомнения?</div>
+    <div style="display:grid;gap:14px;margin-top:6px">
+      <div class="card"><h3>«Почему 7,5&nbsp;млн, если бизнес-клуб стоит 750&nbsp;тысяч?»</h3><p style="margin-top:8px;font-size:15.5px">Клуб продает встречи и&nbsp;широкий состав. Здесь — планка от&nbsp;<mark>[5]</mark>&nbsp;млрд, регламентный разбор именно ваших решений, личный ведущий и&nbsp;спикеры уровня бывших первых лиц топ-30. Взнос — часть отбора: он&nbsp;гарантирует, что рядом люди, для которых это всерьез. И&nbsp;сравнивать его честнее не&nbsp;с&nbsp;клубом, а&nbsp;с&nbsp;ценой одного непроверенного решения на&nbsp;вашем обороте.</p></div>
+      <div class="card"><h3>«Я&nbsp;уже был в&nbsp;Сколково, Лондоне, INSEAD — что мне даст Синергия?»</h3><p style="margin-top:8px;font-size:15.5px">Мы&nbsp;не&nbsp;«лучше» — мы&nbsp;другое. Не&nbsp;западные кейсы и&nbsp;профессора, а&nbsp;круг действующих собственников РФ, макротренды от&nbsp;инсайдеров и&nbsp;сделки внутри группы. Владелец «ФК&nbsp;Гранд Капитал» (оборот 250&nbsp;млрд&nbsp;₽) о&nbsp;выводах из&nbsp;разборов с&nbsp;участниками: «такого не&nbsp;добиться даже от&nbsp;дорогих отраслевых консультантов» — <a href="https://www.forbes.ru/club/partners/553123-denis-remenako-a-vizu-v-sebe-celoveka-kotoryj-vosstanovil-spravedlivost" target="_blank" rel="noopener" style="color:var(--red);font-weight:600;display:inline-block;padding:7px 0">Forbes&nbsp;→</a></p></div>
+      <div class="card"><h3>«Не&nbsp;моя тусовка — там малый бизнес»</h3><p style="margin-top:8px;font-size:15.5px">Этот круг отдельный: только собственники от&nbsp;<mark>[5]</mark>&nbsp;млрд&nbsp;₽, из&nbsp;одной ниши — один участник. Состав видите до&nbsp;решения — по&nbsp;отраслям, оборотам и&nbsp;сделкам. Не&nbsp;подойдет уровень — мы&nbsp;сами скажем.</p></div>
+      <div class="card"><h3>«Это уронит мою репутацию»</h3><p style="margin-top:8px;font-size:15.5px">Круг закрытый и&nbsp;конфиденциальный. Обсуждения не&nbsp;выходят наружу, имена не&nbsp;публикуются без согласия.</p></div>
+      <div class="card"><h3>«Не&nbsp;могу позволить себе 6&nbsp;месяцев расписания»</h3><p style="margin-top:8px;font-size:15.5px">Один полный день в&nbsp;месяц — и&nbsp;это день над бизнесом, а&nbsp;не&nbsp;еще один день в&nbsp;нем. Плюс короткие выездные интенсивы вместо еженедельных пар. Начать можно с&nbsp;одного бесплатного разбора.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЛИЧИЯ -->
+<section class="dark">
+  <div class="wrap narrow">
+    <div class="kicker">Чем это отличается</div>
+    <table style="margin-top:6px">
+      <tr><td><b>Сколково, ВШБ ВШЭ, западные программы</b></td><td>Академия и&nbsp;нетворк прошлого. Здесь — круг собственников, принимающих решения прямо сейчас, и&nbsp;сделки между участниками.</td></tr>
+      <tr><td><b>Бизнес-клубы (Эквиум, Атланты)</b></td><td>Регулярные встречи, широкий состав. Здесь — планка по&nbsp;обороту, регламент разбора ваших решений и&nbsp;спикеры уровня бывших первых лиц топ-30&nbsp;РФ.</td></tr>
+      <tr><td><b>Консультанты и&nbsp;советники</b></td><td>Продают следующий контракт. Здесь никто ничего вам не&nbsp;продает: у&nbsp;каждого в&nbsp;круге свои деньги на&nbsp;кону в&nbsp;своем бизнесе.</td></tr>
+      <tr><td><b>Свой узкий круг</b></td><td>Знает вас, но&nbsp;варится в&nbsp;том&nbsp;же пузыре. Здесь — внешний взгляд людей вашего масштаба из&nbsp;других отраслей.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ФОРМА -->
+<section id="form">
+  <div class="wrap narrow">
+    <div class="kicker">Первый шаг</div>
+    <h2>Разберем вашу ситуацию</h2>
+    <p class="lead" style="margin-bottom:20px">Опишите, какой вопрос сейчас перед вами — сделка, преемник, новый рынок или выход. Свяжемся и&nbsp;договоримся о&nbsp;разговоре с&nbsp;практиком вашего уровня.</p>
+    <form id="lead-form" novalidate>
+      <label for="f-name">Имя</label>
+      <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+      <label for="f-phone">Телефон или Telegram</label>
+      <input id="f-phone" type="tel" placeholder="+7 …" required>
+      <label for="f-scale">Масштаб компании — чтобы говорил равный с&nbsp;равным</label>
+      <select id="f-scale">
+        <option>Выберите вилку</option>
+        <option>1–5 млрд ₽</option>
+        <option>5–20 млрд ₽</option>
+        <option>больше 20 млрд ₽</option>
+      </select>
+      <label for="f-note">Какой вопрос сейчас перед вами</label>
+      <textarea id="f-note" rows="3" placeholder="Например: готовлю продажу доли, нужен внешний взгляд людей, кто это проходил"></textarea>
+      <button type="submit" class="btn krug-own-form-submit" data-goal="krug-own-form-submit" style="width:100%">Договориться о&nbsp;разговоре</button>
+      <p class="btn-note" style="text-align:center">Нажимая кнопку, вы соглашаетесь с&nbsp;обработкой персональных данных.</p>
+    </form>
+    <p style="margin-top:18px;font-size:15px;color:var(--muted)">Стоимость программы — 7,5&nbsp;млн&nbsp;₽ за&nbsp;<mark>[срок]</mark>: <mark>[10]</mark>&nbsp;сессий, <mark>[3–4]</mark>&nbsp;разбора вашего вопроса, ведущий, выездные модули. Без скидок и&nbsp;рассрочек — взнос является частью отбора.</p>
+    <div class="ok-msg" id="ok-msg">
+      <h3>Заявка принята</h3>
+      <p style="margin-top:8px">Свяжемся лично и&nbsp;договоримся о&nbsp;разговоре. Без рассылок и&nbsp;звонков по&nbsp;скрипту.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Школа бизнеса «Синергия» · Executive MBA · закрытый круг собственников бизнеса от&nbsp;<mark>[5]</mark>&nbsp;млрд&nbsp;₽</footer>
+
+<script>
+var YM_ID = null;
+function goal(n){ if(YM_ID && window.ym){ ym(YM_ID,'reachGoal',n); } }
+document.addEventListener('click', function(e){ var g=e.target.closest('[data-goal]'); if(g) goal(g.getAttribute('data-goal')); });
+document.getElementById('lead-form').addEventListener('submit', function(e){
+  e.preventDefault(); goal('krug-own-form-submit');
+  this.style.display='none'; document.getElementById('ok-msg').style.display='block';
+});
+</script>
+</body>
+</html>

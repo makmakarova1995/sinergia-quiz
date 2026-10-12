@@ -122,8 +122,6 @@
   #quiz{background:var(--dark);scroll-margin-top:70px}
   #quiz-box{scroll-margin-top:70px}
   #quiz-box{background:var(--card);border-radius:16px;padding:30px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
-  .progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}
-  .progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
   .q-count{font-size:13px;color:var(--ink2);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
   .q-zone{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
   .q-title{font-size:22px;font-weight:700;line-height:1.28;margin-bottom:6px}
@@ -202,7 +200,6 @@
     h1.display{font-size:clamp(25px,7vw,32px)}
     .hero .sub{font-size:16.5px}
     #quiz-box{padding:18px 16px}
-    .progress{margin-bottom:12px}
     .q-zone{font-size:11px;letter-spacing:.08em}
     .q-title{font-size:18.5px}
     .opt{padding:13px 14px}
@@ -268,6 +265,18 @@
     .case{margin:9px 0 2px}
     .q-hint{margin-bottom:10px}
   }
+
+  /* главная кнопка старта: крупнее обычной, с пульсацией и широким кликом */
+  .btn-big{font-size:21px;padding:22px 40px;border-radius:14px;letter-spacing:.01em;
+    box-shadow:0 10px 30px rgba(229,45,30,.38)}
+  .btn-big:hover{box-shadow:0 16px 40px rgba(229,45,30,.5)}
+  @keyframes bigPulse{0%,100%{transform:translateY(0);box-shadow:0 10px 30px rgba(229,45,30,.38)}
+    50%{transform:translateY(-3px);box-shadow:0 18px 44px rgba(229,45,30,.55)}}
+  .btn-big{animation:bigPulse 2.6s ease-in-out infinite}
+  .btn-big:hover{animation-play-state:paused}
+  @media(prefers-reduced-motion:reduce){.btn-big{animation:none}}
+  @media(max-width:640px){.btn-big{width:100%;font-size:18px;padding:20px 16px;line-height:1.25}}
+  @media(max-width:380px){.btn-big{font-size:16.5px;padding:18px 12px}}
 </style>
 </head>
 <body>
@@ -283,14 +292,13 @@
 <section class="hero" id="top">
   <div class="wrap">
     <h1 class="display">Сколько дней компания проработает, <span class="accent">если вы ни разу не выйдете на&nbsp;связь?</span></h1>
-    <p class="sub">8 вопросов, 3 минуты. В конце — индекс автономности: сколько узлов в компании завязано лично на вас и с какого начать, чтобы бизнес рос и не держался на вас одном.</p>
+    <p class="sub">За 1 минуту вы узнаете, какие процессы сломаются первыми, если вы захотите делегировать.</p>
     <ul class="checks">
-      <li>Совпадает ли ваша оценка «сколько компания проживёт без&nbsp;меня» с&nbsp;тем, что покажут ответы</li>
-      <li>Что сломается первым, если заказов станет вдвое больше</li>
-      <li>Почему перегруз — не&nbsp;от&nbsp;объёма работы, а&nbsp;от&nbsp;того, что система не&nbsp;достроена</li>
-      <li>С&nbsp;какого узла начать, чтобы освободить своё время без&nbsp;потери контроля</li>
+      <li>Какие процессы упадут первыми, если вы делегируете управление</li>
+      <li>В&nbsp;какой бизнес-рутине вы не&nbsp;разобрались — и&nbsp;поэтому компания не&nbsp;масштабируется</li>
+      <li>Ваш бизнес — актив, которым вы управляете, или работа, с&nbsp;которой нельзя уйти даже в&nbsp;отпуск</li>
     </ul>
-    <a href="#quiz" class="btn kviz-emba-own-program-start" data-goal="kviz-emba-own-program-start" onclick="startQuiz();return false;">Узнать индекс автономности</a>
+    <a href="#quiz" class="btn btn-big kviz-emba-own-program-start" data-goal="kviz-emba-own-program-start" onclick="startQuiz();return false;">Хочу узнать, что мешает бизнесу масштабироваться</a>
   </div>
 </section>
 
@@ -301,13 +309,12 @@
 
       <!-- Старт -->
       <div id="q-intro">
-        <div class="q-title">8 вопросов, 3 минуты. Отвечайте, как есть сейчас, а не как должно быть, — иначе индекс не сойдётся.</div>
-        <button class="btn kviz-emba-own-program-start" data-goal="kviz-emba-own-program-start" onclick="startQuiz()">Начать</button>
+        <div class="q-title">Ответьте на 8 вопросов и получите короткую диагностику: что мешает компании масштабироваться.</div>
+        <button class="btn btn-big kviz-emba-own-program-start" data-goal="kviz-emba-own-program-start" onclick="startQuiz()">Начать</button>
       </div>
 
       <!-- Вопрос -->
       <div id="q-step" class="hidden">
-        <div class="progress"><i id="q-prog"></i></div>
         <div class="q-zone" id="q-zone"></div>
         <div class="q-title" id="q-title"></div>
         <div class="q-hint" id="q-hint"></div>
@@ -329,19 +336,16 @@
 <!-- ===================== ЧТО ВЫ ПОЛУЧИТЕ ===================== -->
 <section class="muted" id="cards">
   <div class="wrap">
-    <h2 class="display">Что покажет индекс автономности</h2>
+    <h2 class="display">Что вы узнаете, когда ответите на вопросы</h2>
     <div class="cards">
-      <div class="card"><b>Индекс от 0 до 10</b><p>Сколько компания проработает без ваших решений — и насколько это совпало с вашей собственной оценкой.</p></div>
-      <div class="card"><b>Карта узлов</b><p>Где компания упирается в вас лично: решения, готовность к росту, процессы, вторая линия руководителей, ваш ресурс.</p></div>
-      <div class="card"><b>Какие модули закрывают ваши узлы</b><p>После каждого ответа — модуль программы, на котором этот узел разбирают, и что меняется в работе после него.</p></div>
+      <div class="card"><b>Сколько должностей вы совмещаете</b><p>И выдержит ли компания, если часть из них вы решите делегировать.</p></div>
+      <div class="card"><b>Готова ли компания к масштабированию</b><p>И какие процессы упадут первыми, если объём вырастет.</p></div>
+      <div class="card"><b>Как EMBA помогает масштабировать бизнес без ошибок</b><p>Разбираете свои задачи с собственниками, которые такой рост уже проходили.</p></div>
     </div>
-    <p style="margin-top:26px"><a href="#quiz" class="btn kviz-emba-own-program-start" data-goal="kviz-emba-own-program-start" onclick="startQuiz();return false;">Узнать индекс автономности</a></p>
+    <p style="margin-top:26px"><a href="#quiz" class="btn btn-big kviz-emba-own-program-start" data-goal="kviz-emba-own-program-start" onclick="startQuiz();return false;">Хочу узнать, что оптимизировать до масштабирования</a></p>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">Школа бизнеса «Синергия» · Executive MBA. Стоимость и форматы оплаты обсуждаем на консультации.</div>
-</footer>
 
 <script>
 // ===== Аналитика: цели Метрики. Префикс ленда kviz-emba-own-program-*, заводить руками по списку внизу файла =====
@@ -362,7 +366,7 @@ var Q = [
     min:0, max:60, step:1, unit:'дн.',
     scaleLeft:'0 — до первого вопроса, который без меня не решат', scaleRight:'60 — система работает сама',
     marks:'до первого вопроса по цене · пока не кончатся деньги на счёте · пока не уволится кто-то ключевой · месяц и больше — система есть',
-    case:'<span class="lbl">Пример нашего выпускника</span>Андрей Исаев, сооснователь ДНКОМ: врач по образованию, построил сеть лабораторий с выручкой 2,7 млрд: «учёба в медицинском вузе не предполагает получения знаний ни по менеджменту, ни по маркетингу», а компания всё это время росла.<br>На программе он <b>пересмотрел ключевые показатели и вывел процессы «на качественно иной уровень».</b><span style="display:block;margin-top:8px;font-size:13px;color:var(--ink2)">2,7 млрд — выручка его компании из интервью Forbes, а не результат программы: проект его, по его задаче, считал он сам.</span>',
+    case:'<span class="lbl">Пример нашего выпускника</span>Андрей Исаев, сооснователь ДНКОМ: врач по образованию, построил сеть лабораторий с выручкой 2,7 млрд: «учёба в медицинском вузе не предполагает получения знаний ни по менеджменту, ни по маркетингу», а компания всё это время росла.<br>На программе он <b>пересмотрел ключевые показатели и вывел процессы «на качественно иной уровень».</b><span style="display:block;margin-top:8px;font-size:13px;color:var(--ink2)">2,7 млрд — выручка его компании, а не результат программы: проект его, по его задаче, считал он сам.</span>',
     mod:'<span class="lbl">Где разбираем в программе</span><b>Модуль 15 — «Операционное и корпоративное управление», плюс модуль 14 — «Оргтрансформация».</b> <span class="verify">[данные от школы: номера модулей сверить с учебным планом потока 003 — на слайдах деки порядок другой]</span><br>Что меняется в работе: полномочия, зоны ответственности и регламенты описаны, и операционные решения перестают доходить до вас.'
   },
   {
@@ -375,7 +379,7 @@ var Q = [
       {t:'Практически все, вплоть до мелочей', s:0}
     ],
     after:'<b>Компания не может принимать решения быстрее, чем их успевает принимать один человек.</b> Это и есть потолок, который выглядит как «рынок просел».',
-    case:'<span class="lbl">Пример нашего выпускника</span>Денис Ременяко, владелец «ФК Гранд Капитал» — четвёртого фармдистрибьютора России, оборот 250 млрд, — назвал обучение <b>апгрейдом управленческой операционной системы.</b><br>После поездки на заводы Китая <b>пересмотрел скорость решений в компании</b>: «граница между „возможно“ и „невозможно“ определяется скоростью исполнения». А стратегию электронной коммерции собрал из обсуждений с однокурсником — директором завода канатов: «такого не добиться даже от дорогих отраслевых консультантов».<span style="display:block;margin-top:8px;font-size:13px;color:var(--ink2)">250 млрд — оборот его компании из интервью Forbes, а не результат программы.</span>',
+    case:'<span class="lbl">Пример нашего выпускника</span>Денис Ременяко, владелец «ФК Гранд Капитал» — четвёртого фармдистрибьютора России, оборот 250 млрд, — назвал обучение <b>апгрейдом управленческой операционной системы.</b><br>После поездки на заводы Китая <b>пересмотрел скорость решений в компании</b>: «граница между „возможно“ и „невозможно“ определяется скоростью исполнения». А стратегию электронной коммерции собрал из обсуждений с однокурсником — директором завода канатов: «такого не добиться даже от дорогих отраслевых консультантов».<span style="display:block;margin-top:8px;font-size:13px;color:var(--ink2)">250 млрд — оборот его компании, а не результат программы.</span>',
     mod:'<span class="lbl">Где разбираем в программе</span><b>Модуль 15 — «Операционное и корпоративное управление».</b> <span class="verify">[данные от школы: сверить номера модулей с учебным планом 003]</span><br>Что меняется в работе: контуры решений разведены по уровням — видно, что закрывает руководитель, что совет директоров, а что действительно требует вас.'
   },
   {
@@ -390,7 +394,7 @@ var Q = [
       {t:'Такие заказы уже не берём — боимся не вывезти', s:0}
     ],
     after:'<b>Отказ от крупного заказа — это не осторожность, а счёт за недостроенную систему.</b> Он не виден в отчётах, потому что этой выручки в них просто нет.',
-    case:'<span class="lbl">Пример нашего выпускника</span>Николай Кузяков, соучредитель «Ванюшкиных сладостей» (2 млрд выручки, 11 цехов, экспорт в 12 стран), после модуля «Стратегии» собрал <b>план оптимизации всей производственной цепочки — маржинальность выросла на 5–7%.</b><span style="display:block;margin-top:8px;font-size:13px;color:var(--ink2)">Проект его, по его задаче, и 5–7% он считал сам — цифра из его интервью Forbes.</span>',
+    case:'<span class="lbl">Пример нашего выпускника</span>Николай Кузяков, соучредитель «Ванюшкиных сладостей» (2 млрд выручки, 11 цехов, экспорт в 12 стран), после модуля «Стратегии» собрал <b>план оптимизации всей производственной цепочки — маржинальность выросла на 5–7%.</b><span style="display:block;margin-top:8px;font-size:13px;color:var(--ink2)">Проект его, по его задаче, и 5–7% он считал сам.</span>',
     mod:'<span class="lbl">Где разбираем в программе</span><b>Модуль 1 — «Стратегия бизнеса» и модуль 9 — «Стратегия продукта».</b> <span class="verify">[данные от школы: сверить номера модулей с учебным планом 003]</span><br>Что меняется в работе: вместо плана «вырасти на 20%» — карта рынка и стратегия, разложенная до подразделений: видно, под какой объём компания достроена, а под какой нет.'
   },
   {
@@ -507,7 +511,6 @@ function startQuiz(){
 function renderQ(){
   var q = Q[cur];
   (function(s){s.style.animation='none';s.offsetHeight;s.style.animation='';})(document.getElementById('q-step'));
-  document.getElementById('q-prog').style.width = ((cur + 1) / Q.length * 100) + '%';
   document.getElementById('q-zone').textContent = q.label + (q.zone ? ' · ' + q.zone : '');
   document.getElementById('q-title').textContent = q.title;
   document.getElementById('q-hint').textContent = q.hint || '';
@@ -632,7 +635,7 @@ function showResult(){
     + '<li>План оптимизации производственной цепочки после модуля «Стратегии» — маржинальность +5–7%</li>'
     + '<li>Найм переставлен по технологиям с курса, процессы выведены «на качественно иной уровень»</li>'
     + '<li>Решение о выходе на зарубежные рынки — открыто направление в ОАЭ</li>'
-    + '</ul><p style="font-size:13px;color:var(--ink2);margin-top:8px">Это проекты выпускников по их собственным задачам: цифры считали они сами, формулировки — из их интервью Forbes.</p></div>'
+    + '</ul><p style="font-size:13px;color:var(--ink2);margin-top:8px">Это проекты выпускников по их собственным задачам: цифры считали они сами.</p></div>'
     + '<h2 class="display" style="font-size:clamp(22px,3.6vw,32px);margin:26px 0 8px">Пройти отбор в группу Executive MBA</h2>'
     + '<p style="font-size:16px;color:var(--ink2);margin-bottom:6px">Состав группы проверяем по масштабу бизнеса — <span class="verify">[данные от школы: сколько человек в потоке и какая доля собственников]</span>. Рядом — собственники из других отраслей: люди, которые «не конкурируют с тобой», поэтому свою компанию можно обсуждать с ними без оглядки. Обещание простое: настроить систему, чтобы бизнес рос и не держался на вас одном.</p>'
     + '<div class="bonus">Запрос по ходу программы меняется почти у всех: приходят за одним, заканчивают с другим — это норма, а не сбой.<br>И честно про нагрузку: легко не будет. Это полные учебные дни и обсуждения, где с вами спорят по делу.</div>'

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Бесплатный бизнес-разбор для собственников — Синергия</title>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  СОБСТВЕННИКИ · ВАРИАНТ 2 · БИЗНЕС-РАЗБОР · УЛУЧШЕННАЯ ВЕРСИЯ
+  Что изменено против текущей версии:
+  · убрана цифра «3% прибыли по данным Gartner» — не проверяется, аудитория
+    с чеком 7,5 млн проверяет цифры (правило «никакой синтетики»)
+  · убрана внутренняя ссылка «Для команды Синергии»
+  · «выстроить компанию, чтобы работала и росла без вас» → формула Александра
+    «бизнес растет и не держится на вас» (без «выхода из операционки»)
+  · «масштабировать и вырасти в несколько раз» → страх масштаба: «страшно
+    брать крупные заказы — не вывезем» (реальная цитата клиента из встречи)
+  · оборот в форме — вилкой, с объяснением зачем
+  · добавлена дата ближайшего разбора
+  Префикс целей Метрики: razbor-own-
+  Цели: razbor-own-hero-cta, razbor-own-mid-cta, razbor-own-form-submit
+  ═══════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#262626;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;--muted:#6f6a5e;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,-apple-system,sans-serif;font-size:17px;line-height:1.55;color:var(--ink);background:var(--beige)}
+h1,h2{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.08;font-weight:600}
+h1{font-size:clamp(30px,4.6vw,50px)}
+h2{font-size:clamp(22px,3vw,32px);margin-bottom:14px}
+h3{font-size:18px;font-weight:600;line-height:1.3}
+section{padding:56px 20px}
+.wrap{max-width:960px;margin:0 auto}
+.narrow{max-width:var(--measure)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.kicker::before{content:"";display:inline-block;width:26px;height:3px;background:var(--red);vertical-align:middle;margin-right:10px}
+.lead{font-size:18px;max-width:var(--measure)}
+.btn{display:inline-block;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:Oswald;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:18px 34px;border-radius:6px;text-decoration:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-note{font-size:14px;color:var(--muted);margin-top:10px}
+.dark{background:var(--dark);color:#efece4}
+.dark h2{color:#fff}
+mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:inherit}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:var(--cream);border-radius:10px;padding:22px;border:1px solid #d8d0bc}
+.dark .card{background:#2f2f2f;border-color:#3d3d3d;color:#e8e4da}
+.dark .card h3{color:#fff}
+.num{font-family:Oswald;font-size:30px;color:var(--red);line-height:1;margin-bottom:8px}
+.q{border-left:4px solid var(--red);padding:12px 18px;background:var(--cream);border-radius:0 8px 8px 0;margin-bottom:12px;font-size:16px}
+input,select,textarea{width:100%;padding:14px;border:1px solid #cfc7b2;border-radius:6px;font:inherit;font-size:16px;background:#fff;margin-bottom:12px}
+label{font-size:13.5px;font-weight:600;display:block;margin-bottom:5px}
+.hero{background:linear-gradient(rgba(20,20,20,.75),rgba(20,20,20,.8)),#3a3a3a;color:#fff;padding:0 20px 70px}
+.hero-top{display:flex;align-items:center;gap:10px;padding:26px 0;max-width:960px;margin:0 auto}
+.logo-sq{width:34px;height:34px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.logo-tx{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}
+.logo-tx small{display:block;font-weight:400;color:#cfc9bc}
+.hero-body{max-width:820px;margin:40px auto 0}
+.hero .lead{margin:22px 0 28px;color:#e4dfd4}
+.date-chip{display:inline-block;background:#ffffff1c;border:1px solid #ffffff40;border-radius:100px;padding:7px 16px;font-size:14px;margin-bottom:20px}
+ul.clean{list-style:none}
+ul.clean li{padding-left:22px;position:relative;margin-bottom:9px}
+ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;background:var(--red);border-radius:2px}
+.ok-msg{display:none;background:var(--cream);border:1px solid var(--red);border-radius:10px;padding:22px;text-align:center}
+footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:24px 20px;text-align:center}
+@media(max-width:640px){section{padding:42px 16px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-top">
+    <div class="logo-sq">С</div>
+    <div class="logo-tx">Синергия<small>школа бизнеса</small></div>
+  </div>
+  <div class="hero-body">
+    <div class="kicker" style="color:#ffb3ab">Бесплатный разбор · для собственников</div>
+    <div class="date-chip">Ближайший разбор — <mark>[дата]</mark> · кейсы принимаем до&nbsp;<mark>[дата]</mark></div>
+    <h1>Разберем вашу ситуацию с&nbsp;практиками, которые проходили падение рынка на&nbsp;своих компаниях</h1>
+    <p class="lead">Закрытый онлайн-разбор для собственников. Опишите, где встал бизнес, — мы&nbsp;выберем несколько кейсов и&nbsp;разберем их&nbsp;вживую: что делать дальше и&nbsp;чего не&nbsp;делать. Бесплатно.</p>
+    <a href="#form" class="btn razbor-own-hero-cta" data-goal="razbor-own-hero-cta">Подать кейс на&nbsp;разбор</a>
+    <p class="btn-note">Разберут не&nbsp;обязательно ваш случай — увидите похожий и&nbsp;заберете ходы для своего. После — встреча один на&nbsp;один для тех, кто хочет глубже.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Как проходит</div>
+    <div class="grid4">
+      <div class="card"><div class="num">1</div><h3>Опишите кейс</h3><p style="margin-top:8px;font-size:15.5px">Где встал бизнес: рост, команда, прибыль. 5&nbsp;минут на&nbsp;форму.</p></div>
+      <div class="card"><div class="num">2</div><h3>Выберем сильные</h3><p style="margin-top:8px;font-size:15.5px">Отберем кейсы, полезные всем собственникам в&nbsp;группе.</p></div>
+      <div class="card"><div class="num">3</div><h3>Разбор вживую</h3><p style="margin-top:8px;font-size:15.5px">Практик разберет ситуацию в&nbsp;эфире: что делать дальше и&nbsp;чего не&nbsp;делать.</p></div>
+      <div class="card"><div class="num">4</div><h3>Личный разговор</h3><p style="margin-top:8px;font-size:15.5px">После — встреча один на&nbsp;один для тех, кто хочет глубже.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap narrow">
+    <div class="kicker">Что можно разобрать</div>
+    <ul class="clean" style="margin-top:6px">
+      <li>Что делать с&nbsp;прибылью и&nbsp;продуктом, когда рынок падает.</li>
+      <li>Страшно брать крупные заказы и&nbsp;новые рынки — «не&nbsp;вывезем»: как настроить систему, чтобы вывезла.</li>
+      <li>Как выстроить компанию, чтобы она росла и&nbsp;не&nbsp;держалась на&nbsp;вас одном — а&nbsp;вы&nbsp;оставались у&nbsp;руля.</li>
+      <li>Сделка, преемник, партнерство — с&nbsp;кем проверить решение, когда советники заинтересованы.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">С чем приходят</div>
+    <div class="q">«Третий квартал хуже плана. Привычные приемы перестали приносить деньги».</div>
+    <div class="q">«Я&nbsp;в&nbsp;операционке по&nbsp;12&nbsp;часов. Уеду на&nbsp;неделю — все начинает сыпаться».</div>
+    <div class="q">«Плачу топам много, а&nbsp;тащить приходится самому. Не&nbsp;знаю, кого учить, а&nbsp;кого менять».</div>
+    <div class="q">«Хочу, чтобы бизнес стоил дорого и&nbsp;его можно было передать, а&nbsp;не&nbsp;тащить вечно».</div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="kicker">Кто разбирает</div>
+    <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+      <div class="card"><h3>Александр Фридман</h3><p style="margin-top:8px;font-size:15.5px">Управление компанией: как выстроить так, чтобы решения принимались и&nbsp;деньги зарабатывались — системой, а&nbsp;не&nbsp;вашим ежедневным присутствием.</p></div>
+      <div class="card"><h3>Сергей Макшанов</h3><p style="margin-top:8px;font-size:15.5px">Стратегия в&nbsp;кризис: что делать с&nbsp;прибылью и&nbsp;продуктом, когда рынок падает.</p></div>
+      <div class="card"><h3>Собственники-выпускники</h3><p style="margin-top:8px;font-size:15.5px">Оборот от&nbsp;1&nbsp;млрд&nbsp;₽. Как похожую ситуацию прошли те, кто уже через нее прошел.</p></div>
+    </div>
+    <div style="margin-top:26px;max-width:var(--measure)">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#ffb3ab;margin-bottom:12px">Что получили те, кто приходил с&nbsp;похожим — публичные кейсы Forbes</p>
+      <div class="card" style="margin-bottom:10px"><p style="font-size:15px"><b>«Тащу все сам»</b> → пересобрал команду, перестроил найм и&nbsp;KPI — Андрей Исаев, ДНКОМ, 2,7&nbsp;млрд&nbsp;₽. <a href="https://www.forbes.ru/club/partners/557929-andrej-isaev-osnovatel-dnkom-ludi-vidat-cto-platnaa-medicina-effektivna" target="_blank" rel="noopener" style="color:#ffb3ab;font-weight:600;display:inline-block;padding:7px 0">Интервью&nbsp;→</a></p></div>
+      <div class="card" style="margin-bottom:10px"><p style="font-size:15px"><b>«Привычные приемы перестали работать»</b> → «апгрейд управленческой системы»: «такого не&nbsp;добиться даже от&nbsp;дорогих консультантов» — Денис Ременяко, «ФК&nbsp;Гранд Капитал», 250&nbsp;млрд&nbsp;₽. <a href="https://www.forbes.ru/club/partners/553123-denis-remenako-a-vizu-v-sebe-celoveka-kotoryj-vosstanovil-spravedlivost" target="_blank" rel="noopener" style="color:#ffb3ab;font-weight:600;display:inline-block;padding:7px 0">Интервью&nbsp;→</a></p></div>
+      <div class="card"><p style="font-size:15px"><b>«Куда расти дальше»</b> → вышла на&nbsp;рынок Дубая — Анастасия Юдицкая, сеть школ Pirouette. <a href="https://www.forbes.ru/club/564039-anastasia-udickaa-pirouette-v-sporte-i-biznese-vyigryvaet-samyj-posledovatel-nyj" target="_blank" rel="noopener" style="color:#ffb3ab;font-weight:600;display:inline-block;padding:7px 0">Интервью&nbsp;→</a></p></div>
+    </div>
+    <p style="margin-top:24px"><a href="#form" class="btn razbor-own-mid-cta" data-goal="razbor-own-mid-cta">Подать кейс на&nbsp;разбор</a></p>
+  </div>
+</section>
+
+<section id="form">
+  <div class="wrap narrow">
+    <div class="kicker">Заявка</div>
+    <h2>Опишите свою ситуацию</h2>
+    <p class="lead" style="margin-bottom:20px">Чем конкретнее напишете, где встал бизнес, — тем выше шанс, что разберут именно ваш случай.</p>
+    <form id="lead-form" novalidate>
+      <label for="f-name">Имя</label>
+      <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+      <label for="f-phone">Телефон или Telegram</label>
+      <input id="f-phone" type="tel" placeholder="+7 …" required>
+      <label for="f-scale">Масштаб компании — чтобы подобрать практика вашего уровня</label>
+      <select id="f-scale">
+        <option>Выберите вилку</option>
+        <option>до 500 млн ₽ в год</option>
+        <option>500 млн – 1 млрд ₽</option>
+        <option>1–5 млрд ₽</option>
+        <option>больше 5 млрд ₽</option>
+      </select>
+      <label for="f-note">Что происходит с бизнесом сейчас</label>
+      <textarea id="f-note" rows="3" placeholder="Например: выручка не растет 3 квартала, не знаю, что делать с командой топов"></textarea>
+      <button type="submit" class="btn razbor-own-form-submit" data-goal="razbor-own-form-submit" style="width:100%">Подать кейс на&nbsp;разбор</button>
+      <p class="btn-note" style="text-align:center">Нажимая кнопку, вы соглашаетесь с&nbsp;обработкой персональных данных.</p>
+    </form>
+    <div class="ok-msg" id="ok-msg">
+      <h3>Кейс принят</h3>
+      <p style="margin-top:8px">До&nbsp;<mark>[дата]</mark> отберем кейсы и&nbsp;пришлем ссылку на&nbsp;эфир. Один разговор по&nbsp;делу — без рассылок и&nbsp;звонков по&nbsp;скрипту.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Школа бизнеса «Синергия» · Executive MBA · бесплатный разбор для собственников</footer>
+
+<script>
+var YM_ID = null;
+function goal(n){ if(YM_ID && window.ym){ ym(YM_ID,'reachGoal',n); } }
+document.addEventListener('click', function(e){ var g=e.target.closest('[data-goal]'); if(g) goal(g.getAttribute('data-goal')); });
+document.getElementById('lead-form').addEventListener('submit', function(e){
+  e.preventDefault(); goal('razbor-own-form-submit');
+  this.style.display='none'; document.getElementById('ok-msg').style.display='block';
+});
+</script>
+</body>
+</html>
