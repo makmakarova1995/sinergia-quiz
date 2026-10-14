@@ -379,6 +379,18 @@ h1,h2,h3{overflow-wrap:break-word}
   .cs-btn[data-dir="1"]{grid-area:next}
   .cs-dots{grid-area:dots;margin-top:0;padding:0}
 }
+
+/* главная кнопка — максимально заметная: крупнее, ярче, с ореолом */
+.hero .btn{font-size:29px;padding:34px 64px;min-width:min(680px,100%);border-radius:14px;
+  background:linear-gradient(180deg,#ff5442 0%,#e63a2e 55%,#cf2c21 100%);
+  box-shadow:0 14px 40px rgba(230,58,46,.55),0 0 0 1px rgba(255,255,255,.08) inset;letter-spacing:.06em}
+@keyframes heroPulse{0%,100%{transform:scale(1);box-shadow:0 14px 40px rgba(230,58,46,.55),0 0 0 0 rgba(230,58,46,.55)}
+  50%{transform:scale(1.035);box-shadow:0 18px 50px rgba(230,58,46,.7),0 0 0 18px rgba(230,58,46,0)}}
+.hero .btn{animation:heroPulse 2.2s ease-in-out infinite}
+.hero .btn:hover{animation-play-state:paused;filter:brightness(1.08)}
+@media(max-width:640px){.hero .btn{font-size:21px;padding:26px 14px;min-width:0;width:100%}}
+@media(max-width:380px){.hero .btn{font-size:18px;padding:22px 10px}}
+@media(prefers-reduced-motion:reduce){.hero .btn{animation:none}}
 </style>
 </head>
 <body>
