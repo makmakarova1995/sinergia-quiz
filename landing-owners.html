@@ -41,14 +41,8 @@
     emba-own-route-fire     — карточка маршрута «глаз не горит»
     emba-own-route-system   — карточка маршрута «все замкнуто на мне»
     emba-own-route-growth   — карточка маршрута «растем, а я не понимаю почему»
-    emba-own-routes-cta     — кнопка после маршрутов
     emba-own-cta-zachem     — на форму из конца блока кейсов
-    emba-own-cta-sreda      — в квиз из конца блока «Среда»
-    emba-own-cta-format-mid — к форме из середины блока «Формат»
-    emba-own-cta-format     — к форме из конца блока «Формат»
-    emba-own-cta-missii     — к форме из конца блока «Бизнес-миссии»
     emba-own-cta-sravnenie  — к форме из конца блока «Сравнение»
-    emba-own-cta-otbor      — к форме из конца блока «Как проходит отбор»
                               (одна цель на все ссылки: действие одно)
     emba-own-form-submit    — отправка формы
   Счетчик: заменить YM_ID на номер счетчика — его дает школа.
@@ -390,6 +384,25 @@ h1,h2,h3{overflow-wrap:break-word}
 @media(max-width:640px){.hero .btn{font-size:21px;padding:26px 14px;min-width:0;width:100%}}
 @media(max-width:380px){.hero .btn{font-size:18px;padding:22px 10px}}
 @media(prefers-reduced-motion:reduce){.hero .btn{animation:none}}
+
+/* ===== блок результатов — главный акцент страницы ===== */
+.cases-hl{background:radial-gradient(circle at 15% 0%, #e63a2e44 0%, transparent 45%),radial-gradient(circle at 90% 100%, #e63a2e33 0%, transparent 40%),var(--dark);color:#efece4}
+.cases-hl h2{color:#fff}
+.cases-hl .cslides>.card{background:#fff;border:none;border-top:5px solid var(--red);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.cases-hl .fcase .who{border-color:#e7e0d0}
+.res-tag{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:600;font-size:44px;line-height:1;color:var(--red);margin-bottom:12px;letter-spacing:.01em;white-space:nowrap}
+.cases-hl .cs-btn{background:#fff;border-color:#fff}
+.cases-hl .cs-dot::before{background:#ffffff55}
+.cases-hl .cs-dot.on::before{background:var(--red)}
+/* большая кнопка под кейсами */
+.btn-mega{display:block;width:100%;max-width:820px;margin:8px auto 0;text-align:center;font-size:27px;padding:32px 28px;border-radius:14px;
+  background:linear-gradient(180deg,#ff5442 0%,#e63a2e 55%,#cf2c21 100%);color:#fff;border:none;
+  box-shadow:0 14px 40px rgba(230,58,46,.55);letter-spacing:.04em;animation:heroPulse 2.2s ease-in-out infinite}
+.btn-mega:hover{animation-play-state:paused;filter:brightness(1.08)}
+.cases-hl .sec-cta{text-align:center}
+@media(max-width:640px){.res-tag{font-size:36px}.btn-mega{font-size:19px;padding:24px 14px;line-height:1.25}}
+@media(max-width:380px){.btn-mega{font-size:17px;padding:20px 10px}}
+@media(prefers-reduced-motion:reduce){.btn-mega{animation:none}}
 </style>
 </head>
 <body>
@@ -474,7 +487,6 @@ h1,h2,h3{overflow-wrap:break-word}
         </div>
       </div>
     </div>
-    <p style="margin-top:22px"><a href="#form" class="btn emba-own-routes-cta" data-goal="emba-own-routes-cta">Обсудить мою траекторию&nbsp;↗</a></p>
   </div>
 </section>
 
@@ -482,38 +494,44 @@ h1,h2,h3{overflow-wrap:break-word}
      Полный блок-вход в тот же квиз — ниже, перед формой (#quiz). -->
 
 <!-- КЕЙСЫ ВЫПУСКНИКОВ: карусель -->
-<section>
+<section class="cases-hl">
   <div class="wrap">
     <h2>Какие результаты получали собственники на&nbsp;обучении</h2>
     <div class="cslider" id="cases">
       <button type="button" class="cs-btn" data-dir="-1" aria-label="Предыдущий кейс">‹</button>
       <div class="cslides">
         <div class="card fcase">
+          <div class="res-tag">ОАЭ</div>
           <h3>Выход на&nbsp;рынок ОАЭ</h3>
           <p class="who">Анастасия Юдицкая · сеть школ Pirouette</p>
           <p><b>Открыла направление в&nbsp;ОАЭ:</b> школы работают в&nbsp;Москве, Подмосковье, Петербурге и&nbsp;Дубае.</p>
         </div>
         <div class="card fcase">
+          <div class="res-tag">250&nbsp;млрд&nbsp;₽</div>
           <h3>Перестроил процессы по&nbsp;опыту заводов Китая</h3>
           <p class="who">Денис Ременяко · «ФК Гранд Капитал» · оборот 250&nbsp;млрд&nbsp;₽</p>
           <p>Четвертый фармдистрибьютор России. На&nbsp;выездном модуле посмотрел, как организованы процессы на&nbsp;заводах Китая, и&nbsp;<b>перестроил процессы в&nbsp;своей компании</b>.</p>
         </div>
         <div class="card fcase">
+          <div class="res-tag">+5–7%</div>
           <h3>Маржинальность <span style="white-space:nowrap">+5–7%</span> после модуля «Стратегии»</h3>
           <p class="who">Николай Кузяков · «Ванюшкины сладости» · выручка 2&nbsp;млрд&nbsp;₽</p>
           <p>11&nbsp;цехов и&nbsp;экспорт в&nbsp;12&nbsp;стран. На&nbsp;программе собрал план оптимизации производственной цепочки. Результат — <b>маржинальность выросла на&nbsp;<span style="white-space:nowrap">5–7%</span></b>.</p>
         </div>
         <div class="card fcase">
+          <div class="res-tag">2,7&nbsp;млрд&nbsp;₽</div>
           <h3>Врач научился управлять бизнесом на&nbsp;2,7&nbsp;млрд</h3>
           <p class="who">Андрей Исаев · сеть лабораторий ДНКОМ</p>
           <p>Компания росла, а&nbsp;управленческой базы не&nbsp;было. На&nbsp;программе <b>пересобрал KPI и&nbsp;процессы компании</b>.</p>
         </div>
         <div class="card fcase">
+          <div class="res-tag">Контракты</div>
           <h3>Нашел партнеров для поставок и&nbsp;экспорта</h3>
           <p class="who">Выпускник · собственник фармбизнеса</p>
           <p>На&nbsp;выездном модуле в&nbsp;Индии встретился с&nbsp;фармпроизводителем и&nbsp;<b>подписал договоры на&nbsp;поставку и&nbsp;экспорт</b>.</p>
         </div>
         <div class="card fcase">
+          <div class="res-tag">60–70%</div>
           <h3>Поставщика сырья нашел среди однокурсников</h3>
           <p class="who">Выпускник · собственник кондитерского производства</p>
           <p>В&nbsp;группе — собственники из&nbsp;других отраслей. Среди них нашел поставщика, а&nbsp;нетворкинг оценивает в&nbsp;<b>60–70% пользы от&nbsp;обучения</b>.</p>
@@ -523,22 +541,7 @@ h1,h2,h3{overflow-wrap:break-word}
       <div class="cs-dots"></div>
     </div>
 
-    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-zachem" data-goal="emba-own-cta-zachem">Пройти отбор&nbsp;↗</a></p>
-  </div>
-</section>
-
-<!-- ЧТО ВНУТРИ / СРЕДА -->
-<section>
-  <div class="wrap">
-    <h2>Среда, в&nbsp;которой бизнес выходит на&nbsp;следующий уровень</h2>
-    <div class="grid2" style="margin-top:20px">
-      <div class="card"><h3>Круг собственников вашего масштаба</h3><p style="margin-top:8px;font-size:15.5px"><mark>[N]</mark> человек в&nbsp;группе, отбор по&nbsp;масштабу: <mark>[доля]</mark> собственники, <mark>[доля]</mark> наемные руководители топ-уровня. Здесь проверяют решения о&nbsp;сделке, преемнике, новом рынке — и&nbsp;находят партнеров. Случайных людей нет.</p><p style="margin-top:10px;font-size:15.5px">Главное свойство круга: рядом люди, которые <b>не&nbsp;конкурируют с&nbsp;вами</b>, говорят с&nbsp;вами на&nbsp;одном языке и&nbsp;могут помочь с&nbsp;вашим вопросом. Ни&nbsp;в&nbsp;своей отрасли, ни&nbsp;внутри компании такого разговора нет.</p></div>
-      <div class="card"><h3>Идеи из&nbsp;других отраслей</h3><p style="margin-top:8px;font-size:15.5px">Практики, которые внутри своей компании не&nbsp;появятся: как считают деньги, строят команды и&nbsp;принимают решения в&nbsp;бизнесах другого профиля и&nbsp;масштаба.</p></div>
-      <div class="card"><h3>Система, которая переживает кризис</h3><p style="margin-top:8px;font-size:15.5px">Полномочия, контуры ответственности, преемники на&nbsp;ключевых ролях — по&nbsp;образцам компаний, где это уже работает. Бизнес растет и&nbsp;не&nbsp;держится на&nbsp;вас.</p></div>
-      <div class="card"><h3>Преподаватели-практики</h3><p style="margin-top:8px;font-size:15.5px">Не&nbsp;консультанты и&nbsp;не&nbsp;профессора — те, кто сам управлял бизнесом. <mark>[Фото + факты: кто, чем управлял, какой оборот]</mark></p></div>
-    </div>
-
-    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-sreda" data-goal="emba-own-cta-sreda">Пройти отбор&nbsp;↗</a></p>
+    <p class="sec-cta"><a href="#form" class="btn btn-mega emba-own-cta-zachem" data-goal="emba-own-cta-zachem">Нравятся результаты! Хочу узнать, как сделать так&nbsp;же&nbsp;↗</a></p>
   </div>
 </section>
 
@@ -560,33 +563,17 @@ h1,h2,h3{overflow-wrap:break-word}
   </div>
 </section>
 
-<!-- КАК ПОПАСТЬ -->
-<section>
-  <div class="wrap narrow">
-    <h2>В&nbsp;группу — через отбор</h2>
-    <ul class="clean" style="margin-top:16px">
-      <li><b>Заявка.</b> Имя и&nbsp;телефон — этого достаточно.</li>
-      <li><b>Консультация по&nbsp;траектории — 60&nbsp;минут.</b> Смотрим ваши задачи и&nbsp;масштаб, показываем программу и&nbsp;состав группы, отвечаем на&nbsp;вопросы — включая стоимость.</li>
-      <li><b>Решение — обоюдное.</b> Собеседование с&nbsp;руководителем программы: решаем, ваша это группа или нет. Если уровень не&nbsp;ваш — скажем прямо и&nbsp;не&nbsp;будем уговаривать.</li>
-    </ul>
-    <p class="q" style="margin-top:18px">В&nbsp;группу попадают не&nbsp;все — состав держим отбором, чтобы вы учились со&nbsp;своими. Закрытость тут не&nbsp;маркетинг, а&nbsp;условие: такой разговор работает только среди равных.</p>
-
-    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-otbor" data-goal="emba-own-cta-otbor">Пройти отбор&nbsp;↗</a></p>
-    <p class="btn-note">Имя и&nbsp;телефон — этого достаточно для&nbsp;первого шага.</p>
-  </div>
-</section>
-
 <!-- ФОРМА -->
 <section class="dark" id="form">
   <div class="wrap narrow">
-    <h2>Пройти отбор</h2>
-    <p class="lead" style="margin-bottom:20px">Оставьте контакт — договоримся о&nbsp;консультации по&nbsp;индивидуальной траектории.</p>
+    <h2>Хочу записаться на&nbsp;бизнес-консультацию</h2>
+    <p class="lead" style="margin-bottom:20px">Сначала мы позвоним и&nbsp;уточним ваши задачи. Затем запишем на&nbsp;бизнес-консультацию и&nbsp;разберем, как программа EMBA сможет их&nbsp;решить. Если программа вам не&nbsp;подойдет — скажем честно.</p>
     <form id="lead-form" novalidate>
       <label for="f-name">Имя</label>
       <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
       <label for="f-phone">Телефон</label>
       <input id="f-phone" type="tel" placeholder="+7 …" required>
-      <button type="submit" class="btn emba-own-form-submit" data-goal="emba-own-form-submit" style="width:100%">Пройти отбор&nbsp;↗</button>
+      <button type="submit" class="btn emba-own-form-submit" data-goal="emba-own-form-submit" style="width:100%">Записаться на&nbsp;бизнес-консультацию&nbsp;↗</button>
       <p class="btn-note" style="text-align:center">Нажимая кнопку, вы соглашаетесь с&nbsp;обработкой персональных данных.</p>
     </form>
     <div class="ok-msg" id="ok-msg">
