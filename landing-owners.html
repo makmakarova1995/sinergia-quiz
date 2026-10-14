@@ -243,7 +243,7 @@ h1,h2,h3{overflow-wrap:break-word}
 </head>
 <body>
 
-<!-- ГЕРОЙ с переключателем вариантов -->
+<!-- ГЕРОЙ -->
 <div class="hero">
   <div class="wrap hero-top" style="width:100%">
     <div class="logo-sq">С</div>
@@ -251,36 +251,8 @@ h1,h2,h3{overflow-wrap:break-word}
   </div>
   <div class="wrap hero-body" style="width:100%">
     <div class="kicker" style="color:#ffb3ab">Executive MBA для собственников · Синергия</div>
-    <!--
-      A/B заголовка: финальную формулировку Александр отложил на отдельную встречу,
-      поэтому ни один вариант не выбран и не удален. Вариант D добавлен 06.10 как
-      предложение (личный мотив из ч.2, 21–33 — «идут с собой разобраться»), на
-      согласовании. Подзаголовок у каждого варианта свой — он должен совпадать
-      с обещанием H1; общий оффер-абзац и CTA ниже одни на все варианты,
-      потому что закрытие зафиксировано Александром («пройти отбор»).
-    -->
-    <div class="vtabs">
-      <div class="vtab active" data-v="a">Вариант A · среда и идеи</div>
-      <div class="vtab" data-v="b">Вариант B · система и кризис</div>
-      <div class="vtab" data-v="c">Вариант C · объединенный</div>
-      <div class="vtab" data-v="d">Вариант D · личный мотив (новый)</div>
-    </div>
-    <div class="hv" id="hv-a">
-      <h1>Новая среда, идеи и&nbsp;<span class="hl">круг собственников</span>, с&nbsp;которыми бизнес выходит на&nbsp;следующий уровень</h1>
-      <p class="hv-sub">Дело не&nbsp;в&nbsp;том, что бизнес работает плохо. Дело в&nbsp;том, что кончились идеи, с&nbsp;которыми его вести дальше, — а&nbsp;внутри компании они и&nbsp;не&nbsp;появятся.</p>
-    </div>
-    <div class="hv" id="hv-b" style="display:none">
-      <h1>Система управления, с&nbsp;которой бизнес <span class="hl">растет в&nbsp;кризис</span> — и&nbsp;не&nbsp;держится на&nbsp;вас одном</h1>
-      <p class="hv-sub">Перегруз — не&nbsp;от&nbsp;того, что вы много работаете, а&nbsp;от&nbsp;того, что система еще не&nbsp;настроена: полномочия, зоны ответственности, KPI. Вы остаетесь у&nbsp;руля.</p>
-    </div>
-    <div class="hv" id="hv-c" style="display:none">
-      <h1>Круг равных, новые идеи и&nbsp;<span class="hl">система</span>, с&nbsp;которой бизнес выдерживает кризис и&nbsp;растет</h1>
-      <p class="hv-sub">Чужие работающие практики, система управления под ваш масштаб и&nbsp;круг, в&nbsp;котором крупное решение проверяют до&nbsp;того, как вы его примете.</p>
-    </div>
-    <div class="hv" id="hv-d" style="display:none">
-      <h1>Вернуть интерес к&nbsp;делу, которое вы построили: <span class="hl">идеи, круг равных</span> и&nbsp;система, с&nbsp;которой бизнес растет дальше</h1>
-      <p class="hv-sub">Бизнес работает, деньги есть — а&nbsp;глаз не&nbsp;горит. Это не&nbsp;про бизнес: это про среду, которая вокруг вас не&nbsp;менялась годами.</p>
-    </div>
+    <h1>Система управления, с&nbsp;которой бизнес <span class="hl">растет в&nbsp;кризис</span> — и&nbsp;не&nbsp;держится на&nbsp;вас одном</h1>
+    <p class="hv-sub">Перегруз — не&nbsp;от&nbsp;того, что вы много работаете, а&nbsp;от&nbsp;того, что система еще не&nbsp;настроена: полномочия, зоны ответственности, KPI. Вы остаетесь у&nbsp;руля.</p>
     <p class="lead">Первый шаг — консультация по&nbsp;индивидуальной траектории: смотрим ваши задачи, показываем программу и&nbsp;решаем, подходим ли&nbsp;друг другу. В&nbsp;группу — по&nbsp;отбору.</p>
     <a href="#form" class="btn emba-own-hero-cta" data-goal="emba-own-hero-cta">Пройти отбор&nbsp;↗</a>
     <p class="btn-note">Консультация — 60&nbsp;минут, бесплатно. С&nbsp;вами говорит консультант по&nbsp;обучению, а&nbsp;не&nbsp;продавец со&nbsp;скриптом.</p>
@@ -574,15 +546,6 @@ document.addEventListener('click', function(e){
   } else {
     goal(g.getAttribute('data-goal'));
   }
-});
-// переключатель вариантов заголовка
-document.querySelectorAll('.vtab').forEach(function(t){
-  t.addEventListener('click', function(){
-    document.querySelectorAll('.vtab').forEach(function(x){x.classList.remove('active')});
-    t.classList.add('active');
-    document.querySelectorAll('.hv').forEach(function(h){h.style.display='none'});
-    document.getElementById('hv-'+t.dataset.v).style.display='block';
-  });
 });
 // карточки маршрутов
 document.querySelectorAll('.toggle-card').forEach(function(c){
