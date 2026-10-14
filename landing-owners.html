@@ -43,7 +43,6 @@
     emba-own-route-system   — карточка маршрута «все замкнуто на мне»
     emba-own-route-growth   — карточка маршрута «растем, а я не понимаю почему»
     emba-own-routes-cta     — кнопка после маршрутов
-    emba-own-quiz-teaser    — переход в квиз из плашки-тизера (высоко)
     emba-own-cta-keysy      — в квиз из середины блока кейсов Forbes
     emba-own-cta-zachem     — в квиз из конца блока кейсов Forbes
     emba-own-cta-sreda-mid  — в квиз из середины блока «Среда»
@@ -53,7 +52,6 @@
     emba-own-cta-missii     — к форме из конца блока «Бизнес-миссии»
     emba-own-cta-sravnenie  — к форме из конца блока «Сравнение»
     emba-own-cta-otbor      — к форме из конца блока «Как проходит отбор»
-    emba-own-quiz-cta       — переход в квиз из блока-входа (перед формой)
     emba-own-forbes-out     — уход читать интервью выпускника в Forbes
                               (одна цель на все ссылки: действие одно)
     emba-own-form-submit    — отправка формы
@@ -110,7 +108,8 @@ label{font-size:13.5px;font-weight:600;display:block;margin-bottom:5px}
 .logo-sq{width:34px;height:34px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:4px}
 .logo-tx{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}
 .logo-tx small{display:block;font-weight:400;color:#cfc9bc;letter-spacing:.1em}
-.hero-body{margin:auto 0;max-width:840px}
+.hero-body{margin:auto;max-width:1040px}
+.hero-body h1,.hero-body .hv-sub{max-width:840px}
 .hero h1 .hl{color:var(--red)}
 .hero .hv-sub{margin-top:18px;font-size:19px;line-height:1.45;color:#f1ece1;max-width:var(--measure)}
 .hero .lead{margin:16px 0 28px;color:#b9b3a5;font-size:16.5px}
@@ -239,6 +238,37 @@ h1,h2,h3{overflow-wrap:break-word}
   ul.clean li{margin-bottom:6px}
   .toggle-card .a{margin-top:10px;padding-top:10px}
 }
+
+/* ===== карусель кейсов: стрелки, точки, свайп ===== */
+.cslider{position:relative}
+.cslides{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 2px 6px}
+.cslides::-webkit-scrollbar{display:none}
+.cslides>.card{flex:0 0 calc((100% - 32px)/3);scroll-snap-align:start;display:flex;flex-direction:column}
+.cslides>.card .flink{margin-top:auto;align-self:flex-start}
+.cs-btn{position:absolute;top:calc(50% - 24px);transform:translateY(-50%);z-index:2;width:48px;height:48px;
+  border-radius:50%;border:1px solid #d8d0bc;background:#fff;color:var(--ink);font-size:28px;line-height:1;
+  cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s}
+.cs-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.cs-btn[data-dir="-1"]{left:-24px}
+.cs-btn[data-dir="1"]{right:-24px}
+.cs-dots{display:flex;justify-content:center;gap:4px;margin-top:14px}
+.cs-dot{width:30px;height:30px;border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cs-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:#c9c1ac}
+.cs-dot.on::before{background:var(--red)}
+@media(max-width:1130px){.cs-btn[data-dir="-1"]{left:-8px}.cs-btn[data-dir="1"]{right:-8px}}
+@media(max-width:900px){.cslides>.card{flex-basis:calc((100% - 16px)/2)}}
+@media(max-width:640px){
+  .cslides>.card{flex-basis:86%}
+  .cs-btn{width:42px;height:42px;font-size:24px;top:auto;bottom:-6px;transform:none}
+  .cs-btn[data-dir="-1"]{left:0}.cs-btn[data-dir="1"]{right:0}
+  .cs-dots{min-height:42px;align-items:center;padding:0 48px}
+}
+
+/* после удаления строки про консультацию — отступ кнопки от подзаголовка */
+.hero .hv-sub+.btn{margin-top:28px}
+@media(max-width:640px){.hero .hv-sub+.btn{margin-top:24px}}
 </style>
 </head>
 <body>
@@ -250,12 +280,9 @@ h1,h2,h3{overflow-wrap:break-word}
     <div class="logo-tx">Синергия<small>Executive MBA</small></div>
   </div>
   <div class="wrap hero-body" style="width:100%">
-    <div class="kicker" style="color:#ffb3ab">Executive MBA для собственников · Синергия</div>
     <h1>Система управления, с&nbsp;которой бизнес <span class="hl">растет в&nbsp;кризис</span> — и&nbsp;не&nbsp;держится на&nbsp;вас одном</h1>
     <p class="hv-sub">Перегруз — не&nbsp;от&nbsp;того, что вы много работаете, а&nbsp;от&nbsp;того, что система еще не&nbsp;настроена: полномочия, зоны ответственности, KPI. Вы остаетесь у&nbsp;руля.</p>
-    <p class="lead">Первый шаг — консультация по&nbsp;индивидуальной траектории: смотрим ваши задачи, показываем программу и&nbsp;решаем, подходим ли&nbsp;друг другу. В&nbsp;группу — по&nbsp;отбору.</p>
     <a href="#form" class="btn emba-own-hero-cta" data-goal="emba-own-hero-cta">Пройти отбор&nbsp;↗</a>
-    <p class="btn-note">Консультация — 60&nbsp;минут, бесплатно. С&nbsp;вами говорит консультант по&nbsp;обучению, а&nbsp;не&nbsp;продавец со&nbsp;скриптом.</p>
     <ul class="hero-points">
       <li>новые идеи и&nbsp;практики из&nbsp;других отраслей — те, что внутри своей компании не&nbsp;появятся;</li>
       <li>система управления, с&nbsp;которой бизнес выдерживает кризис и&nbsp;растет в&nbsp;нем;</li>
@@ -283,7 +310,6 @@ h1,h2,h3{overflow-wrap:break-word}
 <!-- ТРИ МАРШРУТА (по AJTBD-картам) -->
 <section>
   <div class="wrap">
-    <div class="kicker">С чем приходят</div>
     <h2>Узнаете себя? Нажмите — покажем маршрут</h2>
     <div class="grid3" style="margin-top:20px">
       <div class="card toggle-card emba-own-route-fire" data-goal="emba-own-route-fire">
@@ -313,70 +339,78 @@ h1,h2,h3{overflow-wrap:break-word}
 
 <!-- КВИЗ-ТИЗЕР (квиз одобрен Александром как диагностика системы).
      Полный блок-вход в тот же квиз — ниже, перед формой (#quiz). -->
-<div class="dark" style="padding:18px 20px;text-align:center;font-size:15px;border-top:1px solid #3d3d3d;border-bottom:1px solid #3d3d3d">
-  Проверьте прочность своей системы управления: <a href="quiz-owners-cases.html" class="emba-own-quiz-teaser" data-goal="emba-own-quiz-teaser" style="color:#ffb3ab;font-weight:600;display:inline-block;padding:7px 0">тест «Сколько дней компания проработает без&nbsp;вас»&nbsp;→</a>
-  <span style="color:#8f897c"> · 8&nbsp;вопросов, результат сразу на&nbsp;экране</span>
-</div>
 
 <!-- КЕЙСЫ ВЫПУСКНИКОВ (Forbes, проверяемые) -->
 <section>
   <div class="wrap">
-    <div class="kicker">Выпускники</div>
     <h2>Зачем сюда пришли те, у&nbsp;кого все было хорошо</h2>
-    <p class="lead" style="margin-bottom:22px">Не&nbsp;наши слова — интервью выпускников Forbes. По&nbsp;каждому кейсу — ссылка.</p>
-    <div class="grid3">
-      <div class="card fcase">
-        <h3>«Такого не&nbsp;добиться даже от&nbsp;дорогих отраслевых консультантов»</h3>
-        <p class="who">Денис Ременяко · владелец «ФК Гранд Капитал» · оборот 250&nbsp;млрд&nbsp;₽</p>
-        <p>Пришел не&nbsp;за&nbsp;дипломом, а&nbsp;за&nbsp;«апгрейдом управленческой операционной системы». Стратегию e-commerce для фармы собрал из&nbsp;разборов с&nbsp;однокурсником — директором завода канатов: взгляд с&nbsp;радикально иных позиций.</p>
-        <p class="how">Кросс-отраслевой круг — то, чего нет ни&nbsp;у&nbsp;консультантов, ни&nbsp;внутри компании.</p>
-        <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/553123-denis-remenako-a-vizu-v-sebe-celoveka-kotoryj-vosstanovil-spravedlivost" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+    <p class="lead" style="margin-bottom:22px">Не&nbsp;наши слова — интервью выпускников Forbes. Листайте: шесть кейсов с&nbsp;цифрами.</p>
+    <div class="cslider" id="cases">
+      <button type="button" class="cs-btn" data-dir="-1" aria-label="Предыдущий кейс">‹</button>
+      <div class="cslides">
+        <div class="card fcase">
+          <h3>Стратегию e-commerce собрал с&nbsp;однокурсником — без консультантов</h3>
+          <p class="who">Денис Ременяко · «ФК Гранд Капитал» · оборот 250&nbsp;млрд&nbsp;₽</p>
+          <p>Четвертый фармдистрибьютор России. Назвал обучение апгрейдом управленческой операционной системы. После поездки на&nbsp;заводы Китая пересмотрел скорость решений в&nbsp;компании, а&nbsp;стратегию электронной коммерции собрал из&nbsp;обсуждений с&nbsp;директором завода канатов: «такого не&nbsp;добиться даже от&nbsp;дорогих отраслевых консультантов».</p>
+          <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/553123-denis-remenako-a-vizu-v-sebe-celoveka-kotoryj-vosstanovil-spravedlivost" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+        </div>
+        <div class="card fcase">
+          <h3>Маржинальность +5–7% после модуля «Стратегии»</h3>
+          <p class="who">Николай Кузяков · «Ванюшкины сладости» · выручка 2&nbsp;млрд&nbsp;₽</p>
+          <p>11&nbsp;цехов, экспорт в&nbsp;12&nbsp;стран. На&nbsp;программе собрал план оптимизации всей производственной цепочки — маржинальность выросла на&nbsp;5–7%. После модуля по&nbsp;маркетингу просмотры выросли с&nbsp;5 до&nbsp;10&nbsp;млн.</p>
+          <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/556451-dubajskij-sokolad-i-vkus-pihty-kak-ulavlivat-trendy-v-konditerskoj-otrasli" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+        </div>
+        <div class="card fcase">
+          <h3>Пересмотрел KPI и&nbsp;вывел процессы на&nbsp;другой уровень</h3>
+          <p class="who">Андрей Исаев · ДНКОМ · выручка 2,7&nbsp;млрд&nbsp;₽</p>
+          <p>Врач по&nbsp;образованию, построил сеть лабораторий: «учеба в&nbsp;медицинском вузе не&nbsp;предполагает знаний ни&nbsp;по&nbsp;менеджменту, ни&nbsp;по&nbsp;маркетингу». На&nbsp;программе пересмотрел ключевые показатели и&nbsp;вывел процессы «на&nbsp;качественно иной уровень».</p>
+          <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/557929-andrej-isaev-osnovatel-dnkom-ludi-vidat-cto-platnaa-medicina-effektivna" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+        </div>
+        <div class="card fcase">
+          <h3>Вышла на&nbsp;рынок ОАЭ — бизнес перестал держаться на&nbsp;одном рынке</h3>
+          <p class="who">Анастасия Юдицкая · сеть школ Pirouette</p>
+          <p>«Учеба в&nbsp;бизнес-школе помогла мне принять решение о&nbsp;выходе на&nbsp;зарубежные рынки». Открыла направление в&nbsp;ОАЭ: школы работают в&nbsp;Москве, Подмосковье, Петербурге и&nbsp;Дубае.</p>
+          <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/564039-anastasia-udickaa-pirouette-v-sporte-i-biznese-vyigryvaet-samyj-posledovatel-nyj" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
+        </div>
+        <div class="card fcase">
+          <h3>Договоры на&nbsp;поставку и&nbsp;экспорт — прямо на&nbsp;выездном модуле</h3>
+          <p class="who">Выпускник · собственник фармбизнеса</p>
+          <p>Улетел на&nbsp;выездной модуль в&nbsp;Индию, под него организовали перелет к&nbsp;фармпроизводителю. Итог — договоры на&nbsp;поставку препарата в&nbsp;Россию и&nbsp;на&nbsp;экспорт российской продукции.</p>
+          
+        </div>
+        <div class="card fcase">
+          <h3>Команду и&nbsp;найм пересобрали всей верхушкой</h3>
+          <p class="who">Андрей Исаев · ДНКОМ · выручка 2,7&nbsp;млрд&nbsp;₽</p>
+          <p>На&nbsp;программу пошел не&nbsp;один — вместе с&nbsp;женой и&nbsp;исполнительным директором. Новое внедряла сразу вся верхушка компании, а&nbsp;не&nbsp;владелец в&nbsp;пересказе. Систему найма перестроили по&nbsp;технологиям с&nbsp;курса и&nbsp;пересобрали команду.</p>
+          
+        </div>
       </div>
-      <p class="sec-cta" style="margin:4px 0 18px"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-keysy" data-goal="emba-own-cta-keysy">Узнать индекс автономности&nbsp;↗</a></p>
-      <div class="card fcase">
-        <h3>Пришла с&nbsp;сетью школ в&nbsp;России — вышла на&nbsp;рынок Дубая</h3>
-        <p class="who">Анастасия Юдицкая · основательница Pirouette</p>
-        <p>Работающий бизнес в&nbsp;Москве и&nbsp;Петербурге, решения — интуитивно. «Учеба помогла мне принять решение о&nbsp;выходе на&nbsp;зарубежные рынки» — открыла направление в&nbsp;ОАЭ.</p>
-        <p class="how">«EMBA помог мыслить как предприниматель, который строит международный бренд».</p>
-        <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/564039-anastasia-udickaa-pirouette-v-sporte-i-biznese-vyigryvaet-samyj-posledovatel-nyj" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
-      </div>
-      <div class="card fcase">
-        <h3>Маржа +5–7%, просмотры 5&nbsp;→&nbsp;10&nbsp;млн, поставщик сырья — из&nbsp;однокурсников</h3>
-        <p class="who">Николай Кузяков · «Ванюшкины сладости» · выручка 2+&nbsp;млрд&nbsp;₽</p>
-        <p>Каждый модуль закрыл живую задачу: «Стратегии» — план оптимизации цепочки с&nbsp;ростом маржинальности, «Цифровизация» — нейросети на&nbsp;производстве, «Маркетинг» — рост просмотров вдвое. Нетворкинг оценивает как «60–70% полезности обучения».</p>
-        <!-- прием 9 из разбора РАНХиГС: граница атрибуции там, где есть цифра результата -->
-        <p class="how">Это его проект по&nbsp;его задаче, и&nbsp;считал он&nbsp;сам. Мы&nbsp;не&nbsp;приписываем эти цифры программе — проверить их&nbsp;можно по&nbsp;интервью.</p>
-        <a class="flink emba-own-forbes-out" data-goal="emba-own-forbes-out" href="https://www.forbes.ru/club/partners/556451-dubajskij-sokolad-i-vkus-pihty-kak-ulavlivat-trendy-v-konditerskoj-otrasli" target="_blank" rel="noopener">Интервью Forbes&nbsp;→</a>
-      </div>
+      <button type="button" class="cs-btn" data-dir="1" aria-label="Следующий кейс">›</button>
+      <div class="cs-dots"></div>
     </div>
 
-    <p class="sec-cta"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-zachem" data-goal="emba-own-cta-zachem">Узнать индекс автономности&nbsp;↗</a></p>
-    <p class="btn-note">6 вопросов, 3 минуты. Результат сразу на&nbsp;экране, без&nbsp;звонка.</p>
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-zachem" data-goal="emba-own-cta-zachem">Пройти отбор&nbsp;↗</a></p>
   </div>
 </section>
 
 <!-- ЧТО ВНУТРИ / СРЕДА -->
 <section>
   <div class="wrap">
-    <div class="kicker">Что вы получаете</div>
     <h2>Среда, в&nbsp;которой бизнес выходит на&nbsp;следующий уровень</h2>
     <div class="grid2" style="margin-top:20px">
       <div class="card"><h3>Круг собственников вашего масштаба</h3><p style="margin-top:8px;font-size:15.5px"><mark>[N]</mark> человек в&nbsp;группе, отбор по&nbsp;масштабу: <mark>[доля]</mark> собственники, <mark>[доля]</mark> наемные руководители топ-уровня. Здесь проверяют решения о&nbsp;сделке, преемнике, новом рынке — и&nbsp;находят партнеров. Случайных людей нет.</p><p style="margin-top:10px;font-size:15.5px">Главное свойство круга: рядом люди, которые <b>не&nbsp;конкурируют с&nbsp;вами</b>, говорят с&nbsp;вами на&nbsp;одном языке и&nbsp;могут помочь с&nbsp;вашим вопросом. Ни&nbsp;в&nbsp;своей отрасли, ни&nbsp;внутри компании такого разговора нет.</p></div>
-      <p class="sec-cta" style="margin:4px 0 18px"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-sreda-mid" data-goal="emba-own-cta-sreda-mid">Узнать индекс автономности&nbsp;↗</a></p>
       <div class="card"><h3>Идеи из&nbsp;других отраслей</h3><p style="margin-top:8px;font-size:15.5px">Практики, которые внутри своей компании не&nbsp;появятся: как считают деньги, строят команды и&nbsp;принимают решения в&nbsp;бизнесах другого профиля и&nbsp;масштаба.</p></div>
       <div class="card"><h3>Система, которая переживает кризис</h3><p style="margin-top:8px;font-size:15.5px">Полномочия, контуры ответственности, преемники на&nbsp;ключевых ролях — по&nbsp;образцам компаний, где это уже работает. Бизнес растет и&nbsp;не&nbsp;держится на&nbsp;вас.</p></div>
       <div class="card"><h3>Преподаватели-практики</h3><p style="margin-top:8px;font-size:15.5px">Не&nbsp;консультанты и&nbsp;не&nbsp;профессора — те, кто сам управлял бизнесом. <mark>[Фото + факты: кто, чем управлял, какой оборот]</mark></p></div>
     </div>
 
-    <p class="sec-cta"><a href="quiz-owners-cases.html" class="btn ghost emba-own-cta-sreda" data-goal="emba-own-cta-sreda">Узнать индекс автономности&nbsp;↗</a></p>
-    <p class="btn-note">Сначала посмотрите, насколько система держится без&nbsp;вас.</p>
+    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-sreda" data-goal="emba-own-cta-sreda">Пройти отбор&nbsp;↗</a></p>
   </div>
 </section>
 
 <!-- ФОРМАТ -->
 <section class="dark">
   <div class="wrap">
-    <div class="kicker">Формат</div>
     <h2>Уважает ваше время</h2>
     <div class="grid3" style="margin-top:20px">
       <div class="card"><h3>Короткие интенсивы</h3><p style="margin-top:8px;font-size:15.5px">Выездные сессии и&nbsp;модули вместо еженедельных пар. <mark>[Расписание: Москва / Петербург / зарубежный модуль]</mark></p><p style="margin-top:10px;font-size:15.5px">Ритм — <mark>[модуль раз в месяц]</mark>, а&nbsp;не&nbsp;заезд на&nbsp;неделю раз в&nbsp;полгода: за&nbsp;месяц связи в&nbsp;группе не&nbsp;рвутся, вы возвращаетесь к&nbsp;тем&nbsp;же людям и&nbsp;к&nbsp;тем&nbsp;же задачам.</p></div>
@@ -402,7 +436,6 @@ h1,h2,h3{overflow-wrap:break-word}
 <!-- БИЗНЕС-МИССИИ: СДЕЛКИ ДО ВЫПУСКА -->
 <section class="dark">
   <div class="wrap">
-    <div class="kicker">Бизнес-миссии</div>
     <h2>Не&nbsp;экскурсия, а&nbsp;сделка</h2>
     <p class="lead" style="margin-bottom:20px">Деловую программу миссий собирают под задачи участников. Кейсы — без имен, по&nbsp;договоренности с&nbsp;участниками.</p>
     <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
@@ -424,7 +457,6 @@ h1,h2,h3{overflow-wrap:break-word}
 <!-- СРАВНЕНИЕ -->
 <section>
   <div class="wrap narrow">
-    <div class="kicker">Почему не другое</div>
     <h2>Чем это отличается от&nbsp;того, что у&nbsp;вас уже есть</h2>
     <!-- прием 5 из разбора РАНХиГС: антипродажа — сами снимаем аргумент «модули и спикеры» -->
     <p class="lead" style="margin-top:4px">Сразу честно: набором модулей вас никто не&nbsp;удивит — похожий список можно собрать из&nbsp;коучей и&nbsp;консультантов. Разница в&nbsp;двух вещах: кто сидит рядом с&nbsp;вами в&nbsp;группе и&nbsp;то, что проект вы делаете по&nbsp;своей компании, а&nbsp;не&nbsp;по&nbsp;учебному кейсу.</p>
@@ -440,32 +472,9 @@ h1,h2,h3{overflow-wrap:break-word}
   </div>
 </section>
 
-<!-- БЛОК-ВХОД В КВИЗ.
-     Квиз одобрен Александром (ч.2, 142–143) как диагностика хрупкой системы.
-     Обещание входа — «настроить систему, чтобы бизнес рос и не держался на вас
-     одном», не «выйти» куда-либо. Ссылка относительная: ../квиз-...кейсы...html —
-     это вариант A сплита; вариант B лежит рядом (...модули...), подменяется
-     в ссылке руками при заливке второй версии ленда.
-     Цель перехода — emba-own-quiz-cta (у плашки-тизера выше своя: emba-own-quiz-teaser). -->
-<section class="dark" id="quiz">
-  <div class="wrap">
-    <div class="kicker">Если говорить пока рано</div>
-    <h2>Сначала посмотрите, насколько система держится без&nbsp;вас</h2>
-    <p class="lead" style="margin-bottom:22px">Восемь вопросов о&nbsp;том, как в&nbsp;компании принимаются решения, когда вас нет. Это диагностика, а&nbsp;не&nbsp;заявка: контакт нужен только если захотите обсудить результат.</p>
-    <a href="quiz-owners-cases.html" class="btn emba-own-quiz-cta" data-goal="emba-own-quiz-cta">Узнать индекс автономности&nbsp;↗</a>
-    <p class="btn-note">8&nbsp;вопросов, 3&nbsp;минуты. Результат — сразу на&nbsp;экране, без&nbsp;регистрации и&nbsp;без&nbsp;звонка.</p>
-    <div class="grid3" style="margin-bottom:24px">
-      <div class="card"><h3>Индекс автономности 0–10</h3><p style="margin-top:8px;font-size:15.5px">Сколько компания проработает без&nbsp;ваших решений — и&nbsp;насколько это совпало с&nbsp;вашей собственной оценкой в&nbsp;днях.</p></div>
-      <div class="card"><h3>Карта семи узлов</h3><p style="margin-top:8px;font-size:15.5px">Где компания упирается в&nbsp;вас лично: решения, готовность к&nbsp;росту, процессы, вторая линия руководителей, ваш ресурс.</p></div>
-      <div class="card"><h3>С&nbsp;чего начать</h3><p style="margin-top:8px;font-size:15.5px">Один узел, с&nbsp;которого система развязывается быстрее всего. Задача — настроить систему, чтобы бизнес рос и&nbsp;не&nbsp;держался на&nbsp;вас одном.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- КАК ПОПАСТЬ -->
 <section>
   <div class="wrap narrow">
-    <div class="kicker">Как попасть</div>
     <h2>В&nbsp;группу — через отбор</h2>
     <ul class="clean" style="margin-top:16px">
       <li><b>Заявка.</b> Имя и&nbsp;телефон — этого достаточно.</li>
@@ -482,7 +491,6 @@ h1,h2,h3{overflow-wrap:break-word}
 <!-- ФОРМА -->
 <section class="dark" id="form">
   <div class="wrap narrow">
-    <div class="kicker">Отбор в группу</div>
     <h2>Пройти отбор</h2>
     <p class="lead" style="margin-bottom:20px">Оставьте контакт — договоримся о&nbsp;консультации по&nbsp;индивидуальной траектории.</p>
     <form id="lead-form" novalidate>
@@ -547,6 +555,26 @@ document.addEventListener('click', function(e){
     goal(g.getAttribute('data-goal'));
   }
 });
+// карусель кейсов: стрелки по кругу, точки, свайп — нативный скролл
+(function(){
+  var sl=document.getElementById('cases'); if(!sl) return;
+  var track=sl.querySelector('.cslides'), dots=sl.querySelector('.cs-dots');
+  var items=track.children, cur=0, pages=1, lock=false;
+  function step(){ return items[1] ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth; }
+  function calc(){ var s=step(); var per=Math.max(1,Math.round(track.clientWidth/s)); return Math.max(1,items.length-per+1); }
+  function paint(){ [].forEach.call(dots.children,function(d,i){ d.classList.toggle('on',i===cur); }); }
+  function build(){ dots.innerHTML=''; for(var i=0;i<pages;i++){ (function(i){
+    var d=document.createElement('button'); d.type='button'; d.className='cs-dot';
+    d.setAttribute('aria-label','Кейс '+(i+1)); d.onclick=function(){ go(i); }; dots.appendChild(d); })(i); } paint(); }
+  function go(i){ cur=(i+pages)%pages; lock=true;
+    track.scrollTo({left:items[cur].offsetLeft-items[0].offsetLeft,behavior:'smooth'}); paint();
+    setTimeout(function(){ lock=false; },450); }
+  pages=calc(); build();
+  sl.querySelectorAll('.cs-btn').forEach(function(b){ b.onclick=function(){ go(cur+parseInt(b.dataset.dir,10)); }; });
+  track.addEventListener('scroll',function(){ if(lock) return; var s=step(); if(!s) return;
+    cur=Math.max(0,Math.min(pages-1,Math.round(track.scrollLeft/s))); paint(); },{passive:true});
+  window.addEventListener('resize',function(){ var p=calc(); if(p!==pages){ pages=p; if(cur>pages-1) cur=pages-1; build(); } });
+})();
 // карточки маршрутов
 document.querySelectorAll('.toggle-card').forEach(function(c){
   c.addEventListener('click', function(){ c.classList.toggle('open'); });
