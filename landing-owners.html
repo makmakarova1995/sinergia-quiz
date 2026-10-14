@@ -42,7 +42,6 @@
     emba-own-route-system   — карточка маршрута «все замкнуто на мне»
     emba-own-route-growth   — карточка маршрута «растем, а я не понимаю почему»
     emba-own-cta-zachem     — на форму из конца блока кейсов
-    emba-own-cta-sravnenie  — к форме из конца блока «Сравнение»
                               (одна цель на все ссылки: действие одно)
     emba-own-form-submit    — отправка формы
   Счетчик: заменить YM_ID на номер счетчика — его дает школа.
@@ -408,6 +407,16 @@ h1,h2,h3{overflow-wrap:break-word}
 .cases-hl .cslides>.card,.cases-hl .cslides>.card h3,.cases-hl .cslides>.card p{color:var(--ink)}
 .cases-hl .cslides>.card .who{color:var(--muted)}
 .cases-hl .cslides>.card b{color:#111}
+
+/* таблица «чем закрывают задачу / что дает EMBA» */
+.vs-table th{text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 14px 10px;border-bottom:2px solid #d8d0bc}
+.vs-table th:last-child{color:var(--red)}
+.vs-table td:first-child{width:36%}
+.vs-table td:first-child span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+.vs-table td:last-child{font-size:15.5px}
+@media(max-width:640px){.vs-table td:first-child{width:auto}}
+
+#lead-form .btn-mega{max-width:none;margin:14px 0 0}
 </style>
 </head>
 <body>
@@ -553,16 +562,13 @@ h1,h2,h3{overflow-wrap:break-word}
 <!-- СРАВНЕНИЕ -->
 <section>
   <div class="wrap narrow">
-    <h2>Почему Executive MBA для&nbsp;собственников</h2>
-    <div class="tscroll"><table style="margin-top:20px">
-      <tr><td><b>Круг собственников вашего масштаба</b></td><td>Обсуждаете решения с&nbsp;теми, кто сам управляет бизнесом и&nbsp;не&nbsp;конкурирует с&nbsp;вами.</td></tr>
-      <tr><td><b>Работа над своей компанией</b></td><td>Проект делаете по&nbsp;своему бизнесу, а&nbsp;не&nbsp;по&nbsp;учебному кейсу. Решения внедряете по&nbsp;ходу программы.</td></tr>
-      <tr><td><b>Система управления</b></td><td>Полномочия, зоны ответственности и&nbsp;KPI — инструменты, которые остаются в&nbsp;компании после выпуска.</td></tr>
-      <tr><td><b>Практики российского рынка</b></td><td>Преподаватели-практики и&nbsp;решения под сегодняшние условия ведения бизнеса.</td></tr>
-      <tr><td><b>Новые идеи и&nbsp;рынки</b></td><td>Практики из&nbsp;других отраслей и&nbsp;выездные модули в&nbsp;Китай, Индию и&nbsp;ОАЭ.</td></tr>
+    <h2>Почему полноценная программа EMBA дает больше</h2>
+    <div class="tscroll"><table class="vs-table" style="margin-top:20px">
+      <tr><td><b>Бизнес-клубы</b><span>Общение и&nbsp;знакомства</span></td><td>Круг собственников вашего масштаба плюс методы и&nbsp;система управления, которые вы внедряете в&nbsp;своей компании.</td></tr>
+      <tr><td><b>Консультанты</b><span>Отчет и&nbsp;рекомендации</span></td><td>Вы&nbsp;разбираете свой бизнес сами вместе с&nbsp;преподавателями-практиками — навык остается в&nbsp;компании.</td></tr>
+      <tr><td><b>Коучи и&nbsp;короткие курсы</b><span>Отдельные инструменты</span></td><td>Система целиком: стратегия, финансы, команда и&nbsp;процессы — проект по&nbsp;своему бизнесу, а&nbsp;не&nbsp;по&nbsp;учебному кейсу.</td></tr>
+      <tr><td><b>Отпуск и&nbsp;«перетерпеть»</b><span>Временная перезагрузка</span></td><td>Новые идеи из&nbsp;других отраслей и&nbsp;выездные модули в&nbsp;Китай, Индию и&nbsp;ОАЭ, где находят партнеров.</td></tr>
     </table></div>
-
-    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-sravnenie" data-goal="emba-own-cta-sravnenie">Записаться на&nbsp;бизнес-консультацию</a></p>
   </div>
 </section>
 
@@ -570,13 +576,14 @@ h1,h2,h3{overflow-wrap:break-word}
 <section class="dark" id="form">
   <div class="wrap narrow">
     <h2>Хочу записаться на&nbsp;бизнес-консультацию</h2>
-    <p class="lead" style="margin-bottom:20px">Сначала мы позвоним и&nbsp;уточним ваши задачи. Затем запишем на&nbsp;бизнес-консультацию и&nbsp;разберем, как программа EMBA сможет их&nbsp;решить. Если программа вам не&nbsp;подойдет — скажем честно.</p>
+    <p class="lead" style="margin-bottom:10px">Сначала мы позвоним и&nbsp;уточним ваши задачи. Затем запишем на&nbsp;бизнес-консультацию и&nbsp;разберем, как программа EMBA сможет их&nbsp;решить.</p>
+    <p class="lead" style="margin-bottom:20px">Если программа вам не&nbsp;подойдет, скажем честно.</p>
     <form id="lead-form" novalidate>
       <label for="f-name">Имя</label>
       <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
       <label for="f-phone">Телефон</label>
       <input id="f-phone" type="tel" placeholder="+7 …" required>
-      <button type="submit" class="btn emba-own-form-submit" data-goal="emba-own-form-submit" style="width:100%">Записаться на&nbsp;бизнес-консультацию</button>
+      <button type="submit" class="btn btn-mega emba-own-form-submit" data-goal="emba-own-form-submit">Записаться на&nbsp;бизнес-консультацию</button>
       <p class="btn-note" style="text-align:center">Нажимая кнопку, вы соглашаетесь с&nbsp;обработкой персональных данных.</p>
     </form>
     <div class="ok-msg" id="ok-msg">
