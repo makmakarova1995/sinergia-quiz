@@ -302,6 +302,83 @@ h1,h2,h3{overflow-wrap:break-word}
   .cs-btn[data-dir="1"]{grid-area:next}
   .cs-dots{grid-area:dots;margin-top:0;padding:0}
 }
+
+/* оффер консультации на первом экране: три пункта перед кнопкой */
+.hero .hero-offer{margin-top:14px;max-width:var(--measure)}
+.hero .hero-offer li{font-size:16.5px;color:#f1ece1;padding:10px 0 10px 26px}
+.hero .hero-offer li::before{top:17px}
+.hero .hero-offer+.btn{margin-top:26px}
+@media(max-width:640px){.hero .hero-offer li{font-size:15.5px;padding:8px 0 8px 24px}.hero .hero-offer li::before{top:15px}.hero .hero-offer+.btn{margin-top:20px}}
+
+/* узкие телефоны: оффер + кнопка в первом экране */
+@media(max-width:380px){
+  .hero-top{padding:16px 0 !important}
+  .hero h1{font-size:22px !important;line-height:1.22 !important}
+  .hero .hv-sub{font-size:15px;margin-top:12px}
+  .hero .hero-offer{margin-top:8px}
+  .hero .hero-offer li{font-size:14px;line-height:1.4;padding:6px 0 6px 20px}
+  .hero .hero-offer li::before{top:12px;width:8px;height:8px}
+  .hero .hero-offer+.btn{margin-top:14px}
+}
+
+@media(max-width:340px){
+  .hero h1{font-size:20px !important}
+  .hero .hero-offer li{font-size:13.5px;padding:5px 0 5px 18px}
+  .hero .hv-sub{margin-top:10px}
+}
+
+/* главная кнопка первого экрана — крупная */
+.hero .btn{font-size:25px;padding:28px 56px;border-radius:12px;min-width:min(560px,100%);text-align:center;letter-spacing:.05em}
+@media(max-width:640px){.hero .btn{font-size:19px;padding:22px 14px;min-width:0}}
+@media(max-width:380px){.hero .btn{font-size:16.5px;padding:19px 10px}}
+
+/* ===== карточки маршрутов: переворот на обратную сторону ===== */
+.routes{align-items:stretch}
+.flip{perspective:1400px;cursor:pointer;outline:none}
+.flip-inner{display:grid;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip.on .flip-inner{transform:rotateY(180deg)}
+.flip-face{grid-area:1/1;display:flex;flex-direction:column;margin:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.flip-front h3{font-size:19px;line-height:1.3}
+.flip-front p{margin-top:8px;font-size:15.5px}
+.flip-back{transform:rotateY(180deg);background:#fff;border-color:var(--red)}
+.flip-back p{font-size:15.5px;line-height:1.55}
+.flip-lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.flip-hint{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;color:var(--red);font-size:14px;font-weight:600}
+.flip-ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:15px;line-height:1}
+.flip:hover .flip-front,.flip:focus-visible .flip-front{border-color:var(--red)}
+.flip:focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:12px}
+/* по очереди, неспешно подсвечиваются, пока их не перевернули */
+@keyframes routeGlow{0%,26%,100%{border-color:#d8d0bc;box-shadow:0 0 0 0 rgba(230,58,46,0);transform:translateY(0)}
+  9%,17%{border-color:var(--red);box-shadow:0 0 0 4px rgba(230,58,46,.30),0 12px 28px rgba(230,58,46,.16);transform:translateY(-4px)}}
+.flip-front{animation:routeGlow 9s ease-in-out infinite}
+.routes .flip:nth-child(2) .flip-front{animation-delay:3s}
+.routes .flip:nth-child(3) .flip-front{animation-delay:6s}
+.flip.on .flip-front,.flip:hover .flip-front{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.flip-inner{transition:none}.flip-front{animation:none}}
+
+/* карусель кейсов: край карточек = край заголовка блока; стрелки вне колонки */
+.cslider{padding:0}
+@media(min-width:1200px){.cs-btn[data-dir="-1"]{left:-70px}.cs-btn[data-dir="1"]{right:-70px}}
+@media(max-width:1199px){
+  .cslider{display:grid;grid-template-columns:48px 1fr 48px;grid-template-areas:"track track track" "prev dots next";align-items:center;row-gap:14px}
+  .cslides{grid-area:track}
+  .cs-btn{position:static;transform:none;top:auto}
+  .cs-btn[data-dir="-1"]{grid-area:prev}
+  .cs-btn[data-dir="1"]{grid-area:next}
+  .cs-dots{grid-area:dots;margin-top:0;padding:0}
+}
+
+/* карусель кейсов: край карточек = край заголовка блока; стрелки вне колонки */
+.cslider{padding:0}
+@media(min-width:1200px){.cs-btn[data-dir="-1"]{left:-70px}.cs-btn[data-dir="1"]{right:-70px}}
+@media(max-width:1199px){
+  .cslider{display:grid;grid-template-columns:48px 1fr 48px;grid-template-areas:"track track track" "prev dots next";align-items:center;row-gap:14px}
+  .cslides{grid-area:track}
+  .cs-btn{position:static;transform:none;top:auto}
+  .cs-btn[data-dir="-1"]{grid-area:prev}
+  .cs-btn[data-dir="1"]{grid-area:next}
+  .cs-dots{grid-area:dots;margin-top:0;padding:0}
+}
 </style>
 </head>
 <body>
@@ -314,13 +391,13 @@ h1,h2,h3{overflow-wrap:break-word}
   </div>
   <div class="wrap hero-body" style="width:100%">
     <h1>Как собственнику не&nbsp;принимать решения на&nbsp;сотни миллионов в&nbsp;одиночку и&nbsp;<span class="hl">масштабироваться даже в&nbsp;кризис</span></h1>
-    <p class="hv-sub">Обсудим на&nbsp;консультации, как программа EMBA поможет разобрать ваши задачи с&nbsp;собственниками вашего масштаба, взять работающие практики из&nbsp;других отраслей и&nbsp;выстроить систему, которая выдержит кризис.</p>
-    <a href="#form" class="btn emba-own-hero-cta" data-goal="emba-own-hero-cta">Записаться на&nbsp;бизнес-консультацию&nbsp;↗</a>
-    <ul class="hero-points">
-      <li>новые идеи и&nbsp;практики из&nbsp;других отраслей — те, что внутри своей компании не&nbsp;появятся;</li>
-      <li>система управления, с&nbsp;которой бизнес выдерживает кризис и&nbsp;растет в&nbsp;нем;</li>
-      <li>круг собственников вашего масштаба: старшие товарищи, партнеры, преподаватели-практики.</li>
+    <p class="hv-sub">На&nbsp;консультации разберем:</p>
+    <ul class="hero-points hero-offer">
+      <li>где в&nbsp;управлении бизнесом вы&nbsp;теряете прибыль;</li>
+      <li>что мешает компании масштабироваться прямо сейчас;</li>
+      <li>какие модули и&nbsp;преподаватели EMBA уже решали похожие задачи.</li>
     </ul>
+    <a href="#form" class="btn emba-own-hero-cta" data-goal="emba-own-hero-cta">Записаться на&nbsp;бизнес-консультацию&nbsp;↗</a>
   </div>
 </div>
 
@@ -336,7 +413,6 @@ h1,h2,h3{overflow-wrap:break-word}
     </div>
 
     <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-cifry" data-goal="emba-own-cta-cifry">Пройти отбор&nbsp;↗</a></p>
-    <p class="btn-note">Если ваш масштаб ниже порога — скажем прямо на&nbsp;первом разговоре.</p>
   </div>
 </section>
 
@@ -345,23 +421,47 @@ h1,h2,h3{overflow-wrap:break-word}
   <div class="wrap">
     <h2>Узнаете себя? Нажмите — покажем маршрут</h2>
     <div class="grid3 routes" style="margin-top:20px">
-      <div class="card toggle-card emba-own-route-fire" data-goal="emba-own-route-fire">
-        <h3>«Бизнес работает, а&nbsp;глаз не&nbsp;горит»</h3>
-        <p style="margin-top:8px;font-size:15.5px">Новых идей нет, команда спрашивает «куда идем» — а&nbsp;ответить нечего.</p>
-        <div class="hint"><span class="hint-t">Это про меня</span><span class="hint-ic">↓</span></div>
-        <div class="a">Энергия возвращается со&nbsp;сменой среды: круг равных, чужие работающие практики, первая идея, которую захотелось внедрить. Слушатели приходят домой с&nbsp;программой «не&nbsp;грустными, а&nbsp;веселыми» — и&nbsp;с&nbsp;пониманием, куда вести людей.</div>
+      <div class="flip emba-own-route-fire" data-goal="emba-own-route-fire" role="button" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card flip-face flip-front">
+            <h3>«Перестаю гореть своим бизнесом»</h3>
+            <p>Бизнес работает, а&nbsp;новых идей нет — и&nbsp;непонятно, куда вести команду дальше.</p>
+            <div class="flip-hint"><span>Это про меня</span><span class="flip-ic">↻</span></div>
+          </div>
+          <div class="card flip-face flip-back">
+            <div class="flip-lbl">Ваш маршрут</div>
+            <p>Вдохновитесь новыми идеями в&nbsp;кругу собственников вашего масштаба и&nbsp;старших товарищей. Практики из&nbsp;других отраслей и&nbsp;выездные модули дают то, что внутри своей компании не&nbsp;появится.</p>
+            <div class="flip-hint"><span class="flip-ic">←</span><span>Назад</span></div>
+          </div>
+        </div>
       </div>
-      <div class="card toggle-card emba-own-route-system" data-goal="emba-own-route-system">
-        <h3>«Все замкнуто на&nbsp;мне — страшно брать больше»</h3>
-        <p style="margin-top:8px;font-size:15.5px">Отказываетесь от&nbsp;крупных заказов и&nbsp;новых рынков: система не&nbsp;вытянет.</p>
-        <div class="hint"><span class="hint-t">Это про меня</span><span class="hint-ic">↓</span></div>
-        <div class="a">Дело не&nbsp;в&nbsp;том, что вы много работаете, — не&nbsp;настроена система: полномочия, зоны ответственности, процессы, KPI. Настроите ее&nbsp;— сможете брать заказы, филиалы и&nbsp;рынки, которые сейчас страшно брать. Вы остаетесь у&nbsp;руля и&nbsp;занимаетесь развитием, а&nbsp;не&nbsp;тушением пожаров. Проверка простая: уехали на&nbsp;модуль — ничего не&nbsp;рухнуло.</div>
+      <div class="flip emba-own-route-system" data-goal="emba-own-route-system" role="button" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card flip-face flip-front">
+            <h3>«Управление замкнуто на&nbsp;мне»</h3>
+            <p>День уходит на&nbsp;текущие вопросы и&nbsp;рутину — до&nbsp;стратегических задач руки не&nbsp;доходят.</p>
+            <div class="flip-hint"><span>Это про меня</span><span class="flip-ic">↻</span></div>
+          </div>
+          <div class="card flip-face flip-back">
+            <div class="flip-lbl">Ваш маршрут</div>
+            <p>Разберете, какие решения можно передать команде, и&nbsp;настроите полномочия, зоны ответственности и&nbsp;KPI. Рутина уходит в&nbsp;систему, а&nbsp;у&nbsp;вас освобождается время на&nbsp;стратегию. Вы&nbsp;остаетесь у&nbsp;руля.</p>
+            <div class="flip-hint"><span class="flip-ic">←</span><span>Назад</span></div>
+          </div>
+        </div>
       </div>
-      <div class="card toggle-card emba-own-route-growth" data-goal="emba-own-route-growth">
-        <h3>«Растем, а&nbsp;я&nbsp;не&nbsp;понимаю почему»</h3>
-        <p style="margin-top:8px;font-size:15.5px">Выросли «на&nbsp;сошедшихся звездах» — и&nbsp;страшно, что рост кончится так&nbsp;же внезапно.</p>
-        <div class="hint"><span class="hint-t">Это про меня</span><span class="hint-ic">↓</span></div>
-        <div class="a">Разберете механику собственного роста с&nbsp;практиками: что работает — повторять осознанно, что нет — убрать. Пока прет — самое время взять рост под управление, а&nbsp;не&nbsp;наблюдать за&nbsp;ним. Сюда же&nbsp;— чужие методы из&nbsp;других отраслей и&nbsp;стран: внутри своей компании они не&nbsp;появятся.</div>
+      <div class="flip emba-own-route-growth" data-goal="emba-own-route-growth" role="button" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card flip-face flip-front">
+            <h3>«Хотим расти дальше, но&nbsp;не&nbsp;понимаем куда»</h3>
+            <p>Текущий рынок уперся в&nbsp;потолок: непонятно, как масштабироваться и&nbsp;на&nbsp;какие рынки выходить.</p>
+            <div class="flip-hint"><span>Это про меня</span><span class="flip-ic">↻</span></div>
+          </div>
+          <div class="card flip-face flip-back">
+            <div class="flip-lbl">Ваш маршрут</div>
+            <p>Разберете, куда масштабировать бизнес: какие рынки и&nbsp;регионы подойдут именно вам и&nbsp;как туда заходить. На&nbsp;выездных модулях в&nbsp;Китай, Индию и&nbsp;ОАЭ увидите, как это устроено у&nbsp;других, и&nbsp;найдете партнеров на&nbsp;месте.</p>
+            <div class="flip-hint"><span class="flip-ic">←</span><span>Назад</span></div>
+          </div>
+        </div>
       </div>
     </div>
     <p style="margin-top:22px"><a href="#form" class="btn emba-own-routes-cta" data-goal="emba-own-routes-cta">Обсудить мою траекторию&nbsp;↗</a></p>
@@ -389,17 +489,17 @@ h1,h2,h3{overflow-wrap:break-word}
           <p>Четвертый фармдистрибьютор России. На&nbsp;выездном модуле посмотрел, как организованы процессы на&nbsp;заводах Китая, и&nbsp;<b>перестроил процессы в&nbsp;своей компании</b>.</p>
         </div>
         <div class="card fcase">
-          <h3>Маржинальность +5–7% после модуля «Стратегии»</h3>
+          <h3>Маржинальность <span style="white-space:nowrap">+5–7%</span> после модуля «Стратегии»</h3>
           <p class="who">Николай Кузяков · «Ванюшкины сладости» · выручка 2&nbsp;млрд&nbsp;₽</p>
-          <p>11&nbsp;цехов и&nbsp;экспорт в&nbsp;12&nbsp;стран. На&nbsp;программе собрал план оптимизации производственной цепочки. Результат — <b>маржинальность выросла на&nbsp;5–7%</b>.</p>
+          <p>11&nbsp;цехов и&nbsp;экспорт в&nbsp;12&nbsp;стран. На&nbsp;программе собрал план оптимизации производственной цепочки. Результат — <b>маржинальность выросла на&nbsp;<span style="white-space:nowrap">5–7%</span></b>.</p>
         </div>
         <div class="card fcase">
-          <h3>Врач по&nbsp;образованию — научился управлять бизнесом на&nbsp;2,7&nbsp;млрд</h3>
+          <h3>Врач научился управлять бизнесом на&nbsp;2,7&nbsp;млрд</h3>
           <p class="who">Андрей Исаев · сеть лабораторий ДНКОМ</p>
           <p>Компания росла, а&nbsp;управленческой базы не&nbsp;было. На&nbsp;программе <b>пересобрал KPI и&nbsp;процессы компании</b>.</p>
         </div>
         <div class="card fcase">
-          <h3>Нашел партнеров для поставок и&nbsp;экспорта во&nbsp;время обучения</h3>
+          <h3>Нашел партнеров для поставок и&nbsp;экспорта</h3>
           <p class="who">Выпускник · собственник фармбизнеса</p>
           <p>На&nbsp;выездном модуле в&nbsp;Индии встретился с&nbsp;фармпроизводителем и&nbsp;<b>подписал договоры на&nbsp;поставку и&nbsp;экспорт</b>.</p>
         </div>
@@ -429,51 +529,6 @@ h1,h2,h3{overflow-wrap:break-word}
     </div>
 
     <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-sreda" data-goal="emba-own-cta-sreda">Пройти отбор&nbsp;↗</a></p>
-  </div>
-</section>
-
-<!-- ФОРМАТ -->
-<section class="dark">
-  <div class="wrap">
-    <h2>Уважает ваше время</h2>
-    <div class="grid3" style="margin-top:20px">
-      <div class="card"><h3>Короткие интенсивы</h3><p style="margin-top:8px;font-size:15.5px">Выездные сессии и&nbsp;модули вместо еженедельных пар. <mark>[Расписание: Москва / Петербург / зарубежный модуль]</mark></p><p style="margin-top:10px;font-size:15.5px">Ритм — <mark>[модуль раз в месяц]</mark>, а&nbsp;не&nbsp;заезд на&nbsp;неделю раз в&nbsp;полгода: за&nbsp;месяц связи в&nbsp;группе не&nbsp;рвутся, вы возвращаетесь к&nbsp;тем&nbsp;же людям и&nbsp;к&nbsp;тем&nbsp;же задачам.</p></div>
-      <div class="card"><h3>Бизнес не&nbsp;останавливается</h3><p style="margin-top:8px;font-size:15.5px">Уехали на&nbsp;модуль — компания работает: настройка системы начинается с&nbsp;первых модулей, на&nbsp;вашем живом бизнесе.</p></div>
-      <p class="sec-cta" style="margin:4px 0 18px"><a href="#form" class="btn ghost emba-own-cta-format-mid" data-goal="emba-own-cta-format-mid">Пройти отбор&nbsp;↗</a></p>
-      <div class="card"><h3>Ваш бизнес — сквозной проект</h3><p style="margin-top:8px;font-size:15.5px">Разбираете не&nbsp;чужие кейсы, а&nbsp;свою компанию — со&nbsp;спикерами и&nbsp;группой. Решения внедряете по&nbsp;ходу программы.</p></div>
-      <!-- прием из раздела 3 разбора РАНХиГС: честное «легко не будет» рядом
-           с арифметикой нагрузки. Число дней — [данные от школы]. -->
-      <div class="card"><h3>Легко не&nbsp;будет</h3><p style="margin-top:8px;font-size:15.5px">Это полные дни, и&nbsp;к&nbsp;концу модуля вы устанете: не&nbsp;вечерние вебинары под кофе. Зато в&nbsp;вашем графике это <mark>[N]</mark> рабочих дней в&nbsp;месяц, а&nbsp;не&nbsp;год вне работы.</p></div>
-    </div>
-    <div class="card fcase" style="margin-top:16px;max-width:var(--measure)">
-      <h3>Учеба — не&nbsp;«параллельная жизнь», а&nbsp;работа над своей компанией</h3>
-      <p class="who">Андрей Исаев · сооснователь ДНКОМ · выручка 2,7&nbsp;млрд&nbsp;₽</p>
-      <p>Врач по&nbsp;образованию, управлял на&nbsp;интуиции. Учился командой — с&nbsp;женой и&nbsp;исполнительным директором: изменения внедрялись сразу всей верхушкой. Пересобрал команду, перестроил найм, пересмотрел KPI.</p>
-    </div>
-
-    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-format" data-goal="emba-own-cta-format">Пройти отбор&nbsp;↗</a></p>
-    <p class="btn-note">Консультация по&nbsp;траектории — 60&nbsp;минут, с&nbsp;консультантом по&nbsp;обучению.</p>
-  </div>
-</section>
-
-<!-- БИЗНЕС-МИССИИ: СДЕЛКИ ДО ВЫПУСКА -->
-<section class="dark">
-  <div class="wrap">
-    <h2>Не&nbsp;экскурсия, а&nbsp;сделка</h2>
-    <p class="lead" style="margin-bottom:20px">Деловую программу миссий собирают под задачи участников. Кейсы — без имен, по&nbsp;договоренности с&nbsp;участниками.</p>
-    <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-      <div class="card fcase">
-        <h3>Полетел на&nbsp;модуль в&nbsp;Индию — вернулся с&nbsp;подписанными контрактами</h3>
-        <p>Под участника организовали перелет к&nbsp;фармпроизводителю: договоры на&nbsp;поставку препарата в&nbsp;Россию и&nbsp;на&nbsp;экспорт российской продукции в&nbsp;Индию.</p>
-      </div>
-      <div class="card fcase">
-        <h3>Одна встреча в&nbsp;Китае — расширенный контракт с&nbsp;«дочкой» Alibaba</h3>
-        <p>Гендиректору логистической компании организовали встречу с&nbsp;вице-президентом Cainiao: договоры на&nbsp;новые категории грузов в&nbsp;Россию.</p>
-      </div>
-    </div>
-
-    <p class="sec-cta"><a href="#form" class="btn ghost emba-own-cta-missii" data-goal="emba-own-cta-missii">Пройти отбор&nbsp;↗</a></p>
-    <p class="btn-note">Расписание выездных модулей покажем на&nbsp;консультации.</p>
   </div>
 </section>
 
@@ -588,12 +643,33 @@ document.addEventListener('click', function(e){
     cur=Math.max(0,Math.min(pages-1,Math.round(track.scrollLeft/s))); paint(); },{passive:true});
   window.addEventListener('resize',function(){ var p=calc(); if(p!==pages){ pages=p; if(cur>pages-1) cur=pages-1; build(); } });
 })();
+// карусель кейсов: заголовки и подписи одной высоты — строки карточек идут ровно
+(function(){
+  var tr=document.querySelector('#cases .cslides'); if(!tr) return;
+  function eq(){ ['h3','.who'].forEach(function(sel){
+    var els=[].slice.call(tr.querySelectorAll('.card '+sel));
+    els.forEach(function(e){ e.style.minHeight=''; });
+    var m=Math.max.apply(null, els.map(function(e){ return e.offsetHeight; }));
+    els.forEach(function(e){ e.style.minHeight=m+'px'; });
+  }); }
+  eq(); window.addEventListener('resize', eq);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(eq);
+})();
+// карусель кейсов: заголовки и подписи одной высоты — строки карточек идут ровно
+(function(){
+  var tr=document.querySelector('#cases .cslides'); if(!tr) return;
+  function eq(){ ['h3','.who'].forEach(function(sel){
+    var els=[].slice.call(tr.querySelectorAll('.card '+sel));
+    els.forEach(function(e){ e.style.minHeight=''; });
+    var m=Math.max.apply(null, els.map(function(e){ return e.offsetHeight; }));
+    els.forEach(function(e){ e.style.minHeight=m+'px'; });
+  }); }
+  eq(); window.addEventListener('resize', eq);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(eq);
+})();
 // карточки маршрутов
-document.querySelectorAll('.toggle-card').forEach(function(c){
-  var t=c.querySelector('.hint-t');
-  c.setAttribute('role','button'); c.setAttribute('tabindex','0'); c.setAttribute('aria-expanded','false');
-  function flip(){ var o=c.classList.toggle('open'); c.setAttribute('aria-expanded',o?'true':'false');
-    if(t) t.textContent=o?'Свернуть':'Это про меня'; }
+document.querySelectorAll('.flip').forEach(function(c){
+  function flip(){ var o=c.classList.toggle('on'); c.setAttribute('aria-pressed',o?'true':'false'); }
   c.addEventListener('click', flip);
   c.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } });
 });
