@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Скидка 300 000 ₽ на MBA «Синергия» для топ-менеджеров — для участников BestBenefits</title>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  СОБСТВЕННИКИ · ПАРТНЕРСКИЙ ЛЕНД BESTBENEFITS · ПРОМОКОД −300 000 ₽ · 15.10.2026
+  Трафик: партнерская площадка BestBenefits. Цель страницы — заявка
+  (имя + телефон + промокод).
+  Дизайн и тексты блоков 3–5 — из «собственники-1-основной.html» (скопированы, файл не подключен).
+  Структура — по логике партнерских страниц распродаж: скидка крупно,
+  промокод и форма на первом экране, срок акции, блоки о программе.
+
+  Порядок блоков:
+    1. Первый экран: плашка BestBenefits, «−300 000 ₽», форма (имя, телефон, промокод)
+    2. Как получить скидку — 3 шага
+    3. «Узнаете себя?» — 3 переворачивающиеся карточки
+    4. Результаты выпускников — карусель 6 кейсов
+    5. «Почему полноценная программа MBA дает больше» — таблица сравнения
+    6. Финальная форма + «Скидка действует до [дата]» + условия акции
+
+  Префикс целей Метрики: mba-bb-
+  Цели для заведения руками (тип «JavaScript-событие», имя = class = data-goal):
+    mba-bb-hero-submit     — отправка формы первого экрана (только валидная)
+    mba-bb-final-submit    — отправка финальной формы (только валидная)
+    mba-bb-cta-steps       — кнопка под блоком «Как получить скидку» → к финальной форме
+    mba-bb-route-fire      — карточка «Перестаю гореть своим бизнесом»
+    mba-bb-route-system    — карточка «Управление замкнуто на мне»
+    mba-bb-route-growth    — карточка «Хотим расти дальше, но не понимаем куда»
+    mba-bb-cta-cases       — большая кнопка под кейсами → к финальной форме
+  Составная цель-заявка в Метрике: mba-bb-hero-submit ИЛИ mba-bb-final-submit.
+  Каждая цель уходит один раз за просмотр страницы.
+  С целями отправки уходят параметры визита: form, promo, utm_* — видно,
+  откуда лид и с каким промокодом.
+
+  Счетчик: вписать номер в YM_ID (дает школа). Пока null — цели не уходят.
+  Плейсхолдеры для данных школы помечены желтым: [данные от школы: …].
+  UTM-метки, yclid, адрес страницы и referrer пишутся в скрытые поля каждой формы
+  и в объект заявки. Промокод можно передать в ссылке: ?promo=КОД (или ?promocode=КОД).
+  ═══════════════════════════════════════════════════════════════
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#262626;--dark2:#1e1e1e;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;--muted:#6f6a5e;--measure:680px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,-apple-system,sans-serif;font-size:17px;line-height:1.55;color:var(--ink);background:var(--beige)}
+h1,h2{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.08;font-weight:600}
+h2{font-size:clamp(24px,3.2vw,36px);margin-bottom:14px}
+h3{font-size:19px;font-weight:600;line-height:1.3}
+h1,h2,h3{overflow-wrap:break-word}
+img,svg,video{max-width:100%;height:auto}
+section{padding:64px 20px}
+.wrap{max-width:1040px;margin:0 auto}
+.narrow{max-width:var(--measure)}
+.lead{font-size:18px;max-width:var(--measure)}
+.dark{background:var(--dark);color:#efece4}
+.dark h2{color:#fff}
+mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;color:inherit}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--cream);border-radius:10px;padding:22px;border:1px solid #d8d0bc}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid #d8d0bc;vertical-align:top}
+input{width:100%;height:54px;padding:0 16px;border:1px solid #cfc7b2;border-radius:8px;font:inherit;font-size:16px;background:#fff;color:var(--ink);margin-bottom:10px}
+input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px #e63a2e40}
+footer{background:var(--dark2);color:#8f897c;font-size:13.5px;padding:26px 20px;text-align:center}
+
+/* ===== кнопки (из ленда собственников) ===== */
+.btn{display:inline-block;background:var(--red);color:#fff;border:none;cursor:pointer;font-family:Oswald,'Arial Narrow',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:16px;padding:18px 34px;border-radius:6px;text-decoration:none;min-height:48px}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--red);border:2px solid var(--red);padding:16px 30px}
+.btn.ghost:hover{background:var(--red);color:#fff}
+.sec-cta{margin-top:30px}
+@keyframes btnPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(230,58,46,.45)}
+  50%{transform:scale(1.03);box-shadow:0 0 0 12px rgba(230,58,46,0)}}
+.btn{animation:btnPulse 2.4s ease-in-out infinite}
+.btn:hover,.btn:focus-visible{animation-play-state:paused}
+.btn.ghost{animation-duration:2.8s}
+@keyframes heroPulse{0%,100%{transform:scale(1);box-shadow:0 14px 40px rgba(230,58,46,.55),0 0 0 0 rgba(230,58,46,.55)}
+  50%{transform:scale(1.035);box-shadow:0 18px 50px rgba(230,58,46,.7),0 0 0 18px rgba(230,58,46,0)}}
+.btn-mega{display:block;width:100%;max-width:820px;margin:8px auto 0;text-align:center;font-size:27px;line-height:1.2;padding:30px 28px;border-radius:14px;
+  background:linear-gradient(180deg,#ff5442 0%,#e63a2e 55%,#cf2c21 100%);color:#fff;border:none;
+  box-shadow:0 14px 40px rgba(230,58,46,.55);letter-spacing:.04em;animation:heroPulse 2.2s ease-in-out infinite}
+.btn-mega:hover{animation-play-state:paused;filter:brightness(1.08)}
+
+/* ===== первый экран ===== */
+.hero{background:radial-gradient(circle at 78% 12%, #e63a2e55 0%, transparent 45%), var(--dark);color:#fff;padding:0 20px 72px}
+.hero-top{display:flex;align-items:center;gap:10px;padding:26px 0}
+.logo-sq{width:34px;height:34px;flex:0 0 34px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.logo-tx{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}
+.logo-tx small{display:block;font-weight:400;color:#cfc9bc;letter-spacing:.1em}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:56px;align-items:center;margin-top:28px}
+.bb-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid #ffffff45;border-radius:100px;background:#ffffff10;
+  font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#f1ece1;line-height:1.3}
+.bb-badge::before{content:"";flex:0 0 8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px #e63a2e40}
+.hero h1{margin-top:20px;font-size:clamp(30px,3.5vw,46px);line-height:1.1}
+.hero h1 .disc{display:block;color:var(--red);font-size:clamp(56px,6.6vw,96px);line-height:.95;margin-bottom:12px;white-space:nowrap;text-shadow:0 10px 40px rgba(230,58,46,.35)}
+.hero .hv-sub{margin-top:20px;font-size:19px;line-height:1.45;color:#f1ece1;max-width:560px}
+
+/* ===== формы заявки ===== */
+.form-box{background:#2f2f2f;border:1px solid #3d3d3d;border-radius:16px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.lead-form{display:flex;flex-direction:column}
+.form-title{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;line-height:1.15;color:#fff}
+.form-deadline{font-size:14px;color:#b9b3a5;margin:6px 0 18px}
+.lead-form input.promo{font-weight:600;letter-spacing:.03em}
+.lead-form input.promo::placeholder{font-weight:400;letter-spacing:0}
+.lead-form input.bad{border-color:var(--red);box-shadow:0 0 0 3px #e63a2e55}
+.f-err{display:none;font-size:14px;color:#ffb3ab;margin:-4px 0 10px}
+.f-err.on{display:block}
+.lead-form .btn-mega{max-width:none;margin:6px 0 0;font-size:23px;padding:24px 18px}
+.consent{font-size:13px;line-height:1.45;color:#b9b3a5;margin-top:14px;text-align:center}
+.ok-msg{display:none;background:var(--cream);color:var(--ink);border:1px solid var(--red);border-radius:12px;padding:24px;text-align:center}
+.ok-msg h3{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;font-size:24px}
+.ok-msg p{margin-top:8px;font-size:15.5px}
+.sent .lead-form{display:none}
+.sent .ok-msg{display:block}
+
+/* ===== как получить скидку ===== */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px;list-style:none}
+.step-n{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:600;font-size:56px;line-height:1;color:var(--red);margin-bottom:12px}
+.step h3{margin-bottom:8px}
+.step p{font-size:15.5px;color:#4a463d}
+
+/* ===== «Узнаете себя?»: карточки переворачиваются ===== */
+.routes{align-items:stretch;margin-top:20px}
+.flip{perspective:1400px;cursor:pointer;outline:none}
+.flip-inner{display:grid;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip.on .flip-inner{transform:rotateY(180deg)}
+.flip-face{grid-area:1/1;display:flex;flex-direction:column;margin:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.flip-front h3{font-size:19px;line-height:1.3}
+.flip-front p{margin-top:8px;font-size:15.5px}
+.flip-back{transform:rotateY(180deg);background:#fff;border-color:var(--red)}
+.flip-back p{font-size:15.5px;line-height:1.55}
+.flip-lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.flip-hint{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;color:var(--red);font-size:14px;font-weight:600}
+.flip-ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:15px;line-height:1}
+.flip:hover .flip-front,.flip:focus-visible .flip-front{border-color:var(--red)}
+.flip:focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:12px}
+@keyframes routeGlow{0%,26%,100%{border-color:#d8d0bc;box-shadow:0 0 0 0 rgba(230,58,46,0);transform:translateY(0)}
+  9%,17%{border-color:var(--red);box-shadow:0 0 0 4px rgba(230,58,46,.30),0 12px 28px rgba(230,58,46,.16);transform:translateY(-4px)}}
+.flip-front{animation:routeGlow 9s ease-in-out infinite}
+.routes .flip:nth-child(2) .flip-front{animation-delay:3s}
+.routes .flip:nth-child(3) .flip-front{animation-delay:6s}
+.flip.on .flip-front,.flip:hover .flip-front{animation-play-state:paused}
+
+/* ===== кейсы: карусель на темном фоне ===== */
+.cases-hl{background:radial-gradient(circle at 15% 0%, #e63a2e44 0%, transparent 45%),radial-gradient(circle at 90% 100%, #e63a2e33 0%, transparent 40%),var(--dark);color:#efece4}
+.cases-hl h2{color:#fff}
+.cslider{position:relative}
+.cslides{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 2px 6px}
+.cslides::-webkit-scrollbar{display:none}
+.cslides>.card{flex:0 0 calc((100% - 32px)/3);scroll-snap-align:start;display:flex;flex-direction:column}
+.cases-hl .cslides>.card{background:#fff;border:none;border-top:5px solid var(--red);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.cases-hl .cslides>.card,.cases-hl .cslides>.card h3,.cases-hl .cslides>.card p{color:var(--ink)}
+.cases-hl .cslides>.card b{color:#111}
+.fcase h3{font-size:19px;line-height:1.25}
+.fcase .who{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:10px 0 12px;padding-bottom:10px;border-bottom:1px solid #e7e0d0}
+.cases-hl .cslides>.card .who{color:var(--muted)}
+.fcase p{font-size:15px}
+.res-tag{font-family:Oswald,'Arial Narrow',sans-serif;font-weight:600;font-size:44px;line-height:1;color:var(--red);margin-bottom:12px;letter-spacing:.01em;white-space:nowrap}
+.cs-btn{position:absolute;top:calc(50% - 26px);transform:translateY(-50%);z-index:2;width:48px;height:48px;
+  border-radius:50%;border:1px solid #fff;background:#fff;color:var(--ink);font-size:28px;line-height:1;
+  cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s}
+.cs-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.cs-btn[data-dir="-1"]{left:-70px}
+.cs-btn[data-dir="1"]{right:-70px}
+.cs-dots{display:flex;justify-content:center;gap:4px;margin-top:14px}
+.cs-dot{width:44px;height:44px;border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cs-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:#ffffff55}
+.cs-dot.on::before{background:var(--red)}
+.cases-hl .sec-cta{text-align:center}
+
+/* ===== таблица сравнения ===== */
+.vs-table{margin-top:20px}
+.vs-table td:first-child{width:36%}
+.vs-table td:last-child{font-size:15.5px}
+
+/* ===== финальная форма ===== */
+.final .wrap{max-width:var(--measure)}
+.deadline-plate{display:flex;align-items:center;gap:12px;margin:6px 0 20px;padding:14px 18px;border:1px solid var(--red);border-radius:12px;
+  background:#e63a2e1f;color:#fff;font-weight:600;font-size:17px;line-height:1.4}
+.deadline-plate::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px #e63a2e40}
+.final .lead{color:#dcd6c9;font-size:17px;margin-bottom:10px}
+.final .form-box{margin-top:20px}
+.terms{margin-top:26px;font-size:14.5px;color:#b9b3a5}
+.terms h3{font-size:15px;color:#efece4;margin-bottom:8px}
+.terms ul{list-style:none}
+.terms li{padding-left:18px;position:relative;margin-bottom:6px}
+.terms li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--red);border-radius:2px}
+
+/* ════════ АДАПТИВ — медиазапросы в конце, чтобы базовые правила их не перебивали ════════ */
+@media(max-width:1199px){
+  .cslider{display:grid;grid-template-columns:48px minmax(0,1fr) 48px;grid-template-areas:"track track track" "prev dots next";align-items:center;row-gap:14px}
+  .cslides{grid-area:track;min-width:0}
+  .cs-btn{position:static;transform:none;top:auto}
+  .cs-btn[data-dir="-1"]{grid-area:prev}
+  .cs-btn[data-dir="1"]{grid-area:next}
+  .cs-dots{grid-area:dots;margin-top:0;padding:0}
+}
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:28px;margin-top:12px}
+  .hero-copy{max-width:640px}
+  .form-box.hero-box{max-width:560px}
+}
+@media(max-width:900px){
+  .cslides>.card{flex-basis:calc((100% - 16px)/2)}
+}
+@media(max-width:760px){
+  .steps{grid-template-columns:1fr;gap:12px}
+  .step{display:grid;grid-template-columns:52px 1fr;column-gap:12px;align-items:start}
+  .step-n{font-size:44px;margin-bottom:0;grid-row:span 2}
+}
+@media(max-width:700px){
+  body{font-size:16.5px}
+  section{padding:40px 16px}
+  h2{font-size:clamp(22px,6vw,28px);margin-bottom:12px}
+  h3{font-size:17.5px}
+  .lead{font-size:17px}
+  .btn{display:block;width:100%;text-align:center;padding:17px 16px;font-size:15.5px;letter-spacing:.04em}
+  .btn.ghost{padding:15px 16px}
+  .sec-cta{margin-top:24px}
+  .grid3{grid-template-columns:1fr;gap:12px}
+  .card{padding:18px}
+  /* первый экран: форма сразу под заголовком, без рамки — экономим высоту и ширину */
+  .hero{padding:0 16px 44px;background:radial-gradient(circle at 88% 8%, #e63a2e55 0%, transparent 52%), var(--dark)}
+  .hero-top{padding:14px 0}
+  .hero-grid{gap:18px;margin-top:2px}
+  .bb-badge{font-size:11.5px;padding:6px 12px;gap:8px;letter-spacing:.06em}
+  .hero h1{margin-top:14px;font-size:clamp(20px,5.6vw,26px);line-height:1.15}
+  .hero h1 .disc{font-size:clamp(40px,12.4vw,56px);margin-bottom:6px}
+  .hero .hv-sub{font-size:16px;margin-top:12px;line-height:1.42}
+  .form-box.hero-box{background:none;border:none;box-shadow:none;padding:0;border-radius:0}
+  .hero-box .form-title{display:none}
+  /* срок акции на мобильном — под кнопкой, чтобы кнопка осталась в первом экране */
+  .hero-box .form-deadline{order:10;margin:10px 0 0;text-align:center;font-size:13.5px}
+  input{height:50px;padding:0 14px}
+  .lead-form .btn-mega{font-size:20px;padding:20px 12px}
+  .consent{font-size:12.5px;margin-top:12px}
+  .form-box{padding:20px 16px}
+  /* таблица сравнения: две колонки раскладываются в блоки */
+  table tr{display:block;padding:13px 0;border-bottom:1px solid #d8d0bc}
+  table tr:last-child{border-bottom:none}
+  table td{display:block;border:none;padding:0}
+  table td:first-child{margin-bottom:5px}
+  .vs-table td:first-child{width:auto}
+  .deadline-plate{font-size:15.5px;padding:12px 14px}
+  .ok-msg{padding:18px}
+  footer{padding:22px 16px;font-size:13px}
+}
+@media(max-width:640px){
+  .cslides>.card{flex-basis:86%}
+  .cs-btn{width:44px;height:44px;font-size:24px}
+  .res-tag{font-size:36px}
+  .btn-mega{font-size:19px;padding:24px 14px;line-height:1.25}
+}
+@media(max-width:380px){
+  h2{font-size:21px}
+  .hero h1{font-size:20px}
+  .hero h1 .disc{font-size:40px}
+  .hero .hv-sub{font-size:15px}
+  .lead-form .btn-mega{font-size:18px;padding:18px 10px}
+  .btn-mega{font-size:17px;padding:20px 10px}
+}
+/* короткие телефоны (iPhone SE и т.п.): ужимаем воздух, кнопка первого экрана — без прокрутки */
+@media(max-width:700px) and (max-height:720px){
+  .hero-top{padding:10px 0}
+  .hero h1{margin-top:10px}
+  .hero h1 .disc{margin-bottom:4px}
+  .hero .hv-sub{margin-top:8px;font-size:14.5px;line-height:1.38}
+  .hero-grid{gap:14px}
+  input{height:46px;margin-bottom:8px}
+  .lead-form .btn-mega{padding:16px 10px;margin-top:4px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.btn-mega{animation:none}
+  .flip-inner{transition:none}
+  .flip-front{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. ПЕРВЫЙ ЭКРАН: скидка + форма -->
+<header class="hero" id="top">
+  <div class="wrap hero-top">
+    <div class="logo-sq">С</div>
+    <div class="logo-tx">Синергия<small>Школа бизнеса · MBA</small></div>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1><span class="disc">−300&nbsp;000&nbsp;₽</span> на&nbsp;MBA для&nbsp;топ&#8209;менеджеров</h1>
+      <p class="hv-sub">Получите навыки, с&nbsp;которыми претендуют на&nbsp;позицию генерального директора и&nbsp;зарплату выше рынка: P&amp;L, стратегия и&nbsp;управление командой руководителей на&nbsp;задачах вашей компании.</p>
+    </div>
+    <div class="form-box hero-box" id="hero-form-box">
+      <form class="lead-form" id="hero-form" data-form="hero" novalidate>
+        <p class="form-title">Оставьте заявку с&nbsp;промокодом</p>
+        <p class="form-deadline">Скидка действует до&nbsp;<mark>[данные от школы: дата]</mark></p>
+        <input name="name" type="text" placeholder="Ваше имя" aria-label="Имя" autocomplete="given-name" required>
+        <input name="phone" type="tel" placeholder="Телефон, +7 …" aria-label="Телефон" autocomplete="tel" inputmode="tel" required>
+        <input name="promo" class="promo" type="text" placeholder="Введите промокод BestBenefits" aria-label="Промокод BestBenefits" autocomplete="off" autocapitalize="characters" spellcheck="false">
+        <p class="f-err" role="alert"></p>
+        <input type="hidden" name="partner" value="bestbenefits">
+        <input type="hidden" name="offer" value="emba-owners-300000">
+        <input type="hidden" name="form" value="hero">
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="yclid">
+        <input type="hidden" name="page_url"><input type="hidden" name="referrer">
+        <button type="submit" class="btn btn-mega mba-bb-hero-submit" data-goal="mba-bb-hero-submit">Получить скидку 300&nbsp;000&nbsp;₽</button>
+        <p class="consent">Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных <mark>[данные от школы: ссылка на&nbsp;политику]</mark>.</p>
+      </form>
+      <div class="ok-msg" role="status">
+        <h3>Заявка принята</h3>
+        <p>Консультант по&nbsp;обучению перезвонит, уточнит ваши задачи и&nbsp;расскажет, как закрепить скидку.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. КАК ПОЛУЧИТЬ СКИДКУ -->
+<section id="steps">
+  <div class="wrap">
+    <h2>Как получить скидку 300&nbsp;000&nbsp;₽</h2>
+    <ol class="steps">
+      <li class="card step">
+        <div class="step-n">1</div>
+        <h3>Оставьте заявку с&nbsp;промокодом</h3>
+        <p>Имя, телефон и&nbsp;промокод BestBenefits — это займет меньше минуты.</p>
+      </li>
+      <li class="card step">
+        <div class="step-n">2</div>
+        <h3>Консультант по&nbsp;обучению перезвонит</h3>
+        <p>Уточнит ваши задачи и&nbsp;подберет удобное время для&nbsp;консультации.</p>
+      </li>
+      <li class="card step">
+        <div class="step-n">3</div>
+        <h3>Бизнес-консультация и&nbsp;фиксация скидки</h3>
+        <p>Обсудите, как программа MBA решит ваши карьерные задачи, и&nbsp;скидка 300&nbsp;000&nbsp;₽ закрепится за&nbsp;вами.</p>
+      </li>
+    </ol>
+    <p class="sec-cta"><a href="#final" class="btn ghost mba-bb-cta-steps" data-goal="mba-bb-cta-steps">Оставить заявку на&nbsp;скидку</a></p>
+  </div>
+</section>
+
+<!-- 3. УЗНАЕТЕ СЕБЯ? (тексты — из ленда собственников как есть) -->
+<section>
+  <div class="wrap">
+    <h2>Узнаете себя? Нажмите на&nbsp;карточку, чтобы увидеть решение</h2>
+    <div class="grid3 routes">
+      <div class="flip mba-bb-route-next" data-goal="mba-bb-route-next" role="button" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card flip-face flip-front">
+            <h3>Повышение снова ушло другому</h3>
+            <p>Хотя вы тянете направление не&nbsp;первый год.</p>
+            <div class="flip-hint"><span>Это про меня</span></div>
+          </div>
+          <div class="card flip-face flip-back">
+            <div class="flip-lbl">Ваш маршрут</div>
+            <p>Решение о&nbsp;назначении принимают не&nbsp;по&nbsp;результатам направления, а&nbsp;по&nbsp;компетенциям первого лица: <b>финансы, стратегия, P&amp;L</b>. Пока их&nbsp;не&nbsp;видно — выбирают другого.</p>
+            <div class="flip-hint"><span class="flip-ic">←</span><span>Назад</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip mba-bb-route-circle" data-goal="mba-bb-route-circle" role="button" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card flip-face flip-front">
+            <h3>Позиции выше не&nbsp;появляются</h3>
+            <p>В&nbsp;вашей компании их&nbsp;нет. А&nbsp;на&nbsp;рынке их&nbsp;не&nbsp;публикуют.</p>
+            <div class="flip-hint"><span>Это про меня</span></div>
+          </div>
+          <div class="card flip-face flip-back">
+            <div class="flip-lbl">Ваш маршрут</div>
+            <p>Топ-позиции закрываются через круг: <b>собственники зовут тех, кого знают лично</b>. В&nbsp;этот круг нельзя откликнуться — в&nbsp;него можно только войти.</p>
+            <div class="flip-hint"><span class="flip-ic">←</span><span>Назад</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flip mba-bb-route-offer" data-goal="mba-bb-route-offer" role="button" tabindex="0" aria-pressed="false">
+        <div class="flip-inner">
+          <div class="card flip-face flip-front">
+            <h3>Пришел оффер с&nbsp;повышением, а&nbsp;вы сомневаетесь</h3>
+            <p>Боитесь, что не&nbsp;потянете — и&nbsp;потеряете текущее место.</p>
+            <div class="flip-hint"><span>Это про меня</span></div>
+          </div>
+          <div class="card flip-face flip-back">
+            <div class="flip-lbl">Ваш маршрут</div>
+            <p>Сомнение честное: опыта первого лица нет, а&nbsp;проверить себя в&nbsp;этой роли негде. MBA дает <b>прожить ее&nbsp;на&nbsp;своих рабочих задачах</b> — до&nbsp;того, как вы поставите на&nbsp;кон карьеру.</p>
+            <div class="flip-hint"><span class="flip-ic">←</span><span>Назад</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. РЕЗУЛЬТАТЫ ВЫПУСКНИКОВ: карусель (кейсы — из ленда собственников как есть) -->
+<section class="cases-hl">
+  <div class="wrap">
+    <h2>Какие результаты получали выпускники во&nbsp;время обучения</h2>
+    <div class="cslider" id="cases">
+      <button type="button" class="cs-btn" data-dir="-1" aria-label="Предыдущий кейс">‹</button>
+      <div class="cslides">
+        <div class="card fcase">
+          <h3>Повышение до&nbsp;зама гендиректора — до&nbsp;диплома</h3>
+          <p class="who">Выпускница · «Газпромбанк Автолизинг»</p>
+          <p>Во&nbsp;время учебы запустила крупный проект и&nbsp;<b>стала заместителем генерального директора</b>, не&nbsp;дожидаясь защиты.</p>
+        </div>
+        <div class="card fcase">
+          <h3>Экономия 200&nbsp;млн&nbsp;₽ в&nbsp;год по&nbsp;дипломному проекту</h3>
+          <p class="who">Выпускник · гендиректор «Башинформсвязи»</p>
+          <p>Диплом сделал по&nbsp;своей компании: оптимизация процессов дала <b>200&nbsp;млн&nbsp;₽ экономии в&nbsp;год</b>.</p>
+        </div>
+        <div class="card fcase">
+          <h3>Система отбора и&nbsp;развития людей</h3>
+          <p class="who">Выпускник · гендиректор «Эксмо»</p>
+          <p>На&nbsp;программе разработал методики работы с&nbsp;командой. Люди, которых он&nbsp;по&nbsp;ним растил, <b>сейчас на&nbsp;ключевых позициях</b>.</p>
+        </div>
+        <div class="card fcase">
+          <h3>Идея нового бизнес-направления — на&nbsp;обучении</h3>
+          <p class="who">Выпускник · гендиректор «Эксмо»</p>
+          <p>Идею отдельного направления посчитал и&nbsp;защитил на&nbsp;программе — и&nbsp;<b>запустил внутри своей компании</b>.</p>
+        </div>
+      </div>
+      <button type="button" class="cs-btn" data-dir="1" aria-label="Следующий кейс">›</button>
+      <div class="cs-dots"></div>
+    </div>
+
+    <p class="sec-cta"><a href="#final" class="btn btn-mega mba-bb-cta-cases" data-goal="mba-bb-cta-cases">Получить скидку 300&nbsp;000&nbsp;₽</a></p>
+  </div>
+</section>
+
+<!-- 6. ФИНАЛЬНАЯ ФОРМА -->
+<section class="dark final" id="final">
+  <div class="wrap">
+    <h2>Получите скидку 300&nbsp;000&nbsp;₽ на&nbsp;MBA</h2>
+    <p class="deadline-plate"><span>Скидка действует до&nbsp;<mark>[данные от школы: дата]</mark></span></p>
+    <p class="lead">Консультант по&nbsp;обучению перезвонит и&nbsp;уточнит ваши задачи. Затем запишет на&nbsp;бизнес-консультацию, где разберем, как программа MBA сможет их&nbsp;решить. Если программа вам не&nbsp;подойдет, скажем честно.</p>
+    <div class="form-box" id="final-form-box">
+      <form class="lead-form" id="final-form" data-form="final" novalidate>
+        <input name="name" type="text" placeholder="Ваше имя" aria-label="Имя" autocomplete="given-name" required>
+        <input name="phone" type="tel" placeholder="Телефон, +7 …" aria-label="Телефон" autocomplete="tel" inputmode="tel" required>
+        <input name="promo" class="promo" type="text" placeholder="Введите промокод BestBenefits" aria-label="Промокод BestBenefits" autocomplete="off" autocapitalize="characters" spellcheck="false">
+        <p class="f-err" role="alert"></p>
+        <input type="hidden" name="partner" value="bestbenefits">
+        <input type="hidden" name="offer" value="emba-owners-300000">
+        <input type="hidden" name="form" value="final">
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign">
+        <input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="yclid">
+        <input type="hidden" name="page_url"><input type="hidden" name="referrer">
+        <button type="submit" class="btn btn-mega mba-bb-final-submit" data-goal="mba-bb-final-submit">Получить скидку 300&nbsp;000&nbsp;₽</button>
+        <p class="consent">Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;обработкой персональных данных <mark>[данные от школы: ссылка на&nbsp;политику]</mark>.</p>
+      </form>
+      <div class="ok-msg" role="status">
+        <h3>Заявка принята</h3>
+        <p>Консультант по&nbsp;обучению перезвонит, уточнит ваши задачи и&nbsp;расскажет, как закрепить скидку.</p>
+      </div>
+    </div>
+    <div class="terms">
+      <h3>Условия акции</h3>
+      <ul>
+        <li>Форматы обучения: <b>офлайн</b> и&nbsp;<b>онлайн</b> — стоимость зависит от&nbsp;формата</li>
+        <li>Скидка 300&nbsp;000&nbsp;₽ действует до&nbsp;<mark>[данные от школы: дата]</mark></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer><mark>[данные от школы: юридическая информация, лицензия]</mark></footer>
+
+
+<script>
+// YM_ID оставлен пустым: номер счетчика дает школа. Пока null — счетчик не грузится
+// и цели не уходят, но вся разметка на месте: подставить номер достаточно здесь.
+var YM_ID = null;
+
+if (YM_ID) {
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
+  ym(YM_ID,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+}
+
+// cb вызывается после отправки цели (или сразу, если счетчика нет).
+// Каждая цель уходит один раз за просмотр страницы: карточки переворачиваются
+// туда-обратно, иначе одно действие считалось бы по многу раз.
+// params — параметры визита (промокод, utm), видны в отчете Метрики по цели.
+var sentGoals = {};
+function goal(n, cb, params){
+  var done = false;
+  function next(){ if(done) return; done = true; if(cb) cb(); }
+  if(YM_ID && window.ym && !sentGoals[n]){
+    sentGoals[n] = 1;
+    ym(YM_ID, 'reachGoal', n, params || {}, next);
+    setTimeout(next, 400);
+  } else { next(); }
+}
+
+document.addEventListener('click', function(e){
+  var g = e.target.closest('[data-goal]');
+  if(!g) return;
+  // отправку формы считает обработчик submit — и только валидную
+  if(g.tagName === 'BUTTON' && g.type === 'submit') return;
+  var href = g.getAttribute('href') || '';
+  var leaves = g.tagName === 'A' && href && href.charAt(0) !== '#' && g.target !== '_blank';
+  if(leaves){
+    e.preventDefault();
+    goal(g.getAttribute('data-goal'), function(){ window.location.href = href; });
+  } else {
+    goal(g.getAttribute('data-goal'));
+  }
+});
+
+// ===== источник лида: UTM, yclid, промокод из ссылки → скрытые поля обеих форм =====
+var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','yclid'];
+var qs = new URLSearchParams(location.search);
+var srcData = {};
+UTM_KEYS.forEach(function(k){
+  var v = qs.get(k);
+  // если человек перешел по якорю или обновил страницу без меток — берем сохраненные за сессию
+  try { if(v) sessionStorage.setItem('bb_'+k, v); else v = sessionStorage.getItem('bb_'+k); } catch(err){}
+  srcData[k] = v || '';
+});
+var urlPromo = (qs.get('promo') || qs.get('promocode') || '').trim();
+var forms = document.querySelectorAll('.lead-form');
+forms.forEach(function(f){
+  UTM_KEYS.forEach(function(k){ f.elements[k].value = srcData[k]; });
+  f.elements.page_url.value = location.href;
+  f.elements.referrer.value = document.referrer;
+  if(urlPromo) f.elements.promo.value = urlPromo.toUpperCase();
+});
+// промокод, введенный в одной форме, подставляется во вторую
+forms.forEach(function(f){
+  f.elements.promo.addEventListener('input', function(){
+    var v = this.value;
+    forms.forEach(function(o){ if(o !== f) o.elements.promo.value = v; });
+  });
+});
+
+// ===== отправка заявки =====
+function validate(f){
+  var name = f.elements.name, phone = f.elements.phone, err = f.querySelector('.f-err');
+  var digits = phone.value.replace(/\D/g, '');
+  name.classList.toggle('bad', name.value.trim().length < 2);
+  phone.classList.toggle('bad', digits.length < 10);
+  var msg = name.value.trim().length < 2 ? 'Напишите, как к вам обращаться'
+          : digits.length < 10 ? 'Проверьте номер телефона: нужно не меньше 10 цифр' : '';
+  err.textContent = msg; err.classList.toggle('on', !!msg);
+  if(msg) (name.classList.contains('bad') ? name : phone).focus();
+  return !msg;
+}
+forms.forEach(function(f){
+  f.addEventListener('input', function(e){
+    if(e.target.classList.contains('bad')){ e.target.classList.remove('bad'); f.querySelector('.f-err').classList.remove('on'); }
+  });
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validate(f)) return;
+    var lead = {};
+    [].forEach.call(f.elements, function(el){ if(el.name) lead[el.name] = el.value.trim(); });
+    lead.promo = lead.promo.toUpperCase();
+    lead.sent_at = new Date().toISOString();
+    window.bbLastLead = lead; // для проверки в консоли
+
+    // [данные от школы] отправка в CRM: адрес приемника и формат заявки.
+    // Объект lead: name, phone, promo, partner, offer, form, utm_*, yclid, page_url, referrer, sent_at.
+
+    var btn = f.querySelector('[type=submit]');
+    goal(btn.getAttribute('data-goal'), null, {
+      form: lead.form, promo: lead.promo || '(пусто)',
+      utm_source: lead.utm_source, utm_medium: lead.utm_medium, utm_campaign: lead.utm_campaign
+    });
+    // заявка одна на человека: обе формы переключаются на сообщение
+    document.querySelectorAll('.form-box').forEach(function(b){ b.classList.add('sent'); });
+  });
+});
+
+// ===== карусель кейсов: стрелки по кругу, точки, свайп — нативный скролл =====
+(function(){
+  var sl=document.getElementById('cases'); if(!sl) return;
+  var track=sl.querySelector('.cslides'), dots=sl.querySelector('.cs-dots');
+  var items=track.children, cur=0, pages=1, lock=false;
+  function step(){ return items[1] ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth; }
+  function calc(){ var s=step(); var per=Math.max(1,Math.round(track.clientWidth/s)); return Math.max(1,items.length-per+1); }
+  function paint(){ [].forEach.call(dots.children,function(d,i){ d.classList.toggle('on',i===cur); }); }
+  function build(){ dots.innerHTML=''; for(var i=0;i<pages;i++){ (function(i){
+    var d=document.createElement('button'); d.type='button'; d.className='cs-dot';
+    d.setAttribute('aria-label','Кейс '+(i+1)); d.onclick=function(){ go(i); }; dots.appendChild(d); })(i); } paint(); }
+  function go(i){ cur=(i+pages)%pages; lock=true;
+    track.scrollTo({left:items[cur].offsetLeft-items[0].offsetLeft,behavior:'smooth'}); paint();
+    setTimeout(function(){ lock=false; },450); }
+  pages=calc(); build();
+  sl.querySelectorAll('.cs-btn').forEach(function(b){ b.onclick=function(){ go(cur+parseInt(b.dataset.dir,10)); }; });
+  track.addEventListener('scroll',function(){ if(lock) return; var s=step(); if(!s) return;
+    cur=Math.max(0,Math.min(pages-1,Math.round(track.scrollLeft/s))); paint(); },{passive:true});
+  window.addEventListener('resize',function(){ var p=calc(); if(p!==pages){ pages=p; if(cur>pages-1) cur=pages-1; build(); } });
+})();
+// карусель кейсов: заголовки и подписи одной высоты — строки карточек идут ровно
+(function(){
+  var tr=document.querySelector('#cases .cslides'); if(!tr) return;
+  function eq(){ ['h3','.who'].forEach(function(sel){
+    var els=[].slice.call(tr.querySelectorAll('.card '+sel));
+    els.forEach(function(e){ e.style.minHeight=''; });
+    var m=Math.max.apply(null, els.map(function(e){ return e.offsetHeight; }));
+    els.forEach(function(e){ e.style.minHeight=m+'px'; });
+  }); }
+  eq(); window.addEventListener('resize', eq);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(eq);
+})();
+// карточки «Узнаете себя?»: переворот по клику и с клавиатуры
+document.querySelectorAll('.flip').forEach(function(c){
+  function flip(){ var o=c.classList.toggle('on'); c.setAttribute('aria-pressed',o?'true':'false'); }
+  c.addEventListener('click', flip);
+  c.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } });
+});
+</script>
+
+</body>
+</html>
