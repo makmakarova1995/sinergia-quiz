@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex, nofollow">
+<title>Офферы для рекламы — Executive MBA для собственников</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#262626;--beige:#e7e0d0;--cream:#f1ece1;--red:#e63a2e;--ink:#242424;
+      --muted:#6f6a5e;--line:#d8d0bc}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--ink);
+     background:var(--beige);padding-bottom:60px}
+h1,h2,h3{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.06;font-weight:600}
+h1{font-size:clamp(26px,4vw,44px);margin-bottom:8px}
+h2{font-size:clamp(19px,2.4vw,26px);margin:38px 0 12px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+        color:var(--red);margin-bottom:12px}
+.kicker::before{content:"";display:inline-block;width:24px;height:3px;background:var(--red);
+        vertical-align:middle;margin-right:9px}
+.lead{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:6px}
+.bar{position:sticky;top:0;z-index:60;background:rgba(231,224,208,.96);backdrop-filter:blur(8px);
+     border-bottom:1px solid var(--line)}
+.bar-in{max-width:900px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink)}
+.logo-sq{width:27px;height:27px;background:var(--red);color:#fff;font-family:Oswald;font-weight:600;
+         font-size:16px;display:flex;align-items:center;justify-content:center;border-radius:4px;flex:none}
+.logo-tx{font-size:10.5px;font-weight:700;letter-spacing:.12em;line-height:1.25;text-transform:uppercase}
+.logo-tx small{display:block;font-weight:400;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.chip{font-size:12px;color:var(--muted);background:var(--cream);border:1px solid var(--line);
+      border-radius:999px;padding:6px 12px;text-decoration:none;transition:.15s;white-space:nowrap}
+.chip:hover{border-color:var(--red);color:var(--ink)}
+.head{padding:36px 0 4px}
+.ofr{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:22px 24px;margin-bottom:12px}
+.ofr .n{font-family:Oswald;font-size:13px;color:var(--red);letter-spacing:.12em;margin-bottom:8px}
+.ofr h3{font-size:22px;line-height:1.2;margin-bottom:9px;text-transform:none}
+.ofr p{color:#3a362e;margin-bottom:12px}
+.ofr p:last-child{margin-bottom:0}
+.btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--line);
+     color:var(--muted);border-radius:999px;padding:9px 18px;font-size:13px;
+     font-family:Inter;text-decoration:none;transition:.15s}
+.btn:hover{border-color:var(--red);color:var(--ink)}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.foot{max-width:900px;margin:40px auto 0;padding:16px 20px;border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);flex-wrap:wrap;gap:8px}
+.foot a{color:var(--muted)}
+@media(max-width:700px){.chips{width:100%;margin-left:0;overflow-x:auto;flex-wrap:nowrap;padding-bottom:3px}}
+.ofr[data-creo]{cursor:pointer;position:relative;transition:.16s}
+.ofr[data-creo]:hover{border-color:var(--red);box-shadow:0 8px 22px rgba(0,0,0,.09)}
+.ofr[data-creo]::after{content:"Есть креатив · нажмите";position:absolute;top:18px;right:20px;
+     font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--red);
+     border-radius:999px;padding:4px 11px;font-weight:600}
+@media(max-width:700px){.ofr[data-creo]::after{position:static;display:inline-block;margin-bottom:10px}}
+#lb{position:fixed;inset:0;z-index:200;background:rgba(18,18,18,.92);display:none;
+    align-items:center;justify-content:center;padding:28px;backdrop-filter:blur(4px)}
+#lb.on{display:flex;flex-direction:column;gap:14px}
+#lb img{max-width:min(560px,90vw);max-height:72vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#lb .cap{color:#e9e4d7;font-size:15px;max-width:560px;text-align:center;line-height:1.4}
+#lb .acts{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}
+#lb a,#lb button{font-family:Inter;font-size:13px;border-radius:999px;padding:9px 18px;cursor:pointer;
+    text-decoration:none;border:1px solid #4a4a4a;background:transparent;color:#cfc9bc}
+#lb a:hover,#lb button:hover{border-color:var(--red);color:#fff}
+#lb .close{position:fixed;top:18px;right:22px;font-size:26px;color:#cfc9bc;background:none;border:none;
+    cursor:pointer;padding:6px 12px}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="logo" href="index.html">
+    <span class="logo-sq">С</span>
+    <span class="logo-tx">Синергия<small>Офферы для рекламы · EMBA</small></span>
+  </a>
+  <div class="chips">
+    <a class="chip" href="#kviz">На квиз</a>
+    <a class="chip" href="quiz-owners-cases.html">Открыть квиз</a>
+    <a class="chip" href="landing-owners.html">Лендинг собственников</a>
+    <a class="chip" href="offers.html">Офферы для топ-менеджеров</a>
+  </div>
+</div></div>
+
+<div class="wrap">
+
+<div class="head">
+  <div class="kicker">Собственники бизнеса · Executive MBA</div>
+  <h1>Офферы для рекламы</h1>
+  <p class="lead">Ведут на квиз «Сколько дней компания проработает без вас». У офферов с пометкой «Есть креатив» картинка открывается по клику — её можно скачать.</p>
+</div>
+
+<h2 id="kviz">Квиз</h2>
+
+<div class="ofr" data-creo="creo/own-domino.png?v=fe4a3f85" data-ttl="Какие процессы упадут первыми, если вы делегируете управление?">
+  <div class="n">01</div>
+  <h3>Какие процессы упадут первыми, если вы делегируете управление?</h3>
+  <p>Диагностика за 6 вопросов.</p>
+</div>
+
+<div class="ofr" data-creo="creo/own-scale-mistakes.png?v=d1c90dde" data-ttl="Какие ошибки мешают масштабировать бизнес?">
+  <div class="n">02</div>
+  <h3>Какие ошибки мешают масштабировать бизнес?</h3>
+  <p>Диагностика для предпринимателей за 6 вопросов.</p>
+</div>
+
+<div class="ofr">
+  <div class="n">03</div>
+  <h3>Сколько дней компания проработает без вас?</h3>
+  <p>За 6 вопросов увидите, какие процессы нужно срочно делегировать.</p>
+</div>
+
+<div class="ofr" data-creo="creo/own-growth-ropes.png?v=485a9d2b" data-ttl="Какие ошибки останавливают рост вашей компании?">
+  <div class="n">04</div>
+  <h3>Какие ошибки останавливают рост вашей компании?</h3>
+  <p>Диагностика за 6 вопросов.</p>
+</div>
+
+<div class="ofr">
+  <div class="n">05</div>
+  <h3>Готова ли ваша компания к масштабированию?</h3>
+  <p>Забирайте экспресс-диагностику.</p>
+</div>
+
+<div class="ofr">
+  <div class="n">06</div>
+  <h3>Где в управлении бизнесом вы теряете прибыль?</h3>
+  <p>Экспресс-диагностика для собственников бизнеса.</p>
+</div>
+
+<div class="row">
+  <a class="btn pri" href="quiz-owners-cases.html">Открыть квиз →</a>
+  <a class="btn" href="offers.html">Офферы для топ-менеджеров →</a>
+  <a class="btn" href="index.html">← ко всем материалам</a>
+</div>
+
+<div class="foot">
+  <span>Офферы под собственников бизнеса · Executive MBA</span>
+  <span><a href="index.html">← ко всем материалам</a></span>
+</div>
+</div>
+
+<div id="lb" onclick="if(event.target===this)lbClose()">
+  <button class="close" onclick="lbClose()">×</button>
+  <img id="lbi" alt="">
+  <div class="cap" id="lbcap"></div>
+  <div class="acts">
+    <a id="lbd" download>Скачать</a>
+    <button onclick="lbClose()">Закрыть</button>
+  </div>
+</div>
+<script>
+document.querySelectorAll('.ofr[data-creo]').forEach(e=>{
+  e.addEventListener('click',()=>{
+    document.getElementById('lbi').src=e.dataset.creo;
+    document.getElementById('lbd').href=e.dataset.creo;
+    document.getElementById('lbcap').textContent=e.dataset.ttl;
+    document.getElementById('lb').classList.add('on');
+  });
+});
+function lbClose(){document.getElementById('lb').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lbClose()});
+</script>
+</body>
+</html>
