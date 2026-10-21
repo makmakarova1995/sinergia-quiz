@@ -256,6 +256,38 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
 @media(max-width:380px){
   .sticky-cta .btn{font-size:14px;padding:13px 10px}
 }
+
+/* ===== калькулятор окупаемости (21.10.2026) =====
+   Короткая версия calc-mba.html прямо на ленде: со страницы уходить нельзя.
+   Цена зашита в CALC_PRICE и на странице не показывается. Цели: mba-top-calc-*. */
+.calc{margin-top:22px;background:#fffdf7;color:var(--ink);border-radius:12px;padding:28px 28px 26px;border:1px solid #d8d0bc}
+.calc-sec{background:var(--cream)}
+.calc h3{font-family:Oswald,'Arial Narrow',sans-serif;text-transform:uppercase;font-size:clamp(21px,2.6vw,27px);letter-spacing:.01em;line-height:1.15;color:var(--ink)}
+.calc .c-lbl{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:20px 0 9px}
+.calc .c-inc{display:flex;align-items:baseline;gap:10px}
+.calc .c-inc input{width:7.3ch;min-width:4ch;margin:0;padding:6px 0;border:none;border-bottom:2px solid #cfc7b2;border-radius:0;background:none;
+  font-family:Oswald,'Arial Narrow',sans-serif;font-size:40px;line-height:1;color:var(--red)}
+.calc .c-inc input:focus{outline:none;border-bottom-color:var(--red)}
+.calc .c-inc span{font-size:17px;font-weight:600;color:var(--muted)}
+.calc .chips{display:flex;flex-wrap:wrap;gap:8px}
+.calc .chip{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid #d8d0bc;border-radius:999px;
+  padding:11px 17px;cursor:pointer;transition:border-color .15s,background .15s;line-height:1.25}
+.calc .chip:hover{border-color:var(--red)}
+.calc .chip.on{border-color:var(--red);background:#fbe6e3}
+.calc .chip b{color:var(--red);font-weight:700;margin-left:4px}
+.calc .c-res{margin-top:24px;padding-top:20px;border-top:2px solid var(--red);display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.calc .c-num{font-family:Oswald,'Arial Narrow',sans-serif;font-size:64px;line-height:.9;color:var(--red)}
+.calc .c-txt{font-size:18px;font-weight:600;line-height:1.3;padding-bottom:4px}
+.calc .c-txt span{display:block;font-weight:400;font-size:15.5px;color:var(--muted);margin-top:4px}
+.calc .c-note{font-size:14px;color:var(--muted);margin-top:14px}
+.calc .cta{text-align:left;margin-top:20px}
+@media(max-width:640px){
+  .calc{padding:20px 16px}
+  .calc .c-inc input{font-size:34px}
+  .calc .chip{width:100%;text-align:left;font-size:15.5px}
+  .calc .c-num{font-size:52px}
+  .calc .c-txt{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -427,6 +459,36 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
   </div>
 </section>
 
+<!-- КАЛЬКУЛЯТОР ОКУПАЕМОСТИ -->
+<section class="calc-sec">
+  <div class="wrap narrow">
+    <h2>Через сколько окупится MBA</h2>
+    <p class="lead">Укажите доход и&nbsp;цель — посчитаем срок окупаемости.</p>
+    <div class="calc" id="calc">
+      <div class="c-lbl">Доход на&nbsp;руки в&nbsp;месяц</div>
+      <div class="c-inc"><input id="c-inc" type="text" inputmode="numeric" autocomplete="off" value="300 000" aria-label="Доход на руки в месяц"><span>₽</span></div>
+      <div class="c-lbl">Цель после MBA</div>
+      <div class="chips" id="c-goal">
+        <button type="button" class="chip mba-top-calc-goal-promo" data-goal="mba-top-calc-goal-promo" data-k="promo" data-pct="30">Повышение в&nbsp;своей компании<b>+30%</b></button>
+        <button type="button" class="chip on mba-top-calc-goal-move" data-goal="mba-top-calc-goal-move" data-k="move" data-pct="50">Позиция выше в&nbsp;другой компании<b>+50%</b></button>
+        <button type="button" class="chip mba-top-calc-goal-ceo" data-goal="mba-top-calc-goal-ceo" data-k="ceo" data-pct="100">Генеральный директор<b>×2</b></button>
+      </div>
+      <div class="c-lbl">Кто платит за&nbsp;обучение</div>
+      <div class="chips" id="c-payer">
+        <button type="button" class="chip on mba-top-calc-payer-me" data-goal="mba-top-calc-payer-me" data-k="me" data-share="1">Я&nbsp;сам</button>
+        <button type="button" class="chip mba-top-calc-payer-half" data-goal="mba-top-calc-payer-half" data-k="half" data-share=".5">Пополам с&nbsp;компанией</button>
+        <button type="button" class="chip mba-top-calc-payer-co" data-goal="mba-top-calc-payer-co" data-k="co" data-share="0">Компания</button>
+      </div>
+      <div class="c-res" aria-live="polite">
+        <div class="c-num" id="c-num">12</div>
+        <div class="c-txt" id="c-txt">месяцев после повышения<span>+150&nbsp;000&nbsp;₽ в&nbsp;месяц к&nbsp;доходу</span></div>
+      </div>
+      <p class="c-note" id="c-note">Ориентир по&nbsp;вашим данным, не&nbsp;гарантия: повышение зависит от&nbsp;вас и&nbsp;компании.</p>
+      <div class="cta"><a href="#form" class="btn mba-top-calc-cta" data-goal="mba-top-calc-cta">Получить план роста до&nbsp;новой позиции</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- ВОЗРАЖЕНИЯ -->
 <section class="dark">
   <div class="wrap narrow">
@@ -461,6 +523,7 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
         <option>Генеральный директор</option>
         <option>Другое</option>
       </select>
+      <input type="hidden" id="f-calc" name="calc" value="">
       <button type="submit" class="btn mba-top-form-submit" data-goal="mba-top-form-submit" style="width:100%">Записаться на&nbsp;разбор</button>
     </form>
     <div class="ok-msg" id="ok-msg">
@@ -561,7 +624,9 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
   function update(){
     tick=false;
     var h=hero.getBoundingClientRect(), f=form.getBoundingClientRect();
-    var показать = h.bottom<=1 && !(f.top<window.innerHeight && f.bottom>0);
+    var c=document.getElementById('calc'), cr=c?c.getBoundingClientRect():null;
+    var виденКальк = cr && cr.top<window.innerHeight && cr.bottom>0;
+    var показать = h.bottom<=1 && !(f.top<window.innerHeight && f.bottom>0) && !виденКальк;
     bar.classList.toggle('on', показать);
     bar.setAttribute('aria-hidden', показать?'false':'true');
   }
@@ -569,6 +634,48 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
   addEventListener('scroll', onScroll, {passive:true});
   addEventListener('resize', onScroll);
   update();
+})();
+
+// калькулятор окупаемости
+(function(){
+  var CALC_PRICE = 1800000; // [данные от школы] стоимость MBA, ₽ — на странице не показывается
+  var box=document.getElementById('calc'); if(!box) return;
+  var inc=document.getElementById('c-inc'), num=document.getElementById('c-num'), txt=document.getElementById('c-txt'),
+      note=document.getElementById('c-note'), hid=document.getElementById('f-calc'), touched=false;
+  function fmt(n){ return Math.round(n).toLocaleString('ru-RU').replace(/\u00a0|,/g,' '); }
+  function val(id){ var b=document.querySelector('#'+id+' .chip.on'); return b ? b.dataset : null; }
+  function pl(n,a,b,c){ n=Math.abs(n)%100; var k=n%10; if(n>10&&n<20) return c; if(k>1&&k<5) return b; if(k===1) return a; return c; }
+  function fit(){ inc.style.width = Math.max(4, inc.value.length + 0.3) + 'ch'; }
+  function calc(){
+    var income=parseInt(inc.value.replace(/\D/g,''),10)||0, g=val('c-goal'), p=val('c-payer');
+    if(!g||!p||income<10000){ num.textContent='—'; txt.innerHTML='укажите доход<span>&nbsp;</span>'; return; }
+    var delta=income*(+g.pct)/100, cost=CALC_PRICE*(+p.share);
+    if(cost===0){
+      num.textContent='0 ₽';
+      txt.innerHTML='ваших вложений<span>+'+fmt(delta)+' ₽ в месяц к доходу с первого месяца после повышения</span>';
+    } else {
+      var m=Math.ceil(cost/delta), m2=Math.ceil(cost/(delta/2));
+      num.textContent=m;
+      txt.innerHTML=pl(m,'месяц','месяца','месяцев')+' после повышения<span>+'+fmt(delta)+' ₽ в месяц к доходу · если прибавка вдвое меньше — '+m2+' '+pl(m2,'месяц','месяца','месяцев')+'</span>';
+    }
+    if(hid) hid.value='доход '+fmt(income)+' · цель '+g.k+' +'+g.pct+'% · платит '+p.k+' · окупаемость '+num.textContent;
+  }
+  inc.addEventListener('input', function(){
+    var v=parseInt(inc.value.replace(/\D/g,''),10)||0;
+    inc.value = v ? fmt(v) : '';
+    fit();
+    if(!touched){ touched=true; goal('mba-top-calc-income'); }
+    calc();
+  });
+  ['c-goal','c-payer'].forEach(function(id){
+    document.querySelectorAll('#'+id+' .chip').forEach(function(b){
+      b.addEventListener('click', function(){
+        document.querySelectorAll('#'+id+' .chip').forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on'); calc();
+      });
+    });
+  });
+  fit(); calc();
 })();
 </script>
 </body>
