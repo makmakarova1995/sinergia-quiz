@@ -80,6 +80,24 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
   font-family:var(--serif);text-transform:uppercase;letter-spacing:.02em}
 .empty{color:var(--tx3);text-align:center;padding:70px 20px;font-size:15px}
 
+/* обложка — как первый и последний слайд в презентации школы */
+.slide.cover{padding:0;background:#000 url(design-img/fmba-cover.jpg) center/cover no-repeat}
+.cover .for{position:absolute;left:4.4%;top:8%;max-width:50%;font-family:var(--serif);
+  font-size:clamp(14px,1.6vw,22px);color:#fff;line-height:1.3}
+.cover .for small{display:block;font-family:var(--sans);font-size:.5em;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px}
+/* стоимость и рассрочка */
+.price{font-family:var(--sans);font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em;
+  font-size:clamp(34px,5.4vw,76px);margin:auto 0}
+.price-note{font-size:clamp(10px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+.incl{counter-reset:i}
+.incl li{counter-increment:i;padding-left:34px;padding-bottom:2.2%;margin-bottom:2.2%;border-bottom:1px solid #262626}
+.incl li::before{content:counter(i);background:none;border:1px solid #444;border-radius:999px;width:22px;height:17px;
+  top:1px;font-family:var(--serif);font-size:11px;color:#fff;display:flex;align-items:center;justify-content:center}
+.duo{margin-top:3%;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.duo .fig{font-size:clamp(20px,2.2vw,30px)}
+.todo{color:#ffb020;font-style:normal}
+
 @media print{
   @page{size:A4 landscape;margin:0}
   body{background:#fff}
@@ -261,6 +279,28 @@ const FIN={
  speak:'<b>Научится защищать решения</b> так, чтобы их утверждали с первого раза'
 };
 
+// стоимость — со слайда «Условия участия» в презентации школы (MBA Foundation 2026)
+const PRICE=2000000;
+const DUO_OFF=.2;   // идёте вдвоём с коллегой — скидка каждому
+const INCLUDED=[
+ '11 учебных модулей программы в Москве',
+ 'Обучение на выездном модуле в Дубае*',
+ 'Полный комплект учебных материалов',
+ 'Закрепление опытного эксперта выпускного проекта',
+ 'Сопровождение группы куратором',
+ '2 индивидуальные коуч-сессии в рамках программы'
+];
+// рассрочка — в презентациях школы условий нет; [в квадратных скобках] — уточнить у школы,
+// такие места подсвечиваются жёлтым, чтобы не уйти клиенту
+const INSTALL=[
+ ['Рассрочка от школы','[срок, первый взнос, переплата — уточнить у школы]'],
+ ['Образовательный кредит','Партнёр школы — ПСБ: <span class="fig">12,98%</span> годовых <span class="todo">[ставка из презентации EMBA — подтвердить для Foundation]</span>'],
+ ['Оплата компанией','Договор с юрлицом, можно разделить оплату с работодателем'],
+ ['Налоговый вычет','Если платите сами — вернёте 13% от суммы в пределах лимита социальных вычетов']
+];
+const rub=n=>Math.round(n).toLocaleString('ru-RU').replace(/ |,/g,' ')+' ₽';
+const todo=s=>s.replace(/\[[^\]]+\]/g,m=>`<span class="todo">${m}</span>`);
+
 const sel=new Set();
 
 function picks(){
@@ -268,7 +308,7 @@ function picks(){
     `<label class="pick${sel.has(it.k)?' on':''}" data-k="${it.k}">
       <input type="checkbox" ${sel.has(it.k)?'checked':''} onchange="tog('${it.k}')">
       <span>${it.t}</span></label>`).join('');
-  document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b> · слайдов <b>${sel.size+4}</b>`:'Задачи не отмечены';
+  document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b> · слайдов <b>${sel.size+7}</b>`:'Задачи не отмечены';
 }
 function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
 function dr(){document.getElementById('drawer').classList.toggle('open')}
@@ -287,18 +327,11 @@ function render(){
 
   let n=0, out='';
 
-  // 1 · титул
+  // 1 и последний · обложка школы, одинаковые
+  const cover=`<section class="slide cover">${(nm||co)?`<div class="for"><small>Персональная презентация</small>
+      ${nm?nm:''}${nm&&co?' · ':''}${co?co:''}</div>`:''}</section>`;
   n++;
-  out+=`<section class="slide">${ft(n)}
-    <div style="margin:auto 0">
-      <div class="kick">Школа бизнеса «Синергия» · с 1988 года</div>
-      <h1>MBA<br>Foundation</h1>
-      <p style="color:var(--tx2);margin-top:18px;max-width:62%;font-size:clamp(12px,1.15vw,16px)">
-        Первая ступень бизнес-образования для топ-менеджеров и собственников.
-        12 модулей, выездной модуль в Дубае, индивидуальный коучинг.</p>
-      ${(nm||co)?`<p style="margin-top:24px;font-family:var(--serif);font-size:clamp(14px,1.5vw,21px);color:#fff">
-        ${nm?nm:''}${nm&&co?' · ':''}${co?co:''}</p>`:''}
-    </div></section>`;
+  out+=cover;
 
   // 2..N · по слайду на задачу
   list.forEach(it=>{
@@ -375,6 +408,38 @@ function render(){
         </div>
       </div>
     </div></section>`;
+
+  // стоимость
+  n++;
+  out+=`<section class="slide">${ft(n)}
+    <div class="kick">Стоимость</div>
+    <h2>Условия участия</h2>
+    <div class="cols">
+      <div class="box" style="display:flex;flex-direction:column">
+        <h3>Базовая стоимость обучения</h3>
+        <div class="price">${rub(PRICE)}</div>
+        <div class="duo"><span class="fig">−${DUO_OFF*100}% каждому</span>
+          <span style="color:var(--tx2);font-size:clamp(11.5px,1.07vw,15px)">если идёте вдвоём с коллегой — <b style="color:#fff">${rub(PRICE*(1-DUO_OFF))}</b> за каждого</span></div>
+        <p class="price-note" style="margin-top:4%">* при единовременной оплате</p>
+      </div>
+      <div class="box dim" style="display:flex;flex-direction:column">
+        <h3>Что включено в стоимость</h3>
+        <ul class="incl">${INCLUDED.map(x=>`<li>${x}</li>`).join('')}</ul>
+        <p class="price-note" style="margin-top:auto">* перелёт и проживание оплачиваются дополнительно</p>
+      </div>
+    </div></section>`;
+
+  // рассрочка
+  n++;
+  out+=`<section class="slide">${ft(n)}
+    <div class="kick">Оплата</div>
+    <h2>Можно платить частями</h2>
+    <div class="cols" style="grid-template-rows:1fr 1fr;gap:3.4%">
+      ${INSTALL.map((x,i)=>`<div class="box${i%3?' dim':''}"><h3>${x[0]}</h3><p>${todo(x[1])}</p></div>`).join('')}
+    </div></section>`;
+
+  n++;
+  out+=cover;
 
   d.innerHTML=out;
 }
