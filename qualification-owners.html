@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex, nofollow">
+<title>Квалификация собственника — Executive MBA</title>
+<style>
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:400;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3864-3932-4235-b138-376533646139/HelveticaNeueCyr-Rom.woff') format('woff')}
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:700;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild6232-6461-4632-b937-646336333262/HelveticaNeueCyr-Bol.woff') format('woff')}
+  @font-face{font-family:'Druk';font-weight:900;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3966-3332-4138-b662-373937366531/Druk_Cyr_Medium.woff') format('woff')}
+  :root{--cream:#e5dfce;--ink:#282828;--ink2:#5f5b52;--accent:#e52d1e;--card:#fffdf7;--line:#d3ccb8;
+    --hot:#1f8a4c;--warm:#c98a00;--cold:#7a766b}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;padding:40px 18px 120px}
+  .wrap{max-width:760px;margin:0 auto}
+  .back{display:inline-block;font-size:14px;color:var(--ink2);text-decoration:none;margin-bottom:22px}
+  .back:hover{color:var(--accent)}
+  h1{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(26px,5vw,40px);line-height:1;margin-bottom:12px}
+  p.sub{font-size:16px;color:var(--ink2);margin-bottom:26px}
+
+  .q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .q.done{border-color:#bdb59c}
+  .q h2{font-size:17px;line-height:1.3;margin-bottom:12px}
+  .q h2 i{font-style:normal;color:var(--accent);margin-right:8px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-size:14.5px;cursor:pointer;
+    font-family:inherit;color:var(--ink);transition:all .18s}
+  .opt:hover{border-color:var(--accent)}
+  .opt.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:#fff;z-index:10}
+  .bar-in{max-width:760px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .bar .pr{font-size:13px;color:#bdb9ad;flex:1;min-width:120px}
+  .bar .sc{font-family:'Druk',Arial,sans-serif;font-size:22px;letter-spacing:.02em}
+  .badge{display:inline-block;border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+  .badge.hot{background:var(--hot)} .badge.warm{background:var(--warm)} .badge.cold{background:var(--cold)} .badge.none{background:#555}
+  .btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit}
+  .btn.ghost{background:transparent;border:1px solid #666;color:#ddd}
+
+  .res{display:none;background:#fff;border:2px solid var(--accent);border-radius:14px;padding:22px 24px;margin:22px 0 14px}
+  .res.show{display:block}
+  .res h3{font-size:20px;margin-bottom:6px}
+  .res p{font-size:15px;color:var(--ink2);margin-bottom:10px}
+  .res ul{margin:6px 0 12px 20px;font-size:15px}
+  .res .lbl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:14px 0 4px}
+  .flag{background:#fdeceb;border-left:3px solid var(--accent);padding:10px 14px;margin:8px 0;font-size:14.5px;border-radius:4px}
+  .note{font-size:13px;color:var(--ink2);margin-top:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Все лендинги</a>
+  <h1>Квалификация собственника</h1>
+  <p class="sub">Executive MBA. Девять вопросов, у каждого готовые варианты. Менеджер зачитывает варианты и нажимает ответ — внизу сразу видно статус и что делать дальше. Оборот, цену и «кто платит» не спрашиваем.</p>
+
+  <div id="qs"></div>
+
+  <div class="res" id="res"></div>
+  <p class="note">Баллы и пороги — рабочая гипотеза, со школой не согласованы. Ответы никуда не отправляются: страница считает всё у вас в браузере.</p>
+</div>
+
+<div class="bar"><div class="bar-in">
+  <span class="sc" id="sc">0</span><span class="pr" id="pr">0 из 9 вопросов</span>
+  <span class="badge none" id="bd">Нет данных</span>
+  <button class="btn ghost" id="reset">Сбросить</button>
+  <button class="btn" id="copy">Скопировать итог</button>
+</div></div>
+
+<script>
+// s — баллы 0–2, out — автоотсев (ключ в OUT)
+const Q=[
+ {t:'Ваша роль?',o:[['Собственник бизнеса',2],['Совладелец, один из партнёров',2],['Наёмный генеральный директор',1],['Топ-менеджер, не первое лицо',0,'top'],['Другое',0]]},
+ {t:'Для кого обучение?',o:[['Для меня',2],['Для меня и кого-то из команды',1],['Только для команды',0,'team']]},
+ {t:'Сколько руководителей напрямую подчиняются вам?',o:[['До 2',0,'small'],['3–5',1],['6–10',2],['Больше 10',2]]},
+ {t:'Что сейчас ближе всего?',o:[['Бизнес держится на мне, хочу выстроить систему',2,'',0],['Растём, а управление не успевает',2,'',1],['Компания теряет позиции, нужен план',2,'',2],['Хочу выйти на новые рынки',2,'',3],['Просто присматриваюсь',0]]},
+ {t:'Как давно вы думаете об обучении?',o:[['Решил недавно, есть конкретный повод',2],['Думаю несколько месяцев',1],['Только начал смотреть варианты',0]]},
+ {t:'Сколько дней в месяц можете отдавать учёбе?',o:[['1–2 дня',0,'short'],['3–4 дня',1],['5 и больше',2]]},
+ {t:'Что ещё рассматриваете?',o:[['Только «Синергию»',2],['Ещё одну-две программы',1],['Уже выбираю между несколькими',1],['Пока не сравнивал',1]]},
+ {t:'Выездные модули (Китай, Индия, ОАЭ) для вас…',o:[['Главная причина выбрать программу',2],['Приятный бонус',1],['Скорее помеха',0]]},
+ {t:'Когда готовы принять решение?',o:[['В этом месяце',2],['В течение квартала',1],['Позже или без срока',0]]}
+];
+const OFFER=[
+ ['Бизнес держится на мне','Система управления, чтобы бизнес рос и не держался на вас. Кейс Кузякова и Исаева (команда учится вместе)'],
+ ['Растём, управление не успевает','Масштаб и структура управления. Кейс Нищева — 200 млн ₽ экономии в год'],
+ ['Теряет позиции','Антикризис и план на два года. Выпускной проект на своей компании'],
+ ['Выход на новые рынки','Выездные модули и круг собственников. Кейс Юдицкой — направление в Дубае']
+];
+const OUT={
+ top:'Роль «топ-менеджер»: ведём на лендинг для топ-менеджеров (landing-top-mba.html), не на Executive.',
+ team:'Обучение только для команды: корпоративная ветка, другой разговор и другое КП.',
+ small:'Подчинённых до 2: сначала проверьте ответ про дни. Вместе с «1–2 дня в месяц» это Foundation MBA (до 250 000 ₽), а не Executive.',
+ short:'1–2 дня в месяц: Executive не подойдёт по времени. Вместе с «до 2 руководителей» — Foundation MBA.'
+};
+const ans=new Array(Q.length).fill(null);
+const qs=document.getElementById('qs');
+Q.forEach((q,i)=>{
+  const d=document.createElement('div');d.className='q';d.id='q'+i;
+  d.innerHTML='<h2><i>'+(i+1)+'</i>'+q.t+'</h2><div class="opts">'+
+    q.o.map((o,j)=>'<button class="opt" data-q="'+i+'" data-o="'+j+'">'+o[0]+'</button>').join('')+'</div>';
+  qs.appendChild(d);
+});
+qs.addEventListener('click',e=>{
+  const b=e.target.closest('.opt');if(!b)return;
+  const i=+b.dataset.q,j=+b.dataset.o;
+  ans[i]=ans[i]===j?null:j;
+  render();
+});
+document.getElementById('reset').onclick=()=>{ans.fill(null);render();window.scrollTo({top:0,behavior:'smooth'})};
+
+function calc(){
+  let sc=0,n=0,flags=new Set(),offer=null;
+  ans.forEach((j,i)=>{
+    if(j===null)return;n++;
+    const o=Q[i].o[j];sc+=o[1];
+    if(o[2])flags.add(o[2]);
+    if(i===3&&o[3]!==undefined)offer=o[3];
+  });
+  return {sc,n,flags,offer};
+}
+function status(sc,n){
+  if(n<Q.length)return ['none','Заполните все'];
+  if(sc>=12)return ['hot','Горячий'];
+  if(sc>=7)return ['warm','Тёплый'];
+  return ['cold','Холодный'];
+}
+const NEXT={
+ hot:'Консультация эксперта в течение недели. Назначить дату прямо на звонке.',
+ warm:'Прислать материалы под его запрос (вопрос 4) и вернуться через 3–5 дней.',
+ cold:'В рассылку, на звонок время не тратим.'
+};
+let lastText='';
+function render(){
+  const {sc,n,flags,offer}=calc();
+  document.querySelectorAll('.q').forEach((el,i)=>{
+    el.classList.toggle('done',ans[i]!==null);
+    el.querySelectorAll('.opt').forEach((b,j)=>b.classList.toggle('on',ans[i]===j));
+  });
+  const [cls,label]=status(sc,n);
+  document.getElementById('sc').textContent=sc+' / 18';
+  document.getElementById('pr').textContent=n+' из '+Q.length+' вопросов';
+  const bd=document.getElementById('bd');bd.className='badge '+cls;bd.textContent=label;
+  const res=document.getElementById('res');
+  if(n<Q.length){res.classList.remove('show');lastText='';return}
+  let h='<h3>'+label+' лид · '+sc+' из 18</h3><p>'+NEXT[cls]+'</p>';
+  if(flags.size){
+    h+='<div class="lbl">Автоотсев</div>';
+    const small=flags.has('small')&&flags.has('short');
+    flags.forEach(f=>{
+      if((f==='small'||f==='short')&&!small)return;
+      h+='<div class="flag">'+OUT[f]+'</div>';
+    });
+    if((flags.has('small')||flags.has('short'))&&!small)
+      h+='<div class="flag">Один из сигналов маленького формата ('+(flags.has('small')?'до 2 руководителей':'1–2 дня в месяц')+'). Пока это не отсев — уточните второй ответ.</div>';
+  }
+  if(offer!==null)h+='<div class="lbl">Оффер и кейсы по вопросу 4</div><p><b>'+OFFER[offer][0]+'.</b> '+OFFER[offer][1]+'</p>';
+  res.innerHTML=h;res.classList.add('show');
+  lastText='Квалификация Executive MBA: '+label+' лид, '+sc+' из 18.\n'+
+    Q.map((q,i)=>(i+1)+'. '+q.t+' — '+q.o[ans[i]][0]).join('\n')+
+    '\nСледующий шаг: '+NEXT[cls]+
+    (flags.size?'\nАвтоотсев: '+[...flags].map(f=>OUT[f]).join(' '):'');
+}
+document.getElementById('copy').onclick=function(){
+  if(!lastText){this.textContent='Ответьте на все вопросы';setTimeout(()=>this.textContent='Скопировать итог',1600);return}
+  navigator.clipboard.writeText(lastText).then(()=>{this.textContent='Скопировано';setTimeout(()=>this.textContent='Скопировать итог',1600)});
+};
+render();
+</script>
+</body>
+</html>
