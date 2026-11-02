@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex, nofollow">
+<title>Сколько стоит месяц команды без навыка организации процессов · Синергия</title>
+<style>
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:400;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3864-3932-4235-b138-376533646139/HelveticaNeueCyr-Rom.woff') format('woff')}
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:700;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild6232-6461-4632-b937-646336333262/HelveticaNeueCyr-Bol.woff') format('woff')}
+  @font-face{font-family:'Druk';font-weight:900;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3966-3332-4138-b662-373937366531/Druk_Cyr_Medium.woff') format('woff')}
+  :root{--cream:#e5dfce;--ink:#282828;--ink2:#5f5b52;--accent:#e52d1e;--accent-dark:#c8281a;--line:#d3ccb8;--card:#fffdf7}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;padding:44px 18px 70px}
+  .wrap{max-width:680px;margin:0 auto}
+  .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+  h1{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,6vw,46px);line-height:1;margin-bottom:14px}
+  p.sub{font-size:16.5px;color:var(--ink2);margin-bottom:28px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .box label{display:block;font-size:16px;font-weight:700;margin-bottom:4px}
+  .box .hint{font-size:13.5px;color:var(--ink2);margin-bottom:12px}
+  .row{display:flex;align-items:center;gap:12px}
+  input[type=number]{width:170px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:18px 'HelveticaNeueCyr',Arial;background:#fff;color:var(--ink)}
+  input[type=number]:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+  .unit{font-size:14.5px;color:var(--ink2)}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  .rv{font-family:'Druk',Arial,sans-serif;font-size:26px;min-width:70px;text-align:right}
+  .ex{font-size:12.5px;color:var(--ink2);margin:-10px 0 14px 4px}
+  .res{background:var(--ink);color:#fff;border-radius:14px;padding:26px 26px 22px;margin:20px 0 14px}
+  .res .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#bdb9ad}
+  .res .big{font-family:'Druk',Arial,sans-serif;font-size:clamp(38px,9vw,64px);line-height:1;margin:6px 0 4px;color:#fff}
+  .res .big small{font-family:'HelveticaNeueCyr',Arial;font-size:.34em;color:#bdb9ad;margin-left:6px}
+  table{width:100%;border-collapse:collapse;margin-top:14px}
+  td{padding:9px 0;border-top:1px solid #444;font-size:15px}
+  td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+  .fte{margin-top:14px;font-size:15px;color:#e6e2d6}
+  .fte b{color:#fff}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:0;border-radius:10px;padding:14px 22px;font:700 15px 'HelveticaNeueCyr',Arial;cursor:pointer}
+  .btn:hover{background:var(--accent-dark)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn.ghost:hover{background:#fff}
+  .note{margin-top:22px;font-size:13px;color:var(--ink2);line-height:1.55}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">Калькулятор · MBA Синергии</div>
+  <h1>Сколько стоит месяц команды без навыка организации процессов?</h1>
+  <p class="sub">Четыре цифры из вашей работы, две минуты, без регистрации. Значения в полях — пример: замените их на свои.</p>
+
+  <div class="box">
+    <label for="n">Сколько человек в команде</label>
+    <div class="hint">Подразделение или проект, где процессы работают неровно.</div>
+    <div class="row"><input type="number" id="n" min="1" max="2000" value="10"><span class="unit">человек</span></div>
+  </div>
+
+  <div class="box">
+    <label for="c">Во сколько компании обходится один сотрудник в месяц</label>
+    <div class="hint">Зарплата вместе с налогами и взносами. Берите среднее по команде.</div>
+    <div class="row"><input type="number" id="c" min="0" step="5000" value="150000"><span class="unit">₽ в месяц</span></div>
+  </div>
+
+  <div class="box">
+    <label for="s">Какая доля рабочего времени уходит впустую</label>
+    <div class="hint">Переделки, ожидание согласований, дублирование задач, поиск информации. Ваша оценка «на глаз».</div>
+    <div class="row"><input type="range" id="s" min="0" max="50" step="1" value="20"><span class="rv" id="sv">20%</span></div>
+  </div>
+  <div class="ex">10% — заметно, 20% — привычно, 30% и больше — команда работает вполсилы.</div>
+
+  <div class="box">
+    <label for="d">Прямые потери в месяц из-за срывов и ошибок</label>
+    <div class="hint">Штрафы, возвраты, упущенные заказы, оплата срочных исправлений. Если не знаете, оставьте 0.</div>
+    <div class="row"><input type="number" id="d" min="0" step="10000" value="0"><span class="unit">₽ в месяц</span></div>
+  </div>
+
+  <div class="res">
+    <div class="lbl">Столько стоит компании месяц</div>
+    <div class="big" id="m">0 ₽</div>
+    <table>
+      <tr><td>Время команды, потраченное впустую</td><td id="r1">0 ₽</td></tr>
+      <tr><td>Прямые потери</td><td id="r2">0 ₽</td></tr>
+      <tr><td>За год, если ничего не менять</td><td id="r3">0 ₽</td></tr>
+    </table>
+    <div class="fte" id="fte"></div>
+  </div>
+
+  <div class="btns">
+    <button class="btn" id="copy">Скопировать расчёт для руководителя</button>
+    <a class="btn ghost" href="#" id="cons">Записаться на бизнес-консультацию</a>
+  </div>
+
+  <p class="note">Это ваша оценка, а не прогноз: калькулятор ничего не знает о вашей компании и считает по тем цифрам, что вы ввели. Часть потерь можно убрать, если описать процессы, назначить владельцев и договориться о правилах. Какую именно часть, зависит от компании. Мы не обещаем, что обучение вернёт эти деньги. Если цена проблемы меньше цены решения, обучение не нужно.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rub=n=>Math.round(n).toLocaleString('ru-RU')+' ₽';
+let text='';
+function calc(){
+  const n=Math.max(0,+$('n').value||0), c=Math.max(0,+$('c').value||0), s=+$('s').value, d=Math.max(0,+$('d').value||0);
+  $('sv').textContent=s+'%';
+  const time=n*c*s/100, month=time+d, year=month*12, fte=n*s/100;
+  $('m').innerHTML=rub(month).replace(' ₽','<small>₽</small>');
+  $('r1').textContent=rub(time);$('r2').textContent=rub(d);$('r3').textContent=rub(year);
+  $('fte').innerHTML=`Это <b>${fte.toLocaleString('ru-RU',{maximumFractionDigits:1})}</b> ${plural(Math.round(fte),['сотрудник','сотрудника','сотрудников'])} в месяц, которые получают зарплату, но не двигают результат.`;
+  text=`Сколько стоит месяц команды без навыка организации процессов\n\n`+
+    `Команда: ${n} чел., ${rub(c)} на человека в месяц.\n`+
+    `Время впустую: ${s}% — ${rub(time)} в месяц.\n`+
+    `Прямые потери от срывов и ошибок: ${rub(d)} в месяц.\n`+
+    `Итого: ${rub(month)} в месяц, ${rub(year)} в год, если ничего не менять.\n\n`+
+    `Это оценка по моим цифрам, а не прогноз.`;
+}
+function plural(n,f){const a=Math.abs(n)%100,b=a%10;return a>10&&a<20?f[2]:b>1&&b<5?f[1]:b===1?f[0]:f[2]}
+['n','c','s','d'].forEach(i=>$(i).addEventListener('input',calc));
+$('copy').onclick=function(){navigator.clipboard.writeText(text).then(()=>{this.textContent='Скопировано';setTimeout(()=>this.textContent='Скопировать расчёт для руководителя',1800)})};
+$('cons').addEventListener('click',e=>{e.preventDefault();alert('Здесь ссылка на запись на бизнес-консультацию — подставим при запуске.')});
+calc();
+</script>
+</body>
+</html>
