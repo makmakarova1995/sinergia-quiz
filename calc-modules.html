@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex, nofollow">
+<title>Сколько стоит навык на рынке — калькулятор по модулям MBA · Синергия</title>
+<style>
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:400;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3864-3932-4235-b138-376533646139/HelveticaNeueCyr-Rom.woff') format('woff')}
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:700;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild6232-6461-4632-b937-646336333262/HelveticaNeueCyr-Bol.woff') format('woff')}
+  @font-face{font-family:'Druk';font-weight:900;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3966-3332-4138-b662-373937366531/Druk_Cyr_Medium.woff') format('woff')}
+  :root{--cream:#e5dfce;--ink:#282828;--ink2:#5f5b52;--accent:#e52d1e;--accent-dark:#c8281a;--line:#d3ccb8;--card:#fffdf7;--ok:#2f7a45}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;padding:44px 18px 70px}
+  .wrap{max-width:700px;margin:0 auto}
+  .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+  h1{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,6vw,46px);line-height:1;margin-bottom:14px}
+  p.sub{font-size:16.5px;color:var(--ink2);margin-bottom:26px}
+  .step{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:22px 0 8px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .box label.t{display:block;font-size:16px;font-weight:700;margin-bottom:4px}
+  .hint{font-size:13.5px;color:var(--ink2);margin-bottom:12px}
+  .row{display:flex;align-items:center;gap:12px}
+  input[type=number]{width:190px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:18px 'HelveticaNeueCyr',Arial;background:#fff;color:var(--ink)}
+  input[type=number]:focus{outline:2px solid var(--accent);border-color:transparent}
+  .unit{font-size:14.5px;color:var(--ink2)}
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:560px){.roles{grid-template-columns:1fr}}
+  .role{border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font-family:inherit;color:var(--ink);transition:all .18s}
+  .role:hover{border-color:var(--accent)}
+  .role.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+  .role b{display:block;font-size:15.5px;margin-bottom:3px}
+  .role span{display:block;font-size:12.5px;color:var(--ink2);line-height:1.4}
+  .role em{display:block;font-style:normal;font-weight:700;font-size:14px;margin-top:6px}
+  .res{background:var(--ink);color:#fff;border-radius:14px;padding:24px 26px;margin:22px 0 14px}
+  .line{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-top:1px solid #444;font-size:15px}
+  .line:first-of-type{border-top:0;padding-top:0}
+  .line b{white-space:nowrap}
+  .line small{display:block;color:#bdb9ad;font-size:12.5px;margin-top:2px}
+  .final{margin-top:12px;padding-top:16px;border-top:2px solid #666}
+  .final .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#bdb9ad}
+  .final .big{font-family:'Druk',Arial,sans-serif;font-size:clamp(34px,8vw,56px);line-height:1.05;margin-top:4px}
+  .pos{color:#7fd69a}.neg{color:#ff9a8f}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:0;border-radius:10px;padding:14px 22px;font:700 15px 'HelveticaNeueCyr',Arial;cursor:pointer}
+  .btn:hover{background:var(--accent-dark)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn.ghost:hover{background:#fff}
+  .note{margin-top:22px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+  .note a{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">Калькулятор · MBA Foundation</div>
+  <h1>Сколько стоит навык на рынке и как быстро окупается обучение</h1>
+  <p class="sub">Выберите роль, к которой идёте. Покажем, какой модуль программы её закрывает, сколько платят на рынке руководителю с таким навыком и сколько вы получите в плюсе за год.</p>
+
+  <div class="step">Шаг 1 из 3</div>
+  <div class="box">
+    <label class="t" for="inc">Сколько вы получаете сейчас в месяц</label>
+    <div class="hint">Оклад до вычета налогов. Значение в поле — пример: впишите своё.</div>
+    <div class="row"><input type="number" id="inc" min="0" step="10000" value="150000"><span class="unit">₽ в месяц</span></div>
+  </div>
+
+  <div class="step">Шаг 2 из 3</div>
+  <div class="box">
+    <label class="t">К какой роли вы идёте</label>
+    <div class="hint">Показываем модуль программы, который отвечает за этот навык, и медианный предлагаемый оклад по вакансиям в России.</div>
+    <div class="roles" id="roles"></div>
+    <div style="margin-top:14px">
+      <label class="t" for="mkt" style="font-size:14px">Оклад на рынке для этой роли, ₽ в месяц</label>
+      <div class="hint" style="margin-bottom:8px">Подставили медиану по России. В Москве и в крупных компаниях выше: впишите своё значение, если знаете.</div>
+      <div class="row"><input type="number" id="mkt" min="0" step="10000" value="200000"><span class="unit">₽ в месяц</span></div>
+    </div>
+  </div>
+
+  <div class="step">Шаг 3 из 3</div>
+  <div class="box">
+    <label class="t" for="price">Стоимость программы MBA Foundation</label>
+    <div class="hint">Поставили сумму из презентации школы. Актуальную цену уточнит консультант. В программе 12 модулей.</div>
+    <div class="row"><input type="number" id="price" min="0" step="50000" value="2000000"><span class="unit">₽ всего</span></div>
+  </div>
+
+  <div class="res">
+    <div class="line"><div>Сколько стоит этот навык в программе<small id="s1"></small></div><b id="v1">—</b></div>
+    <div class="line"><div>Сколько получает на рынке руководитель с таким навыком<small id="s2"></small></div><b id="v2">—</b></div>
+    <div class="line"><div>Сколько стоит вся программа MBA<small>12 модулей</small></div><b id="v3">—</b></div>
+    <div class="line"><div>Сколько вы зарабатываете в год сейчас<small id="s4"></small></div><b id="v4">—</b></div>
+    <div class="final">
+      <div class="lbl" id="fl">За первый год в плюсе</div>
+      <div class="big" id="fv">—</div>
+      <div class="hint" style="color:#bdb9ad;margin:8px 0 0" id="fn"></div>
+    </div>
+  </div>
+
+  <div class="btns">
+    <button class="btn" id="copy">Скопировать расчёт</button>
+    <a class="btn ghost" href="#" id="cons">Записаться на бизнес-консультацию</a>
+  </div>
+
+  <p class="note">Это сценарий, а не прогноз: расчёт показывает, что будет, если после программы вы займёте роль с рыночным окладом из шага 2. Школа не гарантирует повышение или рост дохода, и мы не считаем эту сумму окупаемостью обучения. Рыночные цифры — медианные оклады из вакансий в России на январь 2026 года по данным hh.ru (в пересказе <a href="https://checkroi.ru/blog/zarplata-rukovoditelya/">checkroi.ru</a>); для коммерческого директора — по сводке hh.ru на тот же период. Это предложения работодателей, а не фактические выплаты.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rub=n=>Math.round(n).toLocaleString('ru-RU')+' ₽';
+// оклад — медиана по вакансиям, Россия, hh.ru, январь 2026
+const ROLES=[
+ {k:'cfo',n:'Финансовый директор',m:['Финансовые и инвестиционные стратегии'],pay:201100},
+ {k:'cmo',n:'Директор по маркетингу',m:['Управление маркетингом. Digital-маркетинг'],pay:200000},
+ {k:'coo',n:'Операционный директор',m:['Операционная стратегия и оптимизация бизнес-процессов'],pay:184400},
+ {k:'sales',n:'Коммерческий директор',m:['Инновации и цифровая трансформация. Управление продажами'],pay:217000},
+ {k:'cio',n:'Директор по цифровым технологиям (CIO, CTO)',m:['Инновации и цифровая трансформация. Управление продажами'],pay:226000}
+];
+let cur=ROLES[0];$('mkt').value=cur.pay;
+$('roles').innerHTML=ROLES.map(r=>`<button class="role" data-k="${r.k}"><b>${r.n}</b><span>Модуль: ${r.m.join('; ')}</span><em>${rub(r.pay)} в месяц</em></button>`).join('');
+$('roles').addEventListener('click',e=>{const b=e.target.closest('.role');if(!b)return;cur=ROLES.find(r=>r.k===b.dataset.k);$('mkt').value=cur.pay;calc()});
+let text='';
+function calc(){
+  document.querySelectorAll('.role').forEach(b=>b.classList.toggle('on',b.dataset.k===cur.k));
+  const inc=+$('inc').value||0, mkt=+$('mkt').value||0, price=+$('price').value||0;
+  const mod=price/12, diff=(mkt-inc)*12, net=diff-price;
+  $('v1').textContent=rub(mod); $('s1').textContent=`Один модуль из 12: ${cur.m[0]}`;
+  $('v2').textContent=rub(mkt)+' в мес'; $('s2').textContent=`${rub(mkt*12)} в год · роль: ${cur.n}`;
+  $('v3').textContent=rub(price);
+  $('v4').textContent=rub(inc*12); $('s4').textContent=`${rub(inc)} в месяц`;
+  const fv=$('fv');
+  if(mkt<=inc){
+    $('fl').textContent='Что получается';
+    fv.textContent='Оклад роли не выше вашего';fv.className='big neg';
+    $('fn').textContent='На этой роли рыночный оклад не больше вашего текущего. Посмотрите роль выше или другой эффект обучения: переход в другую компанию, новое направление, статус.';
+    text=`Роль: ${cur.n}. Рыночный оклад ${rub(mkt)}/мес не выше моего ${rub(inc)}/мес — прироста нет.`;
+  }else{
+    $('fl').textContent=net>=0?'За первый год в плюсе':'За первый год в минусе';
+    fv.textContent=(net>=0?'+':'−')+rub(Math.abs(net));fv.className='big '+(net>=0?'pos':'neg');
+    const months=price/(mkt-inc);
+    $('fn').textContent=`Прибавка к доходу ${rub(diff)} в год минус стоимость программы ${rub(price)}. Вложения вернутся за ${months.toLocaleString('ru-RU',{maximumFractionDigits:1})} мес. работы на новом окладе.`;
+    text=`Расчёт по MBA Foundation\nРоль: ${cur.n}; модуль: ${cur.m[0]}.\nСтоимость модуля: ${rub(mod)}; вся программа: ${rub(price)}.\nМой доход сейчас: ${rub(inc*12)} в год. Рыночный оклад роли: ${rub(mkt*12)} в год.\nПрибавка в год: ${rub(diff)}. За первый год с учётом стоимости программы: ${net>=0?'+':'−'}${rub(Math.abs(net))}.\nСценарий при условии выхода на оклад роли, не прогноз.`;
+  }
+}
+['inc','mkt','price'].forEach(i=>$(i).addEventListener('input',calc));
+$('copy').onclick=function(){navigator.clipboard.writeText(text).then(()=>{this.textContent='Скопировано';setTimeout(()=>this.textContent='Скопировать расчёт',1800)})};
+$('cons').addEventListener('click',e=>{e.preventDefault();alert('Здесь ссылка на запись на бизнес-консультацию — подставим при запуске.')});
+calc();
+</script>
+</body>
+</html>
