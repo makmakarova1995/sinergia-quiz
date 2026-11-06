@@ -48,6 +48,8 @@ body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;lin
 .slide{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
   border:1px solid #242424;border-radius:10px;padding:5.2% 6%;margin-bottom:18px;overflow:hidden;
   display:flex;flex-direction:column}
+.slide.source-slide{padding:0;background:#000}
+.source-slide img{display:block;width:100%;height:100%;object-fit:cover}
 .slide .mark{position:absolute;top:4.4%;right:5%;width:30px;height:30px;border:2px solid var(--red);
   display:flex;align-items:center;justify-content:center}
 .slide .mark::before{content:'❮';color:#fff;font-size:12px}
@@ -198,6 +200,17 @@ const MODULES=[
  'Технологии регулярного менеджмента. Управление изменениями в организациях',
  'Инновации и цифровая трансформация. Управление продажами',
  'Навыки презентации и публичного выступления. Финальная бизнес-игра'
+];
+
+// Оригинальные слайды из презентации MBA Foundation.
+// Порядок совпадает с отмеченными пользователем слайдами.
+const SOURCE_SLIDES=[
+ ['design-img/fmba-slides/school-38-years.webp','Школе бизнеса 38 лет'],
+ ['design-img/fmba-slides/about-program.webp','О программе MBA Foundation'],
+ ['design-img/fmba-slides/learning-format.webp','Формат и график обучения'],
+ ['design-img/fmba-slides/learning-results.webp','Результаты обучения'],
+ ['design-img/fmba-slides/program-modules.webp','Модули программы'],
+ ['design-img/fmba-slides/dubai-module.webp','Выездной модуль в Дубае']
 ];
 
 // третий элемент — фото из презентации школы (design-img/teachers/); без фото — строкой «Также ведут»
@@ -599,6 +612,12 @@ function render(){
       ${nm?nm:''}${nm&&co?' · ':''}${co?co:''}</div>`:''}</section>`;
   n++;
   out+=cover;
+
+  // Шесть слайдов, выбранных из официальной презентации школы
+  SOURCE_SLIDES.forEach(([src,alt],i)=>{
+    n++;
+    out+=`<section class="slide source-slide" id="source-slide-${i+1}"><img src="${src}" alt="${alt}"></section>`;
+  });
 
   // школа в цифрах
   n++;
