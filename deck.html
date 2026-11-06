@@ -46,8 +46,8 @@ body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;lin
 .pick small{display:block;color:#ffb020;font-size:10.5px;margin-top:2px;line-height:1.25}
 
 /* ── слайды ── */
-.deck{max-width:1180px;margin:0 auto;padding:16px 20px 50px;min-width:0;width:100%}
-.slide{container-type:inline-size;position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
+.deck{margin:0 auto;padding:16px 20px 50px;min-width:0;width:100%}
+.slide{container-type:inline-size;position:relative;width:1280px;height:720px;flex:none;zoom:var(--z,1);background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
   border:1px solid #242424;border-radius:10px;padding:5.2% 6%;margin-bottom:18px;overflow:hidden;
   display:flex;flex-direction:column}
 .slide.source-slide{padding:0;background:#000}
@@ -59,16 +59,22 @@ body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;lin
   font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4a4a4a}
 .kick{color:var(--red);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
 .slide h1{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.04;
-  font-size:clamp(15.6px,4.32cqw,50px)}
+  font-size:calc(4.867cqw*var(--k,1))}
 .slide h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.08;
-  font-size:clamp(12px,3cqw,34px);margin-bottom:18px}
+  font-size:calc(3.38cqw*var(--k,1));margin-bottom:18px}
 .slide h3{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);
   font-weight:600;margin-bottom:9px}
-.quote{font-family:var(--serif);font-size:clamp(10.2px,2.4cqw,27px);line-height:1.34;color:#fff;font-weight:500}
+.quote{font-family:var(--serif);font-size:calc(2.704cqw*var(--k,1));line-height:1.34;color:#fff;font-weight:500}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:3.4%;flex:1;min-height:0}
+.tcols{grid-template-columns:.82fr 1.18fr;gap:2.6%}
+.tcols .box{padding:1.7% 2.4%}
+.tcols .box.stack .st{padding:1.4% 0}
+.tcols li{margin-bottom:4px}
+.who2{display:grid;grid-template-columns:1fr 1fr;gap:0 4%}
+.tcols h3{margin-bottom:6px}
 .box{background:rgba(255,255,255,.035);border-left:2px solid var(--red);border-radius:5px;padding:3.4% 3.8%}
 .box.dim{border-left-color:#4a4a4a}
-.box p,.box li{font-size:clamp(6.9px,1.284cqw,15px);color:var(--tx2);line-height:1.5}
+.box p,.box li{font-size:calc(1.447cqw*var(--k,1));color:var(--tx2);line-height:1.5}
 .box b{color:#fff;font-weight:600}
 ul{list-style:none}
 li{position:relative;padding-left:15px;margin-bottom:7px}
@@ -79,12 +85,12 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
 .reg{display:block;color:var(--tx3);font-size:.86em}
 .modn{display:inline-block;font-family:var(--serif);font-size:.82em;letter-spacing:.06em;color:#fff;
   background:var(--red);border-radius:3px;padding:1px 7px;margin-right:7px}
-.mods{display:grid;grid-template-columns:1fr 1fr;gap:1.6% 3.4%;flex:1;align-content:start}
-.mods div{font-size:clamp(6.3px,1.176cqw,14px);color:var(--tx2);padding:1.5% 0;border-bottom:1px solid #1e1e1e}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:1.6% 3.4%;flex:1;align-content:space-between;padding-bottom:2%}
+.mods div{font-size:calc(1.45cqw*var(--k,1));color:var(--tx2);padding:1.5% 0;border-bottom:1px solid #1e1e1e}
 .mods .no{font-family:var(--serif);color:var(--red);margin-right:9px}
 .mods div.hit{color:#fff;background:rgba(255,0,61,.08);border-left:2px solid var(--red);padding-left:8px}
 .teach{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4% 3%;flex:1;align-content:start}
-.teach div{font-size:clamp(6px,1.104cqw,13px);color:var(--tx3);line-height:1.38}
+.teach div{font-size:calc(1.244cqw*var(--k,1));color:var(--tx3);line-height:1.38}
 .teach b{display:block;color:#fff;font-weight:600;font-size:1.1em;margin-bottom:3px;
   font-family:var(--serif);text-transform:uppercase;letter-spacing:.02em}
 .empty{color:var(--tx3);text-align:center;padding:70px 20px;font-size:15px}
@@ -92,79 +98,91 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
 /* обложка — как первый и последний слайд в презентации школы */
 .slide.cover{padding:0;background:#000 url(design-img/fmba-cover.jpg) center/cover no-repeat}
 .cover .for{position:absolute;left:4.4%;top:8%;max-width:50%;font-family:var(--serif);
-  font-size:clamp(8.4px,1.92cqw,22px);color:#fff;line-height:1.3}
+  font-size:calc(2.163cqw*var(--k,1));color:#fff;line-height:1.3}
 .cover .for small{display:block;font-family:var(--sans);font-size:.5em;letter-spacing:.2em;
   text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px}
 /* стоимость и рассрочка */
 .price{font-family:var(--sans);font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em;
-  font-size:clamp(20.4px,6.48cqw,76px);margin:auto 0}
-.price-note{font-size:clamp(6px,1.02cqw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+  font-size:calc(7.301cqw*var(--k,1));margin:auto 0}
+.price-note{font-size:calc(1.149cqw*var(--k,1));letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
 .incl{counter-reset:i}
 .incl li{counter-increment:i;padding-left:34px;padding-bottom:2.2%;margin-bottom:2.2%;border-bottom:1px solid #262626}
 .incl li::before{content:counter(i);background:none;border:1px solid #444;border-radius:999px;width:22px;height:17px;
   top:1px;font-family:var(--serif);font-size:11px;color:#fff;display:flex;align-items:center;justify-content:center}
 .duo{margin-top:3%;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.duo .fig{font-size:clamp(12px,2.64cqw,30px)}
+.duo .fig{font-size:calc(2.974cqw*var(--k,1))}
 .todo{color:#ffb020;font-style:normal}
 .week{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:3% 0 2.4%}
-.week span{text-align:center;padding:7px 0;border-radius:4px;font-size:clamp(6px,1.08cqw,13px);font-weight:600;letter-spacing:.08em}
+.week span{text-align:center;padding:7px 0;border-radius:4px;font-size:calc(1.217cqw*var(--k,1));font-weight:600;letter-spacing:.08em}
 .week .w{background:var(--red);color:#fff}
 .week .o{background:#2a2a2a;color:var(--tx2)}
-.wk-note{font-size:clamp(6.3px,1.14cqw,13.5px);color:var(--tx2);line-height:1.45}
+.wk-note{font-size:calc(1.284cqw*var(--k,1));color:var(--tx2);line-height:1.45}
 .wk-note b{color:#fff;font-weight:600}
-.trj{width:100%;border-collapse:collapse;font-size:clamp(6.3px,1.176cqw,14px)}
+.trj{width:100%;border-collapse:collapse;font-size:calc(1.1cqw*var(--k,1))}
 .trj td{padding:2.2% 2% 2.2% 0;border-bottom:1px solid #262626;vertical-align:top;color:var(--tx2)}
-.trj td:first-child{color:#fff;width:46%}
+.trjcols{grid-template-columns:1.9fr .75fr}
+.trjcols .stack .st p{font-size:calc(1.1cqw*var(--k,1))}
+.trjcols .stack .lbl{font-size:calc(1.3cqw*var(--k,1))}
+.trj td:first-child{color:#fff;width:32%}
 .trj td:nth-child(2){white-space:nowrap}
-.trj.compact{font-size:clamp(5.4px,0.984cqw,11.5px)}
-.trj.compact td{padding:1.35% 1.5% 1.35% 0}
+.trj.compact{font-size:calc(1.1cqw*var(--k,1))}
+.trj.compact td{padding:1.7% 1.5% 1.7% 0}
 /* пункты в столбик на всю высоту колонки */
 .stack{display:flex;flex-direction:column}
 .stack .st{flex:1;display:flex;flex-direction:column;justify-content:center;border-top:1px solid #2a2a2a;padding:3% 0}
 .stack h3+.st{border-top:none}
-.stack .lbl{font-family:var(--serif);color:var(--red);font-size:clamp(8.4px,1.74cqw,20px);line-height:1.15;margin-bottom:1.5%}
-.stack .st p{font-size:clamp(7.2px,1.44cqw,17px);color:#e6e6e6;line-height:1.42}
+.stack .lbl{font-family:var(--serif);color:var(--red);font-size:calc(1.96cqw*var(--k,1));line-height:1.15;margin-bottom:1.5%}
+.stack .st p{font-size:calc(1.622cqw*var(--k,1));color:#e6e6e6;line-height:1.42}
 .fmts{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6%;flex:1;min-height:0}
 .fmts .box{display:flex;flex-direction:column}
-.fmts .price{font-size:clamp(14.4px,3.6cqw,42px);margin:auto 0 0}
+.fmts .price{font-size:calc(4.056cqw*var(--k,1));margin:auto 0 0}
 /* преподаватели с фото */
 .tph{display:grid;grid-template-columns:repeat(6,1fr);gap:2% 1.6%;flex:1;min-height:0;align-content:start}
 .tph div{background:rgba(255,255,255,.03);border:1px solid #262626;border-radius:6px;padding:5%;
-  font-size:clamp(5.1px,0.888cqw,10.5px);color:var(--tx3);line-height:1.32}
-.tph img{width:100%;aspect-ratio:1.3;object-position:50% 20%;object-fit:cover;border-radius:4px;display:block;margin-bottom:6%;background:#5a5a5a}
+  font-size:calc(1.001cqw*var(--k,1));color:var(--tx3);line-height:1.32}
+.tph img{width:100%;aspect-ratio:1.7;object-position:50% 20%;object-fit:cover;max-height:none;border-radius:4px;display:block;margin-bottom:6%;background:#5a5a5a}
 .tph b{display:block;color:#fff;font-family:var(--serif);font-weight:500;text-transform:uppercase;
-  font-size:clamp(5.7px,1.032cqw,12px);line-height:1.15;margin-bottom:3%}
+  font-size:calc(1.162cqw*var(--k,1));line-height:1.15;margin-bottom:3%}
 .tph div span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.also{margin-top:1.6%;margin-bottom:2.4%;font-size:clamp(5.7px,0.984cqw,11.5px);color:var(--tx3)}
+.also{margin-top:1.6%;margin-bottom:2.4%;font-size:calc(1.109cqw*var(--k,1));color:var(--tx3)}
 .also b{color:var(--tx2);font-weight:500}
 /* цифры */
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:3%}
 .stat{background:rgba(255,255,255,.035);border-radius:6px;padding:7% 8%}
-.stat .num{font-family:var(--serif);font-size:clamp(16.8px,4.32cqw,52px);line-height:1;color:#fff}
+.stat .num{white-space:nowrap;font-family:var(--serif);font-size:calc(4.867cqw*var(--k,1));line-height:1;color:#fff}
 .stat .num.red{color:var(--red)}
-.stat p{font-size:clamp(6.3px,1.14cqw,13.5px);color:var(--tx2);margin-top:6%;line-height:1.35}
-.res{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:3.4% 2.6%;flex:1;min-height:0}
+.stat p{font-size:calc(1.284cqw*var(--k,1));color:var(--tx2);margin-top:6%;line-height:1.35}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:1fr 1fr;gap:3.4% 2.6%;flex:1;min-height:0}
 .res .stat{border-left:2px solid var(--red);display:flex;flex-direction:column}
-.res .stat .num{color:var(--red);font-size:clamp(14.4px,3.48cqw,42px)}
-.res .stat small{margin-top:auto;padding-top:4%;font-size:clamp(5.7px,0.96cqw,11.5px);color:var(--tx3)}
+.res .stat .num{white-space:normal;overflow-wrap:anywhere;color:var(--red);font-size:calc(3.921cqw*var(--k,1))}
+.res .stat small{margin-top:auto;padding-top:4%;font-size:calc(1.082cqw*var(--k,1));color:var(--tx3)}
 .res .stat small b{color:#fff;font-weight:600}
 /* кейс */
 .case{display:grid;grid-template-columns:1.25fr 1fr;gap:3.4%;flex:1;min-height:0}
-.case .big{font-family:var(--serif);color:var(--red);font-size:clamp(20.4px,5.76cqw,68px);line-height:1}
-.case .bigt{font-size:clamp(7.2px,1.38cqw,16px);color:#fff;margin-top:3%;max-width:90%}
+.case .big{font-family:var(--serif);color:var(--red);font-size:calc(6.49cqw*var(--k,1));line-height:1}
+.case .bigt{font-size:calc(1.555cqw*var(--k,1));color:#fff;margin-top:3%;max-width:90%}
 .case .ph{width:34%;aspect-ratio:.8;object-fit:cover;border-radius:6px;float:right;margin:0 0 4% 5%}
-.case .qt{font-family:var(--serif);font-size:clamp(7.8px,1.56cqw,18px);color:#fff;line-height:1.35;margin-top:auto}
-.case-res{font-family:var(--serif);font-size:clamp(10.8px,2.4cqw,28px);line-height:1.15;color:var(--red);margin:0 0 3%}
+.case .qt{font-family:var(--serif);font-size:calc(1.758cqw*var(--k,1));color:#fff;line-height:1.35;margin-top:auto}
+.case-res{font-family:var(--serif);font-size:calc(2.704cqw*var(--k,1));line-height:1.15;color:var(--red);margin:0 0 3%}
 .case-src{display:block;color:var(--tx3);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:2%}
 
+/* минимальные размеры мелкого текста (холст слайда 1280×720) */
+.slide .case-src,.slide .also,.slide .res .stat small{font-size:13px}
+.slide .tph div{font-size:11.5px}
+.slide .tph b{font-size:13px}
+.slide .modn{font-size:.9em}
+.slide .reg{font-size:.92em}
+
+.fmts .box li,.fmts .box p:not(.price-note){font-size:calc(1.7cqw*var(--k,1));line-height:1.45}
+.fmts .box h3{font-size:12.5px}
 @media print{
-  @page{size:A4 landscape;margin:0}
+  @page{size:1280px 720px;margin:0}
   body{background:#fff}
   .side,.panel,.noprint{display:none!important}
   .layout{display:block}
   .deck{max-width:none;padding:0;margin:0}
   .slide{border:none;border-radius:0;margin:0;page-break-after:always;break-after:page;
-    width:100vw;height:100vh;aspect-ratio:auto;
+    width:1280px;height:720px;zoom:1;
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media(max-width:900px){.layout{display:block}.side{position:static;height:auto;max-height:50vh}}
@@ -380,7 +398,7 @@ const ITEMS=[
 {k:'deleg',t:'Выстроить делегирование в подразделении',
  q:'«Мои руководители тащат всё на себе и не выходят из операционки»',
  ch:['<b>Научится</b> делегировать и контролировать без скатывания в микроменеджмент',
-     '<b>В работе:</b> задачи уходят вниз и возвращаются сделанными, подразделение работает без него',
+     '<b>В работе:</b> задачи уходят на уровень ниже и возвращаются сделанными, подразделение работает без ежедневного участия вашего сотрудника',
      '<b>Деньги компании:</b> время дорогого руководителя уходит на рост, а не на контроль'],
  mods:[[10,'Фридман']],
  who:[['Александр Фридман','управляющий партнёр Amadeus Group']],
@@ -577,6 +595,7 @@ const INSTALL=[
  ['Оплата компанией','Договор с юрлицом, можно разделить оплату с работодателем']
 ];
 const rub=n=>Math.round(n).toLocaleString('ru-RU').replace(/ |,/g,' ')+' ₽';
+const LBL={'Научится':'Сотрудник научится','В работе':'В работе сотрудника'};
 const todo=s=>s.replace(/\[[^\]]+\]/g,m=>`<span class="todo">${m}</span>`);
 
 const sel=new Set();
@@ -648,19 +667,19 @@ function render(){
     const who=it.who.map(w=>`<li><span class="who-t">${w[0]}</span><span class="reg">${w[1]}</span></li>`).join('');
     out+=`<section class="slide" id="task-${it.k}">${ft(n)}
       <div class="kick">Задача компании</div>
-      <h2 style="margin-bottom:3%">${it.t}</h2>
-      <div class="cols">
+      <h2 style="margin-bottom:2%">${it.t}</h2>
+      <div class="cols tcols">
         <div class="box stack">
-          <h3>Что изменится у вас</h3>
+          <h3>Что даст обучение вашему сотруднику</h3>
           ${it.ch.map(c=>{const [l,t]=c.replace('<b>','').split('</b>');
-            return `<div class="st"><div class="lbl">${l.replace(/:\s*$/,'')}</div><p>${t.trim().replace(/^./,x=>x.toUpperCase())}</p></div>`}).join('')}
+            return `<div class="st"><div class="lbl">${LBL[l.replace(/:\s*$/,'')]||l.replace(/:\s*$/,'')}</div><p>${t.trim().replace(/^./,x=>x.toUpperCase())}</p></div>`}).join('')}
         </div>
         <div>
           <div class="box dim" style="margin-bottom:3%">
             <h3>Модуль</h3>
             <ul>${mods}</ul>
             <h3 style="margin-top:4%">Кто ведёт</h3>
-            <ul>${who}</ul>
+            <ul class="${it.who.length>3?'who2':''}">${who}</ul>
           </div>
           <div class="box">
             <h3>${CASE_RESULTS[it.k]?'Подтверждённый результат выпускника':'Как применить на программе'}</h3>
@@ -748,7 +767,7 @@ function render(){
     out+=`<section class="slide">${ft(n)}
       <div class="kick">Индивидуальный план${allParts.length>1?` · ${page+1}/${allParts.length}`:''}</div>
       <h2>Траектория под ваши бизнес-задачи</h2>
-      <div class="cols">
+      <div class="cols trjcols">
         <div class="box dim" style="overflow:hidden">
           <h3>Задачи компании → модули → эксперты</h3>
           <table class="trj${part.length>4?' compact':''}"><tbody>${rows}</tbody></table>
@@ -800,7 +819,7 @@ function render(){
         <ul><li>${rub(PRICE-one)} на каждом участнике</li><li>Двое сотрудников внедряют изменения вместе — так их проще провести через компанию</li></ul>
         <div class="price" style="color:var(--red)">${rub((PRICE-one)*2)}</div><p class="price-note" style="margin-top:4%">выгода за двоих</p></div>
     </div>
-    <p style="margin-top:2.4%;font-size:clamp(9px,1.26cqw,14px);color:var(--tx2)">Налоговый вычет за обучение можно вернуть</p></section>`;
+    <p style="margin-top:2.4%;font-size:calc(1.26cqw*var(--k,1));color:var(--tx2)">Налоговый вычет за обучение можно вернуть</p></section>`;
 
   // цена из официальной презентации школы (слайды 52–53)
   PRICE_SLIDES.forEach(([src,alt],i)=>{
@@ -816,7 +835,7 @@ function render(){
     <div class="fmts">${FORMATS.map((x,i)=>`<div class="box${i?' dim':''}">
       <h3>${x[0]}</h3><ul>${x[1+1].map(y=>`<li>${y}</li>`).join('')}</ul>
       <div class="price">${rub(x[1])}</div>
-      <p class="price-note" style="margin-top:4%;min-height:4.2em">${x[3]}</p></div>`).join('')}</div>
+      <p class="price-note" style="margin-top:4%;min-height:6.2em;letter-spacing:.06em;line-height:1.35">${x[3]}</p></div>`).join('')}</div>
     </section>`;
 
   // рассрочка
@@ -824,7 +843,7 @@ function render(){
   out+=`<section class="slide">${ft(n)}
     <div class="kick">Оплата</div>
     <h2>Можно платить частями</h2>
-    <div class="fmts">
+    <div class="fmts" style="align-items:start;flex:none">
       ${INSTALL.map((x,i)=>`<div class="box${i?' dim':''}"><h3>${x[0]}</h3><p>${todo(x[1])}</p></div>`).join('')}
     </div></section>`;
 
@@ -846,6 +865,30 @@ if(qs.get('nm'))document.addEventListener('DOMContentLoaded',()=>document.getEle
 
 picks();render();
 
+
+
+// слайд рисуется в фиксированном размере 1280×720 и масштабируется под ширину окна
+function setZoom(){
+  const d=document.getElementById('deck');
+  const z=Math.max(.3,(d.clientWidth-40)/1280);
+  d.style.setProperty('--z',z);
+}
+window.addEventListener('resize',setZoom);setZoom();
+// автоподбор: если содержимое слайда не помещается, уменьшаем шрифты только на нём
+function fitSlides(){
+  document.querySelectorAll('#deck .slide:not(.source-slide):not(.cover)').forEach(sl=>{
+    sl.style.removeProperty('--k');
+    let k=1;
+    const over=()=>sl.scrollHeight>sl.clientHeight+2||
+      [...sl.querySelectorAll('.box,.cols,.stack,.st')].some(e=>e.scrollHeight>e.clientHeight+2);
+    while(k>.75&&over()){k=Math.round((k-.04)*100)/100;sl.style.setProperty('--k',k)}
+  });
+}
+let fitT;
+new ResizeObserver(()=>{clearTimeout(fitT);fitT=setTimeout(fitSlides,60)}).observe(document.getElementById('deck'));
+new MutationObserver(()=>{clearTimeout(fitT);fitT=setTimeout(fitSlides,60)}).observe(document.getElementById('deck'),{childList:true});
+window.addEventListener('beforeprint',fitSlides);
+if(document.fonts)document.fonts.ready.then(fitSlides);
 </script>
 </body>
 </html>
