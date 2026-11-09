@@ -45,6 +45,12 @@ body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;lin
 .pick input{accent-color:var(--red);margin-top:2px;flex:none}
 .pick small{display:block;color:#ffb020;font-size:10.5px;margin-top:2px;line-height:1.25}
 .pick-task{display:block;font-size:13.5px;line-height:1.38;color:inherit;text-wrap:pretty}
+.audience-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-top:2px}
+.audience{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.audience .aud{min-height:40px;border:0;border-radius:6px;background:#0d0d0d;color:var(--tx2);font:500 12px var(--sans);cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.1);transition:background-color .15s,box-shadow .15s,color .15s,transform .15s}
+.audience .aud:hover{box-shadow:0 0 0 1px rgba(255,255,255,.25);color:#fff}
+.audience .aud:active{transform:scale(.97)}
+.audience .aud.on{background:var(--red);box-shadow:none;color:#fff}
 
 /* ── слайды ── */
 .deck{margin:0 auto;padding:16px 20px 50px;min-width:0;width:100%}
@@ -383,7 +389,9 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 <button id="sbShow" class="btn noprint" style="display:none;position:fixed;top:10px;left:10px;z-index:200;background:#161616" onclick="toggleSb()">Показать панель</button>
 <div class="layout"><aside class="side noprint"><div class="panel"><div class="panel-in">
-  <span class="ttl">MBA для собственника</span>
+  <span class="ttl">Презентация MBA</span>
+  <div class="audience-label">Для кого собираем</div>
+  <div class="audience"><button class="aud on" type="button">Собственник</button><button class="aud" type="button" onclick="switchAudience('deck-top.html')">Топ-менеджер</button></div>
   <div class="who">
     <input id="nm" placeholder="Имя клиента" oninput="render()">
     <input id="co" placeholder="Компания" oninput="render()">
@@ -874,6 +882,7 @@ function updateCount(){
   document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b>${slides?` · слайдов <b>${slides}</b>`:''}`:'Задачи не отмечены';
 }
 function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
+function switchAudience(file){const p=new URLSearchParams();const nm=document.getElementById('nm').value.trim();const co=document.getElementById('co').value.trim();if(nm)p.set('nm',nm);if(co)p.set('co',co);p.set('v',Date.now());location.href=file+'?'+p.toString()}
 function toggleSb(){const l=document.querySelector('.layout');l.classList.toggle('nosb');document.getElementById('sbShow').style.display=l.classList.contains('nosb')?'block':'none';setTimeout(setZoom,60)}
 function all(v){sel.clear();if(v)JOBS.forEach(j=>sel.add(j.k));picks();render()}
 const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.slice(i*size,(i+1)*size));
