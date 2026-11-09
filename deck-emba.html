@@ -16,24 +16,26 @@
 body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;line-height:1.5}
 
 /* ── панель сборки (не печатается) ── */
-.panel{background:#161616;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:99}
-.panel-in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.layout{display:grid;grid-template-columns:380px minmax(0,1fr);align-items:start}
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:#161616;border-right:1px solid var(--line);z-index:99}
+.panel{position:sticky;top:0;background:#161616;border-bottom:1px solid var(--line);z-index:2}
+.panel-in{padding:14px 16px;display:flex;flex-direction:column;align-items:stretch;gap:9px}
 .panel .ttl{font-family:var(--serif);font-size:13px;text-transform:uppercase;letter-spacing:.1em;
   color:var(--tx2);white-space:nowrap}
-.who{display:flex;gap:7px;flex-wrap:wrap}
+.who{display:flex;gap:7px}
 .who input{background:#0d0d0d;border:1px solid var(--line);border-radius:6px;padding:7px 11px;
-  color:#fff;font-family:var(--sans);font-size:13px;width:140px;outline:none}
+  color:#fff;font-family:var(--sans);font-size:13px;width:100%;min-width:0;outline:none}
 .who input:focus{border-color:var(--red)}
-.acts{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-left:auto}
+.acts{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.acts .pri{flex:1}
 .btn{background:transparent;border:1px solid var(--line);color:var(--tx2);border-radius:999px;
   padding:7px 15px;font-size:12.5px;cursor:pointer;font-family:var(--sans);transition:.14s;white-space:nowrap}
 .btn:hover{border-color:var(--red);color:#fff}
 .btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
 .cnt{color:var(--tx3);font-size:12.5px;white-space:nowrap}
 .cnt b{color:#fff}
-.drawer{max-width:1180px;margin:0 auto;padding:0 20px;overflow:hidden;max-height:0;transition:max-height .22s ease}
-.drawer.open{max-height:460px;overflow-y:auto;padding-bottom:14px}
-.picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px;padding-top:4px}
+.drawer{padding:0 16px 20px}
+.picks{display:grid;grid-template-columns:1fr;gap:6px;padding-top:13px}
 .pick{display:flex;gap:8px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
   border-radius:6px;padding:9px 11px;cursor:pointer;font-size:13px;color:var(--tx2);transition:.14s}
 .pick:hover{border-color:#444}
@@ -41,7 +43,7 @@ body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;lin
 .pick input{accent-color:var(--red);margin-top:2px;flex:none}
 
 /* ── слайды ── */
-.deck{max-width:1180px;margin:0 auto;padding:16px 20px 50px}
+.deck{margin:0 auto;padding:16px 20px 50px;min-width:0;width:100%}
 .slide{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
   border:1px solid #242424;border-radius:10px;padding:5.2% 6%;margin-bottom:18px;overflow:hidden;
   display:flex;flex-direction:column}
@@ -148,12 +150,16 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
 @media print{
   @page{size:A4 landscape;margin:0}
   body{background:#fff}
-  .panel,.noprint{display:none!important}
+  .side,.panel,.noprint{display:none!important}
+  .layout{display:block}
   .deck{max-width:none;padding:0;margin:0}
   .slide{border:none;border-radius:0;margin:0;page-break-after:always;break-after:page;
     width:100vw;height:100vh;aspect-ratio:auto;
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+@media(max-width:900px){.layout{display:block}.side{position:static;height:auto;max-height:52vh}}
+.layout.nosb{grid-template-columns:1fr}
+.layout.nosb .side{display:none}
 
 /* EMBA: обложка и мелочи */
 .cover .cv{position:absolute;left:6%;bottom:9%;right:6%}
@@ -178,7 +184,8 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
 </head>
 <body>
 
-<div class="panel noprint"><div class="panel-in">
+<button id="sbShow" class="btn noprint" style="display:none;position:fixed;top:10px;left:10px;z-index:200;background:#161616" onclick="toggleSb()">Показать панель</button>
+<div class="layout"><aside class="side noprint"><div class="panel"><div class="panel-in">
   <span class="ttl">Презентация Executive MBA</span>
   <div class="who">
     <input id="nm" placeholder="Имя клиента" oninput="render()">
@@ -186,15 +193,15 @@ li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;bord
   </div>
   <div class="acts">
     <span class="cnt" id="cnt"></span>
-    <button class="btn" onclick="dr()">Задачи ▾</button>
     <button class="btn" onclick="all(true)">Все</button>
     <button class="btn" onclick="all(false)">Снять</button>
+    <button class="btn" onclick="toggleSb()">Скрыть панель</button>
     <button class="btn pri" onclick="window.print()">Сохранить в PDF</button>
   </div>
 </div>
-<div class="drawer" id="drawer"><div class="picks" id="picks"></div></div></div>
+<div class="drawer" id="drawer"><div class="picks" id="picks"></div></div></aside>
 
-<div class="deck" id="deck"></div>
+<div class="deck" id="deck"></div></div>
 
 <script>
 const CASES=[
@@ -331,6 +338,7 @@ function picks(){
 function cnt(){document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b> · слайдов <b>${slideCount}</b>`:'Задачи не отмечены'}
 function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
 function dr(){document.getElementById('drawer').classList.toggle('open')}
+function toggleSb(){const l=document.querySelector('.layout');l.classList.toggle('nosb');document.getElementById('sbShow').style.display=l.classList.contains('nosb')?'block':'none'}
 function all(v){sel.clear();if(v)ITEMS.forEach(i=>sel.add(i.k));picks();render()}
 const ft=n=>`<div class="ft"><span>Executive MBA · Школа бизнеса «Синергия»</span><span>${n}</span></div><div class="mark"></div>`;
 
@@ -339,7 +347,7 @@ function render(){
   const co=document.getElementById('co').value.trim();
   const list=ITEMS.filter(i=>sel.has(i.k));
   const d=document.getElementById('deck');
-  if(!list.length){slideCount=0;cnt();d.innerHTML='<p class="empty noprint">Отметьте задачи клиента выше — презентация соберётся здесь.</p>';return}
+  if(!list.length){slideCount=0;cnt();d.innerHTML='<p class="empty noprint">Отметьте задачи клиента слева — презентация соберётся здесь.</p>';return}
   const S=[];const add=f=>S.push(f);
 
   const cover=()=>`<section class="slide cover">
