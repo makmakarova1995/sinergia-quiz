@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex, nofollow">
+<title>Ваш маршрут — MBA Синергии</title>
+<style>
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:400;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild3864-3932-4235-b138-376533646139/HelveticaNeueCyr-Rom.woff') format('woff')}
+  @font-face{font-family:'HelveticaNeueCyr';font-weight:700;font-style:normal;font-display:swap;
+    src:url('https://static.tildacdn.com/tild6232-6461-4632-b937-646336333262/HelveticaNeueCyr-Bol.woff') format('woff')}
+  :root{--bg:#080808;--ink:#f7f7f7;--ink2:#b8b8b8;--accent:#ed2b22;--accent-dark:#c9231c;--line:#4a4a4a}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:radial-gradient(circle at 12% 0,#353535 0,#151515 25%,#080808 58%);color:var(--ink);line-height:1.5;padding:44px 18px 70px;min-height:100vh}
+  .wrap{max-width:720px;margin:0 auto}
+  .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+  h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;text-transform:uppercase;font-size:clamp(30px,6vw,52px);letter-spacing:-.03em;line-height:1;margin-bottom:18px}
+  p.sub{font-size:17px;color:var(--ink2);margin-bottom:26px}
+  .box{background:rgba(12,12,12,.78);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:12px}
+  .box h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:700;margin-bottom:12px}
+  ol{padding-left:22px}
+  ol li{font-size:17px;margin-bottom:10px}
+  ol li::marker{color:var(--accent);font-weight:700}
+  .note{font-size:14px;color:var(--ink2);margin-top:6px}
+  .btn{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;border-radius:12px;padding:18px 24px;font:700 18px 'HelveticaNeueCyr',Arial;margin-top:16px}
+  .btn:hover{background:var(--accent-dark)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);font-size:16px;padding:14px 24px;margin-top:10px}
+  .btn.ghost:hover{background:#222}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">Спасибо, ответ записан</div>
+  <h1 id="title">Ваш маршрут</h1>
+  <p class="sub" id="lead"></p>
+
+  <div class="box">
+    <h2>Первое действие · 15 минут</h2>
+    <ol id="steps"></ol>
+    <p class="note">Делать это можно без записи на программу: пригодится на работе в любом случае.</p>
+  </div>
+
+  <div class="box">
+    <h2>Что дальше</h2>
+    <p style="font-size:17px">Мы будем присылать письма на эту тему: шаблоны, расчёты и истории выпускников. Не чаще двух в неделю.</p>
+  </div>
+
+  <a class="btn" href="#" id="cons">Записаться на бизнес-консультацию и разработать карьерный план</a>
+  <a class="btn ghost" href="calc-modules.html">Рассчитать, за сколько месяцев окупится MBA на вашей должности</a>
+</div>
+
+<script>
+const ROUTES={
+ work:{title:'Чтобы без вас не вставала работа',lead:'Вы выбрали: «Без меня встаёт работа, я тушу пожары, а до развития бизнеса руки не доходят».',
+  steps:['Выпишите пять решений, которые на этой неделе ждали именно вас.','Напротив каждого запишите, что нужно, чтобы его принял другой человек: правило, цифра, границы полномочий.','Одно из пяти решений передайте до конца недели и скажите, по каким критериям его принимать.']},
+ people:{title:'Чтобы сильных людей было кем заменить',lead:'Вы выбрали: «Сильные люди уходят, а заменить их некем».',
+  steps:['Назовите трёх ключевых сотрудников, без которых вам будет тяжелее всего.','Для каждого напишите: кто мог бы заменить его сегодня и чего этому человеку не хватает.','Выберите одного сотрудника и назначьте разговор о его развитии на ближайшую неделю.']},
+ budget:{title:'Чтобы решения и бюджет проходили у собственника',lead:'Вы выбрали: «Бюджет режут, а свои решения защитить перед собственником не получается».',
+  steps:['Возьмите одно решение, которое не прошло или было урезано.','На одной странице запишите, что изменится в деньгах (выручка, затраты, риск) и что произойдёт, если ничего не делать.','Подумайте, какую цифру собственник считает главной, и начните страницу с неё.']},
+ position:{title:'Чтобы позицию выше отдали вам',lead:'Вы выбрали: «Позицию выше отдают другим, хотя я давно её тяну».',
+  steps:['Выпишите три результата за последние два года в цифрах.','Запишите, что, по-вашему, собственник считает главным на позиции, которую вы хотите.','Отметьте, где в вашем списке есть доказательство этого, а где пока пусто: это и есть то, над чем стоит работать.']},
+ start:{title:'Чтобы понять, с чего начать',lead:'Вы выбрали: «Не знаю, с чего начать, нужен маршрут».',
+  steps:['Письменно ответьте: какую роль вы хотите через два года.','Запишите, что мешает вам получить её сейчас: навыки, связи, видимость или что-то другое.','Назовите одного человека, который может подсказать, как оказаться в этой роли. Эти три ответа станут основой разговора на бизнес-консультации.']}
+};
+const pick=new URLSearchParams(location.search).get('pick');
+const r=ROUTES[pick]||ROUTES.start;
+document.getElementById('title').textContent=r.title;
+document.getElementById('lead').textContent=r.lead;
+document.getElementById('steps').innerHTML=r.steps.map(s=>'<li>'+s+'</li>').join('');
+document.getElementById('cons').addEventListener('click',e=>{e.preventDefault();alert('Здесь будет ссылка на запись на бизнес-консультацию и разработку карьерного плана — подставим перед запуском.')});
+</script>
+</body>
+</html>
