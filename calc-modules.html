@@ -13,38 +13,54 @@
     src:url('https://static.tildacdn.com/tild6232-6461-4632-b937-646336333262/HelveticaNeueCyr-Bol.woff') format('woff')}
   @font-face{font-family:'Druk';font-weight:900;font-style:normal;font-display:swap;
     src:url('https://static.tildacdn.com/tild3966-3332-4138-b662-373937366531/Druk_Cyr_Medium.woff') format('woff')}
-  :root{--cream:#e5dfce;--ink:#282828;--ink2:#5f5b52;--accent:#e52d1e;--accent-dark:#c8281a;--line:#d3ccb8;--card:#fffdf7}
+  :root{--cream:#080808;--ink:#f7f7f7;--ink2:#b8b8b8;--accent:#ed2b22;--accent-dark:#c9231c;--line:#4a4a4a;--card:#111}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;padding:44px 18px 70px}
-  .wrap{max-width:720px;margin:0 auto}
+  body{font-family:'HelveticaNeueCyr',-apple-system,Arial,sans-serif;background:radial-gradient(circle at 12% 0,#353535 0,#151515 25%,#080808 58%);color:var(--ink);line-height:1.5;padding:44px 18px 70px;min-height:100vh}
+  .wrap{max-width:1080px;margin:0 auto}
   .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
-  h1{font-family:'Druk','HelveticaNeueCyr',Arial,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,6vw,46px);line-height:1;margin-bottom:14px}
+  h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;text-transform:uppercase;font-size:clamp(36px,6vw,66px);letter-spacing:-.035em;line-height:.98;margin-bottom:22px;max-width:980px}
   p.sub{font-size:16.5px;color:var(--ink2);margin-bottom:24px}
   .step{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin:22px 0 8px}
-  .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .box{background:rgba(12,12,12,.78);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:12px;box-shadow:none}
   .box label.t{display:block;font-size:16px;font-weight:700;margin-bottom:4px}
   .hint{font-size:13.5px;color:var(--ink2);margin-bottom:12px}
   .row{display:flex;align-items:center;gap:12px}
-  input[type=number]{width:190px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:18px 'HelveticaNeueCyr',Arial;background:#fff;color:var(--ink)}
+  input[type=number]{width:190px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:18px 'HelveticaNeueCyr',Arial;background:#090909;color:var(--ink)}
   input[type=number]:focus{outline:2px solid var(--accent);border-color:transparent}
   input[type=range]{width:100%;accent-color:var(--accent)}
   .unit{font-size:14.5px;color:var(--ink2)}
   .rv{font-family:'Druk',Arial,sans-serif;font-size:26px;min-width:70px;text-align:right}
-  .mods{display:flex;flex-direction:column;gap:8px}
-  .mod{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;cursor:pointer;transition:border-color .15s}
-  .mod:hover{border-color:var(--accent)}
-  .mod.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
-  .mod input{width:20px;height:20px;accent-color:var(--accent)}
-  .mod .n{font-size:15px;font-weight:700;line-height:1.3}
-  .mod .s{font-size:12.5px;color:var(--ink2);margin-top:2px}
-  .mod .p{text-align:right;font-size:14px;font-weight:700;white-space:nowrap}
-  .mod .p small{display:block;font-weight:400;color:var(--ink2);font-size:11.5px;white-space:normal;max-width:150px}
-  .mod .p.no{color:var(--ink2);font-weight:400;font-size:12.5px}
+  .task-box{padding:0;border:0;background:transparent}
+  .tasks{display:flex;flex-direction:column;gap:7px}
+  .task-card{border:1px solid var(--line);background:rgba(255,255,255,.015);border-radius:10px;overflow:hidden}
+  .task-card summary{display:grid;grid-template-columns:42px minmax(230px,.85fr) minmax(310px,1.35fr) auto;gap:14px;align-items:center;padding:13px 15px;cursor:pointer;list-style:none}
+  .task-card summary::-webkit-details-marker{display:none}
+  .task-card summary:hover{background:rgba(255,255,255,.025)}
+  .task-card[open] summary{border-bottom:1px solid #333}
+  .task-num{font-family:Georgia,'Times New Roman',serif;font-size:23px;color:var(--accent)}
+  .task-card .n{font-size:15px;font-weight:700;line-height:1.2}
+  .task-card .quick{font-size:12.5px;line-height:1.35;color:var(--ink2)}
+  .task-card .count{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:11px;color:var(--ink2)}
+  .task-card .count:after{content:'  +';color:var(--accent);font-weight:700}
+  .task-card[open] .count:after{content:'  −'}
+  .module-panel{padding:11px 15px 14px 71px}
+  .module-caption{font-size:13px;font-weight:700;line-height:1.35;color:#fff;margin-bottom:9px}
+  .module-list{display:grid;grid-template-columns:1fr;gap:6px;counter-reset:module}
+  .module-tag{display:grid;grid-template-columns:28px 1fr;align-items:center;border-left:3px solid transparent;border-radius:6px;background:#262626;padding:9px 12px;font-size:14px;line-height:1.3;color:#f1f1f1}
+  .module-tag:nth-child(odd){background:rgba(237,43,34,.16);border-left-color:var(--accent)}
+  .module-tag:before{counter-increment:module;content:counter(module,decimal-leading-zero);color:var(--accent);font-size:11px;font-weight:700}
   .tools{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
   .chip{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:7px 14px;font:13.5px 'HelveticaNeueCyr',Arial;cursor:pointer;color:var(--ink)}
-  .chip:hover{background:#fff}
-  select{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:15px 'HelveticaNeueCyr',Arial;background:#fff;color:var(--ink)}
-  .res{background:var(--ink);color:#fff;border-radius:14px;padding:24px 26px;margin:22px 0 14px}
+  .chip:hover{background:#222}
+  .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
+  .choice-btn{border:1px solid var(--line);background:#0b0b0b;border-radius:10px;padding:15px;text-align:left;font:700 14px 'HelveticaNeueCyr',Arial;color:var(--ink);cursor:pointer}
+  .choice-btn:hover{border-color:var(--accent)}
+  .choice-btn.active{border-color:var(--accent);background:var(--accent);color:#fff}
+  .choice-btn small{display:block;margin-top:3px;font-size:12px;font-weight:400;line-height:1.3;color:inherit;opacity:.8}
+  .auto-value{margin-top:14px;font-size:14px;color:var(--ink2)}
+  .auto-value b{display:block;color:var(--ink);font-size:24px;margin-top:2px}
+  select{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:15px 'HelveticaNeueCyr',Arial;background:#090909;color:var(--ink)}
+  .res{background:#111;color:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:22px 0 14px}
   .line{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-top:1px solid #444;font-size:15px}
   .line:first-child{border-top:0;padding-top:0}
   .line b{white-space:nowrap}
@@ -62,89 +78,99 @@
   .btn:hover{background:var(--accent-dark)}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
   .btn.ghost:hover{background:#fff}
-  .note{margin-top:22px;font-size:12.5px;color:var(--ink2);line-height:1.6}
-  .note a{color:var(--ink2)}
+  .btn.primary-wide{display:block;width:100%;text-align:center;font-size:18px;padding:18px 24px;border-radius:12px}
+  @media(max-width:820px){
+    .task-card summary{grid-template-columns:32px 1fr auto;gap:8px 10px;padding:12px}
+    .task-card .quick{grid-column:2/4}
+    .module-panel{padding:10px 12px 13px 54px}
+    .choice-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="kick">Калькулятор · MBA Foundation</div>
-  <h1>Сколько стоит каждый навык программы на рынке труда</h1>
-  <p class="sub">Отметьте модули, которые хотите пройти. Покажем, сколько платят на рынке руководителю с таким навыком, сколько стоят сами модули и за сколько месяцев вернутся вложения.</p>
+  <div class="kick">Задачи руководителя · MBA Foundation</div>
+  <h1>Какие задачи в карьере решит MBA «Синергии»</h1>
+  <p class="sub">Расчёт окупаемости: сколько стоят на рынке труда навыки из модулей MBA.</p>
 
-  <div class="step">Шаг 1 из 3</div>
+  <div class="step">Пять задач руководителя</div>
+  <div class="box task-box">
+    <div class="tasks" id="tasks"></div>
+  </div>
+
+  <div class="step">Калькулятор · шаг 1 из 3</div>
   <div class="box">
     <label class="t" for="inc">Сколько вы получаете сейчас в месяц</label>
     <div class="hint">Оклад до вычета налогов. Значение в поле — пример: впишите своё.</div>
     <div class="row"><input type="number" id="inc" min="0" step="10000" value="150000"><span class="unit">₽ в месяц</span></div>
   </div>
 
-  <div class="step">Шаг 2 из 3 · модули программы</div>
+  <div class="step">Калькулятор · шаг 2 из 3</div>
   <div class="box">
-    <div class="tools">
-      <button class="chip" id="all">Выбрать все модули</button>
-      <button class="chip" id="none">Снять</button>
-    </div>
-    <div class="mods" id="mods"></div>
-  </div>
-
-  <div class="step">Шаг 3 из 3</div>
-  <div class="box">
-    <label class="t" for="price">Стоимость программы MBA Foundation</label>
-    <div class="hint">Сумма из презентации школы, уточнит консультант. В программе 12 модулей, стоимость одного модуля — одна двенадцатая.</div>
-    <div class="row"><input type="number" id="price" min="0" step="50000" value="2000000"><span class="unit">₽ всего</span></div>
-    <div style="margin-top:18px">
-      <label class="t" for="sh">Какую часть разницы в окладе вы получите</label>
-      <div class="hint">После программы вы не обязательно выйдете на рыночный оклад сразу. Задайте осторожную долю.</div>
-      <div class="row"><input type="range" id="sh" min="30" max="100" step="5" value="70"><span class="rv" id="shv">70%</span></div>
+    <label class="t">Как обучение может повлиять на ваш доход</label>
+    <div class="hint">Калькулятор покажет два сценария: повышение в текущей компании или переход на следующую руководящую должность.</div>
+    <div class="choice-grid" style="grid-template-columns:1fr 1fr">
+      <button class="choice-btn active" type="button" data-scenario="promotion">Повышение<small>сценарий: +20% к текущему окладу</small></button>
+      <button class="choice-btn" type="button" data-scenario="next">Следующая должность<small>ориентир: оклад генерального директора</small></button>
     </div>
     <div id="ceoBox" style="margin-top:18px;display:none">
-      <label class="t" for="size">Размер компании, где вы хотите руководить</label>
-      <div class="hint">Выбраны все модули — это набор навыков первого лица. Смотрим вилку для генерального директора.</div>
+      <label class="t" for="size">Размер компании на следующей должности</label>
       <select id="size"></select>
+    </div>
+    <div class="auto-value">Расчётный доход после изменения роли<b id="targetView">—</b></div>
+  </div>
+
+  <div class="step">Калькулятор · шаг 3 из 3</div>
+  <div class="box">
+    <label class="t">Выберите формат обучения</label>
+    <div class="hint">Стоимость из презентации MBA Foundation 2026.</div>
+    <div class="choice-grid">
+      <button class="choice-btn active" type="button" data-price="2000000">Очный формат<small>2 000 000 ₽</small></button>
+      <button class="choice-btn" type="button" data-price="750000">Гибридный формат<small>750 000 ₽</small></button>
+      <button class="choice-btn" type="button" data-price="500000">Онлайн-формат<small>500 000 ₽</small></button>
     </div>
   </div>
 
   <div class="res">
-    <div class="line"><div>Выбрано модулей<small id="s1"></small></div><b id="v1">—</b></div>
-    <div class="line"><div>Сколько стоят выбранные модули<small>одна двенадцатая цены программы за модуль</small></div><b id="v2">—</b></div>
-    <div class="line"><div>Сколько получает на рынке руководитель с этими навыками<small id="s3"></small></div><b id="v3">—</b></div>
-    <div class="line"><div>Сколько вы получаете сейчас<small id="s4"></small></div><b id="v4">—</b></div>
+    <div class="line"><div>Стоимость выбранного формата</div><b id="v5">—</b></div>
+    <div class="line"><div>Ваш доход сейчас</div><b id="v4">—</b></div>
+    <div class="line"><div id="incomeLabel">Доход после повышения</div><b id="v6">—</b></div>
+    <div class="line"><div>Рост дохода в месяц</div><b id="v7">—</b></div>
     <div class="final">
       <div class="lbl" id="fl">Вложения вернутся за</div>
       <div class="big" id="fv">—</div>
-      <div class="hint" style="color:#bdb9ad;margin:8px 0 0" id="fn"></div>
-      <table class="sc" id="sc" style="display:none"><tr><th>Доля разницы, которую вы получите</th><th>50%</th><th>70%</th><th>100%</th></tr>
-        <tr><td>Вложения вернутся за, мес</td><td id="m50">—</td><td id="m70">—</td><td id="m100">—</td></tr>
-        <tr><td>За первый год с учётом стоимости</td><td id="y50">—</td><td id="y70">—</td><td id="y100">—</td></tr></table>
     </div>
   </div>
 
   <div class="btns">
-    <button class="btn" id="copy">Скопировать расчёт</button>
-    <a class="btn ghost" href="#" id="cons">Записаться на бизнес-консультацию</a>
+    <a class="btn primary-wide" href="#" id="cons">Записаться на бизнес-консультацию и разработать карьерный план</a>
   </div>
-
-  <p class="note">Это сценарий, а не прогноз и не гарантия: расчёт показывает, что будет, если после программы вы займёте роль с рыночным окладом и получите заданную долю разницы. Мы не знаем вашей компании, рынка и ситуации и не обещаем повышение или рост дохода. Когда навыков несколько, берём наибольший оклад среди них, а не сумму: руководитель получает одну зарплату. Оклады — медианы по вакансиям в России на январь 2026 года по данным hh.ru в пересказе <a href="https://checkroi.ru/blog/zarplata-rukovoditelya/">checkroi.ru</a>; для директора по персоналу — нижняя граница диапазона по Москве (hh.ru и get experts, <a href="https://t-j.ru/direktor-po-personalu/">t-j.ru</a>); для генерального директора — ориентиры по размеру компании, это оценка, а не медиана. Это предложения работодателей, а не фактические выплаты.</p>
 </div>
 
 <script>
 const $=id=>document.getElementById(id);
 const rub=n=>Math.round(n).toLocaleString('ru-RU')+' ₽';
-// 12 модулей MBA Foundation (из презентации школы). pay — оклад в месяц, ₽; role — роль, к которой относится навык
+// 12 модулей MBA Foundation (из презентации школы).
 const MODS=[
- {n:'Командообразование и лидерство',s:'Управление командой руководителей'},
- {n:'Трендвотчинг. Управленческая экономика',s:'Видеть рынок и считать решения'},
- {n:'Управление маркетингом. Digital-маркетинг',s:'Директор по маркетингу',pay:200000,note:'медиана оклада, hh.ru, 01.2026'},
- {n:'HR-стратегия. Корпоративная культура',s:'Директор по персоналу',pay:175000,note:'от, Москва, hh.ru и get experts'},
- {n:'Финансовые и инвестиционные стратегии',s:'Финансовый директор',pay:201100,note:'медиана оклада, hh.ru, 01.2026'},
- {n:'Практика ведения бизнеса на Ближнем Востоке (выездной модуль, Дубай)',s:'Выход на новые рынки'},
- {n:'Стратегическое управление в условиях изменений. Интернет-стратегия',s:'Генеральный директор малого и среднего бизнеса',pay:201000,note:'средний оклад, Россия'},
- {n:'Стратегия: рыночный анализ. Управление проектами',s:'Стратегия и проекты'},
- {n:'Операционная стратегия и оптимизация бизнес-процессов',s:'Операционный директор',pay:184400,note:'медиана оклада, hh.ru, 01.2026'},
- {n:'Технологии регулярного менеджмента. Управление изменениями',s:'Регулярный менеджмент'},
- {n:'Инновации и цифровая трансформация. Управление продажами',s:'Директор по цифровым технологиям (CIO, CTO) или коммерческий директор',pay:217000,note:'медиана: коммерческий директор 217 000, CIO/CTO 226 000, hh.ru, 01.2026'},
- {n:'Навыки презентации и публичного выступления. Финальная бизнес-игра',s:'Защита решений перед собственником'}
+ {n:'Командообразование и лидерство',task:'Собрать сильную управленческую команду, делегировать и не терять сильных людей',roles:'CEO / гендир, COO, HRD, руководитель функции',founder:'команда принимает решения без вашего постоянного участия, а вы освобождаете время для стратегии'},
+ {n:'Трендвотчинг. Управленческая экономика',task:'Оценить рынок, найти точку роста и посчитать экономику решения',roles:'CEO / гендир, директор по стратегии, CFO, CMO',founder:'можно выбрать направление роста и проверить его экономику до крупных вложений'},
+ {n:'Управление маркетингом. Digital-маркетинг',task:'Построить спрос, управлять CAC, LTV, брендом и каналами привлечения',roles:'CMO, коммерческий директор, CEO',founder:'можно прогнозировать стоимость привлечения клиента и увеличивать продажи без слепых трат на рекламу',role:'директор по маркетингу',pay:200000},
+ {n:'HR-стратегия. Корпоративная культура',task:'Собрать оргструктуру, нанимать, мотивировать и удерживать людей',roles:'HRD, CEO / гендир, COO, руководитель бизнес-юнита',founder:'вы нанимаете по понятным критериям, а сотрудники не ждут постоянных указаний — понимают свою ответственность и проявляют инициативу',role:'директор по персоналу',pay:175000},
+ {n:'Финансовые и инвестиционные стратегии',task:'Управлять P&L, денежным потоком, бюджетом и инвестициями',roles:'CFO, CEO / гендир, COO, директор бизнес-юнита',founder:'руководитель заранее видит риск кассового разрыва и сравнивает решения по влиянию на прибыль',role:'финансовый директор',pay:201100},
+ {n:'Практика ведения бизнеса на Ближнем Востоке (Дубай)',task:'Проверить новый рынок, найти партнёров и адаптировать модель под другую страну',roles:'CEO, директор по развитию, экспорту и международному бизнесу',founder:'можно решить, стоит ли выходить на новый рынок и как это сделать до крупных вложений'},
+ {n:'Стратегическое управление в условиях изменений',task:'Выбрать курс компании в неопределённости и пересобрать стратегию при изменении рынка',roles:'CEO / гендир, COO, директор по стратегии, CDO',founder:'команда концентрируется на главных целях, а компания быстрее реагирует на изменения рынка',role:'генеральный директор',pay:201000},
+ {n:'Стратегия: рыночный анализ. Управление проектами',task:'Превратить стратегию в портфель проектов с приоритетами, сроками и ответственными',roles:'CEO, COO, директор PMO, директор по стратегии',founder:'деньги и люди идут на приоритетные проекты, а важные инициативы доходят до результата'},
+ {n:'Операционная стратегия и оптимизация бизнес-процессов',task:'Снизить затраты, ускорить процессы и повысить производительность',roles:'COO, CEO, директор по производству или логистике',founder:'компания справляется с ростом заказов без пропорционального роста затрат и штата',role:'операционный директор',pay:184400},
+ {n:'Технологии регулярного менеджмента. Управление изменениями',task:'Настроить ритм управления, KPI и внедрить изменения без хаоса',roles:'COO, CEO, руководитель любой крупной функции',founder:'руководитель раньше замечает проблемы, а принятые решения выполняются в срок'},
+ {n:'Инновации и цифровая трансформация. Управление продажами',task:'Оцифровать процессы, внедрить технологии и построить управляемую систему продаж',roles:'CDO, CIO / CTO, коммерческий директор, CEO',founder:'продажи становятся прогнозируемыми, а рост меньше зависит от ручной работы и отдельных сотрудников',role:'коммерческий директор',pay:217000},
+ {n:'Навыки презентации и публичного выступления. Финальная бизнес-игра',task:'Защитить стратегию, бюджет и решение перед собственником, советом директоров или инвестором',roles:'любой C-level, CEO / гендир, директор бизнес-юнита',founder:'проще получить согласование, бюджет, инвестиции или договориться с клиентом на нужных условиях'}
+];
+const TASKS=[
+ {n:'Перейти от ручного управления к роли CEO',result:'Команда решает без вашего постоянного участия, а вы занимаетесь стратегией.',mods:[0,6,9,11]},
+ {n:'Найти точки роста бизнеса и увеличить выручку',result:'Вы умеете считать экономику привлечения клиентов и принимаете решения по цифрам, а не по интуиции.',mods:[1,2,10]},
+ {n:'Сделать управление финансами прозрачным',result:'Вы понимаете, сколько бизнес зарабатывает, куда уходят деньги и какие процессы съедают прибыль. Можете заранее увидеть кассовый разрыв и спланировать рост.',mods:[4,8,9]},
+ {n:'Собрать самостоятельную команду',result:'Сотрудники понимают свою ответственность, проявляют инициативу и выполняют решения, а вы занимаетесь стратегией.',mods:[0,3,9]},
+ {n:'Запустить или масштабировать бизнес',result:'Вы проверяете рынок до вложений и защищаете план перед партнёром или инвестором.',mods:[1,5,7,11]}
 ];
 // вилки для генерального директора по размеру компании (ориентир, нижняя граница в расчёт)
 const SIZES=[
@@ -152,55 +178,47 @@ const SIZES=[
  {n:'от 50 до 500 человек',lo:500000,hi:1200000},
  {n:'более 500 человек',lo:1500000,hi:3000000}
 ];
-const sel=new Set([2,4]);
-$('mods').innerHTML=MODS.map((m,i)=>`<label class="mod" data-i="${i}"><input type="checkbox" data-i="${i}"><div><div class="n">${m.n}</div><div class="s">${m.s}</div></div>${m.pay?`<div class="p">от ${rub(m.pay)}<small>${m.note}</small></div>`:`<div class="p no">отдельной ставки нет, входит в роль первого лица</div>`}</label>`).join('');
+$('tasks').innerHTML=TASKS.map((t,i)=>`<details class="task-card"><summary><span class="task-num">0${i+1}</span><span class="n">${t.n}</span><span class="quick">${t.result}</span><span class="count">${t.mods.length} ${t.mods.length===3?'модуля':'модуля'}</span></summary><div class="module-panel"><div class="module-caption">На этих модулях MBA «Синергии» вы разберётесь, как решать эти задачи</div><div class="module-list">${t.mods.map(m=>`<span class="module-tag">${MODS[m].n}</span>`).join('')}</div></div></details>`).join('');
 $('size').innerHTML=SIZES.map((s,i)=>`<option value="${i}">${s.n}: ${rub(s.lo)} – ${rub(s.hi)} в месяц</option>`).join('');
-$('mods').addEventListener('change',e=>{const i=+e.target.dataset.i;e.target.checked?sel.add(i):sel.delete(i);calc()});
-$('all').onclick=()=>{MODS.forEach((_,i)=>sel.add(i));calc()};
-$('none').onclick=()=>{sel.clear();calc()};
-let text='';
+let scenario='promotion';
+let price=2000000;
 const months=(cost,gap)=>gap>0?cost/gap:null;
 function calc(){
-  document.querySelectorAll('.mod').forEach(l=>{const i=+l.dataset.i;const on=sel.has(i);l.classList.toggle('on',on);l.querySelector('input').checked=on});
-  const inc=+$('inc').value||0, price=+$('price').value||0, sh=+$('sh').value/100;
-  $('shv').textContent=Math.round(sh*100)+'%';
-  const n=sel.size, cost=price/12*n;
-  const all=n===MODS.length;
-  $('ceoBox').style.display=all?'block':'none';
-  const rated=[...sel].map(i=>MODS[i]).filter(m=>m.pay);
-  let mkt=0,who='';
-  if(all){const z=SIZES[+$('size').value];mkt=z.lo;who=`Генеральный директор, компания ${z.n}: ${rub(z.lo)} – ${rub(z.hi)}. Взяли нижнюю границу`}
-  else if(rated.length){const b=rated.reduce((a,m)=>m.pay>a.pay?m:a);mkt=b.pay;who=`Лучшая ставка среди выбранных: ${b.s}`}
-  $('v1').textContent=n+' из '+MODS.length;
-  $('s1').textContent=n?[...sel].map(i=>MODS[i].n.split('.')[0]).slice(0,3).join(', ')+(n>3?' и ещё '+(n-3):''):'Отметьте модули выше';
-  $('v2').textContent=rub(cost);
-  $('v4').textContent=rub(inc)+' в мес';$('s4').textContent=rub(inc*12)+' в год';
-  const fv=$('fv'),sc=$('sc');
-  if(!n||!mkt){
-    $('v3').textContent='—';$('s3').textContent=n?'У выбранных модулей нет отдельной ставки на рынке. Добавьте модуль с навыком из списка или выберите все.':'';
-    $('fl').textContent='Что получается';fv.textContent='Выберите модули';fv.className='big';sc.style.display='none';
-    $('fn').textContent='Для расчёта нужен хотя бы один модуль с рыночной ставкой.';text='';return;
+  const inc=+$('inc').value||0;
+  const z=SIZES[+$('size').value];
+  const target=scenario==='promotion'?inc*1.2:z.lo;
+  const gap=target-inc;
+  $('ceoBox').style.display=scenario==='next'?'block':'none';
+  $('targetView').textContent=rub(target)+' в месяц';
+  $('v5').textContent=rub(price);
+  $('v4').textContent=rub(inc)+' в месяц';
+  $('v6').textContent=rub(target)+' в месяц';
+  $('v7').textContent=gap>0?'+'+rub(gap):rub(gap);
+  $('incomeLabel').textContent=scenario==='promotion'?'Доход после повышения':'Доход на следующей должности';
+  const fv=$('fv');
+  if(gap<=0){
+    $('fl').textContent='Что получается';
+    fv.textContent='Рыночный ориентир не выше текущего дохода';
+    fv.className='big neg';
+    return;
   }
-  $('v3').textContent=rub(mkt)+' в мес';$('s3').textContent=who;
-  const diff=mkt-inc;
-  if(diff<=0){
-    $('fl').textContent='Что получается';fv.textContent='Оклад роли не выше вашего';fv.className='big neg';sc.style.display='none';
-    $('fn').textContent='На этой роли рыночный оклад не больше вашего текущего. Выберите навыки роли выше или посмотрите другие эффекты обучения: смена компании, новое направление, круг знакомств.';
-    text=`Рыночная ставка ${rub(mkt)} не выше моего дохода ${rub(inc)} — прироста нет.`;return;
-  }
-  const gap=diff*sh, m=months(cost,gap), y=gap*12-cost;
+  const m=months(price,gap);
   $('fl').textContent='Вложения вернутся за';
   fv.textContent=m.toLocaleString('ru-RU',{maximumFractionDigits:1})+' мес';fv.className='big '+(m<=12?'pos':'');
-  $('fn').textContent=`Прибавка ${rub(gap)} в месяц (${Math.round(sh*100)}% разницы ${rub(diff)}) против стоимости модулей ${rub(cost)}. За первый год: ${y>=0?'+':'−'}${rub(Math.abs(y))}.`;
-  sc.style.display='table';
-  [50,70,100].forEach(p=>{const g=diff*p/100,mm=months(cost,g),yy=g*12-cost;
-    $('m'+p).textContent=mm.toLocaleString('ru-RU',{maximumFractionDigits:1});
-    $('y'+p).innerHTML=`<span class="${yy>=0?'pos':'neg'}">${yy>=0?'+':'−'}${rub(Math.abs(yy))}</span>`});
-  text=`Расчёт по модулям MBA Foundation\nМодулей: ${n} из ${MODS.length}, стоимость ${rub(cost)}.\n${who}.\nМой доход сейчас: ${rub(inc)} в месяц.\nПри доле разницы ${Math.round(sh*100)}%: прибавка ${rub(gap)} в месяц, вложения вернутся за ${m.toLocaleString('ru-RU',{maximumFractionDigits:1})} мес.\nЭто сценарий при условии выхода на оклад роли, не прогноз и не гарантия.`;
 }
-['inc','price','sh','size'].forEach(i=>$(i).addEventListener('input',calc));
-$('copy').onclick=function(){if(!text)return;navigator.clipboard.writeText(text).then(()=>{this.textContent='Скопировано';setTimeout(()=>this.textContent='Скопировать расчёт',1800)})};
-$('cons').addEventListener('click',e=>{e.preventDefault();alert('Здесь ссылка на запись на бизнес-консультацию — подставим при запуске.')});
+$('inc').addEventListener('input',calc);
+$('size').addEventListener('input',calc);
+document.querySelectorAll('[data-scenario]').forEach(btn=>btn.addEventListener('click',()=>{
+  scenario=btn.dataset.scenario;
+  document.querySelectorAll('[data-scenario]').forEach(b=>b.classList.toggle('active',b===btn));
+  calc();
+}));
+document.querySelectorAll('[data-price]').forEach(btn=>btn.addEventListener('click',()=>{
+  price=+btn.dataset.price;
+  document.querySelectorAll('[data-price]').forEach(b=>b.classList.toggle('active',b===btn));
+  calc();
+}));
+$('cons').addEventListener('click',e=>{e.preventDefault();alert('Здесь будет ссылка на запись на бизнес-консультацию и разработку карьерного плана — подставим перед запуском.')});
 calc();
 </script>
 </body>
