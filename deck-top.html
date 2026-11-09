@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MBA Foundation для топ-менеджера</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#FF003D;--tx:#f2f2f2;--tx2:#b9b9b9;--tx3:#7a7a7a;--card:#1C1C1C;--line:#2c2c2c;
+  --serif:'Playfair Display','Times New Roman',Georgia,serif;
+  --sans:'Manrope','Inter',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;line-height:1.5}
+
+/* ── панель сборки (не печатается) ── */
+.layout{display:grid;grid-template-columns:380px minmax(0,1fr);align-items:start}
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:#161616;border-right:1px solid var(--line);z-index:99}
+.panel{position:sticky;top:0;background:#161616;border-bottom:1px solid var(--line);z-index:2}
+.panel-in{padding:14px 16px;display:flex;flex-direction:column;align-items:stretch;gap:9px}
+.panel .ttl{font-family:var(--serif);font-size:13px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--tx2);white-space:nowrap}
+.who{display:flex;gap:7px}
+.who input{background:#0d0d0d;border:1px solid var(--line);border-radius:6px;padding:7px 11px;
+  color:#fff;font-family:var(--sans);font-size:13px;width:100%;min-width:0;outline:none}
+.who input:focus{border-color:var(--red)}
+.acts{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.acts .pri{flex:1}
+.btn{background:transparent;border:1px solid var(--line);color:var(--tx2);border-radius:999px;
+  padding:7px 15px;font-size:12.5px;cursor:pointer;font-family:var(--sans);transition:.14s;white-space:nowrap}
+.btn:hover{border-color:var(--red);color:#fff}
+.btn.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.cnt{color:var(--tx3);font-size:12.5px;white-space:nowrap}
+.cnt b{color:#fff}
+.drawer{padding:0 16px 20px}
+.picks{padding-top:2px}
+.pick-group{margin-top:11px}
+.pick-group h4{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin:0 0 5px}
+.pick-grid{display:grid;grid-template-columns:1fr;gap:6px}
+.pick{display:flex;gap:8px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+  border-radius:6px;padding:9px 11px;cursor:pointer;font-size:13px;color:var(--tx2);transition:.14s}
+.pick:hover{border-color:#444}
+.pick.on{border-color:var(--red);color:#fff;background:#1f1517}
+.pick input{accent-color:var(--red);margin-top:2px;flex:none}
+.pick small{display:block;color:#ffb020;font-size:10.5px;margin-top:2px;line-height:1.25}
+.pick-task{display:block;font-size:13.5px;line-height:1.38;color:inherit;text-wrap:pretty}
+
+/* ── слайды ── */
+.deck{margin:0 auto;padding:16px 20px 50px;min-width:0;width:100%}
+.slide{container-type:inline-size;position:relative;width:1280px;height:720px;flex:none;zoom:var(--z,1);background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%);
+  border:1px solid #242424;border-radius:10px;padding:5.2% 6%;margin-bottom:18px;overflow:hidden;
+  display:flex;flex-direction:column}
+.slide.source-slide{padding:0;background:#000}
+.source-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.slide .mark{position:absolute;top:4.4%;right:5%;width:30px;height:30px;border:2px solid var(--red);
+  display:flex;align-items:center;justify-content:center}
+.slide .mark::before{content:'❮';color:#fff;font-size:12px}
+.slide .ft{position:absolute;bottom:4%;left:6%;right:6%;display:flex;justify-content:space-between;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4a4a4a}
+.kick{color:var(--red);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+.slide h1{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.04;
+  font-size:calc(4.867cqw*var(--k,1))}
+.slide h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.08;
+  font-size:calc(3.38cqw*var(--k,1));margin-bottom:18px}
+.slide h3{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);
+  font-weight:600;margin-bottom:9px}
+.quote{font-family:var(--serif);font-size:calc(2.704cqw*var(--k,1));line-height:1.34;color:#fff;font-weight:500}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:3.4%;flex:1;min-height:0}
+.tcols{grid-template-columns:.82fr 1.18fr;gap:2.6%}
+.tcols .box{padding:1.7% 2.4%}
+.tcols .box.stack .st{padding:1.4% 0}
+.tcols li{margin-bottom:4px}
+.who2{display:grid;grid-template-columns:1fr 1fr;gap:0 4%}
+.tcols h3{margin-bottom:6px}
+.box{background:rgba(255,255,255,.035);border-left:2px solid var(--red);border-radius:5px;padding:3.4% 3.8%}
+.box.dim{border-left-color:#4a4a4a}
+.box p,.box li{font-size:calc(1.447cqw*var(--k,1));color:var(--tx2);line-height:1.5}
+.box b{color:#fff;font-weight:600}
+ul{list-style:none}
+li{position:relative;padding-left:15px;margin-bottom:7px}
+li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--red)}
+.box.dim li::before{background:#555}
+.fig{font-family:var(--serif);color:var(--red);font-size:1.22em}
+.who-t{color:#fff;font-weight:600}
+.reg{display:block;color:var(--tx3);font-size:.86em}
+.modn{display:inline-block;font-family:var(--serif);font-size:.82em;letter-spacing:.06em;color:#fff;
+  background:var(--red);border-radius:3px;padding:1px 7px;margin-right:7px}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:1.6% 3.4%;flex:1;align-content:space-between;padding-bottom:2%}
+.mods div{font-size:calc(1.45cqw*var(--k,1));color:var(--tx2);padding:1.5% 0;border-bottom:1px solid #1e1e1e}
+.mods .no{font-family:var(--serif);color:var(--red);margin-right:9px}
+.mods div.hit{color:#fff;background:rgba(255,0,61,.08);border-left:2px solid var(--red);padding-left:8px}
+.teach{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4% 3%;flex:1;align-content:start}
+.teach div{font-size:calc(1.244cqw*var(--k,1));color:var(--tx3);line-height:1.38}
+.teach b{display:block;color:#fff;font-weight:600;font-size:1.1em;margin-bottom:3px;
+  font-family:var(--serif);text-transform:uppercase;letter-spacing:.02em}
+.empty{color:var(--tx3);text-align:center;padding:70px 20px;font-size:15px}
+
+/* обложка — как первый и последний слайд в презентации школы */
+.slide.cover{padding:0;background:#000 url(design-img/fmba-cover.jpg) center/cover no-repeat}
+.cover .for{position:absolute;left:4.4%;top:8%;max-width:50%;font-family:var(--serif);
+  font-size:calc(2.163cqw*var(--k,1));color:#fff;line-height:1.3}
+.cover .for small{display:block;font-family:var(--sans);font-size:.5em;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px}
+/* стоимость и рассрочка */
+.price{font-family:var(--sans);font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em;
+  font-size:calc(7.301cqw*var(--k,1));margin:auto 0}
+.price-note{font-size:calc(1.149cqw*var(--k,1));letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-weight:600}
+.incl{counter-reset:i}
+.incl li{counter-increment:i;padding-left:34px;padding-bottom:2.2%;margin-bottom:2.2%;border-bottom:1px solid #262626}
+.incl li::before{content:counter(i);background:none;border:1px solid #444;border-radius:999px;width:22px;height:17px;
+  top:1px;font-family:var(--serif);font-size:11px;color:#fff;display:flex;align-items:center;justify-content:center}
+.duo{margin-top:3%;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.duo .fig{font-size:calc(2.974cqw*var(--k,1))}
+.todo{color:#ffb020;font-style:normal}
+.week{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:3% 0 2.4%}
+.week span{text-align:center;padding:7px 0;border-radius:4px;font-size:calc(1.217cqw*var(--k,1));font-weight:600;letter-spacing:.08em}
+.week .w{background:var(--red);color:#fff}
+.week .o{background:#2a2a2a;color:var(--tx2)}
+.wk-note{font-size:calc(1.284cqw*var(--k,1));color:var(--tx2);line-height:1.45}
+.wk-note b{color:#fff;font-weight:600}
+.trj{width:100%;border-collapse:collapse;font-size:calc(1.1cqw*var(--k,1))}
+.trj td{padding:2.2% 2% 2.2% 0;border-bottom:1px solid #262626;vertical-align:top;color:var(--tx2)}
+.trjcols{grid-template-columns:1.9fr .75fr}
+.trjcols .stack .st p{font-size:calc(1.1cqw*var(--k,1))}
+.trjcols .stack .lbl{font-size:calc(1.3cqw*var(--k,1))}
+.trj td:first-child{color:#fff;width:32%}
+.trj td:nth-child(2){white-space:nowrap}
+.trj.compact{font-size:calc(1.1cqw*var(--k,1))}
+.trj.compact td{padding:1.7% 1.5% 1.7% 0}
+/* пункты в столбик на всю высоту колонки */
+.stack{display:flex;flex-direction:column}
+.stack .st{flex:1;display:flex;flex-direction:column;justify-content:center;border-top:1px solid #2a2a2a;padding:3% 0}
+.stack h3+.st{border-top:none}
+.stack .lbl{font-family:var(--serif);color:var(--red);font-size:calc(1.96cqw*var(--k,1));line-height:1.15;margin-bottom:1.5%}
+.stack .st p{font-size:calc(1.622cqw*var(--k,1));color:#e6e6e6;line-height:1.42}
+.fmts{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6%;flex:1;min-height:0}
+.fmts .box{display:flex;flex-direction:column}
+.fmts .price{font-size:calc(4.056cqw*var(--k,1));margin:auto 0 0}
+/* преподаватели с фото */
+.tph{display:grid;grid-template-columns:repeat(6,1fr);gap:2% 1.6%;flex:1;min-height:0;align-content:start}
+.tph div{background:rgba(255,255,255,.03);border:1px solid #262626;border-radius:6px;padding:5%;
+  font-size:calc(1.001cqw*var(--k,1));color:var(--tx3);line-height:1.32}
+.tph img{width:100%;aspect-ratio:1.7;object-position:50% 20%;object-fit:cover;max-height:none;border-radius:4px;display:block;margin-bottom:6%;background:#5a5a5a}
+.tph b{display:block;color:#fff;font-family:var(--serif);font-weight:500;text-transform:uppercase;
+  font-size:calc(1.162cqw*var(--k,1));line-height:1.15;margin-bottom:3%}
+.tph div span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.also{margin-top:1.6%;margin-bottom:2.4%;font-size:calc(1.109cqw*var(--k,1));color:var(--tx3)}
+.also b{color:var(--tx2);font-weight:500}
+/* цифры */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:3%}
+.stat{background:rgba(255,255,255,.035);border-radius:6px;padding:7% 8%}
+.stat .num{white-space:nowrap;font-family:var(--serif);font-size:calc(4.867cqw*var(--k,1));line-height:1;color:#fff}
+.stat .num.red{color:var(--red)}
+.stat p{font-size:calc(1.284cqw*var(--k,1));color:var(--tx2);margin-top:6%;line-height:1.35}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:1fr 1fr;gap:3.4% 2.6%;flex:1;min-height:0}
+.res .stat{border-left:2px solid var(--red);display:flex;flex-direction:column}
+.res .stat .num{white-space:normal;overflow-wrap:anywhere;color:var(--red);font-size:calc(3.921cqw*var(--k,1))}
+.res .stat small{margin-top:auto;padding-top:4%;font-size:calc(1.082cqw*var(--k,1));color:var(--tx3)}
+.res .stat small b{color:#fff;font-weight:600}
+/* кейс */
+.case{display:grid;grid-template-columns:1.25fr 1fr;gap:3.4%;flex:1;min-height:0}
+.case .big{font-family:var(--serif);color:var(--red);font-size:calc(6.49cqw*var(--k,1));line-height:1}
+.case .bigt{font-size:calc(1.555cqw*var(--k,1));color:#fff;margin-top:3%;max-width:90%}
+.case .ph{width:34%;aspect-ratio:.8;object-fit:cover;border-radius:6px;float:right;margin:0 0 4% 5%}
+.case .qt{font-family:var(--serif);font-size:calc(1.758cqw*var(--k,1));color:#fff;line-height:1.35;margin-top:auto}
+.case-res{font-family:var(--serif);font-size:calc(2.704cqw*var(--k,1));line-height:1.15;color:var(--red);margin:0 0 3%}
+.case-src{display:block;color:var(--tx3);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:2%}
+
+/* минимальные размеры мелкого текста (холст слайда 1280×720) */
+.slide .case-src,.slide .also,.slide .res .stat small{font-size:13px}
+.slide .tph div{font-size:11.5px}
+.slide .tph b{font-size:13px}
+.slide .modn{font-size:.9em}
+.slide .reg{font-size:.92em}
+
+.fmts .box li,.fmts .box p:not(.price-note){font-size:calc(1.7cqw*var(--k,1));line-height:1.45}
+.fmts .box h3{font-size:12.5px}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  body{background:#fff}
+  .side,.panel,.noprint{display:none!important}
+  .layout{display:block}
+  .deck{max-width:none;padding:0;margin:0}
+  .slide{border:none;border-radius:0;margin:0;page-break-after:always;break-after:page;
+    width:1280px;height:720px;zoom:1;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media(max-width:900px){.layout{display:block}.side{position:static;height:auto;max-height:50vh}}
+/* крупный шрифт: смотрят с ноутбука, часть читателей 50+ */
+.layout.nosb{grid-template-columns:1fr}
+.layout.nosb .side{display:none}
+.ov{display:grid;grid-template-columns:1fr 1fr;gap:0 4%;align-content:stretch}
+.ov .st{padding:2% 0}
+.slide .kick{font-size:15px;margin-bottom:12px}
+.slide h2{font-size:calc(3cqw*var(--k,1));line-height:1.1}
+.slide h3{font-size:15px;margin-bottom:12px}
+.slide .ft{font-size:13px}
+.slide .box p,.slide .box li{font-size:calc(1.72cqw*var(--k,1));line-height:1.4}
+.slide .stack .lbl{font-size:calc(2cqw*var(--k,1))}
+.slide .stack .st p{font-size:calc(1.72cqw*var(--k,1))}
+.slide .stat p{font-size:calc(1.5cqw*var(--k,1))}
+.slide .res .stat small{font-size:15px}
+.slide .mods div{font-size:calc(1.6cqw*var(--k,1))}
+.slide .tph div{font-size:15px;line-height:1.3}
+.slide .tph b{font-size:16px}
+.slide .tph div span{-webkit-line-clamp:3}
+.slide .also{font-size:15px}
+.slide .wk-note{font-size:calc(1.55cqw*var(--k,1))}
+.slide .price-note{font-size:15px}
+.slide .incl li{font-size:calc(1.65cqw*var(--k,1))}
+.jobhead{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:.8%}
+.jobrows{display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+.jr{display:grid;grid-template-columns:10% 1fr;align-items:center;flex:1 1 auto;border-top:1px solid #2a2a2a;padding:.9% 0}
+.jn{font-family:var(--serif);font-size:calc(4cqw*var(--k,1));color:var(--red);line-height:1}
+.jn small{display:block;font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);margin-bottom:3px}
+.js{font-size:calc(2.2cqw*var(--k,1));color:#fff;line-height:1.22;margin:0}
+.jm{font-size:calc(1.45cqw*var(--k,1));color:var(--tx2);line-height:1.3;margin:.5% 0 0}
+.jobout{flex:none;margin-top:1.4%;padding:1.2% 2%;background:rgba(255,255,255,.035);border-left:2px solid var(--red);border-radius:5px;font-size:calc(1.7cqw*var(--k,1));color:#fff;line-height:1.35}
+.jobout b{color:var(--red)}
+.jobme2{flex:none;margin-top:1.2%;padding:1% 2%;background:rgba(255,255,255,.04);border-left:2px solid #555;border-radius:5px;font-size:calc(1.55cqw*var(--k,1));color:var(--tx2);line-height:1.35}
+.jobme2 b{color:#fff}
+.cs{display:grid;grid-template-columns:.8fr 1.2fr;gap:2.6%;flex:1;min-height:0}
+.cs .box{display:flex;flex-direction:column;min-height:0}
+.cs .cbig{font-family:var(--serif);color:var(--red);font-size:calc(4.2cqw*var(--k,1));line-height:1.05;margin-bottom:1%}
+.cs .cbigt{font-size:calc(1.75cqw*var(--k,1));color:#fff;margin:0 0 4%;line-height:1.35}
+.cs ul li{font-size:calc(1.6cqw*var(--k,1));color:var(--tx2);line-height:1.38;margin-bottom:8px}
+.cs .jr{grid-template-columns:13% 1fr}
+.cs .jn{font-size:calc(3.2cqw*var(--k,1))}
+.cs .js{font-size:calc(1.9cqw*var(--k,1))}
+.cs .jm{font-size:calc(1.3cqw*var(--k,1))}
+.casetodo{flex:none;margin-top:1.4%;font-size:calc(1.4cqw*var(--k,1));color:var(--tx2)}
+
+.jsub{font-size:calc(1.55cqw*var(--k,1));color:var(--tx2);line-height:1.35;margin:0 0 1%}
+.jsub b{color:#fff;font-weight:600}
+
+.jsub{font-size:calc(1.7cqw*var(--k,1));color:var(--tx2);line-height:1.35;margin:0 0 1.2%}
+.jobout{padding:1% 2%}
+.jobout p{margin:0 0 .5%;font-size:calc(1.55cqw*var(--k,1));color:#fff;line-height:1.35}
+.jobout p:last-child{margin-bottom:0}
+.jobout b{color:var(--red)}
+
+.jobout b{color:#ff8aa3}
+.jr{padding:.55% 0}
+.jn{font-size:calc(3.6cqw*var(--k,1))}
+.js{font-size:calc(2.1cqw*var(--k,1))}
+.jm{font-size:calc(1.5cqw*var(--k,1))}
+.jobhead{margin-bottom:.4%}
+
+.ovg{display:grid;gap:2.2%;flex:1;min-height:0;grid-auto-rows:1fr}
+.ovc{background:rgba(255,255,255,.035);border-left:2px solid var(--red);border-radius:5px;padding:3% 3.2%;display:flex;flex-direction:column;min-height:0}
+.ovn{color:#7a7a7a;margin-right:.4em}
+.ovt{font-family:var(--serif);color:var(--red);font-size:calc(2.35cqw*var(--k,1));line-height:1.15;margin-bottom:4%}
+.ovp{font-size:calc(1.8cqw*var(--k,1));color:#fff;line-height:1.38;margin:0}
+.ovm{margin-top:auto;padding-top:4%;font-size:calc(1.5cqw*var(--k,1));color:var(--tx2);margin-bottom:0}
+.fmts.big .box p,.fmts.big .box li{font-size:calc(2.1cqw*var(--k,1));line-height:1.4}
+.fmts.big .box li{margin-bottom:14px}
+
+.ovg.sm .ovt{font-size:calc(1.9cqw*var(--k,1));margin-bottom:3%}
+.ovg.sm .ovp{font-size:calc(1.5cqw*var(--k,1))}
+.ovg.sm .ovm{font-size:calc(1.3cqw*var(--k,1));padding-top:2%}
+.ovg.sm .ovc{padding:2.4% 2.8%}
+.ovs{font-size:calc(1.7cqw*var(--k,1));color:var(--tx2);line-height:1.4;margin:0 0 4%}
+.jobout b{color:#fff;font-weight:600}
+.fmts.inst{align-items:start;flex:none}
+
+.fmts.inst{margin:auto 0;align-self:stretch}
+.fmts.inst .box p{font-size:calc(2.3cqw*var(--k,1))}
+.fmts.mid .box p,.fmts.mid .box li{font-size:calc(2cqw*var(--k,1));line-height:1.4}
+.fmts.mid .box li{margin-bottom:12px}
+
+.fmts.mid .box p,.fmts.mid .box li{font-size:calc(2.1cqw*var(--k,1))}
+.fmts.mid .box li{margin-bottom:14px}
+.fmts.inst{margin:0;align-self:stretch;align-items:stretch;flex:none;height:62%}
+.fmts.inst .box p{font-size:calc(2.5cqw*var(--k,1))}
+
+/* ── полировка по скиллу 4-make-interfaces-feel-better (чистый CSS, без анимации появления) ── */
+/* #10 сглаживание шрифта */
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+/* #11 табличные цифры там, где цены и номера модулей стоят в столбик */
+.price,.stat .num,.jn,.ovn,.cnt,.rub,.fmts li,.modn,.who-t{font-variant-numeric:tabular-nums}
+/* #12/#13 заголовки ровными строками, текст без «сирот» */
+.slide h1,.slide h2,.ovt,.js,.cbig,.stack .lbl,.case-res{text-wrap:balance}
+.slide p,.slide li,.jm,.ovp,.ovs,.jsub{text-wrap:pretty}
+/* #16 вместо transition:all — только дешёвые свойства */
+.btn{transition:background-color .15s,border-color .15s,color .15s,transform .15s cubic-bezier(.2,0,0,1)}
+.pick{transition:background-color .15s,box-shadow .15s,color .15s,transform .15s cubic-bezier(.2,0,0,1)}
+/* #14 сжатие при нажатии: 0.96, у широкой кнопки 0.98 */
+.btn:active{transform:scale(.96)}
+.btn.pri:active,.pick:active{transform:scale(.98)}
+/* hit area ≥ 40px */
+.btn{min-height:40px;display:inline-flex;align-items:center}
+.who input{min-height:40px}
+.pick{min-height:48px}
+.pick input{width:20px;height:20px;margin-top:0}
+/* #3/#4 граница тенью вместо border на тёмном фоне */
+.who input,.btn:not(.pri),.pick{border:0;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.who input:focus{box-shadow:0 0 0 1px var(--red),0 0 0 4px rgba(255,0,61,.18)}
+.btn:not(.pri):hover{box-shadow:0 0 0 1px var(--red)}
+.btn.pri{border:0}
+.pick:hover{box-shadow:0 0 0 1px rgba(255,255,255,.22)}
+.pick.on{box-shadow:0 0 0 1px var(--red)}
+.slide{border:0;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.tph div{border:0;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+/* #5 тонкий контур поверх фото и картинок школы */
+.tph img,.case .ph,.source-slide img{outline:1px solid rgba(255,255,255,.1);outline-offset:-1px}
+/* #1 концентрические радиусы: внешний = внутренний + отступ */
+.tph div{border-radius:12px}
+.tph img{border-radius:6px}
+@media print{.slide{box-shadow:none}.tph div{box-shadow:none;border:1px solid #262626}}
+
+/* одна задача — один слайд: воздух, крупно, мало слов */
+.slide#job-o1 h2,.slide[id^=job-] h2{margin:0 0 1.4%;font-size:calc(3.1cqw*var(--k,1))}
+.tl{font-size:calc(1.9cqw*var(--k,1));color:var(--tx2);margin:0 0 2.6%;line-height:1.35;max-width:88%}
+.tk{display:grid;grid-template-columns:1.5fr 1fr;gap:4.5%;flex:1;min-height:0}
+.tsteps{display:flex;flex-direction:column;min-height:0}
+.tsh{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:1%}
+.tr{display:grid;grid-template-columns:11% 1fr;align-items:center;flex:1;border-top:1px solid #2a2a2a}
+.tn{font-family:var(--serif);font-size:calc(4.2cqw*var(--k,1));color:var(--red);line-height:1}
+.tp{font-size:calc(2.15cqw*var(--k,1));color:#fff;line-height:1.25;margin:0}
+.tm{font-size:calc(1.35cqw*var(--k,1));color:var(--tx3);margin:.6% 0 0;line-height:1.3}
+.tc{background:rgba(255,255,255,.04);border-left:2px solid var(--red);border-radius:5px;padding:5% 5.5%;display:flex;flex-direction:column;min-height:0}
+.tcl{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:8%}
+.tcf{font-family:var(--serif);color:var(--red);font-size:calc(4.4cqw*var(--k,1));line-height:1.05;margin-bottom:4%;text-wrap:balance}
+.tcp{font-size:calc(1.9cqw*var(--k,1));color:#fff;line-height:1.35;margin:0}
+.tcn{margin-top:auto;padding-top:6%;font-size:calc(1.35cqw*var(--k,1));color:var(--tx2);line-height:1.35}
+.tcn b{display:block;color:#fff;font-family:var(--serif);font-weight:500;font-size:calc(1.9cqw*var(--k,1));margin-bottom:2%;text-transform:uppercase}
+
+.tk{grid-template-columns:1.7fr 1fr;gap:5%}
+.tr{padding:.5% 0}
+.tp{font-size:calc(2.05cqw*var(--k,1))}
+.tc{padding:6% 6%}
+.tl{margin-bottom:3%}
+
+/* продающий сценарий: сначала задача клиента, затем способ и результат */
+.why-slide h2{max-width:88%;margin-bottom:2.6%}
+.why-lead{max-width:84%;font-size:calc(2.15cqw*var(--k,1));line-height:1.42;color:var(--tx2);margin:0 0 5%}
+.why-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:5%;margin-top:auto;margin-bottom:auto}
+.why-step{border-top:2px solid var(--red);padding-top:8%}
+.why-step b{display:block;font-family:var(--serif);font-size:calc(2.55cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.18;margin-bottom:5%}
+.why-step p{font-size:calc(1.55cqw*var(--k,1));color:var(--tx2);line-height:1.4}
+.why-num{display:block;color:var(--red);font-size:13px;letter-spacing:.16em;margin-bottom:8%}
+.sell-task h2{max-width:90%;margin-bottom:4%}
+.sell-grid{display:grid;grid-template-columns:1fr 1fr;gap:7%;flex:1;min-height:0}
+.sell-part{border-top:1px solid #333;padding-top:4%}
+.sell-label{display:block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:5%}
+.sell-part p{font-size:calc(2.25cqw*var(--k,1));line-height:1.38;color:#fff;text-wrap:pretty}
+.sell-part.method p{color:var(--tx2)}
+.sell-result{flex:none;border-top:2px solid var(--red);padding-top:2.2%;display:grid;grid-template-columns:190px 1fr;gap:24px;align-items:start}
+.sell-result b{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600}
+.sell-result p{font-family:var(--serif);font-size:calc(2.2cqw*var(--k,1));line-height:1.28;color:#fff;text-wrap:balance}
+.learn-slide h2{max-width:82%;margin-bottom:1.2%}
+.learn-sub{font-size:calc(1.6cqw*var(--k,1));color:var(--tx2);line-height:1.4;margin:0 0 3%;max-width:84%}
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 5%;flex:1;align-content:start}
+.learn-item{display:grid;grid-template-columns:72px 1fr;gap:18px;border-top:1px solid #333;padding:4.2% 0}
+.learn-no{font-family:var(--serif);font-size:calc(3.2cqw*var(--k,1));line-height:1;color:var(--red);font-variant-numeric:tabular-nums}
+.learn-no small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);margin-bottom:5px}
+.learn-item h3{font-family:var(--serif);font-size:calc(1.65cqw*var(--k,1));line-height:1.2;color:#fff;letter-spacing:0;text-transform:none;font-weight:500;margin:0 0 5%}
+.learn-item p{font-size:calc(1.45cqw*var(--k,1));line-height:1.35;color:var(--tx2)}
+.story-case h2{margin-bottom:.8%}
+.case-role{font-size:calc(1.55cqw*var(--k,1));color:var(--tx2);margin-bottom:3%}
+.story-case-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7%;flex:1;align-items:stretch}
+.case-result{border-top:2px solid var(--red);padding-top:8%;display:flex;flex-direction:column}
+.case-result .metric{font-family:var(--serif);font-size:calc(5.1cqw*var(--k,1));line-height:1;color:var(--red);text-wrap:balance}
+.case-result p{font-size:calc(1.8cqw*var(--k,1));line-height:1.4;color:#fff;margin-top:7%}
+.case-actions{border-top:1px solid #333;padding-top:6%}
+.case-actions h3{margin-bottom:7%}
+.case-actions li{font-size:calc(1.7cqw*var(--k,1));line-height:1.45;color:var(--tx2);margin-bottom:7%;padding-left:20px}
+.school-proof{display:grid;grid-template-columns:repeat(4,1fr);gap:3%;margin:auto 0 5%}
+.school-proof .stat{padding:10% 8%;border-top:2px solid var(--red);background:transparent;border-radius:0}
+.school-clients{font-size:calc(1.65cqw*var(--k,1));line-height:1.45;color:var(--tx2);border-top:1px solid #303030;padding-top:2.5%}
+.proofs{display:grid;gap:5%;flex:1;align-items:center}
+.proof{border-top:2px solid var(--red);padding-top:7%;min-width:0}
+.proof .num{font-family:var(--serif);font-size:calc(4.2cqw*var(--k,1));line-height:1;color:var(--red);text-wrap:balance}
+.proof p{font-size:calc(1.7cqw*var(--k,1));line-height:1.4;color:#fff;margin-top:6%}
+.proof small{display:block;font-size:14px;color:var(--tx3);margin-top:8%}
+.next-slide h2{max-width:80%;margin:auto 0 2%}
+.next-slide .next-copy{max-width:75%;font-size:calc(2.25cqw*var(--k,1));line-height:1.45;color:var(--tx2);margin:0 0 auto}
+
+</style>
+</head>
+<body>
+
+<button id="sbShow" class="btn noprint" style="display:none;position:fixed;top:10px;left:10px;z-index:200;background:#161616" onclick="toggleSb()">Показать панель</button>
+<div class="layout"><aside class="side noprint"><div class="panel"><div class="panel-in">
+  <span class="ttl">MBA для топ-менеджера</span>
+  <div class="who">
+    <input id="nm" placeholder="Имя клиента" oninput="render()">
+    <input id="co" placeholder="Компания" oninput="render()">
+  </div>
+  <div class="acts">
+    <span class="cnt" id="cnt"></span>
+    <button class="btn" onclick="all(true)">Все</button>
+    <button class="btn" onclick="all(false)">Снять</button>
+    <button class="btn" onclick="toggleSb()">Скрыть панель</button>
+    <button class="btn pri" onclick="window.print()">Сохранить в PDF</button>
+  </div>
+</div>
+</div>
+<div class="drawer" id="drawer"><div class="picks" id="picks"></div></div></aside>
+
+<div class="deck" id="deck"></div></div>
+
+<script>
+const MODULES=[
+ 'Командообразование и лидерство',
+ 'Трендвотчинг. Управленческая экономика',
+ 'Управление маркетингом. Digital маркетинг',
+ 'HR-стратегия. Корпоративная культура',
+ 'Финансовые и инвестиционные стратегии',
+ 'Практика ведения бизнеса на рынках Ближнего Востока — выездной модуль в Дубае',
+ 'Стратегическое управление в условиях изменений. Интернет-стратегия',
+ 'Стратегия: рыночный анализ. Управление проектами',
+ 'Операционная стратегия и оптимизация бизнес-процессов',
+ 'Технологии регулярного менеджмента. Управление изменениями в организациях',
+ 'Инновации и цифровая трансформация. Управление продажами',
+ 'Навыки презентации и публичного выступления. Финальная бизнес-игра'
+];
+
+// Оригинальные слайды из презентации MBA Foundation.
+// Порядок совпадает с отмеченными пользователем слайдами.
+const PRICE_SLIDES=[
+ ['design-img/fmba-slides/price-conditions.webp','Условия участия'],
+ ['design-img/fmba-slides/price-broadcast.webp','Пакет трансляций']
+];
+const SOURCE_SLIDES=[
+ ['design-img/fmba-slides/school-38-years.webp','Школе бизнеса 38 лет'],
+ ['design-img/fmba-slides/about-program.webp','О программе MBA Foundation'],
+ ['design-img/fmba-slides/learning-format.webp','Формат и график обучения'],
+ ['design-img/fmba-slides/learning-results.webp','Результаты обучения'],
+ ['design-img/fmba-slides/program-modules.webp','Модули программы'],
+ ['design-img/fmba-slides/dubai-module.webp','Выездной модуль в Дубае']
+];
+
+// третий элемент — фото из презентации школы (design-img/teachers/); без фото — строкой «Также ведут»
+const TEACHERS=[
+ ['Сергей Макшанов','Управляющий ГК «Институт Тренинга — АРБ Про». Консультирует по стратегии производственные и дистрибуционные компании федерального масштаба','makshanov'],
+ ['Александр Фридман','Управляющий партнёр Amadeus Group. Автор методик регулярного менеджмента, по которым работают управленческие команды в крупном бизнесе','fridman'],
+ ['Андрей Коптелов','Вице-президент российского отделения международной ассоциации BPM-профессионалов. Ставил процессное управление в компаниях федерального уровня','koptelov'],
+ ['Антон Толмаков','Сертифицированный консультант Института Адизеса, Certified Adizes Associate. Действующий гендиректор и собственник бизнеса с 20-летним опытом','tolmakov'],
+ ['Зоя Стрелкова','Руководитель направления «Экономика компании» ГК «Институт Тренинга — АРБ Про». Считает экономику и инвестпроекты для компаний разных отраслей','strelkova'],
+ ['Сергей Чумак','Независимый директор, руководитель комитета по стратегии Ассоциации практиков цифровизации. Внедряет цифровые модели в промышленности','chumak'],
+ ['Андрей Коновалов','Операционный директор, член советов директоров ряда компаний. Отвечал за производительность персонала и экономику труда в масштабных структурах','konovalov'],
+ ['Марк Кукушкин','Эксперт по развитию лидерства и корпоративной культуры. Работает с корпоративными университетами крупных компаний','kukushkin'],
+ ['Дмитрий Юрков','Директор по маркетингу Корпорации «Синергия». Эксперт по масштабной лидогенерации','yurkov'],
+ ['Сергей Худовеков','Партнёр агентства Paper Planes. Выстраивает маркетинг на данных для федеральных розничных и производственных брендов'],
+ ['Дмитрий Сендеров','Директор коммуникационной группы STRONG. Запускал рекламные кампании федерального масштаба','senderov'],
+ ['Владислава Друтько','Партнёр Школы бизнеса «Синергия», эксперт по лидерству и управлению персоналом','drutko'],
+ ['Дмитрий Богданов','Эксперт в области макроэкономических исследований и запуска стартап-проектов','bogdanov'],
+ ['Ольга Еремина','Основатель Pro-trendwatching. Формирует долгосрочное видение будущего для отраслевых лидеров'],
+ ['Роман Копосов','Руководитель направления «Стратегическое планирование» АРБ Про'],
+ ['Всеволод Сафаров','Эксперт по операционной стратегии и запуску проектных офисов'],
+ ['Виталий Новиков','Эксперт по продажам и клиентскому сервису, выстраивает коммерческие системы']
+];
+
+// школа в цифрах — со слайда «Школе бизнеса 38 лет» в презентации школы
+const SCHOOL=[
+ ['50 000+','выпускников',true],
+ ['38 лет','с 1988 года, первая частная бизнес-школа в России и СНГ'],
+ ['400+','преподавателей и экспертов'],
+ ['7','аккредитаций AMBA']
+];
+const CLIENTS='Haier · Северсталь · Илим · Газпром нефть · X5 Group · АФК «Система»';
+const PARTNERS='Росконгресс · ОПОРА РОССИИ · Правительство Москвы · Банк ПСБ';
+
+// кейсы выпускников: for — к каким задачам клиента подходит; без совпадений добираем до 3 из DEF_CASES
+const CASES=[
+{k:'nishchev',n:'Сергей Нищев',r:'Генеральный директор «Башинформсвязи», группа «Ростелеком»',
+ did:['Дипломную работу сделал не в стол, а по своей компании','Выпускной проект — оптимизация бизнес-процессов, доведённая до цифры, которую принял бизнес'],
+ fig:'200 млн ₽',figt:'экономии в год. Обучение окупилось за первый же год',for:['proc','budget','cost','costcontrol','fincost','productivity','finplan','capex']},
+{k:'kuzyakov',n:'Николай Кузяков',r:'Соучредитель «Ванюшкины сладости»',
+ sc:'Кондитерское производство: выручка 2+ млрд ₽, 11 цехов, 200+ сотрудников, экспорт в 12 стран',
+ did:['После модуля по стратегии — план оптимизации всей производственной цепочки','После модуля по маркетингу пересобрал продвижение: просмотры в соцсетях выросли с 5 до 10 млн, за ними — продажи','После модуля по цифровизации внедрил нейросети на контроле санитарных норм и качества'],
+ fig:'+5–7%',figt:'маржинальности после модуля по стратегии',for:['roi','strat','ai','quality','pr']},
+{k:'kapyev',n:'Евгений Капьев',r:'Генеральный директор издательской группы «Эксмо-АСТ»',ph:'design-img/case-kapyev.jpg',
+ did:['На программе разработал и запустил проект выхода редакции Non-fiction на зарубежные рынки','Собрал стратегию позиционирования книг для зарубежных издательств','Разработал свои методики отбора, мотивации и развития — люди, которых он по ним растил, сейчас на ключевых позициях'],
+ fig:'24 страны',figt:'куда удалось продать права российских авторов',
+ q:'«Самый важный блок, который я вынес, — управление командой»',for:['fot']},
+{k:'isaev',n:'Андрей Исаев',r:'Сооснователь и генеральный директор ДНКОМ',
+ sc:'Сеть медицинских лабораторий, выручка 2,7 млрд ₽',
+ did:['До программы управленческие решения принимались на основе личного опыта: по образованию он врач, а не менеджер','Прошёл обучение вместе с исполнительным директором и супругой — изменения внедряли одновременно на уровне всего топ-менеджмента','Пересобрал управленческую команду, пересмотрел систему KPI и выстроил процесс найма по методикам программы'],
+ fig:'Весь топ-менеджмент',figt:'обучался вместе и внедрял изменения по ходу программы, а не после выпуска',for:['deleg','change','team']},
+{k:'volkova',n:'Ольга Волкова',f:1,r:'«Газпромбанк Автолизинг»',
+ did:['Во время обучения запустила проект по реализации изъятой лизинговой техники','Выстроила направление продаж, которого в компании раньше не было','Освоила управленческие компетенции следующего уровня — и по итогам проекта назначена заместителем директора департамента продаж'],
+ fig:'Новое направление',figt:'продаж — компания получила его ещё до выпуска сотрудника и вырастила своего заместителя директора, не нанимая со стороны',for:['sales']},
+{k:'yuditskaya',n:'Анастасия Юдицкая',f:1,r:'Основательница Pirouette',
+ sc:'Сеть школ художественной гимнастики',
+ did:['До программы сеть работала в Москве, Подмосковье и Петербурге, а решения о развитии принимались интуитивно','На программе — инструменты оценки рынков: трендвотчинг, управленческая экономика и выездной модуль в кампусе школы в Дубае с практикой ведения бизнеса в ОАЭ','По итогам оценила рынок ОАЭ как точку роста и открыла направление в Дубае'],
+ fig:'Выход на зарубежные рынки',figt:'школы Pirouette работают в Дубае: бизнес перестал зависеть от одного рынка',
+ q:'«Учёба в бизнес-школе помогла мне принять решение о выходе на зарубежные рынки»',for:['trend','risk']},
+{k:'remenyako',n:'Денис Ременяко',r:'Владелец и генеральный директор «ФК Гранд Капитал»',
+ sc:'Четвёртый фармдистрибьютор России, оборот 250 млрд ₽',
+ did:['Прошёл модуль по презентации и публичным выступлениям','Перешёл от импровизации к чёткой структуре выступления','Получил алгоритм подготовки к любому выступлению: переговоры, презентации партнёрам, отраслевые площадки'],
+ fig:'Без импровизации',figt:'первое лицо компании с оборотом 250 млрд ₽ представляет её решения партнёрам и рынку по выверенной структуре',for:['speak']}
+];
+const DEF_CASES=['nishchev','kuzyakov','kapyev'];
+function pickCases(list){
+  const ks=new Set(list.map(i=>i.k));
+  const out=CASES.filter(c=>c.for.some(k=>ks.has(k)));
+  for(const k of DEF_CASES){if(out.length>=3)break;if(!out.find(c=>c.k===k))out.push(CASES.find(c=>c.k===k))}
+  return out;
+}
+
+// общие результаты выпускников — из кейсов выше
+const RESULTS=[
+ ['200 млн ₽','экономии в год от выпускного проекта по процессам','Нищев, «Башинформсвязь»'],
+ ['+5–7%','маржинальности после плана оптимизации производства','Кузяков, «Ванюшкины сладости»'],
+ ['5 → 10 млн','просмотров в соцсетях после модуля по маркетингу','Кузяков, «Ванюшкины сладости»'],
+ ['24 страны','куда проданы права авторов — проект, сделанный на программе','Капьев, «Эксмо-АСТ»'],
+ ['Новое направление','продаж запущено сотрудником во время обучения — компания вырастила своего заместителя директора','Волкова, «Газпромбанк Автолизинг»'],
+ ['Выход на зарубежные рынки','сеть школ из Москвы открыла направление в Дубае — бизнес больше не зависит от одного рынка','Юдицкая, Pirouette']
+];
+
+// даты модулей 2026 — вписать от школы в формате '15–18 янв'; пока пусто, на слайде не показываются
+const DATES=['','','','','','','','','','','',''];
+
+const ITEMS=[
+{k:'roi',t:'Сократить расходы на привлечение клиентов',
+ q:'«Я выделяю бюджет на маркетинг, а мы не растём»',
+ ch:['<b>Научится</b> считать маркетинг в прибыли, а не в охватах: формула прибыли, ROMI, RFM-анализ базы',
+     '<b>В работе:</b> приходит не с просьбой «дайте бюджет», а с расчётом, куда его перераспределить',
+     '<b>Деньги компании:</b> стоимость привлечения снижается на тех же объёмах'],
+ mods:[[3,'Худовеков, Сендеров, Юрков']],
+ who:[['Сергей Худовеков','партнёр агентства Paper Planes'],['Дмитрий Сендеров','коммуникационная группа STRONG']],
+ case:'<b>Николай Кузяков</b>, соучредитель «Ванюшкины сладости» — кондитерское производство, выручка 2+ млрд ₽, 11 цехов, экспорт в 12 стран. После модуля по маркетингу пересобрал продвижение: просмотры в соцсетях выросли <span class="fig">с 5 до 10 млн</span>, за ними — продажи и узнаваемость'},
+
+{k:'pr',t:'Собрать PR- и маркетинговую стратегию',
+ q:'«Маркетинг и PR работают отдельно, но общей стратегии нет»',
+ ch:['<b>Научится</b> связывать позиционирование, репутацию, целевые сегменты и каналы продвижения с целями бизнеса',
+     '<b>В работе:</b> собирает единый план маркетинга и PR с понятными приоритетами и ответственными',
+     '<b>Деньги компании:</b> бюджет не распыляется между несвязанными активностями'],
+ mods:[[3,'Худовеков, Сендеров, Юрков'],[7,'Макшанов']],
+ who:[['Сергей Худовеков','партнёр агентства Paper Planes'],['Дмитрий Сендеров','коммуникационная группа STRONG'],['Сергей Макшанов','управляющий ГК «Институт Тренинга — АРБ Про»']],
+ case:'<b>Николай Кузяков</b>, «Ванюшкины сладости»: после модуля по маркетингу пересобрал продвижение — просмотры в соцсетях выросли с <span class="fig">5 до 10 млн</span>, вслед за ними выросли продажи и узнаваемость'},
+
+{k:'proc',t:'Навести порядок в процессах, убрать потери',
+ q:'«Компания выросла, а управление осталось ручным. Потери вижу, причину — нет»',
+ ch:['<b>Научится</b> описывать и измерять процессы: дерево целей, показатели, функционально-стоимостной анализ',
+     '<b>В работе:</b> показывает на цифрах, где компания теряет деньги и время, и закрепляет процессы за людьми',
+     '<b>Деньги компании:</b> найденные потери и автоматизация части операций'],
+ mods:[[9,'Коптелов']],
+ who:[['Андрей Коптелов','вице-президент российского отделения ABPMP']],
+ case:'<b>Сергей Нищев</b>, гендиректор «Башинформсвязи» (группа «Ростелеком»). Дипломную работу сделал не в стол, а по своей компании — проект оптимизации бизнес-процессов дал <span class="fig">200 млн ₽</span> экономии в год, обучение окупилось за первый'},
+
+{k:'cost',t:'Управлять себестоимостью продукта',
+ q:'«Себестоимость растёт, а где именно теряется маржа — не видно»',
+ ch:['<b>Научится</b> раскладывать себестоимость на факторы и связывать экономику продукта с процессами',
+     '<b>В работе:</b> находит операции и статьи, которые сильнее всего съедают маржу',
+     '<b>Деньги компании:</b> снижает себестоимость за счёт измеримых изменений, а не общего сокращения бюджета'],
+ mods:[[2,'Богданов'],[5,'Стрелкова'],[9,'Коптелов']],
+ who:[['Дмитрий Богданов','эксперт по управленческой экономике'],['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»'],['Андрей Коптелов','вице-президент российского отделения ABPMP']],
+ case:'<b>Сергей Нищев</b>, «Башинформсвязь»: выпускной проект по оптимизации бизнес-процессов дал компании <span class="fig">200 млн ₽</span> экономии в год'},
+
+{k:'costcontrol',t:'Взять затраты под контроль',
+ q:'«Затраты растут быстрее выручки, а владельцев статей и причин роста нет»',
+ ch:['<b>Научится</b> связывать затраты с финансовым планом, процессами и ответственными',
+     '<b>В работе:</b> видит отклонения, их причины и принимает решение до конца периода',
+     '<b>Деньги компании:</b> незапланированные расходы перестают обнаруживаться постфактум'],
+ mods:[[5,'Стрелкова'],[9,'Коптелов'],[10,'Фридман']],
+ who:[['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»'],['Андрей Коптелов','вице-президент российского отделения ABPMP'],['Александр Фридман','управляющий партнёр Amadeus Group']],
+ case:'<b>Сергей Нищев</b>, «Башинформсвязь»: посчитал потери в процессах, защитил решение перед бизнесом и получил <span class="fig">200 млн ₽</span> экономии в год'},
+
+{k:'fincost',t:'Управлять затратами в финансовом секторе',
+ note:'Уточнить у клиента: какие именно затраты и какой участок финансового бизнеса имеются в виду',
+ q:'«Нужно управлять затратами в финансовом секторе»',
+ ch:['<b>Научится</b> планировать затраты, находить отклонения и связывать их с конкретными процессами',
+     '<b>В работе:</b> определяет владельцев затрат и готовит решения на основе финансовой модели',
+     '<b>Важно:</b> в программе нет отдельного отраслевого модуля по затратам финансового сектора — запрос нужно уточнить'],
+ mods:[[5,'Стрелкова'],[9,'Коптелов']],
+ who:[['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»'],['Андрей Коптелов','вице-президент российского отделения ABPMP']],
+ case:'<b>Ближайший подтверждённый кейс — Сергей Нищев</b>, «Башинформсвязь»: проект оптимизации процессов дал <span class="fig">200 млн ₽</span> экономии в год. Кейс не из финансового сектора'},
+
+{k:'quality',t:'Повысить качество продукта',
+ q:'«Качество нестабильно, а проверки ловят проблемы уже после выпуска продукта»',
+ ch:['<b>Научится</b> описывать процесс создания продукта, находить причины дефектов и ставить контроль на операции',
+     '<b>В работе:</b> переносит контроль качества из финальной проверки внутрь процесса',
+     '<b>Важно:</b> отдельного модуля по управлению качеством продукта в программе нет; запрос закрывается частично через процессы и цифровизацию'],
+ mods:[[9,'Коптелов'],[11,'Чумак']],
+ who:[['Андрей Коптелов','вице-президент российского отделения ABPMP'],['Сергей Чумак','Ассоциация практиков цифровизации, независимый директор']],
+ case:'<b>Николай Кузяков</b>, «Ванюшкины сладости»: после модуля по цифровизации внедрил нейросети для контроля санитарных норм и качества продукции'},
+
+{k:'productivity',t:'Повысить производительность труда',
+ q:'«Штат и ФОТ растут, а выработка — нет»',
+ ch:['<b>Научится</b> измерять выработку, загрузку, долю ФОТ и потери времени в процессах',
+     '<b>В работе:</b> меняет процесс, роли и систему показателей до расширения штата',
+     '<b>Деньги компании:</b> выпуск на сотрудника растёт быстрее фонда оплаты труда'],
+ mods:[[4,'Коновалов'],[9,'Коптелов'],[10,'Фридман']],
+ who:[['Андрей Коновалов','член советов директоров ряда компаний'],['Андрей Коптелов','вице-президент российского отделения ABPMP'],['Александр Фридман','управляющий партнёр Amadeus Group']],
+ case:'<b>Сергей Нищев</b>, «Башинформсвязь»: оптимизация бизнес-процессов, выполненная как выпускной проект, дала <span class="fig">200 млн ₽</span> экономии в год'},
+
+{k:'deleg',t:'Выстроить делегирование в подразделении',
+ q:'«Мои руководители тащат всё на себе и не выходят из операционки»',
+ ch:['<b>Научится</b> делегировать и контролировать без скатывания в микроменеджмент',
+     '<b>В работе:</b> задачи уходят на уровень ниже и возвращаются сделанными, подразделение работает без ежедневного участия вашего сотрудника',
+     '<b>Деньги компании:</b> время дорогого руководителя уходит на рост, а не на контроль'],
+ mods:[[10,'Фридман']],
+ who:[['Александр Фридман','управляющий партнёр Amadeus Group']],
+ case:'<b>Андрей Исаев</b>, сооснователь и гендиректор ДНКОМ — сеть медицинских лабораторий, выручка 2,7 млрд ₽. До программы решения принимались на основе личного опыта: по образованию он врач. Пересобрал управленческую команду, пересмотрел систему KPI и выстроил найм по методикам программы'},
+
+{k:'fot',t:'Снизить долю ФОТ, переделать систему оплаты труда',
+ q:'«Фонд оплаты растёт быстрее выработки, а сокращать некого»',
+ ch:['<b>Научится</b> управлять производительностью персонала и экономикой труда: выработка, доля ФОТ, система оплаты',
+     '<b>В работе:</b> платят за результат, а не за присутствие; есть мотивация и без повышения окладов',
+     '<b>Деньги компании:</b> фонд перестаёт расти быстрее выработки'],
+ mods:[[4,'Коновалов, Кукушкин']],
+ who:[['Андрей Коновалов','член советов директоров ряда компаний'],['Марк Кукушкин','корпоративные университеты крупных компаний']],
+ case:'<b>Евгений Капьев</b>, гендиректор издательства «Эксмо». «Самый важный блок, который я вынес, — управление командой»: разработал собственные методики отбора, мотивации и развития. Люди, которых он по ним растил, сейчас на ключевых позициях'},
+
+{k:'team',t:'Сформировать квалифицированную команду',
+ q:'«Старые модели найма не работают, сильных людей не хватает»',
+ ch:['<b>Научится</b> определять требования к ролям, оценивать кандидатов и выстраивать развитие сотрудников',
+     '<b>В работе:</b> перестраивает найм под дефицит кадров и удерживает сильных людей через среду и развитие',
+     '<b>Деньги компании:</b> меньше повторных наймов и потерь от незакрытых ключевых ролей'],
+ mods:[[1,'Друтько'],[4,'Кукушкин, Коновалов']],
+ who:[['Владислава Друтько','партнёр Школы бизнеса «Синергия», эксперт по управлению персоналом'],['Марк Кукушкин','эксперт по развитию лидерства и корпоративной культуры']],
+ case:'<b>Андрей Исаев</b>, сооснователь и гендиректор ДНКОМ: пересобрал управленческую команду, пересмотрел систему KPI и выстроил процесс найма по методикам программы'},
+
+{k:'budget',t:'Защитить бюджет проекта перед советом директоров',
+ q:'«Мне приносят инициативы без расчёта — я не понимаю, что согласовываю»',
+ ch:['<b>Научится</b> считать решения в деньгах: ROI, дисконтирование потоков, анализ альтернатив',
+     '<b>В работе:</b> приносит варианты решений с расчётом — сколько стоит, когда окупается, что если не делать',
+     '<b>Деньги компании:</b> меньше вложений в проекты, которые не окупятся'],
+ mods:[[5,'Стрелкова, Голиков']],
+ who:[['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»']],
+ case:'<b>Сергей Нищев</b>, «Башинформсвязь»: довёл проект оптимизации процессов до цифры, которую принял бизнес, — <span class="fig">200 млн ₽</span> экономии в год. Это и была его дипломная работа'},
+
+{k:'finplan',t:'Выстроить финансовое планирование',
+ q:'«План есть, но решения всё равно принимаем по факту и в ручном режиме»',
+ ch:['<b>Научится</b> собирать финансовый план, бюджет движения денег и сценарии по ключевым показателям',
+     '<b>В работе:</b> заранее видит дефицит денег, отклонения и влияние решений на прибыль',
+     '<b>Деньги компании:</b> меньше кассовых и бюджетных сюрпризов в течение года'],
+ mods:[[5,'Стрелкова']],
+ who:[['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»']],
+ case:'<b>Сергей Нищев</b>, «Башинформсвязь»: довёл выпускной проект до финансового эффекта, который принял бизнес, — <span class="fig">200 млн ₽</span> экономии в год'},
+
+{k:'capex',t:'Составить план инвестиционных вложений',
+ q:'«Нужно понять, во что вкладывать и какие капвложения действительно окупятся»',
+ ch:['<b>Научится</b> оценивать инвестиции по денежным потокам, сроку окупаемости, риску и альтернативам',
+     '<b>В работе:</b> ранжирует проекты и защищает план капвложений на цифрах',
+     '<b>Деньги компании:</b> капитал идёт в проекты с понятной отдачей и контрольными точками'],
+ mods:[[5,'Стрелкова'],[8,'Копосов, Сафаров']],
+ who:[['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»'],['Всеволод Сафаров','эксперт по операционной стратегии и проектным офисам']],
+ case:'<b>На выпускном проекте</b> участник может собрать и защитить план капвложений своей компании: расчёт денежных потоков, окупаемости, рисков и контрольных точек'},
+
+{k:'risk',t:'Оценивать риски до принятия решения',
+ q:'«Риски обсуждаем словами, а последствия считаем уже после решения»',
+ ch:['<b>Научится</b> оценивать рыночные, финансовые и проектные риски через сценарии и предпосылки',
+     '<b>В работе:</b> приносит руководству варианты решения с последствиями и контрольными точками',
+     '<b>Деньги компании:</b> меньше вложений в решения, у которых не проверены ключевые допущения'],
+ mods:[[2,'Еремина, Богданов'],[5,'Стрелкова'],[8,'Копосов, Сафаров']],
+ who:[['Ольга Еремина','основатель Pro-trendwatching'],['Дмитрий Богданов','макроэкономические исследования'],['Зоя Стрелкова','«Экономика компании», ГК «Институт Тренинга — АРБ Про»'],['Всеволод Сафаров','эксперт по операционной стратегии и проектным офисам']],
+ case:'<b>Анастасия Юдицкая</b>, основательница Pirouette: оценила рынок ОАЭ как точку роста и открыла направление в Дубае — бизнес перестал зависеть от одного рынка'},
+
+{k:'strat',t:'Собрать стратегию направления',
+ q:'«Я ставлю план, а как его выполнять, никто внятно не объясняет»',
+ ch:['<b>Научится</b> стратегическому планированию: диагностика положения на рынке, ёмкость, карта рынка',
+     '<b>В работе:</b> раскладывает план по подразделениям — у каждого своя часть цифры и свои шаги',
+     '<b>Деньги компании:</b> рост идёт туда, где есть ёмкость рынка, а не по интуиции'],
+ mods:[[7,'Макшанов'],[8,'Копосов']],
+ who:[['Сергей Макшанов','управляющий ГК «Институт Тренинга — АРБ Про»'],['Роман Копосов','«Стратегическое планирование», АРБ Про']],
+ case:'<b>Николай Кузяков</b>, «Ванюшкины сладости» (2+ млрд ₽, 200+ сотрудников): после модуля по стратегии составил план оптимизации всей производственной цепочки — маржинальность выросла на <span class="fig">5–7%</span>'},
+
+{k:'ai',t:'Внедрить нейросети в процессы',
+ q:'«Все вокруг внедряют ИИ, у нас разговоры и ни одного внедрения»',
+ ch:['<b>Научится</b> встраивать ИИ-инструменты в процессы, выбирать операции для автоматизации и обучать команду новой работе',
+     '<b>В работе:</b> ставит ИИ на конкретные операции, перестраивает процесс и показывает измеримый эффект',
+     '<b>Деньги компании:</b> рутина и издержки на операциях снижаются без расширения штата'],
+ mods:[[11,'Чумак'],[9,'Коптелов'],[4,'Кукушкин']],
+ who:[['Сергей Чумак','Ассоциация практиков цифровизации, независимый директор'],['Андрей Коптелов','вице-президент российского отделения ABPMP'],['Марк Кукушкин','эксперт по развитию и обучению команд']],
+ case:'<b>Николай Кузяков</b>, «Ванюшкины сладости»: после модуля по цифровизации внедрил нейросети на производстве — контроль санитарных норм и качества продукции'},
+
+{k:'change',t:'Провести изменения, которые буксуют',
+ q:'«Мы принимаем решения, а через месяц всё возвращается как было»',
+ ch:['<b>Научится</b> проводить организационные изменения: диагностика по Адизесу, работа с сопротивлением',
+     '<b>В работе:</b> доводит решения до внедрения и проводит их через смежные подразделения',
+     '<b>Деньги компании:</b> изменения не откатываются, вложенное в них не сгорает'],
+ mods:[[10,'Толмаков']],
+ who:[['Антон Толмаков','Институт Адизеса, гендиректор и собственник бизнеса']],
+ case:'<b>Андрей Исаев</b>, ДНКОМ (2,7 млрд ₽): обучался вместе с исполнительным директором и супругой. Изменения внедряли одновременно на уровне всего топ-менеджмента и по ходу программы — поэтому они закрепились'},
+
+{k:'sales',t:'Перестроить отдел продаж',
+ q:'«Продажи держатся на двух людях. Уйдут — встанем»',
+ ch:['<b>Научится</b> строить систему продаж: модели, вертикаль контроля, комплектование, мотивация',
+     '<b>В работе:</b> отдел работает по процессу, а не на двух сильных людях',
+     '<b>Деньги компании:</b> выручка перестаёт зависеть от ухода одного продавца'],
+ mods:[[11,'Новиков']],
+ who:[['Виталий Новиков','эксперт по продажам и клиентскому сервису']],
+ case:'<b>Ольга Волкова</b>, «Газпромбанк Автолизинг». Во время учёбы запустила проект по продаже изъятой лизинговой техники — направление, которое до этого не было выстроено. Компания получила новое направление и вырастила своего заместителя директора департамента продаж, не нанимая со стороны'},
+
+{k:'trend',t:'Понять, куда рынок пойдёт через 5–10 лет',
+ q:'«Мы реагируем на рынок с опозданием, решения принимаем по вчерашним данным»',
+ ch:['<b>Научится</b> сканировать тренды и оценивать макрориски: ставка, инфляция, санкционное давление',
+     '<b>В работе:</b> видит разворот рынка раньше, чем он придёт в отчёты',
+     '<b>Деньги компании:</b> вход в новые направления до того, как туда зашли конкуренты'],
+ mods:[[2,'Еремина, Богданов']],
+ who:[['Ольга Еремина','основатель Pro-trendwatching'],['Дмитрий Богданов','макроэкономические исследования']],
+ case:'<b>Анастасия Юдицкая</b>, основательница Pirouette — сети школ художественной гимнастики в Москве, Подмосковье и Петербурге. «Учёба в бизнес-школе помогла мне принять решение о выходе на зарубежные рынки» — открыла направление в ОАЭ'},
+
+{k:'speak',t:'Научиться защищать решения перед советом директоров',
+ q:'«Руководители не умеют защищать свои решения — я трачу время на разбор очевидного»',
+ ch:['<b>Научится</b> готовить и защищать решения: структура выступления, управление вниманием зала',
+     '<b>В работе:</b> доводит решения до утверждения с первого раза, без лишних кругов',
+     '<b>Деньги компании:</b> решения принимаются быстрее, меньше циклов согласования'],
+ mods:[[12,'Друтько']],
+ who:[['Владислава Друтько','партнёр Школы бизнеса «Синергия»']],
+ case:'<b>Денис Ременяко</b>, владелец и гендиректор «ФК Гранд Капитал» — четвёртый фармдистрибьютор России, оборот 250 млрд ₽. Поставил публичные выступления: перешёл от импровизации к жёсткой структуре речи'}
+];
+
+// Подтверждённые результаты из публичной библиотеки кейсов Executive MBA.
+// Отдельных публичных кейсов Foundation MBA в материалах школы пока нет.
+const CASE_RESULTS={
+ roi:'5 → 10 млн просмотров, затем выросли продажи и узнаваемость',
+ pr:'5 → 10 млн просмотров после пересборки продвижения',
+ proc:'200 млн ₽ экономии в год',
+ cost:'+5–7% маржинальности после оптимизации производственной цепочки',
+ costcontrol:'200 млн ₽ экономии в год',
+ fincost:'200 млн ₽ экономии в год — кейс не из финансового сектора',
+ quality:'Нейросети контролируют санитарные нормы и качество продукции',
+ productivity:'200 млн ₽ экономии в год после оптимизации процессов',
+ deleg:'Пересобраны управленческая команда, KPI и найм',
+ fot:'Люди, выращенные по новым методикам, заняли ключевые позиции',
+ team:'Пересобраны управленческая команда, KPI и процесс найма',
+ budget:'200 млн ₽ экономии — проект принят бизнесом',
+ risk:'Открыто направление в Дубае, бизнес вышел на новый рынок',
+ strat:'+5–7% маржинальности',
+ ai:'Нейросети внедрены в производственный контроль качества',
+ change:'Изменения внедрялись сразу всей командой топ-менеджмента',
+ sales:'Запущено новое направление продаж; повышение до замдиректора департамента',
+ trend:'Сеть вышла на рынок ОАЭ',
+ speak:'Структурированные выступления вместо импровизации'
+};
+
+const FIN={
+ roi:'<b>Научится считать P&amp;L направления:</b> видит, куда уходит бюджет и что реально приносит прибыль',
+ pr:'<b>Соберёт PR и маркетинг в одну стратегию:</b> бюджет и действия работают на единое позиционирование',
+ proc:'<b>Увидит, где компания теряет деньги:</b> показывает потери цифрами, а не ощущениями',
+ cost:'<b>Возьмёт себестоимость под управление:</b> видит факторы маржи и меняет их через экономику и процессы',
+ costcontrol:'<b>Поставит контроль затрат:</b> отклонения, причины и ответственные видны до конца периода',
+ fincost:'<b>Свяжет затраты с процессами и финансовым планом:</b> отраслевую часть запроса нужно уточнить',
+ quality:'<b>Перенесёт контроль качества внутрь процесса:</b> причины дефектов находят до выпуска продукта',
+ productivity:'<b>Повысит выработку на сотрудника:</b> сначала меняет процесс и роли, затем решает вопрос со штатом',
+ deleg:'<b>Выстроит делегирование:</b> растит сильных сотрудников и не держит всё на себе',
+ fot:'<b>Научится управлять фондом оплаты:</b> компания платит за результат, а не за присутствие',
+ team:'<b>Перестроит найм и развитие команды:</b> требования к ролям и оценка кандидатов становятся системными',
+ budget:'<b>Будет приходить с решениями, а не с вопросами:</b> с расчётом, сколько стоит и когда окупится',
+ finplan:'<b>Выстроит финансовое планирование:</b> заранее видит дефицит денег, отклонения и влияние решений на прибыль',
+ capex:'<b>Соберёт план капвложений:</b> проекты ранжированы по отдаче, риску и сроку окупаемости',
+ risk:'<b>Будет оценивать риск до решения:</b> приносит сценарии, последствия и контрольные точки',
+ strat:'<b>Увидит, как масштабировать бизнес:</b> станет советником, а не исполнителем, которому нужно объяснять задачу',
+ ai:'<b>Внедрит нейросети в процессы:</b> ставит их на конкретные операции и считает эффект',
+ change:'<b>Доведёт изменения до результата:</b> решения внедряются, а не остаются на уровне совещаний',
+ sales:'<b>Построит систему продаж:</b> выручка не зависит от ухода ключевого продавца',
+ trend:'<b>Научится видеть, куда идёт рынок:</b> замечает разворот раньше, чем он появится в отчётах',
+ speak:'<b>Научится защищать решения:</b> их утверждают с первого раза, без лишних кругов согласования'
+};
+
+// стоимость — со слайда «Условия участия» в презентации школы (MBA Foundation 2026)
+const PRICE=2000000;
+const DUO_OFF=.23;   // идёте вдвоём с коллегой — скидка каждому
+// форматы — со слайдов «Условия участия» и «Пакет трансляций» в презентации школы
+const FORMATS=[
+ ['Очно',PRICE,['11 модулей в Москве и выездной модуль в Дубае','Куратор группы и эксперт выпускного проекта','2 индивидуальные коуч-сессии'],'* при единовременной оплате'],
+ ['Гибрид',750000,['Онлайн-трансляции всех модулей программы','Личное посещение трёх очных модулей*'],'* три очных модуля на выбор из общего пула, кроме выездного в Дубае'],
+ ['Онлайн',500000,['Онлайн-трансляции всех модулей программы'],'']
+];
+const INCLUDED=[
+ '11 учебных модулей программы в Москве',
+ 'Обучение на выездном модуле в Дубае*',
+ 'Полный комплект учебных материалов',
+ 'Закрепление опытного эксперта выпускного проекта',
+ 'Сопровождение группы куратором',
+ '2 индивидуальные коуч-сессии в рамках программы'
+];
+// рассрочка — в презентациях школы условий нет; [в квадратных скобках] — уточнить у школы,
+// такие места подсвечиваются жёлтым, чтобы не уйти клиенту
+const INSTALL=[
+ ['Рассрочка от школы','[срок, первый взнос, переплата — уточнить у школы]'],
+ ['Образовательный кредит','Партнёр школы — ПСБ: <span class="fig">12,98%</span> годовых <span class="todo">[ставка из презентации EMBA — подтвердить для Foundation]</span>'],
+ ['Оплата компанией','Договор с юрлицом, можно разделить оплату с работодателем']
+];
+const rub=n=>Math.round(n).toLocaleString('ru-RU').replace(/ |,/g,' ')+' ₽';
+const LBL={'Научится':'Сотрудник научится','В работе':'В работе сотрудника'};
+const todo=s=>s.replace(/\[[^\]]+\]/g,m=>`<span class="todo">${m}</span>`);
+
+const V={label:'MBA для топ-менеджера',overview:'Ваши задачи и что вы решите'};
+const JOBS=[
+{k:'t1',t:'Разбираться в финансовых моделях и стать советником собственника',short:'Финансы и влияние',
+ sub:'Подготовить финансовую модель проекта: окупаемость, риски и сценарии, и выступить так, чтобы решение приняли с первого раза.',
+ lead:'Финансовая модель проекта и выступление, после которого решение принимают.',
+ why:'Чтобы приходить к совету с решением, а не с вопросами.',
+ out:'Бюджет и проект, защищённые расчётом: цифры, риски и сценарии для совета директоров.',
+ me:'Вы понимаете, за какие решения платит бизнес, и можете стать советником и правой рукой собственника.',
+ route:[
+  {m:2,t:'Оценивать риски через сценарии и предпосылки'},
+  {m:5,t:'Собирать финансовый план, считать ROI и окупаемость'},
+  {m:8,t:'Оценивать инвестиции по потокам, сроку окупаемости и риску'},
+  {m:12,t:'Готовить и защищать решения: структура выступления'}],
+ case:{k:'nishchev',fig:'200 млн ₽',cap:'экономии в год от выпускного проекта'}},
+{k:'t2',t:'Показывать свой результат в прибыли компании',short:'Результат в прибыли',
+ sub:'Растить прибыль, когда дорожают материалы и давят конкуренты: снижать себестоимость, поднимать выработку на человека, находить потери в процессах, не нанимая лишних людей.',
+ lead:'Прибыль растёт, даже когда дорожают материалы и давят конкуренты.',
+ why:'Чтобы результат по вашему блоку был виден в цифрах.',
+ out:'План снижения затрат и рост прибыли без увеличения ФОТ: расчёт по вашей компании.',
+ me:'Вы показываете свой вклад в прибыль цифрами. Такой результат усиливает ваши позиции внутри компании и на рынке руководителей.',
+ route:[
+  {m:2,t:'Раскладывать себестоимость на факторы, связывать экономику с процессами'},
+  {m:4,t:'Считать выработку и долю ФОТ, менять систему оплаты труда'},
+  {m:5,t:'Связывать затраты с финансовым планом, видеть отклонения'},
+  {m:9,t:'Находить потери в процессах: функционально-стоимостной анализ'}],
+ case:{k:'kuzyakov',fig:'+5–7%',cap:'маржинальности после плана оптимизации производства'}},
+{k:'t3',t:'Строить сильные команды, которые работают без микроконтроля',short:'Сильная команда',
+ sub:'Команда с понятными ролями и показателями: мелкие вопросы закрываются на месте, а стратегические приходят к вам уже с готовым решением.',
+ lead:'Мелкие вопросы закрываются на месте, к вам приходят уже с готовым решением.',
+ why:'Чтобы ваше время уходило на задачи следующего уровня.',
+ out:'Команда решает оперативные вопросы без вас, и ваше время свободно для задач следующего уровня.',
+ me:'Вы умеете строить команды, которые растут без микроконтроля. Это компетенция руководителя следующего уровня.',
+ route:[
+  {m:1,t:'Определять требования к ролям, оценивать кандидатов'},
+  {m:4,t:'Управлять производительностью: выработка, доля ФОТ, оплата труда'},
+  {m:9,t:'Описывать и измерять процессы, чтобы команда работала по правилам'},
+  {m:10,t:'Делегировать и контролировать без микроменеджмента'}],
+ case:{k:'kapyev',fig:'Ключевые позиции',cap:'заняли люди, выращенные по его методикам отбора и развития'}},
+{k:'t4',t:'Открывать новые рынки и становиться автором роста компании',short:'Автор нового рынка',
+ sub:'Выбрать рынок, посчитать окупаемость входа, собрать маркетинг и продажи и обосновать направление перед собственником.',
+ lead:'Выбрать рынок, посчитать окупаемость входа и собрать продажи.',
+ why:'Чтобы приносить компании рост, который записан на вас.',
+ out:'Стратегия выхода на новый рынок и система продаж под неё: расчёт и план для вашей компании.',
+ me:'Вы становитесь автором нового направления. Этот результат можно показать собственнику и будущему работодателю.',
+ route:[
+  {m:2,t:'Сканировать тренды и оценивать макрориски'},
+  {m:3,t:'Считать маркетинг в прибыли: ROMI, RFM-анализ базы'},
+  {m:8,t:'Планировать стратегию: ёмкость рынка, карта рынка'},
+  {m:11,t:'Строить систему продаж: модели, контроль, мотивация'}],
+ case:{k:'volkova',fig:'Новое направление',cap:'продаж запустила во время обучения и стала замдиректора департамента'}},
+{k:'t5',t:'Проводить сложные изменения и доводить их до результата',short:'Сложные изменения',
+ sub:'Запустить изменение — новую структуру, процесс или ИИ — снять сопротивление людей и довести до срока и показателя, чтобы оно не откатилось.',
+ lead:'Запустить изменение и довести его до срока и показателя.',
+ why:'Чтобы решения внедрялись, а не оставались на совещаниях.',
+ out:'Внедрённые изменения: план, роли и контрольные точки, доведённые до результата.',
+ me:'Вы умеете доводить сложные изменения до результата. На такие задачи крупные компании ищут сильных руководителей.',
+ route:[
+  {m:4,t:'Обучать команду новой работе'},
+  {m:10,t:'Проводить изменения: диагностика по Адизесу, работа с сопротивлением'},
+  {m:11,t:'Встраивать ИИ в процессы: выбирать операции, считать эффект'}],
+ case:{k:'kuzyakov',fig:'Нейросети',cap:'контролируют санитарные нормы и качество продукции'}},
+{k:'t6',t:'Понять бизнес целиком и подготовиться к собственному делу',short:'Бизнес целиком',
+ sub:'Чёткие правила: кто за что отвечает, как принимаются решения и как проверяется результат. Бизнес не встаёт, когда вы в отпуске.',
+ lead:'Понятные правила: кто за что отвечает и как проверяется результат.',
+ why:'Чтобы бизнес держался на системе, а не на героизме отдельных людей.',
+ out:'Описанная система управления вашей компании: роли, показатели и регулярные процедуры.',
+ me:'Вы понимаете финансы, людей и процессы. Эта база помогает стать правой рукой собственника или открыть своё дело.',
+ route:[
+  {m:1,t:'Определять требования к ролям, выстраивать развитие сотрудников'},
+  {m:5,t:'Собирать финансовый план и сценарии по ключевым показателям'},
+  {m:9,t:'Описывать и измерять процессы, закреплять их за людьми'},
+  {m:10,t:'Делегировать и контролировать без микроменеджмента, проводить изменения'}],
+ case:{k:'isaev',fig:'Система управления',cap:'Перестроил команду, KPI и найм; изменения внедряли сразу всем топ-менеджментом'}}
+];
+
+const TOP=!!JOBS.find(j=>j.me);
+const SALES_COPY={
+ t1:{pain:'Опыт уже есть, но без финансовой логики трудно влиять на решения собственника и совета.',method:'Соберёте финансовую модель, сценарии и структуру защиты. Начнёте говорить с собственником на языке бизнеса.'},
+ t2:{pain:'Сильную работу легко не заметить, если её вклад в прибыль нельзя показать цифрами.',method:'Свяжете себестоимость, ФОТ и процессы в одну модель. Научитесь показывать финансовый результат своего блока.'},
+ t3:{pain:'Пока команда приносит вопросы, вы остаётесь сильным исполнителем вместо руководителя следующего уровня.',method:'Выстроите роли, показатели и правила принятия решений. Настроите делегирование без микроконтроля.'},
+ t4:{pain:'Карьерный вес руководителя растёт, когда за ним есть новый рынок, направление или заметный рост.',method:'Проверите рынок и риски входа. Соберёте план продаж и сможете взять на себя запуск нового направления.'},
+ t5:{pain:'Опыт поддержки процессов ценят меньше, чем способность провести сложное изменение и показать результат.',method:'Соберёте план изменений, работу с сопротивлением и контрольные точки, по которым видно внедрение.'},
+ t6:{pain:'Для роли правой руки собственника или собственного бизнеса нужно видеть компанию целиком, а не только свою функцию.',method:'Свяжете финансы, людей и процессы в одну систему. Соберёте проект, который показывает ваше бизнес-мышление.'}
+};
+const sel=new Set();
+const byItem=new Map(ITEMS.map(i=>[i.k,i]));
+const byCase=new Map(CASES.map(c=>[c.k,c]));
+const uniq=(a,f=x=>x)=>{const s=new Set();return a.filter(x=>{const k=f(x);if(s.has(k))return false;s.add(k);return true})};
+const modBy=(()=>{const m={};ITEMS.forEach(it=>it.mods.forEach(([n,names])=>{if(names&&!m[n])m[n]=names}));return m})();
+function picks(){
+  document.getElementById('picks').innerHTML=`<section class="pick-group"><h4>Выберите задачи клиента</h4><div class="pick-grid">${JOBS.map(j=>
+    `<label class="pick${sel.has(j.k)?' on':''}"><input type="checkbox" ${sel.has(j.k)?'checked':''} onchange="tog('${j.k}')"><span class="pick-task">${j.t}</span></label>`).join('')}</div></section>`;
+  updateCount();
+}
+function updateCount(){
+  const slides=document.querySelectorAll('#deck .slide').length;
+  document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b>${slides?` · слайдов <b>${slides}</b>`:''}`:'Задачи не отмечены';
+}
+function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
+function toggleSb(){const l=document.querySelector('.layout');l.classList.toggle('nosb');document.getElementById('sbShow').style.display=l.classList.contains('nosb')?'block':'none';setTimeout(setZoom,60)}
+function all(v){sel.clear();if(v)JOBS.forEach(j=>sel.add(j.k));picks();render()}
+const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.slice(i*size,(i+1)*size));
+function ft(n){return `<div class="ft"><span>MBA Foundation · Школа бизнеса «Синергия»</span><span>${n}</span></div><div class="mark"></div>`}
+const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
+
+function render(){
+  const nm=document.getElementById('nm').value.trim();
+  const co=document.getElementById('co').value.trim();
+  const list=JOBS.filter(j=>sel.has(j.k));
+  const d=document.getElementById('deck');
+  if(!list.length){d.innerHTML='<p class="empty noprint">Отметьте задачи клиента слева — презентация соберётся здесь.</p>';updateCount();return}
+  const hitMods=new Set(list.flatMap(j=>j.route.map(x=>x.m).filter(Boolean)));
+  let n=0,out='';
+  const cover=`<section class="slide cover">${(nm||co)?`<div class="for"><small>Персональная презентация</small>${nm?nm:''}${nm&&co?' · ':''}${co?co:''}</div>`:''}</section>`;
+  const add=(html,num=true)=>{if(num)n++;out+=html};
+  add(cover);
+
+  // Почему MBA помогает решить рабочую задачу
+  n++;
+  out+=`<section class="slide why-slide">${ft(n)}<div class="kick">Зачем MBA топ-менеджеру</div><h2>MBA усиливает вашу ценность как руководителя</h2>
+    <p class="why-lead">Крупные компании приглашают руководителей, которые понимают бизнес целиком, умеют строить команды и показывают результат в цифрах.</p>
+    <div class="why-steps"><div class="why-step"><span class="why-num">01</span><b>Видеть бизнес целиком</b><p>Понимать финансы, рынок, людей и процессы за пределами своей функции.</p></div><div class="why-step"><span class="why-num">02</span><b>Показывать результат</b><p>Приносить собственнику решения, которые можно оценить в деньгах.</p></div><div class="why-step"><span class="why-num">03</span><b>Усилить карьерную позицию</b><p>Подтвердить уровень проектом по реальной задаче компании.</p></div></div></section>`;
+
+  // Каждая выбранная задача занимает ровно один слайд
+  list.forEach((j,idx)=>{
+    n++;
+    const copy=SALES_COPY[j.k];
+    out+=`<section class="slide sell-task" id="job-${j.k}">${ft(n)}<div class="kick">Ваша задача ${idx+1} из ${list.length}</div>
+      <h2>${j.t}</h2>
+      <div class="sell-grid"><div class="sell-part"><span class="sell-label">Что ограничивает рост сейчас</span><p>${copy.pain}</p></div><div class="sell-part method"><span class="sell-label">Что усилит вашу позицию</span><p>${copy.method}</p></div></div>
+      <div class="sell-result"><b>Что это даст вам</b><p>${j.me||j.out}</p></div>
+      </section>`;
+
+    n++;
+    out+=`<section class="slide learn-slide" id="modules-${j.k}">${ft(n)}<div class="kick">Задача ${idx+1} · На каких модулях</div><h2>Чему вы научитесь для этой задачи</h2><p class="learn-sub">${j.t}</p><div class="learn-grid">${j.route.map(x=>`<div class="learn-item"><div class="learn-no"><small>модуль</small>${String(x.m).padStart(2,'0')}</div><div><h3>${MODULES[x.m-1]}</h3><p>${x.t}</p></div></div>`).join('')}</div></section>`;
+
+    const c=j.case&&byCase.get(j.case.k);
+    if(c){n++;out+=`<section class="slide story-case" id="case-${j.k}">${ft(n)}<div class="kick">Задача ${idx+1} · Кейс выпускника</div><h2>${c.n}</h2><p class="case-role">${c.r}</p><div class="story-case-grid"><div class="case-result"><div class="metric">${j.case.fig||c.fig}</div><p>${j.case.cap||c.figt}</p></div><div class="case-actions"><h3>Что сделал на программе</h3><ul>${c.did.slice(0,2).map(x=>`<li>${x}</li>`).join('')}</ul></div></div></section>`}
+  });
+
+  // Доказательства, программа и условия
+  n++;
+  out+=`<section class="slide">${ft(n)}<div class="kick">Почему школе доверяют</div><h2>38 лет в бизнес-образовании</h2><div class="school-proof">${SCHOOL.map(x=>`<div class="stat"><div class="num${x[2]?' red':''}">${x[0]}</div><p>${x[1]}</p></div>`).join('')}</div><p class="school-clients">Управленческие команды выпускников работают в компаниях: <b style="color:#fff">${CLIENTS}</b></p></section>`;
+  n++;
+  out+=`<section class="slide">${ft(n)}<div class="kick">С кем вы будете работать</div><h2 style="margin-bottom:2%">Практики бизнеса</h2><div class="tph">${TEACHERS.filter(t=>t[2]).slice(0,6).map(t=>`<div><img src="design-img/teachers/${t[2]}.jpg" alt=""><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div></section>`;
+
+  // 5 · для учредителя (только версия для топ-менеджера)
+  if(TOP){
+    n++;
+    out+=`<section class="slide">${ft(n)}<div class="kick">Для учредителя и совета</div><h2>Что решать компании</h2>
+      <div class="fmts mid">
+        <div class="box"><h3>Что получит компания</h3><ul><li>Выпускной проект по выбранной задаче компании</li><li>Расчёт и план внедрения</li><li>Эксперт выпускного проекта</li></ul></div>
+        <div class="box dim"><h3>Срок и график</h3><ul><li>12 модулей за год</li><li>Один модуль в месяц, четверг — воскресенье: 2 рабочих дня в месяц</li><li>Куратор группы</li></ul></div>
+        <div class="box dim"><h3>Как оформить</h3><ul><li>${rub(PRICE)} при единовременной оплате</li><li>Вдвоём с коллегой −${DUO_OFF*100}% каждому</li><li>Договор с юрлицом, оплату можно разделить с работодателем</li></ul></div>
+      </div></section>`;
+  }
+
+  // 6 · календарь
+  n++;
+  out+=`<section class="slide">${ft(n)}<div class="kick">Календарь и стоимость</div><h2>Условия участия</h2><div class="cols">
+    <div class="box" style="display:flex;flex-direction:column"><h3>Базовая стоимость обучения</h3><div class="price" style="margin:4% 0 0">${rub(PRICE)}</div>
+      <p class="price-note" style="margin:2% 0 auto">* при единовременной оплате</p><h3>Расписание — без отрыва от работы</h3>
+      <div class="week"><span class="w">ЧТ</span><span class="w">ПТ</span><span class="o">СБ</span><span class="o">ВС</span></div>
+      <p class="wk-note"><b>Один модуль в месяц, четверг — воскресенье.</b> Из рабочего графика вы отсутствуете 2 дня в месяц (чт, пт), суббота и воскресенье — выходные дни. Всего 12 модулей за год.</p></div>
+    <div class="box dim" style="display:flex;flex-direction:column"><h3>Что включено в стоимость</h3><ul class="incl">${INCLUDED.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <p class="price-note" style="margin-top:auto">* перелёт и проживание оплачиваются дополнительно</p></div></div></section>`;
+
+  // 7 · оплата
+  n++;
+  const one=PRICE*(1-DUO_OFF);
+  out+=`<section class="slide">${ft(n)}<div class="kick">Стоимость</div><h2>Вдвоём с коллегой — −${DUO_OFF*100}% каждому</h2><div class="fmts">
+    <div class="box dim"><h3>Без скидки</h3><ul><li>1 участник — ${rub(PRICE)}</li><li>2 участника — ${rub(PRICE*2)}</li></ul><div class="price" style="color:var(--tx3)">${rub(PRICE*2)}</div><p class="price-note" style="margin-top:4%;color:var(--tx3)">за двоих</p></div>
+    <div class="box"><h3>Со скидкой ${DUO_OFF*100}%</h3><ul><li>1 участник — <b>${rub(one)}</b></li><li>2 участника — <b>${rub(one*2)}</b></li></ul><div class="price">${rub(one*2)}</div><p class="price-note" style="margin-top:4%">за двоих</p></div>
+    <div class="box"><h3>Экономия компании</h3><ul><li>${rub(PRICE-one)} на каждом участнике</li><li>${TOP?'Вы и коллега':'Вы и коллега'} внедряете изменения вместе — так их проще провести через компанию</li></ul><div class="price" style="color:var(--red)">${rub((PRICE-one)*2)}</div><p class="price-note" style="margin-top:4%">выгода за двоих</p></div></div>
+    <p style="margin-top:2.4%;font-size:calc(1.75cqw*var(--k,1));color:var(--tx2)">Налоговый вычет за обучение можно вернуть</p></section>`;
+  n++;
+  out+=`<section class="slide">${ft(n)}<div class="kick">Стоимость</div><h2>Форматы участия</h2><div class="fmts">${FORMATS.map((x,i)=>`<div class="box${i?' dim':''}"><h3>${x[0]}</h3><ul>${x[2].map(y=>`<li>${y}</li>`).join('')}</ul><div class="price">${rub(x[1])}</div><p class="price-note" style="margin-top:4%;min-height:6.2em;letter-spacing:.06em;line-height:1.35">${x[3]}</p></div>`).join('')}</div></section>`;
+  n++;
+  out+=`<section class="slide">${ft(n)}<div class="kick">Оплата</div><h2>Можно платить частями</h2><div class="fmts big inst">${INSTALL.map((x,i)=>`<div class="box${i?' dim':''}"><h3>${x[0]}</h3><p>${todo(x[1])}</p></div>`).join('')}</div></section>`;
+
+  n++;out+=`<section class="slide next-slide">${ft(n)}<div class="kick">Следующий шаг</div><h2>Выбрать задачу для выпускного проекта</h2><p class="next-copy">Обсудите с менеджером задачу, формат участия и то, как собрать решение под вашу компанию.</p></section>`;
+  d.innerHTML=out;
+  updateCount();
+}
+const qs=new URLSearchParams(location.search);
+if(qs.get('p'))qs.get('p').split(',').filter(Boolean).forEach(k=>sel.add(k));
+else JOBS.slice(0,2).forEach(j=>sel.add(j.k));
+if(qs.get('nm'))document.addEventListener('DOMContentLoaded',()=>document.getElementById('nm').value=qs.get('nm'));
+picks();render();
+
+// слайд рисуется в фиксированном размере 1280×720 и масштабируется под ширину окна
+function setZoom(){
+  const d=document.getElementById('deck');
+  const z=Math.max(.3,(d.clientWidth-40)/1280);
+  d.style.setProperty('--z',z);
+}
+window.addEventListener('resize',setZoom);setZoom();
+// автоподбор: если содержимое слайда не помещается, уменьшаем шрифты только на нём
+function fitSlides(){
+  document.querySelectorAll('#deck .slide:not(.source-slide):not(.cover)').forEach(sl=>{
+    sl.style.removeProperty('--k');
+    let k=1;
+    const over=()=>sl.scrollHeight>sl.clientHeight+2||
+      [...sl.querySelectorAll('.box,.cols,.stack,.st,.jobrows,.cs,.ovg,.ovc,.tk,.tsteps,.tc')].some(e=>e.scrollHeight>e.clientHeight+2);
+    while(k>.85&&over()){k=Math.round((k-.04)*100)/100;sl.style.setProperty('--k',k)}
+    if(k===1&&!over()&&sl.querySelector('.ovg')){let g=1;while(g<1.3){g=Math.round((g+.05)*100)/100;sl.style.setProperty('--k',g);if(over()){g=Math.round((g-.05)*100)/100;sl.style.setProperty('--k',g);break}}}
+  });
+}
+let fitT;
+new ResizeObserver(()=>{clearTimeout(fitT);fitT=setTimeout(fitSlides,60)}).observe(document.getElementById('deck'));
+new MutationObserver(()=>{clearTimeout(fitT);fitT=setTimeout(fitSlides,60)}).observe(document.getElementById('deck'),{childList:true});
+window.addEventListener('beforeprint',fitSlides);
+if(document.fonts)document.fonts.ready.then(fitSlides);
+</script>
+</body>
+</html>
