@@ -613,6 +613,19 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .alum b{font-size:calc(2.1cqw*var(--k,1))}
 .alum .r{font-size:calc(1.45cqw*var(--k,1))}
 .pcard .pt{font-size:calc(1.25cqw*var(--k,1))}
+
+/* ── правка 4 ── */
+.slide .pcard h3{font-size:calc(2.35cqw*var(--k,1));line-height:1.2}
+.pcard .ico{font-size:calc(2.8cqw*var(--k,1))}
+
+/* ── правка 5: обложка с названием ── */
+.slide.cover.c2{background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%)}
+.cover.c2 .cv-logo{position:absolute;left:81.6%;top:7.9%;width:15.1%;height:auto}
+.cover.c2 .cv-photo{position:absolute;left:63%;top:29.9%;width:35.8%;aspect-ratio:1;border-radius:50%;background:url(design-img/cover-photo.jpg) center/cover;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.cover.c2 .cv-text{position:absolute;left:5.6%;top:50%;transform:translateY(-50%);max-width:56%}
+.cover.c2 .cv-tag{display:block;color:var(--red);font-size:15px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:22px}
+.cover.c2 h1{font-size:calc(4.2cqw)}
+.cover.c2 p{margin-top:24px;font-size:calc(1.9cqw);color:var(--tx2)}
 </style>
 </head>
 <body>
@@ -1071,7 +1084,7 @@ const MODSHORT=[
  'Регулярный менеджмент. Управление изменениями','Цифровая трансформация. Управление продажами','Презентация и выступление. Финальная бизнес-игра'
 ];
 // месяцы платежей от начала обучения: 2 транша — 1 и 6, 3 транша — 1, 3 и 6
-const PAY_SCHEMES=[['3 платежа',[1,3,6]]];
+const PAY_SCHEMES=[['4 платежа',[1,4,7,10]]];
 
 const JOBS=[
 {k:'t2',t:'Управлять себестоимостью и рентабельностью и показать вклад в прибыль',short:'Себестоимость и рентабельность',card:'Себестоимость и рентабельность: вклад в прибыль',pain:'Себестоимость растёт, маржи нет, вклад в прибыль не виден',ico:'calc',img:PH.table,
@@ -1183,7 +1196,8 @@ function render(){
   const list=JOBS.filter(j=>sel.has(j.k));
   const d=document.getElementById('deck');
   if(!list.length){d.innerHTML='<p class="empty noprint">Отметьте задачи клиента слева — презентация соберётся здесь.</p>';updateCount();return}
-  let n=1,out='<section class="slide cover"></section>';
+  const COVER=`<section class="slide cover c2"><img class="cv-logo" src="design-img/logo-synergia.png" alt=""><div class="cv-photo"></div><div class="cv-text"><span class="cv-tag">MBA Foundation</span><h1>Управление бизнесом для собственников и топ-менеджеров</h1><p>Школа бизнеса «Синергия»</p></div></section>`;
+  let n=1,out=COVER;
   const S=(cls,body,attr='')=>{n++;out+=`<section class="slide ${cls}"${attr}>${ft(n)}${body}</section>`};
   const pic=(src,w=40,cls='')=>`<div class="pic r ${cls}" style="--w:${w}%"><img src="${src}" alt=""></div>`;
   const pct=Math.round(DUO_OFF*100),one=PRICE*(1-DUO_OFF);
@@ -1208,8 +1222,7 @@ function render(){
 
   // 3 · это про вас: боли, которые чаще всего называют на встречах (отмеченные задачи подсвечены)
   S('pick-slide',`<div class="kick">Для кого программа</div><h2>Это про вас, если…</h2><p class="pick-ask">Что из этого звучит у вас?</p>
-    <div class="pick-grid2">${JOBS.map((j,i)=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<span class="pn">${String(i+1).padStart(2,'0')}</span><h3>${j.pain}</h3><span class="pt"><b>→</b> ${j.card}</span></div>`).join('')}</div>
-    ${TOP?'<div class="pick-foot"><b>Для каждой задачи:</b> рост дохода, позиция выше, более крупные компании</div>':''}`);
+    <div class="pick-grid2">${JOBS.map((j,i)=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<span class="pn">${String(i+1).padStart(2,'0')}</span><h3>${j.pain}</h3></div>`).join('')}</div>`);
 
   // 4 · зачем MBA
   S('why2',`${pic(PH.table,34)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
@@ -1291,9 +1304,9 @@ function render(){
 
   // 13 · календарь модулей и платежи
   S('cal-slide',`<div class="kick">Календарь</div><h2>12 модулей за год и график платежей</h2>
-    <div class="cal">${MODSHORT.map((nm,i)=>{const m=i+1;const pn={1:1,3:2,6:3}[m];const p=pn?`<span class="pay">${pn} платёж</span>`:'';
+    <div class="cal">${MODSHORT.map((nm,i)=>{const m=i+1;const pn={1:1,4:2,7:3,10:4}[m];const p=pn?`<span class="pay">${pn} платёж</span>`:'';
       return `<div class="mc${m===6?' dxb':''}"><span class="mm">Месяц ${m}${DATES[i]?` · ${DATES[i]}`:''}</span><span class="mn">${String(m).padStart(2,'0')}</span><span class="mt">${nm}</span>${m===6?'<span class="tag">выезд в Дубай</span>':''}${p}</div>`}).join('')}</div>
-    <div class="cal-leg"><span><b>Каждый модуль:</b> четверг — воскресенье, из рабочего графика выпадают чт и пт</span><span><b>Платежи:</b> 1-й — месяц 1, 2-й — месяц 3, 3-й — месяц 6. ${todo('[суммы траншей — уточнить]')}</span></div>`);
+    <div class="cal-leg"><span><b>Каждый модуль:</b> четверг — воскресенье, из рабочего графика выпадают чт и пт</span><span><b>Платежи:</b> 4 платежа, каждые 3 месяца: месяцы 1, 4, 7 и 10. ${todo('[суммы траншей — уточнить]')}</span></div>`);
 
   // 14 · форматы участия и что включено
   S('fm-slide',`<div class="kick">Стоимость</div><h2>Форматы участия</h2><div class="fmts">${FORMATS.map((x,i)=>`<div class="box${i?' dim':''}"><h3>${x[0]}</h3><ul>${x[2].map(y=>`<li>${y}</li>`).join('')}</ul><div class="price">${rub(x[1])}</div><p class="price-note${i?' hy':''}">${x[3]}</p></div>`).join('')}</div>
@@ -1302,7 +1315,7 @@ function render(){
   // 15 · рассрочка
   const tmln=(label,months)=>`<div class="tr2"><div class="tr2-l">${label}</div><div class="tmln">${Array.from({length:12},(_,i)=>{const m=i+1,k=months.indexOf(m);return `<div class="tmc${k>=0?' on':''}">${k>=0?`<span class="tmd">${k+1}</span>`:''}${m}${k>=0?`<small>${k+1} платёж</small>`:''}</div>`}).join('')}</div></div>`;
   S('',`<div class="kick">Оплата</div><h2>Можно платить частями</h2><div class="inst-grid">
-    <div class="box tl-card"><h3>Платите частями</h3><p class="tl-sub">Платёж — в 1, 3 и 6 месяц обучения</p>${PAY_SCHEMES.map(s=>tmln(s[0],s[1])).join('')}<p class="tl-note">${todo('[суммы траншей — уточнить]')}</p></div>
+    <div class="box tl-card"><h3>Платите частями</h3><p class="tl-sub">Четыре платежа, каждые 3 месяца: 1, 4, 7 и 10 месяц обучения</p>${PAY_SCHEMES.map(s=>tmln(s[0],s[1])).join('')}<p class="tl-note">${todo('[суммы траншей — уточнить]')}</p></div>
     <div class="inst-side">${INSTALL.map(x=>`<div class="box dim"><h3>${x[0]}</h3><p>${todo(x[1])}</p></div>`).join('')}</div></div>`);
 
   // 16 · вдвоём с коллегой
@@ -1317,7 +1330,7 @@ function render(){
   }
 
   // 18 · закрывающий слайд — как обложка
-  out+='<section class="slide cover"></section>';
+  out+=COVER;
   d.innerHTML=out;
   updateCount();
 }
