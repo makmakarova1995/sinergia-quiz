@@ -556,6 +556,63 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .fcards:not(.g2){max-height:66%}
 .mc .mt{font-size:calc(1.32cqw*var(--k,1))}
 
+
+/* ── третья итерация: рассрочка одним графиком, скидка на одного участника ── */
+.tmc small{display:block;font-size:13px;color:var(--red);font-weight:600;margin-top:4px;white-space:nowrap}
+.duo-disc{font-size:calc(2.6cqw*var(--k,1));font-weight:600;color:var(--red);margin:0 0 3.4%;letter-spacing:-.01em}
+
+/* ── порядок как у Сколково: «это про вас», портрет, формат обучения, выпускники ── */
+.pcard .ico{font-size:calc(2.5cqw*var(--k,1))}
+.slide .pcard h3{font-size:calc(1.75cqw*var(--k,1))}
+.pcard .pt{margin-top:4%;font-size:calc(1.15cqw*var(--k,1));color:var(--tx3);line-height:1.3}
+.pcard .pt b{color:var(--red);font-weight:600;margin-right:4px}
+
+/* портрет участников */
+.portrait-slide .body{width:68%}
+.pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.2% 3%;margin:1% 0 0}
+.ptc{background:rgba(255,255,255,.035);border-top:2px solid var(--red);border-radius:5px;padding:5% 6%;display:flex;flex-direction:column;min-height:0}
+.ptc .ico{font-size:calc(2.4cqw*var(--k,1));color:var(--red);margin-bottom:6%}
+.ptc b{font-family:var(--serif);font-weight:500;font-size:calc(4.2cqw*var(--k,1));line-height:1;color:#fff}
+.ptc b small{font-size:.38em;margin-left:.3em;letter-spacing:0}
+.ptc>span{font-size:calc(1.5cqw*var(--k,1));color:var(--tx2);margin-top:4%}
+.ptc .lbl{color:#fff;font-size:calc(1.6cqw*var(--k,1));margin:0 0 4%}
+.pbar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:#2a2a2a}
+.pbar i{background:var(--red);display:block;height:100%}
+.pleg{display:flex;justify-content:space-between;gap:10px;margin-top:4%;font-size:calc(1.3cqw*var(--k,1));color:var(--tx2);line-height:1.3}
+.pleg span{margin:0}
+.pt-co{margin-top:3%;border-top:1px solid #333;padding-top:2%}
+.pt-co .lbl{display:block;font-size:calc(1.4cqw*var(--k,1));letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:600;margin-bottom:1.4%}
+.pt-co p{font-size:calc(1.7cqw*var(--k,1));color:var(--tx2);line-height:1.4}
+
+/* формат обучения */
+.fmt-slide h2{margin-bottom:2.4%}
+.fmt-grid{display:grid;grid-template-columns:1fr .74fr 1fr;column-gap:26px;flex:1;min-height:0}
+.fmt-col{display:flex;flex-direction:column;gap:3%;min-height:0}
+.fmt-card{flex:1;position:relative;background:rgba(255,255,255,.035);border-left:2px solid var(--red);border-radius:5px;padding:3.4% 4%;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.fmt-card b{font-family:var(--serif);font-weight:500;font-size:calc(1.5cqw*var(--k,1));color:#fff;line-height:1.18;margin-bottom:2%}
+.fmt-card p{font-size:calc(1.18cqw*var(--k,1));color:var(--tx2);line-height:1.38}
+.fmt-col.l .fmt-card::after,.fmt-col.r .fmt-card::before{content:'';position:absolute;top:50%;width:26px;height:2px;background:var(--red)}
+.fmt-col.l .fmt-card::after{left:100%}
+.fmt-col.r .fmt-card::before{right:100%}
+.fmt-mid{background:var(--red);border-radius:5px;display:flex;align-items:center;justify-content:center;padding:6%;text-align:center}
+.fmt-mid b{font-family:var(--serif);font-weight:500;text-transform:uppercase;font-size:calc(2.3cqw*var(--k,1));line-height:1.12;color:#fff}
+
+/* кто у нас учился */
+.alum-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:3% 2.4%;flex:1;min-height:0}
+.alum{background:rgba(255,255,255,.035);border-top:2px solid #3a3a3a;border-radius:5px;padding:6%;display:flex;flex-direction:column;min-height:0}
+.alum .am{width:4.4cqw;height:4.4cqw;border-radius:50%;box-shadow:inset 0 0 0 2px var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.7cqw;color:#fff;margin-bottom:auto;flex:none}
+.alum b{font-family:var(--serif);font-weight:500;font-size:calc(1.9cqw*var(--k,1));color:#fff;line-height:1.15;margin:6% 0 3%}
+.alum .r{font-size:calc(1.3cqw*var(--k,1));color:var(--tx2);line-height:1.35}
+.alum.big{border-top-color:var(--red);background:rgba(255,0,61,.08);justify-content:center}
+.alum.big b{font-size:calc(4.4cqw*var(--k,1));color:var(--red);margin:0 0 3%}
+
+/* ── правка 3 ── */
+.pbar{flex:none}
+.fmt-card b{font-size:calc(1.7cqw*var(--k,1))}
+.fmt-card p{font-size:calc(1.32cqw*var(--k,1))}
+.alum b{font-size:calc(2.1cqw*var(--k,1))}
+.alum .r{font-size:calc(1.45cqw*var(--k,1))}
+.pcard .pt{font-size:calc(1.25cqw*var(--k,1))}
 </style>
 </head>
 <body>
@@ -984,7 +1041,9 @@ const ICON={
  award:'<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>',
  message:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
  usercheck:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>',
- target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>'
+ target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+ briefcase:'<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+ pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>'
 };
 const ico=k=>`<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
 
@@ -1012,10 +1071,10 @@ const MODSHORT=[
  'Регулярный менеджмент. Управление изменениями','Цифровая трансформация. Управление продажами','Презентация и выступление. Финальная бизнес-игра'
 ];
 // месяцы платежей от начала обучения: 2 транша — 1 и 6, 3 транша — 1, 3 и 6
-const PAY_SCHEMES=[['2 транша',[1,6]],['3 транша',[1,3,6]]];
+const PAY_SCHEMES=[['3 платежа',[1,3,6]]];
 
 const JOBS=[
-{k:'o2',t:'Вернуть рентабельность: взять себестоимость и затраты под контроль',short:'Себестоимость и рентабельность',card:'Рентабельность: себестоимость и затраты под контролем',ico:'calc',img:PH.speaker,
+{k:'o2',t:'Вернуть рентабельность: взять себестоимость и затраты под контроль',short:'Себестоимость и рентабельность',card:'Рентабельность: себестоимость и затраты под контролем',pain:'Работаете больше, а маржи всё меньше',ico:'calc',img:PH.speaker,
  sub:'Растить прибыль, когда дорожают материалы и давят конкуренты: снижать себестоимость, поднимать выработку на человека, находить потери в процессах, не нанимая лишних людей.',
  lead:'Прибыль растёт, даже когда дорожают материалы и давят конкуренты.',
  why:'Чтобы маржа не проседала при росте цен и давлении конкурентов.',
@@ -1026,7 +1085,7 @@ const JOBS=[
   {m:5,t:'Связывать затраты с финансовым планом, видеть отклонения'},
   {m:9,t:'Находить потери в процессах: функционально-стоимостной анализ'}],
  case:{k:'kuzyakov',fig:'+5–7%',cap:'маржинальности после плана оптимизации производства'}},
-{k:'o1',t:'Выстроить команду, которая принимает решения сама, без вашего контроля',short:'Снять с себя операционку',card:'Команда, которая решает без вашего контроля',ico:'users',img:PH.hall,
+{k:'o1',t:'Выстроить команду, которая принимает решения сама, без вашего контроля',short:'Снять с себя операционку',card:'Команда, которая решает без вашего контроля',pain:'Всё держится на вас, даже на выходных контролируете',ico:'users',img:PH.hall,
  sub:'Команда с понятными ролями и показателями: мелкие вопросы закрываются на месте, а стратегические приходят к вам уже с готовым решением.',
  lead:'Мелкие вопросы закрываются на месте, к вам приходят уже с готовым решением.',
  why:'Чтобы ваше время уходило на развитие бизнеса, а не на проверку исполнения.',
@@ -1037,7 +1096,7 @@ const JOBS=[
   {m:9,t:'Описывать процессы, чтобы команда работала по правилам'},
   {m:10,t:'Делегировать и контролировать без микроменеджмента'}],
  case:{k:'isaev',fig:'Новая команда',cap:'Пересобрал управленческую команду, KPI и найм по методикам программы'}},
-{k:'o3',t:'Выходить на новые рынки и забирать клиентов у конкурентов',short:'Рынки и продажи',card:'Новые рынки и клиенты конкурентов',ico:'globe',img:PH.dubai,
+{k:'o3',t:'Выходить на новые рынки и забирать клиентов у конкурентов',short:'Рынки и продажи',card:'Новые рынки и клиенты конкурентов',pain:'Маркетплейсы и сети забирают долю рынка',ico:'globe',img:PH.dubai,
  sub:'Выбрать рынок или нишу, посчитать, окупится ли вход, и собрать маркетинг и продажи, которые заберут клиентов у конкурентов.',
  lead:'Выбрать рынок, посчитать окупаемость входа и собрать продажи.',
  why:'Чтобы расти и не зависеть от одного рынка.',
@@ -1048,7 +1107,7 @@ const JOBS=[
   {m:8,t:'Планировать стратегию: ёмкость рынка, карта рынка'},
   {m:11,t:'Строить систему продаж: модели, контроль, мотивация'}],
  case:{k:'yuditskaya',fig:'Новый рынок',cap:'Оценила рынок ОАЭ и открыла направление в Дубае'}},
-{k:'o4',t:'Вкладывать деньги по расчёту: только в то, что окупится',short:'Решения о деньгах',card:'Вложения только по расчёту',ico:'coins',img:PH.stage,
+{k:'o4',t:'Вкладывать деньги по расчёту: только в то, что окупится',short:'Решения о деньгах',card:'Вложения только по расчёту',pain:'Рынок непредсказуем: прогноз даже на квартал не построить',ico:'coins',img:PH.stage,
  sub:'Выбирать проекты и инвестиции с расчётом: сколько вложить, когда вернутся деньги и что будет в плохом сценарии.',
  lead:'Вложения выбираются расчётом: сколько вложить и когда деньги вернутся.',
  why:'Чтобы не допустить дорогую ошибку и спокойно планировать горизонт.',
@@ -1058,7 +1117,7 @@ const JOBS=[
   {m:5,t:'Собирать финансовый план, считать ROI и окупаемость'},
   {m:8,t:'Оценивать инвестиции по потокам, сроку окупаемости и риску'}],
  case:{k:'nishchev',fig:'200 млн ₽',cap:'экономии в год от выпускного проекта'}},
-{k:'o5',t:'Внедрить нейросети и автоматизацию там, где они дают эффект',short:'ИИ и автоматизация',card:'Нейросети и автоматизация с эффектом',ico:'cpu',img:PH.room,
+{k:'o5',t:'Внедрить нейросети и автоматизацию там, где они дают эффект',short:'ИИ и автоматизация',card:'Нейросети и автоматизация с эффектом',pain:'Нужны автоматизация и ИИ, но неясно, с чего начать',ico:'cpu',img:PH.room,
  sub:'Найти операции, где ручной труд съедает время и деньги, поставить на них ИИ и посчитать эффект до внедрения.',
  lead:'ИИ стоит там, где ручной труд съедает время и деньги.',
  why:'Чтобы делать больше теми же людьми и затратами.',
@@ -1068,7 +1127,7 @@ const JOBS=[
   {m:9,t:'Находить причины дефектов, ставить контроль на операции'},
   {m:11,t:'Встраивать ИИ в процессы: выбирать операции, считать эффект'}],
  case:{k:'kuzyakov',fig:'Нейросети',cap:'контролируют санитарные нормы и качество продукции'}},
-{k:'o6',t:'Получить круг равных и идеи за пределами своей ниши',short:'Круг равных',card:'Круг равных и идеи вне вашей ниши',ico:'rings',img:PH.table,
+{k:'o6',t:'Получить круг равных и идеи за пределами своей ниши',short:'Круг равных',card:'Круг равных и идеи вне вашей ниши',pain:'Не с кем обсудить сложные решения, нет круга равных',ico:'rings',img:PH.table,
  sub:'Работать в группе собственников и руководителей над реальными задачами своих компаний, а не слушать лекции.',
  lead:'Работа в группе равных над реальными задачами своих компаний.',
  why:'Чтобы находить партнёров и решения вне своей ниши.',
@@ -1131,33 +1190,41 @@ function render(){
         [['Реальная задача','Берёте в работу то, что тормозит бизнес.'],['Расчёт и решение','Проверяете решение на цифрах своей компании.'],['Проект к внедрению','План, ответственные и контрольные точки.']]],
       lab:['Что происходит сейчас','Что вы сделаете на MBA','На выходе'],
       ind:'По вашей компании'};
+  const ph=s=>todo(s);
+
+  // порядок как в презентации Сколково: школа → для кого → о программе → кто учится → программа по задачам → формат → преподаватели → выпускники → условия
 
   // 2 · о школе
   S('school-slide',`${pic(PH.hall,42)}<div class="body"><div class="kick">Почему школе доверяют</div><h2>38 лет в бизнес-образовании</h2>
     <div class="school-stats">${SCHOOL.map(x=>`<div class="stat"><div class="num${x[2]?' red':''}">${x[0]}</div><p>${x[1]}</p></div>`).join('')}</div>
     <p class="school-clients">Управленческие команды выпускников работают в компаниях: <b style="color:#fff">${CLIENTS}</b></p></div>`);
 
-  // 3 · концепция программы
+  // 3 · это про вас: боли, которые чаще всего называют на встречах (отмеченные задачи подсвечены)
+  S('pick-slide',`<div class="kick">Для кого программа</div><h2>Это про вас, если…</h2><p class="pick-ask">Что из этого звучит у вас?</p>
+    <div class="pick-grid2">${JOBS.map((j,i)=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<span class="pn">${String(i+1).padStart(2,'0')}</span><h3>${j.pain}</h3><span class="pt"><b>→</b> ${j.card}</span></div>`).join('')}</div>
+    ${TOP?'<div class="pick-foot"><b>Для каждой задачи:</b> рост дохода, позиция выше, более крупные компании</div>':''}`);
+
+  // 4 · зачем MBA
+  S('why2',`${pic(PH.table,34)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
+    <div class="why-rows">${T.why[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b><p>${r[1]}</p></div></div>`).join('')}</div></div>`);
+
+  // 5 · как устроена программа
   S('concept-slide',`<div class="kick">Программа</div><h2>Как устроена программа</h2>
     <div class="concept-grid"><div class="concept-nums">${CONCEPT.map(c=>`<div class="cn">${ico(c[0])}<b>${c[1]}<small>${c[2]}</small></b><span>${c[3]}</span></div>`).join('')}</div>
     <div class="pic in"><img src="${PH.grad}" alt=""></div></div>
     <div class="concept-strip"><b>Контент меняется быстрее рынка.</b> Каждый поток проходит по-разному.</div>`);
 
-  // 4 · преподаватели
-  S('',`<div class="kick">С кем вы будете работать</div><h2 style="margin-bottom:2%">Практики бизнеса</h2>
-    <div class="tph v2">${TEACHERS.filter(t=>t[2]).slice(0,6).map(t=>`<div><img src="design-img/teachers/${t[2]}.jpg" alt=""><b>${t[0]}</b><span>${TSHORT[t[2]]||t[1]}</span></div>`).join('')}</div>
-    <p class="t-cap"><b>Это делают практики, которые профессионально этим занимаются.</b> Методологи упаковывают их опыт в модули.</p>`);
+  // 6 · портрет участников (черновик: цифры и компании заполнить данными школы)
+  S('portrait-slide',`${pic(PH.dubai,30)}<div class="body"><div class="kick">Кто учится рядом с вами</div><h2>Портрет участников</h2>
+    <div class="pt-grid">
+      <div class="ptc">${ico('users')}<b>${ph('[__]')}<small>лет</small></b><span>средний возраст</span></div>
+      <div class="ptc">${ico('clock')}<b>${ph('[__]')}<small>лет</small></b><span>средний управленческий стаж</span></div>
+      <div class="ptc">${ico('briefcase')}<span class="lbl">Позиция в компании</span><div class="pbar"><i style="width:50%"></i></div><div class="pleg"><span>${ph('[__]')}% собственники бизнеса</span><span>${ph('[__]')}% топ-менеджеры и директора</span></div></div>
+      <div class="ptc">${ico('pin')}<span class="lbl">География</span><div class="pbar"><i style="width:50%"></i></div><div class="pleg"><span>${ph('[__]')}% Москва и область</span><span>${ph('[__]')}% другие регионы</span></div></div>
+    </div>
+    <div class="pt-co"><span class="lbl">Из каких компаний и отраслей</span><p>${ph('[список компаний и отраслей — запросить у школы]')}</p></div></div>`);
 
-  // 5 · зачем MBA
-  S('why2',`${pic(PH.table,34)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
-    <div class="why-rows">${T.why[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b><p>${r[1]}</p></div></div>`).join('')}</div></div>`);
-
-  // 6 · выбор задач: все шесть на одном слайде, отмеченные подсвечены
-  S('pick-slide',`<div class="kick">Ваши задачи</div><h2>Какие задачи решает программа</h2><p class="pick-ask">Что из этого откликается больше всего?</p>
-    <div class="pick-grid2">${JOBS.map((j,i)=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<span class="pn">${String(i+1).padStart(2,'0')}</span><h3>${j.card}</h3></div>`).join('')}</div>
-    ${TOP?'<div class="pick-foot"><b>Для каждой задачи:</b> рост дохода, позиция выше, более крупные компании</div>':''}`);
-
-  // 7 · по каждой выбранной задаче три слайда: задача → модули → кейс
+  // 7 · программа по задачам: три слайда на выбранную задачу — задача → модули → кейс
   list.forEach((j,idx)=>{
     const copy=SALES_COPY[j.k];
     S('sell-task sell2',`${pic(j.img,38)}<div class="body"><div class="kick">Ваша задача ${idx+1} из ${list.length}</div><h2>${j.t}</h2>
@@ -1176,14 +1243,16 @@ function render(){
     }
   });
 
-  // 8 · возражение: курс в записи
-  S('obj-slide',`<div class="kick">Почему программа</div><h2>Почему программа, а не курс в записи</h2>
-    <div class="obj-rows">${[
-      ['Записи быстро устаревают','Программа обновляется каждый поток: контент меняется вместе с рынком.'],
-      ['Сначала увидеть, чего вы не знаете','Кажется, что не хватает финансов. Но в стратегии и планировании опыт последних 10 лет сейчас не работает.'],
-      ['Программа продаётся целиком','Это комплексная отстройка системы. По кусочкам она не работает.'],
-      ['Готовые решения перестали работать','Прежние инструменты больше не работают: нужны новые шаги и выход из привычных практик.']
-    ].map((r,i)=>`<div class="orow"><span class="or-n">0${i+1}</span><b>${r[0]}</b><p>${r[1]}</p></div>`).join('')}</div>`);
+  // 8 · формат обучения (архитектура обучения из презентации школы)
+  const FB_L=[['Управленческие фреймворки','В программе используются классические и современные инструменты управления.'],
+              ['Кейс-метод','Разбор реальных ситуаций крупных российских компаний. Кейс-метод заземляет теорию на реальную специфику российского рынка.'],
+              ['Работа с реальным бизнесом','Инструменты программы применяются к реальным компаниям участников. Можно в безопасных условиях протестировать новые паттерны поведения.']];
+  const FB_R=[['Управленческие симуляции и стратегические игры','Методы управленческого моделирования развивают способность руководителя работать со сложными системами и неопределённостью.'],
+              ['Индивидуальный коучинг','Каждый участник проходит индивидуальную работу с коучем. Цель — изменение управленческих паттернов.'],
+              ['Коллективная экспертиза и управленческая среда','Система отбора на программу помогает собрать сильные группы из собственников и топ-менеджеров компаний.']];
+  const fc=a=>a.map(x=>`<div class="fmt-card"><b>${x[0]}</b><p>${x[1]}</p></div>`).join('');
+  S('fmt-slide',`<div class="kick">Формат обучения</div><h2>Как проходит обучение</h2>
+    <div class="fmt-grid"><div class="fmt-col l">${fc(FB_L)}</div><div class="fmt-mid"><b>Трансформация руководителя и его бизнеса</b></div><div class="fmt-col r">${fc(FB_R)}</div></div>`);
 
   // 9 · индивидуальная часть
   S('indiv',`${pic(PH.room,34)}<div class="body"><div class="kick">Индивидуальная часть</div><h2>Программа работает на вашу компанию</h2>
@@ -1194,35 +1263,54 @@ function render(){
       <div class="fc">${ico('usercheck')}<b>Куратор группы</b><p>Сопровождает группу</p></div>
     </div></div>`);
 
-  // 10 · календарь модулей и платежи
-  S('cal-slide',`<div class="kick">Календарь</div><h2>12 модулей за год и график платежей</h2>
-    <div class="cal">${MODSHORT.map((nm,i)=>{const m=i+1;const p=m===1||m===6?'<span class="pay">платёж</span>':m===3?'<span class="pay o">платёж · 3 транша</span>':'';
-      return `<div class="mc${m===6?' dxb':''}"><span class="mm">Месяц ${m}${DATES[i]?` · ${DATES[i]}`:''}</span><span class="mn">${String(m).padStart(2,'0')}</span><span class="mt">${nm}</span>${m===6?'<span class="tag">выезд в Дубай</span>':''}${p}</div>`}).join('')}</div>
-    <div class="cal-leg"><span><b>Каждый модуль:</b> четверг — воскресенье, из рабочего графика выпадают чт и пт</span><span><b>Платежи:</b> 2 транша — месяцы 1 и 6, 3 транша — месяцы 1, 3 и 6. ${todo('[суммы траншей — уточнить]')}</span></div>`);
+  // 10 · преподаватели
+  S('',`<div class="kick">С кем вы будете работать</div><h2 style="margin-bottom:2%">Практики бизнеса</h2>
+    <div class="tph v2">${TEACHERS.filter(t=>t[2]).slice(0,6).map(t=>`<div><img src="design-img/teachers/${t[2]}.jpg" alt=""><b>${t[0]}</b><span>${TSHORT[t[2]]||t[1]}</span></div>`).join('')}</div>
+    <p class="t-cap"><b>Это делают практики, которые профессионально этим занимаются.</b> Методологи упаковывают их опыт в модули.</p>`);
 
-  // 11 · форматы участия и что включено
+  // 11 · кто у нас учился (имена и компании, без фото)
+  const ALUMNI=['nishchev','kuzyakov','kapyev','isaev','volkova','yuditskaya','remenyako'].map(k=>byCase.get(k)).filter(Boolean);
+  S('alum-slide',`<div class="kick">Кто у нас учился</div><h2>Выпускники программы</h2>
+    <div class="alum-grid">${ALUMNI.map(c=>`<div class="alum"><div class="am">${initials(c.n)}</div><b>${c.n}</b><span class="r">${c.r}</span></div>`).join('')}<div class="alum big"><b>${SCHOOL[0][0]}</b><span class="r">выпускников школы</span></div></div>`);
+
+  // 12 · возражение: курс в записи
+  S('obj-slide',`<div class="kick">Почему программа</div><h2>Почему программа, а не курс в записи</h2>
+    <div class="obj-rows">${[
+      ['Записи быстро устаревают','Программа обновляется каждый поток: контент меняется вместе с рынком.'],
+      ['Сначала увидеть, чего вы не знаете','Кажется, что не хватает финансов. Но в стратегии и планировании опыт последних 10 лет сейчас не работает.'],
+      ['Программа продаётся целиком','Это комплексная отстройка системы. По кусочкам она не работает.'],
+      ['Готовые решения перестали работать','Прежние инструменты больше не работают: нужны новые шаги и выход из привычных практик.']
+    ].map((r,i)=>`<div class="orow"><span class="or-n">0${i+1}</span><b>${r[0]}</b><p>${r[1]}</p></div>`).join('')}</div>`);
+
+  // 13 · календарь модулей и платежи
+  S('cal-slide',`<div class="kick">Календарь</div><h2>12 модулей за год и график платежей</h2>
+    <div class="cal">${MODSHORT.map((nm,i)=>{const m=i+1;const pn={1:1,3:2,6:3}[m];const p=pn?`<span class="pay">${pn} платёж</span>`:'';
+      return `<div class="mc${m===6?' dxb':''}"><span class="mm">Месяц ${m}${DATES[i]?` · ${DATES[i]}`:''}</span><span class="mn">${String(m).padStart(2,'0')}</span><span class="mt">${nm}</span>${m===6?'<span class="tag">выезд в Дубай</span>':''}${p}</div>`}).join('')}</div>
+    <div class="cal-leg"><span><b>Каждый модуль:</b> четверг — воскресенье, из рабочего графика выпадают чт и пт</span><span><b>Платежи:</b> 1-й — месяц 1, 2-й — месяц 3, 3-й — месяц 6. ${todo('[суммы траншей — уточнить]')}</span></div>`);
+
+  // 14 · форматы участия и что включено
   S('fm-slide',`<div class="kick">Стоимость</div><h2>Форматы участия</h2><div class="fmts">${FORMATS.map((x,i)=>`<div class="box${i?' dim':''}"><h3>${x[0]}</h3><ul>${x[2].map(y=>`<li>${y}</li>`).join('')}</ul><div class="price">${rub(x[1])}</div><p class="price-note${i?' hy':''}">${x[3]}</p></div>`).join('')}</div>
     <div class="fm-incl"><h3>Что включено в «Очно»</h3><ul>${INCLUDED.map(x=>`<li>${x}</li>`).join('')}</ul><p class="fm-note">* перелёт и проживание оплачиваются дополнительно</p></div>`);
 
-  // 12 · рассрочка
-  const tmln=(label,months)=>`<div class="tr2"><div class="tr2-l">${label}</div><div class="tmln">${Array.from({length:12},(_,i)=>{const m=i+1,k=months.indexOf(m);return `<div class="tmc${k>=0?' on':''}">${k>=0?`<span class="tmd">${k+1}</span>`:''}${m}</div>`}).join('')}</div></div>`;
+  // 15 · рассрочка
+  const tmln=(label,months)=>`<div class="tr2"><div class="tr2-l">${label}</div><div class="tmln">${Array.from({length:12},(_,i)=>{const m=i+1,k=months.indexOf(m);return `<div class="tmc${k>=0?' on':''}">${k>=0?`<span class="tmd">${k+1}</span>`:''}${m}${k>=0?`<small>${k+1} платёж</small>`:''}</div>`}).join('')}</div></div>`;
   S('',`<div class="kick">Оплата</div><h2>Можно платить частями</h2><div class="inst-grid">
-    <div class="box tl-card"><h3>Платите частями</h3><p class="tl-sub">Платёж — в выбранные месяцы обучения</p>${PAY_SCHEMES.map(s=>tmln(s[0],s[1])).join('')}<p class="tl-note">${todo('[суммы траншей — уточнить]')}</p></div>
+    <div class="box tl-card"><h3>Платите частями</h3><p class="tl-sub">Платёж — в 1, 3 и 6 месяц обучения</p>${PAY_SCHEMES.map(s=>tmln(s[0],s[1])).join('')}<p class="tl-note">${todo('[суммы траншей — уточнить]')}</p></div>
     <div class="inst-side">${INSTALL.map(x=>`<div class="box dim"><h3>${x[0]}</h3><p>${todo(x[1])}</p></div>`).join('')}</div></div>`);
 
-  // 13 · вдвоём с коллегой
-  S('duo-slide',`<div class="kick">Стоимость</div><h2>Вдвоём с коллегой — −${pct}% каждому</h2>
-    <div class="duo-wrap"><div><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-new">${rub(one)}</div><div class="duo-cap">каждому из двоих участников</div></div><div class="duo-ico">${ico('rings')}</div></div>
+  // 16 · вдвоём с коллегой
+  S('duo-slide',`<div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка ${pct}%</h2>
+    <div class="duo-wrap"><div><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-disc">Скидка ${rub(PRICE-one)}</div><div class="duo-new">${rub(one)}</div><div class="duo-cap">стоимость на одного участника</div></div><div class="duo-ico">${ico('rings')}</div></div>
     <p class="duo-tax">Налоговый вычет за обучение можно вернуть</p>`);
 
-  // 14 · для учредителя (только версия для топ-менеджера)
+  // 17 · для учредителя (только версия для топ-менеджера)
   if(TOP){
     S('',`<div class="kick">Для учредителя и совета</div><h2>Что получит компания</h2>
       <div class="fcards"><div class="fc">${ico('file')}<b>Выпускной проект</b><p>по выбранной задаче компании</p></div><div class="fc">${ico('calc')}<b>Расчёт</b><p>и план внедрения</p></div><div class="fc">${ico('award')}<b>Эксперт</b><p>выпускного проекта</p></div></div>`);
   }
 
-  // 15 · следующий шаг
-  S('next-slide',`${pic(PH.grad,36)}<div class="body-n"><div class="kick">Следующий шаг</div><h2>Выбрать задачу для выпускного проекта</h2><p class="next-copy">Обсудите с менеджером задачу, формат участия и то, как собрать решение под вашу компанию.</p></div>`);
+  // 18 · закрывающий слайд — как обложка
+  out+='<section class="slide cover"></section>';
   d.innerHTML=out;
   updateCount();
 }
