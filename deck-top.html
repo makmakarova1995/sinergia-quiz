@@ -648,6 +648,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .why-row b{display:block;font-family:var(--serif);font-size:calc(2.2cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.18;margin-bottom:1.5%}
 .why-row p{font-size:calc(1.5cqw*var(--k,1));color:var(--tx2);line-height:1.4}
 .why2 .pic img{object-position:50% 50%}
+.blk-slide .why-num{font-size:14px;letter-spacing:.06em}
 </style>
 </head>
 <body>
@@ -1184,14 +1185,6 @@ const JOBS=[
 ];
 
 const TOP=!!JOBS.find(j=>j.me);
-const SALES_COPY={
- t2:{pain:'Раньше экономика сходилась и без расчёта. Теперь вклад в прибыль нужно показывать цифрами.',method:'Свяжете себестоимость, ФОТ и процессы в одну модель и покажете результат своего блока.'},
- t1:{pain:'Опыт есть, но без финансовой логики трудно влиять на решения собственника.',method:'Соберёте финансовую модель и сценарии и научитесь говорить с собственником на языке бизнеса.'},
- t3:{pain:'Пока команда приносит вопросы, вы остаётесь исполнителем, а не руководителем следующего уровня.',method:'Выстроите роли, показатели и правила решений, настроите делегирование без микроконтроля.'},
- t4:{pain:'Вес руководителя растёт, когда за ним новый рынок, направление или заметный рост.',method:'Проверите рынок и риски входа, соберёте план продаж и запустите новое направление.'},
- t5:{pain:'Поддержку процессов ценят меньше, чем умение провести сложное изменение и показать результат.',method:'Соберёте план изменений, работу с сопротивлением и контрольные точки внедрения.'},
- t6:{pain:'Чтобы выйти на следующий уровень, нужно видеть компанию целиком, а не только свою функцию.',method:'Свяжете финансы, людей и процессы в одну систему и подтвердите уровень проектом.'}
-};
 
 const sel=new Set();
 const byItem=new Map(ITEMS.map(i=>[i.k,i]));
@@ -1219,6 +1212,20 @@ const WHY=['Зачем здесь MBA','Разбираем задачу ваше
  [['Определяем задачи компании','Формулируете, что в первую очередь нужно решить в вашей компании.'],
   ['Разбираем решение с практиками','На модулях вместе с преподавателями-практиками подбираете решение под вашу задачу.'],
   ['Готовим план внедрения','С учётом всех вводных вашей компании: ответственные и контрольные точки.']]];
+const BLOCKS=[
+ {h:{top:'Вернуть рентабельность и доказывать вклад в прибыль',own:'Вернуть рентабельность бизнеса'},img:'design-img/photos/blk-money.jpg',
+  mods:[[2,'Управленческая экономика','Раскладывать себестоимость на факторы и процессы'],[5,'Финансовые и инвестиционные стратегии','Связывать затраты с финансовым планом, видеть отклонения'],[9,'Оптимизация бизнес-процессов','Находить потери в процессах']],
+  case:{k:'nishchev',fig:'200 млн ₽',cap:'экономии в год от выпускного проекта'}},
+ {h:'Строить команду, которая принимает сильные решения без вас',img:'design-img/photos/blk-team.jpg',
+  mods:[[1,'Командообразование и лидерство','Определять требования к ролям, оценивать кандидатов'],[4,'HR-стратегия','Управлять производительностью: выработка, ФОТ, оплата'],[10,'Регулярный менеджмент и изменения','Делегировать и контролировать без микроменеджмента'],[12,'Презентация и бизнес-игра','Готовить и защищать решения']],
+  case:{k:'isaev',fig:'Новая команда',cap:'Пересобрал управленческую команду, KPI и найм по методикам программы'}},
+ {h:'Выходить на новые рынки и забирать рынок конкурентов',img:'design-img/photos/blk-markets.jpg',
+  mods:[[3,'Маркетинг и digital','Считать маркетинг в прибыли: ROMI, RFM-анализ базы'],[6,'Бизнес на рынках Ближнего Востока','Выезд в Дубай: практика ведения бизнеса на новых рынках'],[11,'Инновации, цифровизация и продажи','Строить систему продаж: модели, контроль, мотивация']],
+  case:{k:'yuditskaya',fig:'Новый рынок',cap:'Оценила рынок ОАЭ и открыла направление в Дубае'}},
+ {h:'Даже в кризис находить точки роста в компании',img:'design-img/photos/blk-trends.jpg',
+  mods:[[7,'Стратегическое управление','В условиях изменений, интернет-стратегия'],[8,'Рыночный анализ и проекты','Планировать стратегию: ёмкость рынка, карта рынка'],[2,'Трендвотчинг','Сканировать тренды и оценивать макрориски']],
+  case:{k:'kuzyakov',fig:'+5–7%',cap:'маржинальности после плана оптимизации производства'}}
+];
 function render(){
   const list=JOBS.filter(j=>sel.has(j.k));
   const d=document.getElementById('deck');
@@ -1230,10 +1237,8 @@ function render(){
   const pct=Math.round(DUO_OFF*100),one=PRICE*(1-DUO_OFF);
   const initials=nm=>nm.split(' ').map(w=>w[0]).slice(0,2).join('');
   const T=TOP
-    ?{lab:['Что ограничивает рост сейчас','Что усилит вашу позицию','Что это даст вам'],
-      ind:'По задаче вашей компании'}
-    :{lab:['Что происходит сейчас','Что вы сделаете на MBA','На выходе'],
-      ind:'По вашей компании'};
+    ?{ind:'По задаче вашей компании'}
+    :{ind:'По вашей компании'};
   const ph=s=>todo(s);
 
   // порядок как в презентации Сколково: школа → для кого → о программе → кто учится → программа по задачам → формат → преподаватели → выпускники → условия
@@ -1263,30 +1268,22 @@ function render(){
   // 6 · портрет участников (черновик: цифры и компании заполнить данными школы)
   S('portrait-slide',`${pic(PH.dubai,30)}<div class="body"><div class="kick">Кто учится рядом с вами</div><h2>Портрет участников</h2>
     <div class="pt-grid">
-      <div class="ptc">${ico('users')}<b>${ph('[__]')}<small>лет</small></b><span>средний возраст</span></div>
+      <div class="ptc">${ico('users')}<b>45<small>лет</small></b><span>средний возраст, участникам от 35 до 55</span></div>
       <div class="ptc">${ico('clock')}<b>${ph('[__]')}<small>лет</small></b><span>средний управленческий стаж</span></div>
-      <div class="ptc">${ico('briefcase')}<span class="lbl">Позиция в компании</span><div class="pbar"><i style="width:50%"></i></div><div class="pleg"><span>${ph('[__]')}% собственники бизнеса</span><span>${ph('[__]')}% топ-менеджеры и директора</span></div></div>
+      <div class="ptc">${ico('briefcase')}<span class="lbl">Позиция в компании</span><div class="pbar"><i style="width:55%"></i></div><div class="pleg"><span>55% собственники бизнеса</span><span>45% топ-менеджеры и директора</span></div></div>
       <div class="ptc">${ico('pin')}<span class="lbl">География</span><div class="pbar"><i style="width:50%"></i></div><div class="pleg"><span>${ph('[__]')}% Москва и область</span><span>${ph('[__]')}% другие регионы</span></div></div>
-    </div>
-    <div class="pt-co"><span class="lbl">Из каких компаний и отраслей</span><p>${ph('[список компаний и отраслей — запросить у школы]')}</p></div></div>`);
+    </div></div>`);
 
-  // 7 · программа по задачам: три слайда на выбранную задачу — задача → модули → кейс
-  list.forEach((j,idx)=>{
-    const copy=SALES_COPY[j.k];
-    S('sell-task sell2',`${pic(j.img,38)}<div class="body"><div class="kick">Ваша задача ${idx+1} из ${list.length}</div><h2>${j.t}</h2>
-      <div class="sell-grid"><div class="sell-part"><span class="sell-label">${T.lab[0]}</span><p>${copy.pain}</p></div><div class="sell-part method"><span class="sell-label">${T.lab[1]}</span><p>${copy.method}</p></div></div>
-      <div class="sell-result"><b>${T.lab[2]}</b><p>${TOP?j.me:j.out}</p></div></div>`,` id="job-${j.k}"`);
-
-    S('learn-slide learn2',`${pic(j.img,32)}<div class="body"><div class="kick">Задача ${idx+1} · На каких модулях</div><h2>Чему вы научитесь для этой задачи</h2><p class="learn-sub">${j.t}</p>
-      <div class="learn-list">${j.route.map(x=>`<div class="mrow"><div class="learn-no"><small>модуль</small>${String(x.m).padStart(2,'0')}</div><div><h3>${MODULES[x.m-1]}${x.m===6?'<span class="tag">выезд</span>':''}</h3><p>${x.t}</p></div></div>`).join('')}</div></div>`,` id="modules-${j.k}"`);
-
-    const c=j.case&&byCase.get(j.case.k);
-    if(c){
-      const panel=c.ph?`<div class="pic r" style="--w:32%"><img src="${c.ph}" alt=""></div>`:`<div class="pic r flat mono-panel" style="--w:32%"><div class="mono">${initials(c.n)}</div></div>`;
-      S('story-case case2',`${panel}<div class="body"><div class="kick">Задача ${idx+1} · Кейс выпускника</div><h2>${c.n}</h2><p class="case-role">${c.r}</p>
-        <div class="story-case-grid"><div class="case-result"><div class="metric">${j.case.fig||c.fig}</div><p>${j.case.cap||c.figt}</p></div>
-        <div class="case-actions"><h3>Что сделал на программе</h3><ul><li>${c.did[c.pick||0]}</li></ul></div></div></div>`,` id="case-${j.k}"`);
-    }
+  // 7 · четыре задачи: слайд задачи с модулями → кейс выпускника
+  BLOCKS.forEach((b,i)=>{
+    const h=typeof b.h==='string'?b.h:(TOP?b.h.top:b.h.own);
+    S('why2 blk-slide',`${pic(b.img,46)}<div class="body"><div class="kick">Задача ${i+1} из ${BLOCKS.length}</div><h2>${h}</h2>
+      <div class="why-rows">${b.mods.map(x=>`<div class="why-row"><span class="why-num">модуль ${String(x[0]).padStart(2,'0')}</span><div><b>${x[1]}</b><p>${x[2]}</p></div></div>`).join('')}</div></div>`);
+    const c=byCase.get(b.case.k);
+    const panel=c.ph?`<div class="pic r" style="--w:32%"><img src="${c.ph}" alt=""></div>`:`<div class="pic r flat mono-panel" style="--w:32%"><div class="mono">${initials(c.n)}</div></div>`;
+    S('story-case case2',`${panel}<div class="body"><div class="kick">Задача ${i+1} · Кейс выпускника</div><h2>${c.n}</h2><p class="case-role">${c.r}</p>
+      <div class="story-case-grid"><div class="case-result"><div class="metric">${b.case.fig}</div><p>${b.case.cap}</p></div>
+      <div class="case-actions"><h3>Что сделал на программе</h3><ul><li>${c.did[c.pick||0]}</li></ul></div></div></div>`);
   });
 
   // 8 · формат обучения (архитектура обучения из презентации школы)
