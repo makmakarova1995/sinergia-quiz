@@ -5,12 +5,16 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MBA Foundation для собственника</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--red:#FF003D;--tx:#f2f2f2;--tx2:#b9b9b9;--tx3:#7a7a7a;--card:#1C1C1C;--line:#2c2c2c;
-  --serif:'Playfair Display','Times New Roman',Georgia,serif;
-  --sans:'Manrope','Inter',-apple-system,sans-serif}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-SemiBold.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Black.otf') format('opentype');font-weight:900;font-style:normal;font-display:swap}
+:root{--red:#ED131C;--tx:#f2f2f2;--tx2:#c8c8c8;--tx3:#858585;--card:#1C1C1C;--line:#2c2c2c;
+  --serif:'Synergy Sans','Arial Narrow',Arial,sans-serif;
+  --sans:'Synergy Sans',Arial,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;line-height:1.5}
 
@@ -64,6 +68,7 @@ body{font-family:var(--sans);background:#111;color:var(--tx);font-weight:300;lin
 .slide .mark::before{content:'❮';color:#fff;font-size:12px}
 .slide .ft{position:absolute;bottom:4%;left:6%;right:6%;display:flex;justify-content:space-between;
   font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4a4a4a}
+.slide .ft{justify-content:flex-end}
 .kick{color:var(--red);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
 .slide h1{font-family:var(--serif);font-weight:500;text-transform:uppercase;line-height:1.04;
   font-size:calc(4.867cqw*var(--k,1))}
@@ -620,12 +625,22 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 /* ── правка 5: обложка с названием ── */
 .slide.cover.c2{background:linear-gradient(135deg,#353535 0%,#0a0a0a 55%,#000 100%)}
-.cover.c2 .cv-logo{position:absolute;left:81.6%;top:7.9%;width:15.1%;height:auto}
+.cover.c2 .cv-logo{position:absolute;right:5.5%;top:6.2%;width:20.5%;height:auto}
 .cover.c2 .cv-photo{position:absolute;left:63%;top:29.9%;width:35.8%;aspect-ratio:1;border-radius:50%;background:url(design-img/cover-photo.jpg) center/cover;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
-.cover.c2 .cv-text{position:absolute;left:5.6%;top:50%;transform:translateY(-50%);max-width:56%}
-.cover.c2 .cv-tag{display:block;color:var(--red);font-size:15px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:22px}
-.cover.c2 h1{font-size:calc(4.2cqw)}
-.cover.c2 p{margin-top:24px;font-size:calc(1.9cqw);color:var(--tx2)}
+.cover.c2 .cv-text{position:absolute;left:5.6%;top:52%;transform:translateY(-50%);max-width:54%}
+.cover.c2 h1{font-family:var(--sans);font-size:calc(5.65cqw);font-weight:700;line-height:.92;letter-spacing:-.035em;text-transform:none;text-wrap:balance}
+.cover.c2 h1 span{display:block;color:var(--red)}
+.cover.c2 .cv-description{max-width:92%;margin-top:28px;font-size:calc(2.35cqw);font-weight:500;line-height:1.16;color:#fff;text-wrap:balance}
+.cover.c2 .cv-school{margin-top:22px;font-size:calc(1.55cqw);font-weight:400;line-height:1.25;color:var(--tx2)}
+
+/* ── слайд «Если вы каждый день сталкиваетесь с задачами»: задачи по бокам, фото по центру ── */
+.pick-split{display:grid;grid-template-columns:1fr .84fr 1fr;gap:2.4%;flex:1;min-height:0}
+.pk-col{display:flex;flex-direction:column;gap:3.2%;min-height:0}
+.pick-split .pcard{flex:1;flex-direction:row;align-items:center;gap:5%;padding:3% 5%}
+.pick-split .pcard .ico{flex:none;font-size:calc(3.1cqw*var(--k,1))}
+.slide .pick-split .pcard h3{margin:0;font-size:calc(1.95cqw*var(--k,1));line-height:1.22;text-wrap:balance}
+.pick-split .pk-ph{min-height:0;height:100%}
+.pick-split .pk-ph img{object-position:var(--pos,63% 50%)}
 </style>
 </head>
 <body>
@@ -1087,7 +1102,7 @@ const MODSHORT=[
 const PAY_SCHEMES=[['4 платежа',[1,4,7,10]]];
 
 const JOBS=[
-{k:'o2',t:'Вернуть рентабельность: взять себестоимость и затраты под контроль',short:'Себестоимость и рентабельность',card:'Рентабельность: себестоимость и затраты под контролем',pain:'Работаете больше, а маржи всё меньше',ico:'calc',img:PH.speaker,
+{k:'o2',t:'Вернуть рентабельность: взять себестоимость и затраты под контроль',short:'Себестоимость и рентабельность',card:'Рентабельность: себестоимость и затраты под контролем',pain:'Работаете больше, а маржи всё меньше',ask:'Вернуть маржу и взять затраты под контроль',ico:'calc',img:PH.speaker,
  sub:'Растить прибыль, когда дорожают материалы и давят конкуренты: снижать себестоимость, поднимать выработку на человека, находить потери в процессах, не нанимая лишних людей.',
  lead:'Прибыль растёт, даже когда дорожают материалы и давят конкуренты.',
  why:'Чтобы маржа не проседала при росте цен и давлении конкурентов.',
@@ -1098,7 +1113,7 @@ const JOBS=[
   {m:5,t:'Связывать затраты с финансовым планом, видеть отклонения'},
   {m:9,t:'Находить потери в процессах: функционально-стоимостной анализ'}],
  case:{k:'kuzyakov',fig:'+5–7%',cap:'маржинальности после плана оптимизации производства'}},
-{k:'o1',t:'Выстроить команду, которая принимает решения сама, без вашего контроля',short:'Снять с себя операционку',card:'Команда, которая решает без вашего контроля',pain:'Всё держится на вас, даже на выходных контролируете',ico:'users',img:PH.hall,
+{k:'o1',t:'Выстроить команду, которая принимает решения сама, без вашего контроля',short:'Снять с себя операционку',card:'Команда, которая решает без вашего контроля',pain:'Всё держится на вас, даже на выходных контролируете',ask:'Выстроить команду, которая решает сама, без вашего контроля',ico:'users',img:PH.hall,
  sub:'Команда с понятными ролями и показателями: мелкие вопросы закрываются на месте, а стратегические приходят к вам уже с готовым решением.',
  lead:'Мелкие вопросы закрываются на месте, к вам приходят уже с готовым решением.',
  why:'Чтобы ваше время уходило на развитие бизнеса, а не на проверку исполнения.',
@@ -1109,7 +1124,7 @@ const JOBS=[
   {m:9,t:'Описывать процессы, чтобы команда работала по правилам'},
   {m:10,t:'Делегировать и контролировать без микроменеджмента'}],
  case:{k:'isaev',fig:'Новая команда',cap:'Пересобрал управленческую команду, KPI и найм по методикам программы'}},
-{k:'o3',t:'Выходить на новые рынки и забирать клиентов у конкурентов',short:'Рынки и продажи',card:'Новые рынки и клиенты конкурентов',pain:'Маркетплейсы и сети забирают долю рынка',ico:'globe',img:PH.dubai,
+{k:'o3',t:'Выходить на новые рынки и забирать клиентов у конкурентов',short:'Рынки и продажи',card:'Новые рынки и клиенты конкурентов',pain:'Маркетплейсы и сети забирают долю рынка',ask:'Выходить на новые рынки и забирать долю рынка у конкурентов',ico:'globe',img:PH.dubai,
  sub:'Выбрать рынок или нишу, посчитать, окупится ли вход, и собрать маркетинг и продажи, которые заберут клиентов у конкурентов.',
  lead:'Выбрать рынок, посчитать окупаемость входа и собрать продажи.',
  why:'Чтобы расти и не зависеть от одного рынка.',
@@ -1120,7 +1135,7 @@ const JOBS=[
   {m:8,t:'Планировать стратегию: ёмкость рынка, карта рынка'},
   {m:11,t:'Строить систему продаж: модели, контроль, мотивация'}],
  case:{k:'yuditskaya',fig:'Новый рынок',cap:'Оценила рынок ОАЭ и открыла направление в Дубае'}},
-{k:'o4',t:'Вкладывать деньги по расчёту: только в то, что окупится',short:'Решения о деньгах',card:'Вложения только по расчёту',pain:'Рынок непредсказуем: прогноз даже на квартал не построить',ico:'coins',img:PH.stage,
+{k:'o4',t:'Вкладывать деньги по расчёту: только в то, что окупится',short:'Решения о деньгах',card:'Вложения только по расчёту',pain:'Рынок непредсказуем: прогноз даже на квартал не построить',ask:'Вкладывать деньги по расчёту: только в то, что окупится',ico:'coins',img:PH.stage,
  sub:'Выбирать проекты и инвестиции с расчётом: сколько вложить, когда вернутся деньги и что будет в плохом сценарии.',
  lead:'Вложения выбираются расчётом: сколько вложить и когда деньги вернутся.',
  why:'Чтобы не допустить дорогую ошибку и спокойно планировать горизонт.',
@@ -1130,7 +1145,7 @@ const JOBS=[
   {m:5,t:'Собирать финансовый план, считать ROI и окупаемость'},
   {m:8,t:'Оценивать инвестиции по потокам, сроку окупаемости и риску'}],
  case:{k:'nishchev',fig:'200 млн ₽',cap:'экономии в год от выпускного проекта'}},
-{k:'o5',t:'Внедрить нейросети и автоматизацию там, где они дают эффект',short:'ИИ и автоматизация',card:'Нейросети и автоматизация с эффектом',pain:'Нужны автоматизация и ИИ, но неясно, с чего начать',ico:'cpu',img:PH.room,
+{k:'o5',t:'Внедрить нейросети и автоматизацию там, где они дают эффект',short:'ИИ и автоматизация',card:'Нейросети и автоматизация с эффектом',pain:'Нужны автоматизация и ИИ, но неясно, с чего начать',ask:'Внедрить нейросети и автоматизацию там, где они дают эффект',ico:'cpu',img:PH.room,
  sub:'Найти операции, где ручной труд съедает время и деньги, поставить на них ИИ и посчитать эффект до внедрения.',
  lead:'ИИ стоит там, где ручной труд съедает время и деньги.',
  why:'Чтобы делать больше теми же людьми и затратами.',
@@ -1140,7 +1155,7 @@ const JOBS=[
   {m:9,t:'Находить причины дефектов, ставить контроль на операции'},
   {m:11,t:'Встраивать ИИ в процессы: выбирать операции, считать эффект'}],
  case:{k:'kuzyakov',fig:'Нейросети',cap:'контролируют санитарные нормы и качество продукции'}},
-{k:'o6',t:'Получить круг равных и идеи за пределами своей ниши',short:'Круг равных',card:'Круг равных и идеи вне вашей ниши',pain:'Не с кем обсудить сложные решения, нет круга равных',ico:'rings',img:PH.table,
+{k:'o6',t:'Получить круг равных и идеи за пределами своей ниши',short:'Круг равных',card:'Круг равных и идеи вне вашей ниши',pain:'Не с кем обсудить сложные решения, нет круга равных',ask:'Обсуждать сложные решения с равными, а не в одиночку',ico:'rings',img:PH.table,
  sub:'Работать в группе собственников и руководителей над реальными задачами своих компаний, а не слушать лекции.',
  lead:'Работа в группе равных над реальными задачами своих компаний.',
  why:'Чтобы находить партнёров и решения вне своей ниши.',
@@ -1182,14 +1197,14 @@ function switchAudience(file){const p=new URLSearchParams();p.set('v',Date.now()
 function toggleSb(){const l=document.querySelector('.layout');l.classList.toggle('nosb');document.getElementById('sbShow').style.display=l.classList.contains('nosb')?'block':'none';setTimeout(setZoom,60)}
 function all(v){sel.clear();if(v)JOBS.forEach(j=>sel.add(j.k));picks();render()}
 const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.slice(i*size,(i+1)*size));
-function ft(n){return `<div class="ft"><span>MBA Foundation · Школа бизнеса «Синергия»</span><span>${n}</span></div><div class="mark"></div>`}
+function ft(n){return `<div class="ft"><span>${n}</span></div><div class="mark"></div>`}
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
 
 function render(){
   const list=JOBS.filter(j=>sel.has(j.k));
   const d=document.getElementById('deck');
   if(!list.length){d.innerHTML='<p class="empty noprint">Отметьте задачи клиента слева — презентация соберётся здесь.</p>';updateCount();return}
-  const COVER=`<section class="slide cover c2"><img class="cv-logo" src="design-img/logo-synergia.png" alt=""><div class="cv-photo"></div><div class="cv-text"><span class="cv-tag">MBA Foundation</span><h1>Управление бизнесом для собственников и топ-менеджеров</h1><p>Школа бизнеса «Синергия»</p></div></section>`;
+  const COVER=`<section class="slide cover c2"><img class="cv-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»"><div class="cv-photo"></div><div class="cv-text"><h1>MBA <span>Foundation</span></h1><p class="cv-description">Управление бизнесом для собственников и топ-менеджеров</p><p class="cv-school">Школа бизнеса «Синергия»</p></div></section>`;
   let n=1,out=COVER;
   const S=(cls,body,attr='')=>{n++;out+=`<section class="slide ${cls}"${attr}>${ft(n)}${body}</section>`};
   const pic=(src,w=40,cls='')=>`<div class="pic r ${cls}" style="--w:${w}%"><img src="${src}" alt=""></div>`;
@@ -1214,8 +1229,9 @@ function render(){
     <p class="school-clients">Управленческие команды выпускников работают в компаниях: <b style="color:#fff">${CLIENTS}</b></p></div>`);
 
   // 3 · это про вас: боли, которые чаще всего называют на встречах (отмеченные задачи подсвечены)
-  S('pick-slide',`<div class="kick">Для кого программа</div><h2>Это про вас, если…</h2><p class="pick-ask">Что из этого звучит у вас?</p>
-    <div class="pick-grid2">${JOBS.map((j,i)=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<span class="pn">${String(i+1).padStart(2,'0')}</span><h3>${j.pain}</h3></div>`).join('')}</div>`);
+  S('pick-slide',`<div class="kick">Для кого программа</div><h2>Если вы каждый день сталкиваетесь с задачами…</h2><p class="pick-ask">Что из этого звучит у вас?</p>
+    ${(()=>{const L=JOBS.filter(j=>j.ask),h=Math.ceil(L.length/2),card=j=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<h3>${j.ask}</h3></div>`;
+      return `<div class="pick-split"><div class="pk-col">${L.slice(0,h).map(card).join('')}</div><div class="pic in pk-ph"><img src="design-img/photos/team-board.jpg" alt=""></div><div class="pk-col">${L.slice(h).map(card).join('')}</div></div>`})()}`);
 
   // 4 · зачем MBA
   S('why2',`${pic(PH.table,34)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
