@@ -647,6 +647,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .hub-b .ico{font-size:30px}
 .hub-b.on{background:var(--red);color:#fff}
 .hub-t{font-size:calc(1.85cqw*var(--k,1));font-weight:600;line-height:1.22;color:#fff;text-wrap:balance}
+.why2 .pic img{object-position:50% 50%}
 </style>
 </head>
 <body>
@@ -1054,7 +1055,8 @@ const V={label:'MBA для собственника',overview:'Ваши зада
 const PH={
  table:'design-img/photos/table.jpg',hall:'design-img/photos/hall.jpg',speaker:'design-img/photos/speaker.jpg',
  grad:'design-img/photos/grad.jpg',stage:'design-img/photos/stage.jpg',
- dubai:'design-img/photos/dubai-group.jpg',room:'design-img/photos/dubai-class.jpg'
+ dubai:'design-img/photos/dubai-group.jpg',room:'design-img/photos/dubai-class.jpg',
+ group:'design-img/photos/group-mic.jpg'
 };
 // ── иконки (линейные, 24×24) ──
 const ICON={
@@ -1221,8 +1223,8 @@ function render(){
         [['Видеть бизнес целиком','Финансы, рынок, люди и процессы за пределами своей функции.'],['Показывать результат','Решения, которые собственник может оценить в деньгах.'],['Усилить карьерную позицию','Проект по реальной задаче компании подтверждает ваш уровень.']]],
       lab:['Что ограничивает рост сейчас','Что усилит вашу позицию','Что это даст вам'],
       ind:'По задаче вашей компании'}
-    :{why:['Зачем здесь MBA','Ваша задача становится проектом по вашей компании','На каждом модуле вы применяете инструмент к своей ситуации и собираете выпускной проект к внедрению.',
-        [['Реальная задача','Берёте в работу то, что тормозит бизнес.'],['Расчёт и решение','Проверяете решение на цифрах своей компании.'],['Проект к внедрению','План, ответственные и контрольные точки.']]],
+    :{why:['Зачем здесь MBA','Разбираем задачу вашей компании','Всё, что вы разбираете на модулях, применимо к бизнесу в текущих реалиях.',
+        [['Определяем задачи компании','Формулируете, что в первую очередь нужно решить в вашем бизнесе.'],['Разбираем решение с практиками','На модулях вместе с преподавателями-практиками подбираете решение под вашу задачу.'],['Готовим план внедрения','С учётом всех вводных вашего бизнеса: ответственные и контрольные точки.']]],
       lab:['Что происходит сейчас','Что вы сделаете на MBA','На выходе'],
       ind:'По вашей компании'};
   const ph=s=>todo(s);
@@ -1243,8 +1245,8 @@ function render(){
       return `<svg class="hub-lines" viewBox="0 0 1280 720">${[...nl,...nr].map(ln).join('')}</svg><div class="pic in hub-ph"><img src="design-img/photos/team-board.jpg" alt=""></div>${[...nl,...nr].map(n=>n.html).join('')}`})()}`);
 
   // 4 · зачем MBA
-  S('why2',`${pic(PH.table,34)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
-    <div class="why-rows">${T.why[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b><p>${r[1]}</p></div></div>`).join('')}</div></div>`);
+  S('why2',`${pic(PH.group,46)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
+    <div class="why-rows">${T.why[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b>${r[1]?`<p>${r[1]}</p>`:''}</div></div>`).join('')}</div></div>`);
 
   // 5 · как устроена программа
   S('concept-slide',`<div class="kick">Программа</div><h2>Как устроена программа</h2>
