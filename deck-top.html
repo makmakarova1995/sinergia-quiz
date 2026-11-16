@@ -637,6 +637,17 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .hub-b .ico{font-size:30px}
 .hub-b.on{background:var(--red);color:#fff}
 .hub-t{font-size:calc(1.85cqw*var(--k,1));font-weight:600;line-height:1.22;color:#fff;text-wrap:balance}
+
+/* 4 · зачем MBA, общий слайд */
+.why2 .body{width:60%}
+.why2 h2{max-width:100%;margin-bottom:3%}
+.why2 .why-lead{max-width:100%;margin:0 0 3%;font-size:calc(1.9cqw*var(--k,1))}
+.why-rows{display:flex;flex-direction:column;margin-top:auto}
+.why-row{display:grid;grid-template-columns:11% 1fr;gap:2%;border-top:1px solid #333;padding:2.2% 0}
+.why-row .why-num{margin:0;padding-top:4px}
+.why-row b{display:block;font-family:var(--serif);font-size:calc(2.2cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.18;margin-bottom:1.5%}
+.why-row p{font-size:calc(1.5cqw*var(--k,1));color:var(--tx2);line-height:1.4}
+.why2 .pic img{object-position:50% 50%}
 </style>
 </head>
 <body>
@@ -1044,7 +1055,8 @@ const V={label:'MBA для топ-менеджера',overview:'Ваши зад�
 const PH={
  table:'design-img/photos/table.jpg',hall:'design-img/photos/hall.jpg',speaker:'design-img/photos/speaker.jpg',
  grad:'design-img/photos/grad.jpg',stage:'design-img/photos/stage.jpg',
- dubai:'design-img/photos/dubai-group.jpg',room:'design-img/photos/dubai-class.jpg'
+ dubai:'design-img/photos/dubai-group.jpg',room:'design-img/photos/dubai-class.jpg',
+ group:'design-img/photos/group-mic.jpg'
 };
 // ── иконки (линейные, 24×24) ──
 const ICON={
@@ -1203,6 +1215,10 @@ const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.
 function ft(n){return `<div class="ft"><span>${n}</span></div><div class="mark"></div>`}
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
 
+const WHY=['Зачем здесь MBA','Разбираем задачу вашей компании','Всё, что вы разбираете на модулях, применимо к бизнесу в текущих реалиях.',
+ [['Определяем задачи компании','Формулируете, что в первую очередь нужно решить в вашей компании.'],
+  ['Разбираем решение с практиками','На модулях вместе с преподавателями-практиками подбираете решение под вашу задачу.'],
+  ['Готовим план внедрения','С учётом всех вводных вашей компании: ответственные и контрольные точки.']]];
 function render(){
   const list=JOBS.filter(j=>sel.has(j.k));
   const d=document.getElementById('deck');
@@ -1234,6 +1250,10 @@ function render(){
       const nl=L.slice(0,h).map((j,i,a)=>node(j,i,a.length,1)),nr=L.slice(h).map((j,i,a)=>node(j,i,a.length,0));
       const ln=n=>{const left=n.html.includes('hub-n l'),px=n.ex,dx=px-CX,dy=n.y-CY,d=Math.hypot(dx,dy),tx=(CX+dx/d*R).toFixed(1),ty=(CY+dy/d*R).toFixed(1);return `<line x1="${px}" y1="${n.y}" x2="${tx}" y2="${ty}"/><circle cx="${tx}" cy="${ty}" r="4.5"/>`};
       return `<svg class="hub-lines" viewBox="0 0 1280 720">${[...nl,...nr].map(ln).join('')}</svg><div class="pic in hub-ph"><img src="design-img/photos/team-board.jpg" alt=""></div>${[...nl,...nr].map(n=>n.html).join('')}`})()}`);
+
+  // 4 · зачем MBA, общий слайд для обеих колод
+  S('why2',`${pic(PH.group,46)}<div class="body"><div class="kick">${WHY[0]}</div><h2>${WHY[1]}</h2><p class="why-lead">${WHY[2]}</p>
+    <div class="why-rows">${WHY[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b><p>${r[1]}</p></div></div>`).join('')}</div></div>`);
 
   // 5 · как устроена программа
   S('concept-slide',`<div class="kick">Программа</div><h2>Как устроена программа</h2>
