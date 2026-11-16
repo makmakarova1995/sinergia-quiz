@@ -1228,9 +1228,6 @@ function render(){
   const pic=(src,w=40,cls='')=>`<div class="pic r ${cls}" style="--w:${w}%"><img src="${src}" alt=""></div>`;
   const pct=Math.round(DUO_OFF*100),one=PRICE*(1-DUO_OFF);
   const initials=nm=>nm.split(' ').map(w=>w[0]).slice(0,2).join('');
-  const T=TOP
-    ?{ind:'По задаче вашей компании'}
-    :{ind:'По вашей компании'};
   const ph=s=>todo(s);
 
   // порядок как в презентации Сколково: школа → для кого → о программе → кто учится → программа по задачам → формат → преподаватели → выпускники → условия
@@ -1290,15 +1287,6 @@ function render(){
   const fc=a=>a.map(x=>`<div class="fmt-card"><b>${x[0]}</b><p>${x[1]}</p></div>`).join('');
   S('fmt-slide',`<div class="kick">Формат обучения</div><h2>Как проходит обучение</h2>
     <div class="fmt-grid"><div class="fmt-col l">${fc(FB_L)}</div><div class="fmt-mid"><b>Трансформация руководителя и его бизнеса</b></div><div class="fmt-col r">${fc(FB_R)}</div></div>`);
-
-  // 9 · индивидуальная часть
-  S('indiv',`${pic(PH.room,34)}<div class="body"><div class="kick">Индивидуальная часть</div><h2>Программа работает на вашу компанию</h2>
-    <div class="fcards g2">
-      <div class="fc">${ico('file')}<b>Выпускной проект</b><p>${T.ind}</p></div>
-      <div class="fc">${ico('award')}<b>Эксперт проекта</b><p>Закреплённый опытный эксперт выпускного проекта</p></div>
-      <div class="fc">${ico('message')}<b>2 коуч-сессии</b><p>Индивидуальные, в рамках программы</p></div>
-      <div class="fc">${ico('usercheck')}<b>Куратор группы</b><p>Сопровождает группу</p></div>
-    </div></div>`);
 
   // 10 · преподаватели
   S('',`<div class="kick">С кем вы будете работать</div><h2 style="margin-bottom:2%">Практики бизнеса</h2>
