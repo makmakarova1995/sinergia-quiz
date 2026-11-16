@@ -430,16 +430,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .t-cap{margin-top:auto;padding-top:1.8%;border-top:1px solid #303030;font-size:calc(1.7cqw*var(--k,1));color:var(--tx2);line-height:1.4}
 .t-cap b{color:#fff;font-weight:600}
 
-/* 5 · зачем MBA */
-.why2 .body{width:60%}
-.why2 h2{max-width:100%;margin-bottom:3%}
-.why2 .why-lead{max-width:100%;margin:0 0 3%;font-size:calc(1.9cqw*var(--k,1))}
-.why-rows{display:flex;flex-direction:column;margin-top:auto}
-.why-row{display:grid;grid-template-columns:11% 1fr;gap:2%;border-top:1px solid #333;padding:2.2% 0}
-.why-row .why-num{margin:0;padding-top:4px}
-.why-row b{display:block;font-family:var(--serif);font-size:calc(2.2cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.18;margin-bottom:1.5%}
-.why-row p{font-size:calc(1.5cqw*var(--k,1));color:var(--tx2);line-height:1.4}
-
 /* 6 · выбор задач */
 .pick-slide h2{margin-bottom:.8%}
 .pick-ask{font-size:calc(1.9cqw*var(--k,1));color:var(--tx2);margin:0 0 2.6%}
@@ -633,14 +623,20 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .cover.c2 .cv-description{max-width:92%;margin-top:28px;font-size:calc(2.35cqw);font-weight:500;line-height:1.16;color:#fff;text-wrap:balance}
 .cover.c2 .cv-school{margin-top:22px;font-size:calc(1.55cqw);font-weight:400;line-height:1.25;color:var(--tx2)}
 
-/* ── слайд «Если вы каждый день сталкиваетесь с задачами»: задачи по бокам, фото по центру ── */
-.pick-split{display:grid;grid-template-columns:1fr .84fr 1fr;gap:2.4%;flex:1;min-height:0}
-.pk-col{display:flex;flex-direction:column;gap:3.2%;min-height:0}
-.pick-split .pcard{flex:1;flex-direction:row;align-items:center;gap:5%;padding:3% 5%}
-.pick-split .pcard .ico{flex:none;font-size:calc(3.1cqw*var(--k,1))}
-.slide .pick-split .pcard h3{margin:0;font-size:calc(1.95cqw*var(--k,1));line-height:1.22;text-wrap:balance}
-.pick-split .pk-ph{min-height:0;height:100%}
-.pick-split .pk-ph img{object-position:var(--pos,63% 50%)}
+/* ── слайд «Если вы каждый день сталкиваетесь с задачами»: фото в круге по центру, задачи вокруг ── */
+.pick-hub .hub-ph{position:absolute;left:470px;top:275px;width:340px;height:340px;border-radius:50%;box-shadow:0 0 0 2px var(--red),0 0 0 16px rgba(255,255,255,.05)}
+.pick-hub .hub-ph::after{border-radius:50%}
+.pick-hub .hub-ph img{object-position:85% 50%}
+.hub-lines{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hub-lines line{stroke:rgba(255,0,61,.6);stroke-width:1.5}
+.hub-lines circle{fill:var(--red)}
+.hub-n{position:absolute;display:flex;align-items:center;gap:18px;width:358px;transform:translateY(-50%);z-index:2}
+.hub-n.l{left:70px;flex-direction:row-reverse;text-align:right}
+.hub-n.r{left:852px}
+.hub-b{flex:none;width:66px;height:66px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35)}
+.hub-b .ico{font-size:30px}
+.hub-b.on{background:var(--red);color:#fff}
+.hub-t{font-size:calc(1.85cqw*var(--k,1));font-weight:600;line-height:1.22;color:#fff;text-wrap:balance}
 </style>
 </head>
 <body>
@@ -1102,7 +1098,7 @@ const MODSHORT=[
 const PAY_SCHEMES=[['4 платежа',[1,4,7,10]]];
 
 const JOBS=[
-{k:'t2',t:'Управлять себестоимостью и рентабельностью и показать вклад в прибыль',short:'Себестоимость и рентабельность',card:'Себестоимость и рентабельность: вклад в прибыль',pain:'Себестоимость растёт, маржи нет, вклад в прибыль не виден',ask:'Управлять рентабельностью бизнеса и показать вклад в прибыль',ico:'calc',img:PH.table,
+{k:'t2',t:'Управлять себестоимостью и рентабельностью и показать вклад в прибыль',short:'Себестоимость и рентабельность',card:'Себестоимость и рентабельность: вклад в прибыль',pain:'Себестоимость растёт, маржи нет, вклад в прибыль не виден',ask:'Управлять рентабельностью бизнеса и доказывать вклад в прибыль',ico:'calc',img:PH.table,
  sub:'Растить прибыль, когда дорожают материалы и давят конкуренты: снижать себестоимость, поднимать выработку на человека, находить потери в процессах, не нанимая лишних людей.',
  lead:'Прибыль растёт, даже когда дорожают материалы и давят конкуренты.',
  why:'Чтобы результат по вашему блоку был виден в цифрах.',
@@ -1114,7 +1110,7 @@ const JOBS=[
   {m:5,t:'Связывать затраты с финансовым планом, видеть отклонения'},
   {m:9,t:'Находить потери в процессах: функционально-стоимостной анализ'}],
  case:{k:'kuzyakov',fig:'+5–7%',cap:'маржинальности после плана оптимизации производства'}},
-{k:'t1',t:'Разбираться в финансовых моделях и стать советником собственника',short:'Финансы и влияние',card:'Финансовые модели и роль советника собственника',pain:'Не хватает финансов, чтобы влиять на решения собственника',ico:'landmark',img:PH.speaker,
+{k:'t1',t:'Разбираться в финансовых моделях и стать советником собственника',short:'Финансы и влияние',card:'Финансовые модели и роль советника собственника',pain:'Не хватает финансов, чтобы влиять на решения собственника',ask:'Увидеть бизнес глазами собственника: чего он ждёт от топов и за что платит высокие зарплаты',ico:'landmark',img:PH.speaker,
  sub:'Подготовить финансовую модель проекта: окупаемость, риски и сценарии, и выступить так, чтобы решение приняли с первого раза.',
  lead:'Финансовая модель проекта и выступление, после которого решение принимают.',
  why:'Чтобы приходить к совету с решением, а не с вопросами.',
@@ -1218,13 +1214,9 @@ function render(){
   const pct=Math.round(DUO_OFF*100),one=PRICE*(1-DUO_OFF);
   const initials=nm=>nm.split(' ').map(w=>w[0]).slice(0,2).join('');
   const T=TOP
-    ?{why:['Зачем MBA топ-менеджеру','MBA усиливает вашу ценность как руководителя','Крупные компании ищут руководителей, которые видят бизнес целиком, строят команды и показывают результат в цифрах.',
-        [['Видеть бизнес целиком','Финансы, рынок, люди и процессы за пределами своей функции.'],['Показывать результат','Решения, которые собственник может оценить в деньгах.'],['Усилить карьерную позицию','Проект по реальной задаче компании подтверждает ваш уровень.']]],
-      lab:['Что ограничивает рост сейчас','Что усилит вашу позицию','Что это даст вам'],
+    ?{lab:['Что ограничивает рост сейчас','Что усилит вашу позицию','Что это даст вам'],
       ind:'По задаче вашей компании'}
-    :{why:['Зачем здесь MBA','Ваша задача становится проектом по вашей компании','На каждом модуле вы применяете инструмент к своей ситуации и собираете выпускной проект к внедрению.',
-        [['Реальная задача','Берёте в работу то, что тормозит бизнес.'],['Расчёт и решение','Проверяете решение на цифрах своей компании.'],['Проект к внедрению','План, ответственные и контрольные точки.']]],
-      lab:['Что происходит сейчас','Что вы сделаете на MBA','На выходе'],
+    :{lab:['Что происходит сейчас','Что вы сделаете на MBA','На выходе'],
       ind:'По вашей компании'};
   const ph=s=>todo(s);
 
@@ -1236,13 +1228,12 @@ function render(){
     <p class="school-clients">Управленческие команды выпускников работают в компаниях: <b style="color:#fff">${CLIENTS}</b></p></div>`);
 
   // 3 · это про вас: боли, которые чаще всего называют на встречах (отмеченные задачи подсвечены)
-  S('pick-slide',`<div class="kick">Для кого программа</div><h2>Если вы каждый день сталкиваетесь с задачами…</h2><p class="pick-ask">Что из этого звучит у вас?</p>
-    ${(()=>{const L=JOBS.filter(j=>j.ask),h=Math.ceil(L.length/2),card=j=>`<div class="pcard${sel.has(j.k)?' on':''}">${ico(j.ico)}<h3>${j.ask}</h3></div>`;
-      return `<div class="pick-split"><div class="pk-col">${L.slice(0,h).map(card).join('')}</div><div class="pic in pk-ph"><img src="design-img/photos/team-board.jpg" alt=""></div><div class="pk-col">${L.slice(h).map(card).join('')}</div></div>`})()}`);
-
-  // 4 · зачем MBA
-  S('why2',`${pic(PH.table,34)}<div class="body"><div class="kick">${T.why[0]}</div><h2>${T.why[1]}</h2><p class="why-lead">${T.why[2]}</p>
-    <div class="why-rows">${T.why[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b><p>${r[1]}</p></div></div>`).join('')}</div></div>`);
+  S('pick-slide pick-hub',`<div class="kick">Для кого программа</div><h2>Если вы каждый день сталкиваетесь с задачами</h2>
+    ${(()=>{const L=JOBS.filter(j=>j.ask),h=Math.ceil(L.length/2),CX=640,CY=445,R=170,GAP=145,BD=66;
+      const node=(j,i,m,left)=>{const y=CY+(i-(m-1)/2)*GAP,ex=left?428:852;return {y,ex,html:`<div class="hub-n ${left?'l':'r'}" style="top:${y}px"><span class="hub-b${sel.has(j.k)?' on':''}">${ico(j.ico)}</span><span class="hub-t">${j.ask}</span></div>`}};
+      const nl=L.slice(0,h).map((j,i,a)=>node(j,i,a.length,1)),nr=L.slice(h).map((j,i,a)=>node(j,i,a.length,0));
+      const ln=n=>{const left=n.html.includes('hub-n l'),px=n.ex,dx=px-CX,dy=n.y-CY,d=Math.hypot(dx,dy),tx=(CX+dx/d*R).toFixed(1),ty=(CY+dy/d*R).toFixed(1);return `<line x1="${px}" y1="${n.y}" x2="${tx}" y2="${ty}"/><circle cx="${tx}" cy="${ty}" r="4.5"/>`};
+      return `<svg class="hub-lines" viewBox="0 0 1280 720">${[...nl,...nr].map(ln).join('')}</svg><div class="pic in hub-ph"><img src="design-img/photos/team-board.jpg" alt=""></div>${[...nl,...nr].map(n=>n.html).join('')}`})()}`);
 
   // 5 · как устроена программа
   S('concept-slide',`<div class="kick">Программа</div><h2>Как устроена программа</h2>
