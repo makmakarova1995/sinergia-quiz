@@ -1905,14 +1905,14 @@ const MODINFO={
  11:{t:['Цифровые тренды и ИИ, нейросети в процессах компании','Модели продаж, скрытые потребности, работа с возражениями','«Анализ – Планирование – Контроль» в продажах','Комплектование, мотивация продавцов, автоматизация продаж'],w:'Сергей Чумак, Виталий Новиков'},
  12:{t:['Тренинг публичных выступлений и презентаций','Алгоритм подготовки к любому выступлению','Финальная бизнес-игра: стратегия компании на 7 игровых лет','Принятие управленческих решений в меняющейся ситуации'],w:'Владислава Друтько, Антон Емельянов'}
 };
-// клик по результату или номеру модуля открывает карточку поверх фото; повторный клик, × или Esc закрывают; в PDF карточки не печатаются
+// клик по результату или кнопке модуля открывает карточку поверх фото; клик в любом другом месте, × или Esc закрывают; в PDF карточки не печатаются
 (()=>{
   const card=n=>{const m=MODINFO[n];return `<button type="button" class="mp-x" aria-label="Закрыть">×</button><div class="mp-k">Модуль ${String(n).padStart(2,'0')}</div><h3>${MODSHORT[n-1]}</h3><ul>${m.t.map(x=>`<li>${x}</li>`).join('')}</ul><p class="mp-who">Ведут: ${m.w}</p>`};
   const close=sl=>{sl.classList.remove('mod-open');sl.querySelectorAll('[data-m].on').forEach(e=>e.classList.remove('on'))};
   document.addEventListener('click',e=>{
-    const sl=e.target.closest&&e.target.closest('.blk-slide');if(!sl)return;
-    if(e.target.closest('.mp-x')){close(sl);return}
-    const t=e.target.closest('[data-m]');if(!t)return;
+    // клик в любом месте, кроме кнопки модуля, закрывает открытую карточку
+    const t=e.target.closest&&e.target.closest('[data-m]'),sl=t&&t.closest('.blk-slide');
+    if(!sl){document.querySelectorAll('.blk-slide.mod-open').forEach(close);return}
     const n=+t.dataset.m,pop=sl.querySelector('.mod-pop');
     if(sl.classList.contains('mod-open')&&+pop.dataset.m===n){close(sl);return}
     close(sl);pop.dataset.m=n;pop.innerHTML=card(n);sl.classList.add('mod-open');
