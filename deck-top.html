@@ -1854,7 +1854,7 @@ const CHEAT=TOP?{
 };
 const goSlide=n=>{const s=document.querySelectorAll('#deck .slide')[n-1];if(s)s.scrollIntoView({behavior:'smooth',block:'center'})};
 const cheat=()=>`<section class="ch"><h4>Задачи ${TOP?'топ-менеджера':'собственника'}</h4>
-  ${CHEAT.jobs.map(j=>`<button type="button" class="ch-t" onclick="goSlide(${j.show[0][0]})" title="Показать слайд ${j.show[0][0]}">${j.h}<i>${j.show[0][0]}</i></button>`).join('')}</section>`;
+  ${CHEAT.jobs.map(j=>`<button type="button" class="ch-t" onclick="goSlide(${j.show[0][0]})" title="Показать слайд ${j.show[0][0]}">${j.h}</button>`).join('')}</section>`;
 function picks(){
   if(!SHOW_PICKER){document.getElementById('picks').innerHTML=cheat();updateCount();return}
   document.getElementById('picks').innerHTML=`<section class="pick-group"><h4>Выберите задачи клиента</h4><div class="pick-grid">${JOBS.map(j=>
