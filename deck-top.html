@@ -994,7 +994,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 /* · */
 /* @@fonts-begin */
 /* крупный шрифт без мелочи: на холсте 1280×720 текст не мельче 18 px, описания и подписи под заголовками — от 20 px,
-   надзаголовки и подписи-метки капслоком — от 16 px; размеры в px, т.к. cqw здесь считаются от разных контейнеров. Слайды 4–7, 9, 11, 13, 15, 21 не трогаем */
+   надзаголовки — от 16 px, метки капслоком — от 18 px; размеры в px, т.к. cqw здесь считаются от разных контейнеров */
 /* красные надзаголовки убраны (Ксения): заголовок встаёт на их место. Оставлены на 4, 23, слайдах задач и кейсов */
 .school-slide .kick,.pick-slide .kick,.concept-slide .kick,.portrait-slide .kick,.fmt-slide .kick,.tch-slide .kick,
 .alum-slide .kick,.obj-slide .kick,.fm-slide .kick,.cal-slide .kick,.duo-slide .kick{display:none}
@@ -1004,12 +1004,15 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 /* 8, 10, 12, 14 · кейсы выпускников */
 .case-ab .kick{font-size:16px}
 .case-ab .case-role,.case-ab .case-co{font-size:20px}
-.case-ab .cs-task h3,.case-ab .cs-solve h3{font-size:16px}
-/* 16–17 · преподаватели: стрелки без надзаголовка встали бы под логотип — держим их на прежнем месте */
+.case-ab .cs-task h3,.case-ab .cs-solve h3{font-size:18px}
+/* 16 · преподаватели: стрелки без надзаголовка встали бы под логотип — держим их на прежнем месте; легенда «Практик / Лектор» в 18 px плотнее, чтобы не упереться в стрелки */
 .tch-slide .tch-navs{position:absolute;top:11.8%;right:6%}
 .tch-slide .tch-lead{font-size:20px}
 .tch-slide .tch-ph i{font-size:18px}
 .tch-slide .tch-r{font-size:18px}
+.tch-slide .tch-lg{font-size:18px}
+.tch-slide .tch-lg:not(:first-child){margin-left:.4em}
+.tch-slide .tch-card b{font-size:20px}
 /* в PDF фото в карточке уже (≈150 px): плашка «Executive MBA» в 18 px влезает в одну строку только без разрядки */
 @media print{.tch-slide .tch-ph i{letter-spacing:0;padding:5px 6px}}
 /* 18 · выпускники: описания стали в 2–3 строки — текст карточки от фото сверху (имена в ряду на одной линии), фото чуть меньше, поля уже */
@@ -1028,8 +1031,29 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .duo-slide .duo-lab{font-size:18px}
 .duo-slide .duo-cap,.duo-slide .duo-tax{font-size:20px}
 /* 23 · что получит компания */
-.fd-slide .kick,.fd-slide .fd-tag{font-size:16px}
+.fd-slide .kick{font-size:16px}
+.fd-slide .fd-tag{font-size:18px}
 .fd-slide .fd-res li{font-size:20px}
+/* 4 и 7, 9, 11, 13 · «Разбираем задачу» и слайды задач: «модуль 02» в 18 px не влезал в узкую колонку — колонка шире, без разрядки, в одну строку */
+.why2 .kick{font-size:16px}
+.why2 .why-row{grid-template-columns:13% 1fr}
+.why2 .why-num{font-size:18px;letter-spacing:0;white-space:nowrap}
+.slide.why2 .why-row p{font-size:20px}
+/* задача с четырьмя модулями (слайд 9) в 20 px не влезала по высоте: ряды плотнее, без нижнего поля */
+.why2 .why-rows:has(>.why-row:nth-child(4)){margin:2% 0 0}
+.why2 .why-rows:has(>.why-row:nth-child(4))>.why-row{padding:.4% 0}
+.slide.why2 .why-rows:has(>.why-row:nth-child(4)) .why-row p{line-height:1.3}
+/* 6 · портрет участников */
+.portrait-slide .pleg{font-size:18px}
+.portrait-slide .pt-sec .lbl{font-size:18px}
+/* 20 · график модулей и платежей: названия модулей в 20 px — промежуток между модулями в месяце чуть меньше */
+.cal-slide .c2-hd .mm,.cal-slide .c2-pay,.cal-slide .mc .tag{font-size:18px}
+.cal-slide .c2-t,.cal-slide .c2-d.tbc,.cal-slide .c2-s2{font-size:20px}
+.cal-slide .c2-ev+.c2-ev{margin-top:7px;padding-top:7px}
+/* 5 · как устроена программа: подписи под цифрами */
+.concept-slide .cn span{font-size:20px}
+/* 15 · как проходит обучение: описания пунктов вокруг круга */
+.fmt-slide .fmh-t>span{font-size:20px}
 /* @@fonts-end */
 /* · */
 /* · */
