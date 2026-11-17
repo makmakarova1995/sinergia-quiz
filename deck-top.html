@@ -977,6 +977,86 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .cal-slide .ag-r.dxb .ag-ev .ag-tag{display:inline-block;vertical-align:2px;margin:0 0 0 16px;padding:4px 11px 3px;border-radius:4px;background:var(--red);box-shadow:none;color:#fff;font-size:15px;font-weight:600;font-style:normal;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;white-space:nowrap}
 .cal-slide .ag-r.s2{border-top:1px dashed #4a4a4a}
 .cal-slide .ag-r.s2 .ag-ev span{margin:0;font-size:20px;color:var(--tx2)}
+/* 19 · варианты календаря для сравнения (?cal=a|b|c, класс cal-a|cal-b|cal-c на слайде; без параметра — таблица выше).
+   Общая разметка .kc: месяц .kc-m (.dxb — Дубай) = шапка .kc-h (номер .kc-n, месяц .kc-mo, год .kc-y) + модули .kc-evs
+   (.kc-ev: дата .kc-d, название .kc-t, метка .kc-tag); 2 семестр — .kc-s2. Шрифты: дата ≥ 22, название ≥ 19, месяц ≥ 22 */
+.cal-slide .kc{flex:1;min-height:0;margin:4px 0 0;position:relative;
+  --kc-plane:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/%3E%3C/svg%3E")}
+.cal-slide .kc-n{font-family:var(--serif);font-weight:500;line-height:1}
+.cal-slide .kc-mo{font-size:24px;font-weight:600;line-height:1.1;color:#fff}
+.cal-slide .kc-y{font-size:17px;font-weight:400;line-height:1.2;color:#9a9a9a}
+.cal-slide .kc-d{display:block;font-family:var(--sans);font-size:24px;font-weight:600;line-height:1.15;color:#fff;white-space:nowrap}
+.cal-slide .kc-d.tbc{font-size:20px;font-weight:400;color:var(--tx2)}
+.cal-slide .kc-t{font-size:20px;font-weight:400;line-height:1.22;color:#d6d6d6}
+.cal-slide .dxb .kc-t{color:#fff}
+.cal-slide .kc-tag{display:inline-block;padding:5px 12px 4px;border-radius:4px;background:var(--red);color:#fff;font-size:16px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;line-height:1.2;white-space:nowrap}
+.cal-slide .kc-s2{display:flex;align-items:baseline;gap:18px;font-size:20px;line-height:1.25;color:var(--tx2)}
+.cal-slide .kc-s2 b{font-weight:600;color:#e6e6e6}
+
+/* a · вертикальный таймлайн: слева линия с кружками-номерами месяцев, у кружка — месяц и модули строками «дата · название»; Дубай — красный кружок */
+.cal-a .kc{display:flex;flex-direction:column}
+.cal-a .kc-m,.cal-a .kc-s2{position:relative;flex:1 1 0;min-height:0;display:grid;grid-template-columns:258px 1fr;gap:0;align-items:center}
+.cal-a .kc-s2{flex:.62 1 0}
+.cal-a .kc-m::before,.cal-a .kc-s2::before{content:'';position:absolute;left:23px;top:0;bottom:0;width:2px;background:#3e3e3e}
+.cal-a .kc-m:first-child::before{top:50%}
+.cal-a .kc-s2::before{bottom:50%;background:repeating-linear-gradient(#3e3e3e 0 6px,transparent 6px 11px)}
+.cal-a .kc-m+.kc-m::after,.cal-a .kc-s2::after{content:'';position:absolute;left:68px;right:0;top:0;border-top:1px solid #2e2e2e}
+.cal-a .kc-s2::after{border-top-style:dashed;border-top-color:#444}
+.cal-a .kc-h{display:grid;grid-template-columns:68px 1fr;grid-template-rows:auto auto;align-items:center;row-gap:3px}
+.cal-a .kc-n{grid-row:1/3;position:relative;z-index:1;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#161616;box-shadow:inset 0 0 0 2px #4d4d4d;font-size:19px;color:#fff}
+.cal-a .kc-mo{align-self:end}
+.cal-a .kc-y{align-self:start}
+.cal-a .kc-evs{display:flex;flex-direction:column;gap:8px}
+.cal-a .kc-ev{display:flex;align-items:baseline}
+.cal-a .kc-d{flex:none;width:206px;font-size:25px}
+.cal-a .kc-d.tbc{font-size:20px}
+.cal-a .kc-t{font-size:22px}
+.cal-a .kc-tag{display:inline-flex;align-items:center;gap:8px;margin-left:18px;align-self:center}
+.cal-a .kc-tag::before{content:'';width:18px;height:18px;background:#fff;transform:rotate(45deg);-webkit-mask:var(--kc-plane) center/contain no-repeat;mask:var(--kc-plane) center/contain no-repeat}
+.cal-a .dxb{background:linear-gradient(90deg,transparent 56px,rgba(237,19,28,.18) 56px,rgba(237,19,28,.05) 75%,rgba(237,19,28,0))}
+.cal-a .dxb .kc-n{background:var(--red);box-shadow:0 0 0 7px rgba(237,19,28,.22)}
+.cal-a .kc-s2 b{position:relative;padding-left:68px;font-size:22px}
+.cal-a .kc-s2 b::before{content:'';position:absolute;left:12px;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;border:2px dashed #5a5a5a;background:#121212;box-sizing:border-box}
+
+/* b · лента по горизонтали: 6 колонок-месяцев (окт → мар), модули в колонке столбиком (дата крупно, название ниже);
+   Дубай — красная колонка, метка выезда с самолётиком прижата к низу. Колонки равные, октябрь чуть шире — по слову «Командообразование» */
+.cal-b .kc{display:grid;grid-template-columns:repeat(6,minmax(min-content,1fr));grid-template-rows:minmax(0,1fr) auto;gap:16px 10px}
+.cal-b .kc-m{display:flex;flex-direction:column;min-height:0;padding:16px 12px 16px;border-radius:8px;background:rgba(255,255,255,.045);border-top:3px solid #474747}
+.cal-b .kc-h{display:flex;flex-direction:column;gap:3px;padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12)}
+.cal-b .kc-n{font-size:20px;color:var(--red);margin-bottom:6px}
+.cal-b .kc-evs{flex:1;display:flex;flex-direction:column;gap:30px}
+.cal-b .kc-ev{display:flex;flex-direction:column;align-items:flex-start}
+.cal-b .kc-d{margin-bottom:6px;font-size:26px}
+.cal-b .kc-t{display:block;font-size:19px}
+.cal-b .dxb{background:linear-gradient(180deg,#e3141c,#a40f15);border-top-color:#ff5359}
+.cal-b .dxb .kc-n,.cal-b .dxb .kc-y{color:rgba(255,255,255,.8)}
+.cal-b .dxb .kc-h{border-bottom-color:rgba(255,255,255,.35)}
+.cal-b .dxb .kc-ev{flex:1}
+.cal-b .dxb .kc-d.tbc{color:#fff}
+.cal-b .kc-s2{grid-column:1/-1;padding:12px 12px 0;border-top:1px dashed #4a4a4a}
+
+/* c · карточки 3×2: месяц — шапка карточки (номер месяца справа), внутри 1–2 модуля с крупной датой; Дубай — красная карточка */
+.cal-c .kc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr)) auto;gap:12px 14px;margin-top:2px}
+.cal-c .kc-m{display:flex;flex-direction:column;min-height:0;padding:12px 16px;border-radius:8px;background:rgba(255,255,255,.05);border-top:3px solid #474747}
+.cal-c .kc-h{display:flex;align-items:baseline;gap:10px;padding-bottom:9px;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.13)}
+.cal-c .kc-y{font-size:18px}
+.cal-c .kc-n{order:3;margin-left:auto;font-size:22px;color:var(--red)}
+.cal-c .kc-evs{flex:1;display:flex;flex-direction:column;gap:17px}
+.cal-c .kc-ev{display:flex;flex-direction:column;align-items:flex-start}
+.cal-c .kc-d{margin-bottom:3px}
+.cal-c .kc-t{display:block;font-size:19px}
+.cal-c .dxb{background:linear-gradient(160deg,#e3141c,#a40f15);border-top-color:#ff5359}
+.cal-c .dxb .kc-n,.cal-c .dxb .kc-y{color:rgba(255,255,255,.8)}
+.cal-c .dxb .kc-h{border-bottom-color:rgba(255,255,255,.35)}
+.cal-c .dxb .kc-ev{flex:1}
+.cal-c .dxb .kc-d.tbc{color:#fff}
+.cal-c .kc-s2{grid-column:1/-1;padding:8px 16px 0;border-top:1px dashed #4a4a4a}
+
+/* b, c · метка «Выезд в Дубай, ОАЭ»: белый текст с самолётиком внизу красной колонки/карточки */
+.cal-b .dxb .kc-tag,.cal-c .dxb .kc-tag{display:flex;align-items:center;gap:10px;margin-top:auto;padding:0;border-radius:0;background:none;color:#fff;font-size:20px;letter-spacing:0;text-transform:none;line-height:1.22;white-space:normal;text-wrap:balance}
+.cal-b .dxb .kc-tag::before,.cal-c .dxb .kc-tag::before{content:'';flex:none;width:30px;height:30px;background:#fff;transform:rotate(45deg);-webkit-mask:var(--kc-plane) center/contain no-repeat;mask:var(--kc-plane) center/contain no-repeat}
+.cal-b .dxb .kc-tag{flex-direction:column;align-items:flex-start;gap:12px}
+.cal-b .dxb .kc-tag::before{width:38px;height:38px}
 /* @@k4cal-end */
 /* @@k4hub-begin */
 /* 3 · подсветка задач на круге, итог: активная задача белая и чуть крупнее, иконка — красный круг с мягким свечением
@@ -2053,9 +2133,7 @@ function render(){
   const BLK_THEMES=['Финансы и процессы','Команда и лидерство','Маркетинг, продажи и новые рынки','Стратегия и рост'];
   const BLK_RES=TOP?['Ваш вклад в прибыль виден собственнику','Команда работает без микроменеджмента','Рост вашего блока виден в цифрах','Готовы руководить компанией']
     :['Прибыль растёт без лишних затрат','Команда приходит с решениями, а не с вопросами','Продажи работают как система','Понятно, куда расти даже в кризис'];
-  // обзор программы: 4 блока и их модули; клик по блоку — переход к его слайду
-  S('prog-slide',`<h2>Программа из 4 блоков</h2><p class="prog-lead">12 модулей сгруппированы по задачам, которые вы решаете в компании</p>
-    <div class="prog-grid">${BLOCKS.map((b,i)=>`<button type="button" class="prog-c" onclick="goSlide('blk:${i}')"><span class="prog-n">Блок ${i+1}</span><b>${BLK_THEMES[i]}</b><ul>${[...new Set(b.feat.map(x=>x[0]))].map(n=>`<li><i>${String(n).padStart(2,'0')}</i>${MODCHIP[n]}</li>`).join('')}</ul><p class="prog-r"><span>Результат</span>${BLK_RES[i]}</p></button>`).join('')}</div>`);
+  // обзорный слайд «Программа из 4 блоков» убран по решению Ксении (18.11): блок виден полоской на каждом слайде задачи
   BLOCKS.forEach((b,i)=>{
     const h=typeof b.h==='string'?b.h:(TOP?b.h.top:b.h.own);
     S('why2 blk-slide',`${pic(b.img,46)}<div class="body"><div class="blk-nav">${BLK_THEMES.map((t,k)=>`<span${k===i?' class="on"':''}><b>Блок ${k+1}</b>${t}</span>`).join('')}</div><h2>${h}</h2>
@@ -2118,10 +2196,17 @@ function render(){
     ['Февраль',2027,5,0,1,[['даты уточняются','Международный бизнес (Дубай, ОАЭ)','по отдельной программе','Международный бизнес']]],
     ['Март',2027,6,0,0,[['25–27 мар','Стратегическое управление в условиях изменений','Сергей Макшанов'],['28 мар','Интернет-стратегия (Бизнес и Digital)','Григорий Карлышев']]]
   ];
-  const calEv=(r,tag='')=>`<div class="ag-ev"><b${r[0][0]==='д'?' class="tbc"':''}>${r[0]}</b><span>${r[3]||r[1]}${tag}</span></div>`;
-  const calRow=g=>`<div class="ag-r${g[4]?' dxb':''}"><div class="ag-m"><span class="ag-n">${String(g[2]).padStart(2,'0')}</span><span class="ag-mm">${g[0]}<small>${g[1]}</small></span></div>${g[5].map(r=>calEv(r,g[4]?'<span class="ag-tag">Выезд в Дубай, ОАЭ</span>':'')).join('')}</div>`;
-  S('cal-slide ag-slide',`<div class="kick">Календарь</div><h2>Календарь модулей</h2>
-    <div class="ag">${CAL.map(calRow).join('')}<div class="ag-r s2"><div class="ag-m"><span class="ag-mm">2 семестр</span></div><div class="ag-ev"><span>Даты и модули уточняются</span></div></div></div>`);
+  // вид календаря: по умолчанию карточки по месяцам (c); ?cal=a — таймлайн, ?cal=b — лента, ?cal=t — таблица
+  const CALV=(v=>v==='t'?'':/^[abc]$/.test(v)?v:'c')(new URLSearchParams(location.search).get('cal')||'');
+  const calEv=(r,tag='')=>CALV
+    ?`<div class="kc-ev"><b class="kc-d${r[0][0]==='д'?' tbc':''}">${r[0]}</b><span class="kc-t">${r[3]||r[1]}</span>${tag}</div>`
+    :`<div class="ag-ev"><b${r[0][0]==='д'?' class="tbc"':''}>${r[0]}</b><span>${r[3]||r[1]}${tag}</span></div>`;
+  const calRow=g=>CALV
+    ?`<div class="kc-m${g[4]?' dxb':''}"><div class="kc-h"><span class="kc-n">${String(g[2]).padStart(2,'0')}</span><span class="kc-mo">${g[0]}</span><span class="kc-y">${g[1]}</span></div><div class="kc-evs">${g[5].map(r=>calEv(r,g[4]?'<span class="kc-tag">Выезд в Дубай, ОАЭ</span>':'')).join('')}</div></div>`
+    :`<div class="ag-r${g[4]?' dxb':''}"><div class="ag-m"><span class="ag-n">${String(g[2]).padStart(2,'0')}</span><span class="ag-mm">${g[0]}<small>${g[1]}</small></span></div>${g[5].map(r=>calEv(r,g[4]?'<span class="ag-tag">Выезд в Дубай, ОАЭ</span>':'')).join('')}</div>`;
+  S('cal-slide ag-slide'+(CALV?' cal-'+CALV:''),`<div class="kick">Календарь</div><h2>Календарь модулей</h2>
+    ${CALV?`<div class="kc">${CAL.map(calRow).join('')}<div class="kc-s2"><b>2 семестр</b><span>Даты и модули уточняются</span></div></div>`
+    :`<div class="ag">${CAL.map(calRow).join('')}<div class="ag-r s2"><div class="ag-m"><span class="ag-mm">2 семестр</span></div><div class="ag-ev"><span>Даты и модули уточняются</span></div></div></div>`}`);
 
   // 13 · форматы участия
   const fmIco=k=>FM_ICON[k]?`<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${FM_ICON[k]}</svg>`:ico(k);
@@ -2136,11 +2221,11 @@ function render(){
     <div class="p2-tl"><span class="p2-cap">Календарь платежей</span><span class="p2-y" style="grid-column:1 / span 3">2026 год</span><span class="p2-y" style="grid-column:4 / span 9">2027 год</span>${PAY_MONTHS.map((x,i)=>`<span class="p2-m${CAL_PAY.includes(i+1)?' on':''}">${x[0]}</span>`).join('')}
       ${CAL_PAY.map((m,i)=>`<div class="p2-c" style="grid-column:${m} / span 3"><b>${i+1} платёж</b><span>${PAY_MONTHS[m-1][0]} ${PAY_MONTHS[m-1][1]}</span></div>`).join('')}</div>`);
 
-  // 16а · скидка 15% на ближайший поток (условие от Ксении, 18.11.2026: старт ближайшего потока 6 декабря)
-  const EARLY_OFF=.15,EARLY_DATE='6 декабря',early=PRICE*(1-EARLY_OFF);
+  // 16а · скидка 11% на ближайший поток (условие от Ксении, 18.11.2026: старт ближайшего потока 6 декабря, со скидкой вдвоём не суммируется)
+  const EARLY_OFF=.11,EARLY_DATE='6 декабря',early=PRICE*(1-EARLY_OFF);
   S('duo-slide early-slide',`${pic('design-img/photos/blk-money.jpg',36,'duo-photo early-photo')}<div class="body"><div class="kick">Стоимость</div><h2>Ближайший поток — скидка ${Math.round(EARLY_OFF*100)}%</h2>
     <div class="duo-wrap"><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-disc">Скидка ${rub(PRICE-early)}</div><div class="duo-new">${rub(early)}</div><div class="duo-cap">при старте с ${EARLY_DATE}</div></div>
-    <p class="duo-tax">Скидка действует, если вы присоединяетесь к ближайшему потоку — старт ${EARLY_DATE}</p></div>`);
+    <p class="duo-tax">Скидка действует при старте с ${EARLY_DATE} и не суммируется со скидкой «вдвоём с коллегой»</p></div>`);
 
   // 16 · вдвоём с коллегой
   S('duo-slide',`${pic('design-img/photos/duo-graduates.jpg',36,'duo-photo')}<div class="body"><div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка ${pct}%</h2>
