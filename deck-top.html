@@ -1015,6 +1015,13 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .ch-t:hover{color:var(--red)}
 /* кейс без блока «с какой задачей пришли» (Волкова у топов): решение и результат по центру высоты */
 .case-ab .body:not(:has(.cs-task)) .cs-solve{margin:auto 0}
+.early-slide .early-photo img{object-position:62% 40%}
+/* 7, 9, 11, 13 · полоска «Блок 1 · Блок 2…» над заголовком: программа разбита на 4 темы, текущая подсвечена */
+.blk-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:-1.2% 0 2.6%}
+.blk-nav span{display:block;border-top:3px solid #3a3a3a;padding-top:7px;font-size:16px;line-height:1.2;color:var(--tx3)}
+.blk-nav span b{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:2px}
+.blk-nav span.on{border-top-color:var(--red);color:#fff}
+.blk-nav span.on b{color:var(--red)}
 /* @@cheat-end */
 /* · */
 /* · */
@@ -1875,12 +1882,12 @@ function ft(n){return `<div class="ft"><span>${n}</span></div><img class="hd-log
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
 
 const WHY=[TOP?'MBA для карьерного роста':'MBA для роста бизнеса','Разбираем задачу вашей компании',`На обучении вы сразу применяете знания и разбираете с практиками актуальные задачи ${TOP?'вашей компании':'вашего бизнеса'}.`,
- [['Изучаете инструменты на модулях программы','12 модулей: финансы и окупаемость, команда и делегирование, маркетинг и продажи, стратегия и анализ рынка.'],
+ [['Изучаете инструменты на модулях программы','Учитесь считать окупаемость, делегировать, строить систему продаж и стратегию компании.'],
   ['Разбираете решения с практиками','Преподаватели — собственники и руководители бизнеса, помогают подобрать решение под вашу задачу.'],
-  ['Внедряете уже во время обучения','Первые результаты получаете во время обучения.']]];
+  ['Внедряете изменения в компании и процессах уже во время обучения','Выпускной проект — это план изменений вашей компании, а не учебная работа.']]];
 const BLOCKS=[
  {h:{top:'Считаете экономику своих решений — ваш вклад в прибыль виден собственнику',own:'Управляете прибылью, чтобы бизнес зарабатывал больше'},img:'design-img/photos/result-profit.jpg',
-  feat:[[5,'Видите, где компания теряет деньги: разбираетесь в отчётах и марже'],[5,{top:'Приходите к собственнику с расчётом окупаемости — ваши проекты утверждают',own:'Считаете окупаемость до вложений и вкладываете только в то, что окупится'}],[9,'Находите потери в процессах и возвращаете прибыль в бизнес']],
+  feat:[[5,{top:'Оцениваете проекты глазами собственника и инвестора: окупаемость, риски, сценарии',own:'Анализируете отчётность и маржу и на цифрах находите, где компания теряет деньги'}],[5,{top:'Планируете бюджет на нескольких сценариях — он выдерживает колебания рынка',own:'Считаете окупаемость до вложений и вкладываете только в то, что окупится'}],[9,{top:'Показываете, как решения вашего блока влияют на прибыль и стоимость компании',own:'Находите потери в процессах и возвращаете прибыль в бизнес'}]],
   mods:[[2,'Управленческая экономика','Раскладывать себестоимость на факторы и процессы, чтобы видеть, где компания теряет маржу, и вернуть её'],[5,'Финансовые и инвестиционные стратегии','Связывать затраты с финансовым планом и вовремя видеть отклонения, чтобы вкладывать только в то, что окупится'],[9,'Оптимизация бизнес-процессов','Находить потери в процессах, чтобы сократить затраты и время и вернуть прибыль в бизнес']],
   case:{k:'nishchev',a:'Подтянуть знания в бизнес-процессах и финансах',did:'Дипломную работу сделал по своей компании: оптимизировал процессы технической инфраструктуры',fig:'200 млн ₽',b:'экономии каждый год. Заодно оптимизировали работу персонала'}},
  {h:{top:'Управляете командой, чтобы перейти на уровень выше',own:'Строите команду, чтобы не тонуть в операционке'},img:'design-img/photos/result-team.jpg',
@@ -2015,7 +2022,7 @@ function render(){
     <div class="pic in"><img src="${PH.grad}" alt=""></div></div>`);
 
   // 6 · портрет участников: возраст и доли — данные Ксении; сферы — по списку участников FMBA (work/portrait/analysis.md)
-  const PT_SECTORS=['Торговля и дистрибуция','IT и цифровые платформы','Промышленность и энергетика','Банки и брокерские услуги','Рестораны и гастрономия','Юридические услуги','Логистика и ВЭД','Строительство','Образование','Фарма','Лизинг'];
+  const PT_SECTORS=['Торговля и дистрибуция','IT и цифровые платформы','Промышленность и энергетика','Банки и брокерские услуги','Рестораны и гастрономия','Юридические услуги','Логистика и ВЭД','Строительство','Образование','Фармацевтика','Лизинг'];
   S('portrait-slide',`${pic('design-img/photos/kicker4-participant-class.jpg',30,'participant-photo')}<div class="body"><div class="kick">Кто учится рядом с вами</div><h2>Портрет участников</h2>
     <div class="pt-grid">
       <div class="ptc">${ico('users')}<b>35–55<small>лет</small></b><span>возраст участников</span></div>
@@ -2026,9 +2033,11 @@ function render(){
     </div></div>`);
 
   // 7 · четыре задачи: слайд задачи с модулями → кейс выпускника
+  // темы четырёх блоков программы: полоска сверху на слайдах задач показывает, какой блок сейчас (Блок 1 из 4 и т.д.)
+  const BLK_THEMES=['Финансы и прибыль','Команда','Продажи и рынки','Стратегия'];
   BLOCKS.forEach((b,i)=>{
     const h=typeof b.h==='string'?b.h:(TOP?b.h.top:b.h.own);
-    S('why2 blk-slide',`${pic(b.img,46)}<div class="body"><div class="kick">Задача ${i+1} из ${BLOCKS.length}</div><h2>${h}</h2>
+    S('why2 blk-slide',`${pic(b.img,46)}<div class="body"><div class="blk-nav">${BLK_THEMES.map((t,k)=>`<span${k===i?' class="on"':''}><b>Блок ${k+1}</b>${t}</span>`).join('')}</div><h2>${h}</h2>
       <div class="why-rows">${b.feat.map(([n,t],j)=>`<div class="why-row" data-m="${n}"><span class="why-num">0${j+1}</span><div><b>${typeof t==='string'?t:(TOP?t.top:t.own)}</b></div></div>`).join('')}</div>
       <div class="mod-chips"><span>Программа модулей:</span>${[...new Set(b.feat.map(f=>f[0]))].map(n=>`<button type="button" data-m="${n}" title="Открыть программу модуля">${MODCHIP[n]}</button>`).join('')}</div></div><div class="mod-pop"></div>`);
     const c=byCase.get(b.case.k);
@@ -2042,18 +2051,18 @@ function render(){
 
   // 8 · формат обучения: шесть главных пунктов крупно (иконка, заголовок, одна короткая строка)
   const FMT_ITEMS=[
-    ['layers','Фреймворки управления','Классические и современные'],
-    ['file','Разбор кейсов','Крупные российские компании'],
-    ['briefcase','Реальный бизнес','На компаниях участников'],
-    ['cpu','Стратегические игры','Симуляции сложных систем'],
-    ['usercheck','Личный коучинг','Смена паттернов управления'],
-    ['users','Сильная группа','Собственники и <span style="white-space:nowrap">топ-менеджеры</span>']];
+    ['layers','Фреймворки управления','Классические и современные инструменты'],
+    ['file','Разбор актуальных кейсов','Ситуации крупных российских компаний'],
+    ['briefcase','Работа с реальным бизнесом','На компаниях участников'],
+    ['cpu','Симуляции и стратегические игры','Сложные системы и неопределённость'],
+    ['usercheck','Индивидуальный коучинг','Цель — изменение управленческих паттернов'],
+    ['users','Коллективная экспертиза','Сильные группы из собственников и <span style="white-space:nowrap">топ-менеджеров</span>']];
   // схема как на слайде 3: в центре круг «Трансформация…», слева первые три пункта, справа остальные, линии от иконок к кругу
   S('fmt-slide fmt-hub',`<div class="kick">Формат обучения</div><h2>Как проходит обучение</h2>
     ${(()=>{const CX=640,CY=430,R=155,GAP=165,h=FMT_ITEMS.length/2;
       const nodes=FMT_ITEMS.map((x,k)=>{const left=k<h,i=left?k:k-h,y=CY+(i-(h-1)/2)*GAP,ex=left?453:827;return {y,ex,html:`<div class="fmh-n ${left?'l':'r'}" style="top:${y}px"><span class="fmh-b">${ico(x[0])}</span><div class="fmh-t"><b>${x[1]}</b><span>${x[2]}</span></div></div>`}});
       const ln=n=>{const dx=n.ex-CX,dy=n.y-CY,d=Math.hypot(dx,dy),tx=(CX+dx/d*R).toFixed(1),ty=(CY+dy/d*R).toFixed(1);return `<line x1="${n.ex}" y1="${n.y}" x2="${tx}" y2="${ty}"/><circle cx="${tx}" cy="${ty}" r="4.5"/>`};
-      return `<svg class="fmh-lines" viewBox="0 0 1280 720">${nodes.map(ln).join('')}</svg><div class="fmh-c" style="left:${CX-R}px;top:${CY-R}px;width:${2*R}px;height:${2*R}px"><b>Трансформация руководителя и его бизнеса</b></div>${nodes.map(n=>n.html).join('')}`})()}`);
+      return `<svg class="fmh-lines" viewBox="0 0 1280 720">${nodes.map(ln).join('')}</svg><div class="fmh-c" style="left:${CX-R}px;top:${CY-R}px;width:${2*R}px;height:${2*R}px"><b>${TOP?'Трансформация руководителя и организации процессов':'Трансформация собственника и его бизнеса'}</b></div>${nodes.map(n=>n.html).join('')}`})()}`);
 
   // 10 · преподаватели: один слайд, сначала практики, потом лекторы; на сайте сетка листается вниз, в PDF первые 3 карточки
   S('tch-slide',tchSlide());
@@ -2106,6 +2115,12 @@ function render(){
     <div class="p2-tl"><span class="p2-cap">Календарь платежей</span><span class="p2-y" style="grid-column:1 / span 3">2026 год</span><span class="p2-y" style="grid-column:4 / span 9">2027 год</span>${PAY_MONTHS.map((x,i)=>`<span class="p2-m${CAL_PAY.includes(i+1)?' on':''}">${x[0]}</span>`).join('')}
       ${CAL_PAY.map((m,i)=>`<div class="p2-c" style="grid-column:${m} / span 3"><b>${i+1} платёж</b><span>${PAY_MONTHS[m-1][0]} ${PAY_MONTHS[m-1][1]}</span></div>`).join('')}</div>`);
 
+  // 16а · скидка 15% на ближайший поток (условие от Ксении, 18.11.2026: старт ближайшего потока 6 декабря)
+  const EARLY_OFF=.15,EARLY_DATE='6 декабря',early=PRICE*(1-EARLY_OFF);
+  S('duo-slide early-slide',`${pic('design-img/photos/blk-money.jpg',36,'duo-photo early-photo')}<div class="body"><div class="kick">Стоимость</div><h2>Ближайший поток — скидка ${Math.round(EARLY_OFF*100)}%</h2>
+    <div class="duo-wrap"><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-disc">Скидка ${rub(PRICE-early)}</div><div class="duo-new">${rub(early)}</div><div class="duo-cap">при старте с ${EARLY_DATE}</div></div>
+    <p class="duo-tax">Скидка действует, если вы присоединяетесь к ближайшему потоку — старт ${EARLY_DATE}</p></div>`);
+
   // 16 · вдвоём с коллегой
   S('duo-slide',`${pic('design-img/photos/duo-graduates.jpg',36,'duo-photo')}<div class="body"><div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка ${pct}%</h2>
     <div class="duo-wrap"><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-disc">Скидка ${rub(PRICE-one)}</div><div class="duo-new">${rub(one)}</div><div class="duo-cap">стоимость на одного участника</div></div>
@@ -2128,8 +2143,8 @@ function render(){
     ];
   const gainGrp=[...new Set(GAIN.map(r=>r[0]))];
   // у собственников: «Направляя сотрудника на MBA, вы получаете» — 4 работы собственника (как слайды задач 7–13) + внедрение;
-  // номера модулей под пунктом открывают карточку модуля (MODINFO), как на слайдах задач
-  const SEND=[[[5,9],'Финансовые решения приходят к вам с расчётом окупаемости'],[[1,4,10,12],'Операционное управление переходит к команде'],
+  // модули под пунктами не выводятся (слайд разгружен), номера в SEND — справка
+  const SEND=[[[5,9],'Финансовые решения приходят к вам с расчётом окупаемости'],[[1,4,10,12],'Операционное управление переходит к команде — вы не тонете в рутине'],
     [[3,11,6],'Продажи работают как система'],[[2,7,8],'Сотрудник становится вашим советником по стратегии'],
     [[],'Первые результаты — уже во время обучения, направление работы согласуется с вами']];
   // у топ-менеджеров вместо «Что получит компания»: что вы получите в конце программы — по работам топа (карьера), модули по клику
@@ -2139,7 +2154,7 @@ function render(){
   if(TOP)S('why2 blk-slide send-slide fin-slide',`${pic('design-img/photos/group-mic.jpg',46)}<div class="body"><h2>Что вы получите в конце программы</h2><p class="fin-lead">Вы выходите управленцем, которого ищет рынок</p>
     <div class="why-rows">${FIN.map(([ms,t],j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${t}</b>${ms.length?`<div class="mod-chips">${ms.map(n=>`<button type="button" data-m="${n}" title="Открыть программу модуля">${MODCHIP[n]}</button>`).join('')}</div>`:''}</div></div>`).join('')}</div></div><div class="mod-pop"></div>`);
   else S('why2 blk-slide send-slide',`${pic('design-img/photos/blk-team.jpg',46)}<div class="body"><h2>Направляя сотрудника на MBA, вы получаете</h2>
-    <div class="why-rows">${SEND.map(([ms,t],j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${t}</b>${ms.length?`<div class="mod-chips">${ms.map(n=>`<button type="button" data-m="${n}" title="Открыть программу модуля">${MODCHIP[n]}</button>`).join('')}</div>`:''}</div></div>`).join('')}</div></div><div class="mod-pop"></div>`);
+    <div class="why-rows">${SEND.map(([ms,t],j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${t}</b></div></div>`).join('')}</div></div><div class="mod-pop"></div>`);
 
   // закрывающий слайд: призыв и контакты менеджера, редактируются на слайде (код и данные — перед render())
   out+=closingSlide();
