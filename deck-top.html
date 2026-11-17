@@ -926,9 +926,10 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .cal-slide .c2-s2 b{color:#fff;font-weight:600}
 /* график платежей: 12 месяцев обучения в ряд, платёжные месяцы красным, под ними 4 карточки */
 .pay-slide .p2-lead{font-size:calc(1.88cqw*var(--k,1));color:var(--tx2);margin:6px 0 0;line-height:1.3}
-.pay-slide .p2-tl{flex:1;min-height:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto;align-content:center;gap:12px;padding-bottom:3%}
+.pay-slide .p2-tl{flex:1;min-height:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto auto;align-content:center;gap:12px;padding-bottom:3%}
 .pay-slide .p2-cap{grid-column:1 / -1;font-size:calc(1.41cqw*var(--k,1));letter-spacing:.06em;text-transform:uppercase;color:var(--tx3);font-weight:600}
-.pay-slide .p2-m{display:flex;align-items:center;justify-content:center;height:calc(7.2cqw*var(--k,1));border-radius:6px;background:rgba(255,255,255,.04);border-top:2px solid #3a3a3a;font-family:var(--serif);font-size:calc(2.81cqw*var(--k,1));color:var(--tx2)}
+.pay-slide .p2-y{padding:0 0 8px;border-bottom:1px solid #3a3a3a;font-size:calc(1.55cqw*var(--k,1));font-weight:600;color:#fff}
+.pay-slide .p2-m{display:flex;align-items:center;justify-content:center;height:calc(6.4cqw*var(--k,1));padding:0 5px;border-radius:6px;background:rgba(255,255,255,.04);border-top:2px solid #3a3a3a;font-family:var(--sans);font-size:calc(1.35cqw*var(--k,1));font-weight:500;color:var(--tx2);text-align:center}
 .pay-slide .p2-m.on{background:var(--red);border-top-color:var(--red);color:#fff;font-weight:500}
 .pay-slide .p2-c{margin-top:18px;padding:26px 24px 28px;border-left:2px solid var(--red);background:rgba(255,255,255,.035);border-radius:0 6px 6px 0;display:flex;flex-direction:column;gap:6px}
 .pay-slide .p2-c b{font-family:var(--serif);font-size:calc(3.75cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.05}
@@ -1157,12 +1158,11 @@ const TCH=[
  ['Григорий Карлышев','Ведущий аналитик компании АРБ Про','karlyshev','l'],
  ['Виталий Новиков','Эксперт по продажам и клиентскому сервису','novikov','l']
 ];
-const TCH_PRINT=3; // в PDF и при печати: столько первых карточек от каждой группы
+const TCH_PRINT=3; // в PDF и при печати: первые три карточки галереи
 const TCH_KIND={p:'Практик',l:'Лектор'};
 const TCH_ARR=d=>`<button class="tch-nav" type="button" aria-label="${d<0?'Назад':'Вперёд'}"${d<0?' disabled':''} onclick="tchGo(this,${d})"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d<0?'M15 5l-7 7 7 7':'M9 5l7 7-7 7'}"/></svg></button>`;
-const tchCard=(t,i,a)=>`<div class="tch-card ${t[3]}${a.slice(0,i).filter(x=>x[3]===t[3]).length<TCH_PRINT?' pr':''}${i&&a[i-1][3]!==t[3]?' gs':''}"><div class="tch-ph"><img src="design-img/teachers/teachers-${t[2]}.jpg" alt="${t[0]}"><i>${TCH_KIND[t[3]]}</i></div><div class="tch-tx"><b>${t[0]}</b><span class="tch-r">${t[1]}</span></div></div>`;
-const tchSlide=()=>`<div class="tch-head"><div><div class="kick">С кем вы будете работать</div><h2>Преподаватели</h2></div><div class="tch-navs noprint">${TCH_ARR(-1)}${TCH_ARR(1)}</div></div>
-    <p class="tch-lead"><span class="tch-lg p">${TCH_KIND.p}</span>собственный бизнес, учит тому, что делает сам<span class="tch-lg l">${TCH_KIND.l}</span>эксперт по своему предмету</p>
+const tchCard=(t,i)=>`<div class="tch-card p${i<TCH_PRINT?' pr':''}"><div class="tch-ph"><img src="design-img/teachers/teachers-${t[2]}.jpg" alt="${t[0]}"><i>Практик</i></div><div class="tch-tx"><b>${t[0]}</b><span class="tch-r">${t[1]}</span></div></div>`;
+const tchSlide=()=>`<div class="tch-head"><div><div class="kick">С кем вы будете работать</div><h2>Преподаватели-практики</h2></div><div class="tch-navs noprint">${TCH_ARR(-1)}${TCH_ARR(1)}</div></div>
     <div class="tch-wrap"><div class="tch-track" tabindex="0">${TCH.map(tchCard).join('')}</div></div>`;
 // листание вбок: стрелки сдвигают на три карточки, жест на тачпаде и свайп пальцем работают штатно (scroll-snap)
 function tchSync(tr){const m=tr.scrollWidth-tr.clientWidth-2,s=tr.closest('.slide');tr.parentNode.classList.toggle('at-end',tr.scrollLeft>=m);s.querySelector('.tch-nav:first-child').disabled=tr.scrollLeft<=2;s.querySelector('.tch-nav:last-child').disabled=tr.scrollLeft>=m}
@@ -1788,7 +1788,7 @@ function render(){
   // 8 · формат обучения: шесть главных пунктов крупно (иконка, заголовок, одна короткая строка)
   const FMT_ITEMS=[
     ['layers','Фреймворки управления','Классические и современные инструменты'],
-    ['file','Разбор реальных кейсов','Ситуации крупных российских компаний'],
+    ['file','Разбор актуальных кейсов','Ситуации крупных российских компаний'],
     ['briefcase','Работа с реальным бизнесом','На компаниях участников'],
     ['cpu','Симуляции и стратегические игры','Сложные системы и неопределённость'],
     ['usercheck','Индивидуальный коучинг','Цель — изменение управленческих паттернов'],
@@ -1806,7 +1806,7 @@ function render(){
   // 11 · кто у нас учился: фото, компания и одна строка о ней (поля phs, cn, co в CASES)
   const ALUMNI=['nishchev','kuzyakov','kapyev','isaev','volkova','yuditskaya','remenyako'].map(k=>byCase.get(k)).filter(Boolean);
   S('alum-slide',`<div class="kick">Кто у нас учился</div><h2>Выпускники программы</h2>
-    <div class="alum-grid">${ALUMNI.map(c=>`<div class="alum"><div class="am">${c.phs?`<img src="${c.phs}" alt="${c.n}">`:initials(c.n)}</div><b>${c.n}</b><span class="al-cn">${c.cn||c.r}</span>${c.co?`<span class="al-co">${c.co}</span>`:''}</div>`).join('')}<div class="alum big"><b>${SCHOOL[0][0]}</b><span class="r">выпускников школы</span></div></div>`);
+    <div class="alum-grid">${ALUMNI.map(c=>`<div class="alum"><div class="am">${c.phs?`<img src="${c.phs}" alt="${c.n}">`:initials(c.n)}</div><b>${c.n}</b><span class="al-cn">${c.cn||c.r}</span></div>`).join('')}<div class="alum big"><b>${SCHOOL[0][0]}</b><span class="r">выпускников школы</span></div></div>`);
 
   // 12 · почему MBA актуален в 2027 году: свои формулировки для топ-менеджеров и собственников
   const OBJ=TOP?[
@@ -1834,7 +1834,7 @@ function render(){
     ['Февраль',2027,5,0,1,[['даты уточняются','Международный бизнес (Дубай, ОАЭ)','по отдельной программе','Международный бизнес']]],
     ['Март',2027,6,0,0,[['25–27 мар','Стратегическое управление в условиях изменений','Сергей Макшанов'],['28 мар','Интернет-стратегия (Бизнес и Digital)','Григорий Карлышев']]]
   ];
-  const calEv=r=>{const t=r[0][0]==='д',p=`<span class="c2-p">${r[2]}</span>`;return `<div class="c2-ev"><div class="c2-dl"><span class="c2-d${t?' tbc':''}">${r[0]}</span>${t?'':p}</div><span class="c2-t">${r[3]||r[1]}</span>${t?p:''}</div>`};
+  const calEv=r=>{const t=r[0][0]==='д';return `<div class="c2-ev"><div class="c2-dl"><span class="c2-d${t?' tbc':''}">${r[0]}</span></div><span class="c2-t">${r[3]||r[1]}</span></div>`};
   const calCard=g=>`<div class="mc${g[4]?' dxb':''}"><div class="c2-hd"><span class="mn">${String(g[2]).padStart(2,'0')}</span><span class="mm">${g[0]} ${g[1]}</span></div>${g[5].map(calEv).join('')}${g[4]?'<span class="tag">выезд в Дубай, ОАЭ</span>':''}</div>`;
   S('cal-slide',`<div class="kick">Календарь</div><h2>Календарь модулей</h2>
     <div class="cal">${CAL.map(calCard).join('')}</div>
@@ -1846,11 +1846,12 @@ function render(){
     <ul class="fmx-list">${FM_ITEMS[i].map(y=>`<li>${fmIco(y[0])}<span>${y[1]}${y[2]?`<small>${y[2]}</small>`:''}</span></li>`).join('')}</ul>${i?'':'<p class="fmx-note">* перелёт и проживание оплачиваются дополнительно</p>'}</div>`);
   S('fm-slide',`<div class="kick">Стоимость</div><h2>Форматы участия</h2><div class="fmx">${fmc[0]}<div class="fmx-side">${fmc[1]}${fmc[2]}</div></div>`);
 
-  // 14а · график платежей: 4 платежа в 1, 4, 7 и 10 месяц обучения
+  // 14а · график платежей: 4 платежа каждые три месяца с начала обучения
+  const PAY_MONTHS=[['Октябрь',2026],['Ноябрь',2026],['Декабрь',2026],['Январь',2027],['Февраль',2027],['Март',2027],['Апрель',2027],['Май',2027],['Июнь',2027],['Июль',2027],['Август',2027],['Сентябрь',2027]];
   const CAL_PAY=[1,4,7,10];
   S('pay-slide',`<h2>График платежей</h2><p class="p2-lead">${CAL_PAY.length} платежа, каждые 3 месяца</p>
-    <div class="p2-tl"><span class="p2-cap">Месяц обучения</span>${Array.from({length:12},(_,i)=>`<span class="p2-m${CAL_PAY.includes(i+1)?' on':''}">${i+1}</span>`).join('')}
-      ${CAL_PAY.map((m,i)=>`<div class="p2-c" style="grid-column:${m} / span 3"><b>${i+1} платёж</b><span>${m}-й месяц обучения</span></div>`).join('')}</div>`);
+    <div class="p2-tl"><span class="p2-cap">Календарь платежей</span><span class="p2-y" style="grid-column:1 / span 3">2026 год</span><span class="p2-y" style="grid-column:4 / span 9">2027 год</span>${PAY_MONTHS.map((x,i)=>`<span class="p2-m${CAL_PAY.includes(i+1)?' on':''}">${x[0]}</span>`).join('')}
+      ${CAL_PAY.map((m,i)=>`<div class="p2-c" style="grid-column:${m} / span 3"><b>${i+1} платёж</b><span>${PAY_MONTHS[m-1][0]} ${PAY_MONTHS[m-1][1]}</span></div>`).join('')}</div>`);
 
   // 16 · вдвоём с коллегой
   S('duo-slide',`${pic('design-img/photos/duo-graduates.jpg',36,'duo-photo')}<div class="body"><div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка ${pct}%</h2>
