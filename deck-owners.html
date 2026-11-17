@@ -565,6 +565,9 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 /* ── третья итерация: рассрочка одним графиком, скидка на одного участника ── */
 .tmc small{display:block;font-size:13px;color:var(--red);font-weight:600;margin-top:4px;white-space:nowrap}
 .duo-disc{font-size:calc(2.6cqw*var(--k,1));font-weight:600;color:var(--red);margin:0 0 3.4%;letter-spacing:-.01em}
+.duo-slide .body{width:61%}
+.duo-slide .duo-wrap{display:block;flex:1;padding-top:5%}
+.duo-slide .duo-photo img{object-position:50% 44%}
 
 /* ── порядок как у Сколково: «это про вас», портрет, формат обучения, выпускники ── */
 .pcard .ico{font-size:calc(2.5cqw*var(--k,1))}
@@ -903,23 +906,32 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 /* · */
 /* · */
 /* @@cal2-begin */
-/* 21 · график модулей и платежей: 1 семестр крупными карточками 3×2 (даты и модули), 2 семестр одной полосой «уточняются» */
+/* календарь модулей: 1 семестр карточками 3×2 (даты, модуль, преподаватель), 2 семестр одной полосой «уточняются» */
 .cal-slide .cal{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:1fr 1fr;gap:12px 14px;margin-top:2px}
-.cal-slide .mc{padding:12px 18px 14px}
-.cal-slide .c2-hd{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.cal-slide .mc{padding:12px 16px 14px}
+.cal-slide .c2-hd{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .cal-slide .c2-hd .mn{font-size:calc(2.5cqw*var(--k,1));margin:0}
 .cal-slide .c2-hd .mm{font-size:calc(1.41cqw*var(--k,1));font-weight:600;letter-spacing:.02em;text-transform:none;line-height:1.2;color:var(--tx2)}
-.cal-slide .c2-pay{font-size:calc(1.41cqw*var(--k,1));font-weight:600;line-height:1.25;padding:3px 12px;border-radius:999px;background:var(--red);color:#fff;white-space:nowrap}
-.cal-slide .c2-hd .c2-pay{margin-left:auto}
 .cal-slide .c2-ev{display:flex;flex-direction:column;gap:2px}
 .cal-slide .c2-ev+.c2-ev{margin-top:9px;padding-top:9px;border-top:1px solid #2c2c2c}
+.cal-slide .c2-dl{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 12px}
 .cal-slide .c2-d{font-family:var(--serif);font-size:calc(2.19cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.08;white-space:nowrap}
 .cal-slide .c2-d.tbc{font-family:inherit;font-size:calc(1.56cqw*var(--k,1));font-weight:400;color:var(--tx2);white-space:normal}
-.cal-slide .c2-t{font-size:calc(1.72cqw*var(--k,1));color:rgba(255,255,255,.85);line-height:1.18}
+.cal-slide .c2-t{font-size:calc(1.72cqw*var(--k,1));color:rgba(255,255,255,.85);line-height:1.15}
+.cal-slide .c2-p{margin-left:auto;font-size:calc(1.41cqw*var(--k,1));color:var(--tx2);line-height:1.2;white-space:nowrap}
+.cal-slide .c2-t+.c2-p{margin:4px 0 0}
 .cal-slide .mc .tag{font-size:calc(1.41cqw*var(--k,1));margin-top:10px}
-.cal-slide .c2-s2{flex:none;margin-top:12px;display:flex;align-items:center;gap:8px 14px;padding:10px 18px;border-top:2px dashed #3a3a3a;border-radius:5px;font-size:calc(1.56cqw*var(--k,1));color:var(--tx2);line-height:1.25}
+.cal-slide .c2-s2{flex:none;margin-top:12px;display:flex;align-items:center;gap:8px 12px;padding:10px 16px;border-top:2px dashed #3a3a3a;border-radius:5px;font-size:calc(1.56cqw*var(--k,1));color:var(--tx2);line-height:1.25}
 .cal-slide .c2-s2 b{color:#fff;font-weight:600}
-.cal-slide .c2-pays{margin-left:auto;display:flex;gap:10px}
+/* график платежей: 12 месяцев обучения в ряд, платёжные месяцы красным, под ними 4 карточки */
+.pay-slide .p2-lead{font-size:calc(1.88cqw*var(--k,1));color:var(--tx2);margin:6px 0 0;line-height:1.3}
+.pay-slide .p2-tl{flex:1;min-height:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:auto auto auto;align-content:center;gap:12px;padding-bottom:3%}
+.pay-slide .p2-cap{grid-column:1 / -1;font-size:calc(1.41cqw*var(--k,1));letter-spacing:.06em;text-transform:uppercase;color:var(--tx3);font-weight:600}
+.pay-slide .p2-m{display:flex;align-items:center;justify-content:center;height:calc(7.2cqw*var(--k,1));border-radius:6px;background:rgba(255,255,255,.04);border-top:2px solid #3a3a3a;font-family:var(--serif);font-size:calc(2.81cqw*var(--k,1));color:var(--tx2)}
+.pay-slide .p2-m.on{background:var(--red);border-top-color:var(--red);color:#fff;font-weight:500}
+.pay-slide .p2-c{margin-top:18px;padding:26px 24px 28px;border-left:2px solid var(--red);background:rgba(255,255,255,.035);border-radius:0 6px 6px 0;display:flex;flex-direction:column;gap:6px}
+.pay-slide .p2-c b{font-family:var(--serif);font-size:calc(3.75cqw*var(--k,1));font-weight:500;color:#fff;line-height:1.05}
+.pay-slide .p2-c span{font-size:calc(1.88cqw*var(--k,1));color:var(--tx2);line-height:1.25}
 /* @@cal2-end */
 /* · */
 /* · */
@@ -994,9 +1006,17 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 /* @@fonts-begin */
 /* крупный шрифт без мелочи: на холсте 1280×720 текст не мельче 18 px, описания и подписи под заголовками — от 20 px,
    надзаголовки — от 16 px, метки капслоком — от 18 px; размеры в px, т.к. cqw здесь считаются от разных контейнеров */
-/* красные надзаголовки убраны (Ксения): заголовок встаёт на их место. Оставлены на 4, 23, слайдах задач и кейсов */
+/* красные надзаголовки убраны: заголовок встаёт на их место */
 .school-slide .kick,.pick-slide .kick,.concept-slide .kick,.portrait-slide .kick,.fmt-slide .kick,.tch-slide .kick,
 .alum-slide .kick,.obj-slide .kick,.fm-slide .kick,.cal-slide .kick,.duo-slide .kick{display:none}
+/* красные надзаголовки убраны на всех слайдах */
+.slide .kick{display:none!important}
+/* слайды задач: вместо модулей — три крупных результата */
+.blk-slide .why-rows{margin-top:4%}
+.blk-slide .why-row{grid-template-columns:12% 1fr;padding:3% 0}
+.blk-slide .why-num{font-family:var(--serif);font-size:calc(3.1cqw*var(--k,1));letter-spacing:0;color:var(--red);padding-top:0}
+.slide.blk-slide .why-row b{font-size:calc(2.45cqw*var(--k,1));line-height:1.22;margin:0}
+.task-photo img{object-position:57% 50%!important}
 /* 2 · школа в цифрах */
 .school-slide .school-stats .stat p{font-size:20px}
 .school-slide .school-clients{font-size:20px}
@@ -1485,7 +1505,7 @@ const PH={
  table:'design-img/photos/table.jpg',hall:'design-img/photos/hall.jpg',speaker:'design-img/photos/speaker.jpg',
  grad:'design-img/photos/grad.jpg',stage:'design-img/photos/stage.jpg',
  dubai:'design-img/photos/dubai-group.jpg',room:'design-img/photos/dubai-class.jpg',
- group:'design-img/photos/group-mic.jpg'
+ group:'design-img/photos/task-company.jpg'
 };
 // ── иконки (линейные, 24×24) ──
 const ICON={
@@ -1625,20 +1645,24 @@ function ft(n){return `<div class="ft"><span>${n}</span></div><img class="hd-log
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
 
 const WHY=[TOP?'MBA для карьерного роста':'MBA для роста бизнеса','Разбираем задачу вашей компании','Всё, что вы разбираете на модулях, применимо к бизнесу в текущих реалиях.',
- [['Определяем задачи компании','Работаем над задачей вашей компании.'],
+ [['Определяем задачи компании','Что сейчас тормозит прибыль, рост или команду.'],
   ['Разбираем решение с практиками','На модулях с преподавателями-практиками прорабатываете варианты решения вашей задачи.'],
   ['Готовим план внедрения','С учётом всех вводных вашей компании: ответственные и контрольные точки.']]];
 const BLOCKS=[
  {h:{top:'Вернуть рентабельность и доказывать вклад в прибыль',own:'Вернуть рентабельность бизнеса'},img:'design-img/photos/blk-money.jpg',
+  results:['Видите, где компания теряет маржу','Вкладываете только в то, что окупится','Сокращаете потери в процессах и возвращаете прибыль'],
   mods:[[2,'Управленческая экономика','Раскладывать себестоимость на факторы и процессы, чтобы видеть, где компания теряет маржу, и вернуть её'],[5,'Финансовые и инвестиционные стратегии','Связывать затраты с финансовым планом и вовремя видеть отклонения, чтобы вкладывать только в то, что окупится'],[9,'Оптимизация бизнес-процессов','Находить потери в процессах, чтобы сократить затраты и время и вернуть прибыль в бизнес']],
   case:{k:'nishchev',a:'Подтянуть знания в бизнес-процессах и финансах',did:'Дипломную работу сделал по своей компании: оптимизировал процессы технической инфраструктуры',fig:'200 млн ₽',b:'экономии каждый год. Заодно оптимизировали работу персонала'}},
  {h:'Строить команду, которая принимает сильные решения без вас',img:'design-img/photos/blk-team.jpg',
+  results:['Нанимаете людей, которые решают без вас','Фонд оплаты не растёт быстрее результата','Задачи возвращаются сделанными, у вас освобождается время'],
   mods:[[1,'Командообразование и лидерство','Определять требования к ролям и оценивать кандидатов, чтобы нанимать людей, которые решают без вас'],[4,'HR-стратегия','Управлять выработкой, ФОТ и системой оплаты, чтобы фонд оплаты не рос быстрее результата'],[10,'Регулярный менеджмент и изменения','Делегировать и контролировать без микроменеджмента, чтобы задачи возвращались сделанными, а у вас освобождалось время'],[12,'Презентация и бизнес-игра','Готовить и защищать решения так, чтобы их утверждали с первого раза']],
   case:{k:'isaev',a:'Врач по образованию, управлял на личном опыте. Задача — внедрить в компании регулярный менеджмент',did:'Учился вместе с коммерческим и исполнительным директорами, внедряли с первого модуля',fig:'Новая команда',b:'Пересобрали команду и ключевые показатели, собеседования ведут по методикам преподавателей'}},
  {h:'Выходить на новые рынки и забирать рынок конкурентов',img:'design-img/photos/blk-markets.jpg',
+  results:['Стоимость привлечения клиента снижается','Новый рынок оценён до вложений','Продажи не держатся на двух сильных людях'],
   mods:[[3,'Маркетинг и digital','Считать маркетинг в прибыли (ROMI, RFM-анализ), чтобы снизить стоимость привлечения клиента и забирать долю у конкурентов'],[6,'Бизнес на рынках Ближнего Востока','Изучить практику бизнеса на рынках Ближнего Востока, чтобы оценить новый рынок до вложений'],[11,'Инновации, цифровизация и продажи','Строить систему продаж с моделями, контролем и мотивацией, чтобы продажи не держались на двух сильных людях']],
   case:{k:'yuditskaya',a:'Решить, выходить ли за рубеж: сеть работала только в России — Москва, Подмосковье, Петербург',did:'Оценила рынок ОАЭ и проверила идею открыть там филиал',fig:'Новый рынок',b:'Открыла школу в Дубае, эксперимент оказался успешным'}},
  {h:'Даже в кризис находить точки роста в компании',img:'design-img/photos/blk-trends.jpg',
+  results:['Видите разворот рынка раньше конкурентов','Знаете, где на рынке ещё есть рост','Шаги роста разложены по подразделениям'],
   mods:[[7,'Стратегическое управление','Управлять стратегией в условиях изменений, чтобы разложить шаги роста по подразделениям'],[8,'Рыночный анализ и проекты','Оценивать ёмкость и карту рынка, чтобы видеть, где ещё есть рост'],[2,'Трендвотчинг','Сканировать тренды и макрориски, чтобы видеть разворот рынка раньше конкурентов']],
   case:{k:'kuzyakov',a:'Найти, где ещё расти: фабрика уже продаёт по всей России и экспортирует в 12 стран',did:'Составил план оптимизации всей производственной цепочки фабрики',fig:'+5–7%',b:'маржинальности после модуля по стратегии'}}
 ];
@@ -1720,7 +1744,7 @@ function render(){
       return `<svg class="hub-lines" viewBox="0 0 1280 720">${[...nl,...nr].map(ln).join('')}</svg><div class="pic in hub-ph"><img src="design-img/photos/team-board.jpg" alt=""></div>${[...nl,...nr].map(n=>n.html).join('')}`})()}`);
 
   // 4 · зачем MBA, общий слайд для обеих колод
-  S('why2',`${pic(PH.group,46)}<div class="body"><div class="kick">${WHY[0]}</div><h2>${WHY[1]}</h2><p class="why-lead">${WHY[2]}</p>
+  S('why2',`${pic(PH.group,46,'task-photo')}<div class="body"><div class="kick">${WHY[0]}</div><h2>${WHY[1]}</h2><p class="why-lead">${WHY[2]}</p>
     <div class="why-rows">${WHY[3].map((r,i)=>`<div class="why-row"><span class="why-num">0${i+1}</span><div><b>${r[0]}</b><p>${r[1]}</p></div></div>`).join('')}</div></div>`);
 
 
@@ -1736,7 +1760,7 @@ function render(){
       <div class="ptc">${ico('users')}<b>35–55<small>лет</small></b><span>возраст участников</span></div>
       <div class="ptc">${ico('briefcase')}<span class="lbl">Позиция в компании</span><div class="pbar"><i style="width:55%"></i></div><div class="pleg"><span>55% собственники бизнеса</span><span>45% топ-менеджеры и директора</span></div></div>
     </div>
-    <div class="pt-sec"><span class="lbl">Сферы компаний участников на курсе в 2026</span>
+    <div class="pt-sec"><span class="lbl">Сферы компаний участников на курсе в 2026–27</span>
       <div class="pt-list">${PT_SECTORS.map(x=>`<span>${x}</span>`).join('')}</div>
     </div></div>`);
 
@@ -1744,7 +1768,7 @@ function render(){
   BLOCKS.forEach((b,i)=>{
     const h=typeof b.h==='string'?b.h:(TOP?b.h.top:b.h.own);
     S('why2 blk-slide',`${pic(b.img,46)}<div class="body"><div class="kick">Задача ${i+1} из ${BLOCKS.length}</div><h2>${h}</h2>
-      <div class="why-rows">${b.mods.map(x=>`<div class="why-row"><span class="why-num">модуль ${String(x[0]).padStart(2,'0')}</span><div><b>${x[1]}</b><p>${x[2]}</p></div></div>`).join('')}</div></div>`);
+      <div class="why-rows">${b.results.map((x,j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${x}</b></div></div>`).join('')}</div></div>`);
     const c=byCase.get(b.case.k);
     const panel=c.ph?`<div class="pic r" style="--w:32%"><img src="${c.ph}" alt="${c.n}"></div>`:`<div class="pic r flat mono-panel" style="--w:32%"><div class="mono">${initials(c.n)}</div></div>`;
     // кейс: с какой задачей пришли (a) → как решили на программе (did), под ним результат (fig + b); тексты в BLOCKS[].case
@@ -1793,13 +1817,7 @@ function render(){
     <div class="obj-rows">${OBJ.map((r,i)=>`<div class="orow"><span class="or-n">0${i+1}</span><b>${r[0]}</b><p>${r[1]}</p></div>`).join('')}</div>
     <p class="obj-src">Прогноз: Банк России, «Основные направления денежно-кредитной политики на 2027–2029 годы», базовый сценарий, 28.10.2026</p>`);
 
-  // 13 · форматы участия схемой: цена крупно, что входит — иконками; «Очно» основной, в нём всё из INCLUDED
-  const fmIco=k=>FM_ICON[k]?`<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${FM_ICON[k]}</svg>`:ico(k);
-  const fmc=FORMATS.map((x,i)=>`<div class="fmx-card${i?'':' fmx-main'}"><h3>${x[0]}</h3><div class="fmx-price">${rub(x[1])}</div>${i?'':`<p class="fmx-pn">${x[3]}</p>`}
-    <ul class="fmx-list">${FM_ITEMS[i].map(y=>`<li>${fmIco(y[0])}<span>${y[1]}${y[2]?`<small>${y[2]}</small>`:''}</span></li>`).join('')}</ul>${i?'':'<p class="fmx-note">* перелёт и проживание оплачиваются дополнительно</p>'}</div>`);
-  S('fm-slide',`<div class="kick">Стоимость</div><h2>Форматы участия</h2><div class="fmx">${fmc[0]}<div class="fmx-side">${fmc[1]}${fmc[2]}</div></div>`);
-
-  // 14 · график модулей и платежей: 12 карточек-месяцев; в 1 семестре реальные даты (группа MBA-1026, набор октябрь 2026), 4 платежа
+  // 13а · календарь модулей: расписание 1 семестра (группа MBA-1026, набор октябрь 2026)
   // [месяц, год, номер месяца от старта, платёж, выезд, [[даты, модуль, преподаватель, коротко для карточки]]]; 2 семестр школа пока не прислала
   const CAL=[
     ['Октябрь',2026,1,1,0,[['29 окт','Командообразование','Антон Емельянов'],['30 окт – 1 ноя','Лидерство и организационное поведение','Владислава Друтько']]],
@@ -1809,15 +1827,28 @@ function render(){
     ['Февраль',2027,5,0,1,[['даты уточняются','Международный бизнес (Дубай, ОАЭ)','по отдельной программе','Международный бизнес']]],
     ['Март',2027,6,0,0,[['25–27 мар','Стратегическое управление в условиях изменений','Сергей Макшанов'],['28 мар','Интернет-стратегия (Бизнес и Digital)','Григорий Карлышев']]]
   ];
-  const calCard=(m,lab,body,pay,cls)=>`<div class="mc${cls}"><div class="c2-hd"><span class="mn">${String(m).padStart(2,'0')}</span><span class="mm">${lab}</span>${pay?`<span class="c2-pay">${pay} платёж</span>`:''}</div>${body}</div>`;
-  S('cal-slide',`<div class="kick">Календарь</div><h2>График модулей и платежей</h2>
-    <div class="cal">${CAL.map(g=>calCard(g[2],`${g[0]} ${g[1]}`,g[5].map(r=>`<div class="c2-ev"><span class="c2-d${r[0][0]==='д'?' tbc':''}">${r[0]}</span><span class="c2-t">${r[3]||r[1]}</span></div>`).join('')+(g[4]?'<span class="tag">выезд в Дубай, ОАЭ</span>':''),g[3],g[4]?' dxb':'')).join('')}</div>
-    <div class="c2-s2"><b>2 семестр, месяцы 7–12:</b><span>даты и модули уточняются</span><span class="c2-pays"><span class="c2-pay">3 платёж · месяц 7</span><span class="c2-pay">4 платёж · месяц 10</span></span></div>`);
+  const calEv=r=>{const t=r[0][0]==='д',p=`<span class="c2-p">${r[2]}</span>`;return `<div class="c2-ev"><div class="c2-dl"><span class="c2-d${t?' tbc':''}">${r[0]}</span>${t?'':p}</div><span class="c2-t">${r[3]||r[1]}</span>${t?p:''}</div>`};
+  const calCard=g=>`<div class="mc${g[4]?' dxb':''}"><div class="c2-hd"><span class="mn">${String(g[2]).padStart(2,'0')}</span><span class="mm">${g[0]} ${g[1]}</span></div>${g[5].map(calEv).join('')}${g[4]?'<span class="tag">выезд в Дубай, ОАЭ</span>':''}</div>`;
+  S('cal-slide',`<div class="kick">Календарь</div><h2>Календарь модулей</h2>
+    <div class="cal">${CAL.map(calCard).join('')}</div>
+    <div class="c2-s2"><b>2 семестр:</b><span>даты и модули уточняются</span></div>`);
+
+  // 13 · форматы участия
+  const fmIco=k=>FM_ICON[k]?`<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${FM_ICON[k]}</svg>`:ico(k);
+  const fmc=FORMATS.map((x,i)=>`<div class="fmx-card${i?'':' fmx-main'}"><h3>${x[0]}</h3><div class="fmx-price">${rub(x[1])}</div>${i?'':`<p class="fmx-pn">${x[3]}</p>`}
+    <ul class="fmx-list">${FM_ITEMS[i].map(y=>`<li>${fmIco(y[0])}<span>${y[1]}${y[2]?`<small>${y[2]}</small>`:''}</span></li>`).join('')}</ul>${i?'':'<p class="fmx-note">* перелёт и проживание оплачиваются дополнительно</p>'}</div>`);
+  S('fm-slide',`<div class="kick">Стоимость</div><h2>Форматы участия</h2><div class="fmx">${fmc[0]}<div class="fmx-side">${fmc[1]}${fmc[2]}</div></div>`);
+
+  // 14а · график платежей: 4 платежа в 1, 4, 7 и 10 месяц обучения
+  const CAL_PAY=[1,4,7,10];
+  S('pay-slide',`<h2>График платежей</h2><p class="p2-lead">${CAL_PAY.length} платежа, каждые 3 месяца</p>
+    <div class="p2-tl"><span class="p2-cap">Месяц обучения</span>${Array.from({length:12},(_,i)=>`<span class="p2-m${CAL_PAY.includes(i+1)?' on':''}">${i+1}</span>`).join('')}
+      ${CAL_PAY.map((m,i)=>`<div class="p2-c" style="grid-column:${m} / span 3"><b>${i+1} платёж</b><span>${m}-й месяц обучения</span></div>`).join('')}</div>`);
 
   // 16 · вдвоём с коллегой
-  S('duo-slide',`<div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка ${pct}%</h2>
-    <div class="duo-wrap"><div><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-disc">Скидка ${rub(PRICE-one)}</div><div class="duo-new">${rub(one)}</div><div class="duo-cap">стоимость на одного участника</div></div><div class="duo-ico">${ico('rings')}</div></div>
-    <p class="duo-tax">Налоговый вычет за обучение можно вернуть</p>`);
+  S('duo-slide',`${pic('design-img/photos/duo-graduates.jpg',36,'duo-photo')}<div class="body"><div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка ${pct}%</h2>
+    <div class="duo-wrap"><div class="duo-old">${rub(PRICE)}</div><div class="duo-lab">без скидки</div><div class="duo-disc">Скидка ${rub(PRICE-one)}</div><div class="duo-new">${rub(one)}</div><div class="duo-cap">стоимость на одного участника</div></div>
+    <p class="duo-tax">Налоговый вычет за обучение можно вернуть</p></div>`);
 
   // 17 · что получит компания: у топ-менеджеров — бизнес и карьера (топ перешлёт собственнику и совету),
   // у собственников — если отправляете сотрудника, про деньги. Только факты программы: результаты модулей (BLOCKS),
