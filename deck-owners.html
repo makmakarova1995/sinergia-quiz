@@ -1018,6 +1018,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .blk-slide .why-num{font-family:var(--serif);font-size:calc(2.45cqw*var(--k,1));letter-spacing:0;color:var(--red);padding-top:0}
 .slide.blk-slide .why-row b{font-size:calc(2.05cqw*var(--k,1));line-height:1.2;margin:0}
 .task-photo img{object-position:57% 50%!important}
+.school-photo img{object-position:43% 50%!important}
 /* 2 · школа в цифрах */
 .school-slide .school-stats .stat p{font-size:20px}
 .school-slide .school-clients{font-size:20px}
@@ -1731,7 +1732,7 @@ function render(){
   // порядок как в презентации Сколково: школа → для кого → о программе → кто учится → программа по задачам → формат → преподаватели → выпускники → условия
 
   // 2 · о школе
-  S('school-slide',`${pic(PH.hall,42)}<div class="body"><div class="kick">Почему школе доверяют</div><h2>38 лет в бизнес-образовании</h2>
+  S('school-slide',`${pic('design-img/photos/school-graduate.jpg',42,'school-photo')}<div class="body"><div class="kick">Почему школе доверяют</div><h2>38 лет в бизнес-образовании</h2>
     <div class="school-stats">${SCHOOL.map(x=>`<div class="stat"><div class="num${x[2]?' red':''}">${x[0]}</div><p>${x[1]}</p></div>`).join('')}</div>
     <p class="school-clients">Управленческие команды выпускников работают в компаниях: <b style="color:#fff">${CLIENTS}</b></p></div>`);
 
