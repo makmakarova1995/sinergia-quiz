@@ -982,7 +982,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 /* 3 · подсветка задач на круге, итог: активная задача белая и чуть крупнее, иконка — красный круг с мягким свечением
    и одной спокойной волной при включении; линия к фото и точка на круге ярче. Неактивные — серые, но читаемые.
    Двигаются только transform/цвет/тень (без сдвига соседей), переходы 0.6 с; бесконечной пульсации нет */
-.pick-hub{--hub-t:.6s cubic-bezier(.33,0,.2,1)}
+.pick-hub{--hub-t:.4s cubic-bezier(.33,0,.2,1)}
 .pick-hub .hub-b{position:relative}
 .pick-hub.live .hub-t{color:rgba(255,255,255,.55);transform:none;transition:color var(--hub-t),transform var(--hub-t)}
 .pick-hub.live .hub-n.l .hub-t{transform-origin:calc(100% + 51px) 50%}
@@ -991,7 +991,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .pick-hub.live .hub-b{opacity:.6;transform:none;animation:none;box-shadow:0 0 0 0 rgba(237,19,28,0),0 0 0 0 rgba(237,19,28,0);transition:background-color var(--hub-t),color var(--hub-t),box-shadow var(--hub-t),opacity var(--hub-t),transform var(--hub-t)}
 .pick-hub.live .hub-b.on{opacity:1;transform:scale(1.14);animation:none;box-shadow:0 0 0 7px rgba(237,19,28,.16),0 0 32px 6px rgba(237,19,28,.42)}
 .pick-hub.live .hub-b::after{content:'';position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--red);opacity:0;pointer-events:none}
-.pick-hub.live .hub-b.on::after{animation:hubWave 1.8s cubic-bezier(.2,.6,.35,1) .2s 1 both}
+.pick-hub.live .hub-b.on::after{animation:hubWave 1.2s cubic-bezier(.2,.6,.35,1) .1s 1 both}
 @keyframes hubWave{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.55)}}
 .pick-hub.live .hub-lines line{stroke:rgba(255,0,61,.3);stroke-width:1.5;filter:drop-shadow(0 0 0 rgba(237,19,28,0));transition:stroke var(--hub-t),stroke-width var(--hub-t),filter var(--hub-t)}
 .pick-hub.live .hub-lines line.on{stroke:var(--red);stroke-width:3;filter:drop-shadow(0 0 5px rgba(237,19,28,.85))}
@@ -1874,10 +1874,10 @@ const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.
 function ft(n){return `<div class="ft"><span>${n}</span></div><img class="hd-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»">`}
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
 
-const WHY=[TOP?'MBA для карьерного роста':'MBA для роста бизнеса','Разбираем задачу вашей компании',`Идея обучения — разобрать актуальные задачи ${TOP?'вашей компании':'вашего бизнеса'} на своём примере и на примере других участников.`,
- [['Изучаете инструменты на модулях','Финансы, команда, продажи и стратегия — сразу на задачах вашей компании и других участников.'],
-  ['Разбираете решения с практиками','Преподаватели — собственники и руководители бизнеса — помогают подобрать решение под вашу задачу.'],
-  ['Внедряете уже во время обучения','Первые результаты получаете до выпуска, а не после.']]];
+const WHY=[TOP?'MBA для карьерного роста':'MBA для роста бизнеса','Разбираем задачу вашей компании',`На обучении вы сразу применяете знания и разбираете с практиками актуальные задачи ${TOP?'вашей компании':'вашего бизнеса'}.`,
+ [['Изучаете инструменты на модулях программы','12 модулей: финансы и окупаемость, команда и делегирование, маркетинг и продажи, стратегия и анализ рынка.'],
+  ['Разбираете решения с практиками','Преподаватели — собственники и руководители бизнеса, помогают подобрать решение под вашу задачу.'],
+  ['Внедряете уже во время обучения','Первые результаты получаете во время обучения.']]];
 const BLOCKS=[
  {h:{top:'Считаете экономику своих решений — ваш вклад в прибыль виден собственнику',own:'Управляете прибылью, чтобы бизнес зарабатывал больше'},img:'design-img/photos/result-profit.jpg',
   feat:[[5,'Видите, где компания теряет деньги: разбираетесь в отчётах и марже'],[5,{top:'Приходите к собственнику с расчётом окупаемости — ваши проекты утверждают',own:'Считаете окупаемость до вложений и вкладываете только в то, что окупится'}],[9,'Находите потери в процессах и возвращаете прибыль в бизнес']],
@@ -1928,9 +1928,9 @@ const MODINFO={
   });
   document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.blk-slide.mod-open').forEach(close)});
 })();
-// 3 · автоподсветка задач на слайде 3: по очереди, каждые 4 с (STEP), пока слайд виден на экране; вид подсветки — CSS @@k4hub; render() не трогает, сама следит за #deck
+// 3 · автоподсветка задач на слайде 3: по очереди, каждые 2 с (STEP), пока слайд виден на экране; вид подсветки — CSS @@k4hub; render() не трогает, сама следит за #deck
 (()=>{
-  const STEP=4000,deck=document.getElementById('deck'),still=matchMedia('(prefers-reduced-motion: reduce)');
+  const STEP=2000,deck=document.getElementById('deck'),still=matchMedia('(prefers-reduced-motion: reduce)');
   let slide=null,io=null,timer=0,seen=false,printing=false;
   const paint=i=>slide.querySelectorAll('[data-h]').forEach(e=>e.classList.toggle('on',+e.dataset.h===i));
   const stop=()=>{clearInterval(timer);timer=0;if(slide){slide.classList.remove('live');paint(-1)}};
