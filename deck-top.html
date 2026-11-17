@@ -947,6 +947,27 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .case-ab .cs-res p{margin-top:.5cqw;font-size:calc(1.8cqw*var(--k,1));line-height:1.32;color:#fff;text-wrap:pretty}
 /* @@cases-end */
 /* @@closing-begin */
+/* закрывающий слайд: в стиле обложки — крупный логотип, фото в круге, призыв и контакты менеджера */
+.slide.cl-slide{padding:0}
+.cl-slide .cl-logo{position:absolute;right:5.5%;top:6.2%;width:20.5%;height:auto}
+.cl-slide .cl-photo{position:absolute;left:63%;top:29.9%;width:35.8%;aspect-ratio:1;border-radius:50%;background:url(design-img/cover-photo.jpg) center/cover;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.cl-slide .cl-text{position:absolute;left:5.6%;top:50%;transform:translateY(-50%);max-width:54%}
+.slide.cl-slide h2{font-family:var(--sans);font-size:4.6cqw;font-weight:700;line-height:1;letter-spacing:-.03em;text-transform:none;text-wrap:balance;margin:0;color:#fff}
+.cl-slide h2 span{display:block;color:var(--red)}
+.cl-slide .cl-cap{margin-top:4.4cqw;font-size:1.6cqw;line-height:1.2;color:var(--tx2)}
+.cl-who{margin-top:1.4cqw;border-left:3px solid var(--red);padding:.3cqw 0 .3cqw 2cqw;display:flex;flex-direction:column;gap:1cqw}
+.cl-who b{font-size:2.5cqw;font-weight:600;line-height:1.15;color:#fff}
+.cl-who span{font-size:2.2cqw;font-weight:400;line-height:1.2;color:#fff;text-decoration:none;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+/* контакты менеджера вписываются прямо на слайде; пустая строка на экране — бледная подсказка */
+.cl-who .cl-f{position:relative;display:block;min-height:1.2em;margin-left:-.5cqw;padding:0 .5cqw;border-radius:4px;cursor:text;outline:none;transition:background-color .15s}
+.cl-who .cl-f:hover{background:rgba(255,255,255,.05)}
+.cl-who .cl-f:focus{background:rgba(255,255,255,.08)}
+.cl-who .cl-f:empty::before{content:attr(data-ph);position:absolute;left:.5cqw;top:0;color:rgba(255,255,255,.3);font-weight:400;pointer-events:none}
+@media print{
+  .cl-who .cl-f{background:none!important}
+  .cl-who .cl-f:empty{display:none}
+  .cl-slide.cl-empty .cl-edit{display:none}
+}
 /* @@closing-end */
 /* · */
 /* · */
@@ -1510,24 +1531,29 @@ const JOBS=[
 
 const TOP=!!JOBS.find(j=>j.me);
 
+// выбор задач клиента в панели выключен («мы всё объединили»): колода собирается целиком при любом выборе.
+// true — вернуть блок «Выберите задачи клиента», кнопки «Все» / «Снять» и счётчик задач
+const SHOW_PICKER=false;
 const sel=new Set();
 const byItem=new Map(ITEMS.map(i=>[i.k,i]));
 const byCase=new Map(CASES.map(c=>[c.k,c]));
 const uniq=(a,f=x=>x)=>{const s=new Set();return a.filter(x=>{const k=f(x);if(s.has(k))return false;s.add(k);return true})};
 const modBy=(()=>{const m={};ITEMS.forEach(it=>it.mods.forEach(([n,names])=>{if(names&&!m[n])m[n]=names}));return m})();
 function picks(){
+  if(!SHOW_PICKER){document.getElementById('picks').innerHTML='';updateCount();return}
   document.getElementById('picks').innerHTML=`<section class="pick-group"><h4>Выберите задачи клиента</h4><div class="pick-grid">${JOBS.map(j=>
     `<label class="pick${sel.has(j.k)?' on':''}"><input type="checkbox" ${sel.has(j.k)?'checked':''} onchange="tog('${j.k}')"><span class="pick-task">${j.t}</span></label>`).join('')}</div></section>`;
   updateCount();
 }
 function updateCount(){
   const slides=document.querySelectorAll('#deck .slide').length;
-  document.getElementById('cnt').innerHTML=sel.size?`Задач <b>${sel.size}</b>${slides?` · слайдов <b>${slides}</b>`:''}`:'Задачи не отмечены';
+  document.getElementById('cnt').innerHTML=!SHOW_PICKER?(slides?`Слайдов <b>${slides}</b>`:''):sel.size?`Задач <b>${sel.size}</b>${slides?` · слайдов <b>${slides}</b>`:''}`:'Задачи не отмечены';
 }
 function tog(k){sel.has(k)?sel.delete(k):sel.add(k);picks();render()}
 function switchAudience(file){const p=new URLSearchParams();p.set('v',Date.now());location.href=file+'?'+p.toString()}
 function toggleSb(){const l=document.querySelector('.layout');l.classList.toggle('nosb');document.getElementById('sbShow').style.display=l.classList.contains('nosb')?'block':'none';setTimeout(setZoom,60)}
 function all(v){sel.clear();if(v)JOBS.forEach(j=>sel.add(j.k));picks();render()}
+if(!SHOW_PICKER)document.querySelectorAll('.acts .btn[onclick^="all("]').forEach(b=>b.style.display='none');
 const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.slice(i*size,(i+1)*size));
 function ft(n){return `<div class="ft"><span>${n}</span></div><img class="hd-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»">`}
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
@@ -1579,10 +1605,31 @@ const BLOCKS=[
   window.addEventListener('beforeprint',()=>{printing=true;sync()});
   window.addEventListener('afterprint',()=>{printing=false;sync()});
 })();
+// закрывающий слайд: «Ответим на все вопросы по программе, напишите нам», подпись «Контакты:» и контакты менеджера.
+// Менеджер вписывает их прямо на слайде (клик по строке), значения хранятся в браузере (localStorage, общие для обеих колод).
+// Пустые строки на экране — подсказки, в печать не попадают; если пусто всё — в печати под «Контакты:» ничего нет
+const CL_KEY='mbaf-closing-manager';
+const CL_FIELDS=[['name','Имя и фамилия'],['phone','Телефон'],['mail','Почта или мессенджер']];
+const clEsc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let clMgr=(()=>{try{return JSON.parse(localStorage.getItem(CL_KEY))||{}}catch(e){return {}}})();
+const clVal=k=>String(clMgr[k]||'').trim();
+const clEmpty=()=>CL_FIELDS.every(([k])=>!clVal(k));
+const closingSlide=()=>`<section class="slide cl-slide${clEmpty()?' cl-empty':''}"><img class="cl-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»"><div class="cl-photo"></div><div class="cl-text"><h2>Ответим на все вопросы по программе, <span>напишите нам</span></h2>
+  <p class="cl-cap">Контакты:</p>
+  <div class="cl-who cl-edit">${CL_FIELDS.map(([k,ph])=>{const t=k==='name'?'b':'span';return `<${t} class="cl-f" data-k="${k}" data-ph="${ph}" contenteditable="plaintext-only" spellcheck="false">${clEsc(clVal(k))}</${t}>`}).join('')}</div></div></section>`;
+(()=>{
+  const deck=document.getElementById('deck');
+  deck.addEventListener('input',e=>{
+    const f=e.target.closest&&e.target.closest('.cl-slide .cl-f');if(!f)return;
+    if(!f.textContent.trim()&&f.innerHTML)f.textContent='';
+    clMgr[f.dataset.k]=f.textContent;
+    try{localStorage.setItem(CL_KEY,JSON.stringify(clMgr))}catch(e){}
+    f.closest('.cl-slide').classList.toggle('cl-empty',clEmpty());
+  });
+  deck.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.closest&&e.target.closest('.cl-slide .cl-f')){e.preventDefault();e.target.blur()}});
+})();
 function render(){
-  const list=JOBS.filter(j=>sel.has(j.k));
   const d=document.getElementById('deck');
-  if(!list.length){d.innerHTML='<p class="empty noprint">Отметьте задачи клиента слева — презентация соберётся здесь.</p>';updateCount();return}
   const COVER=`<section class="slide cover c2"><img class="cv-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»"><div class="cv-photo"></div><div class="cv-text"><h1>MBA <span>Foundation</span></h1><p class="cv-description">Управление бизнесом для собственников и топ-менеджеров</p><p class="cv-school">Школа бизнеса «Синергия»</p></div></section>`;
   let n=1,out=COVER;
   const S=(cls,body,attr='')=>{n++;out+=`<section class="slide ${cls}"${attr}>${ft(n)}${body}</section>`};
@@ -1724,8 +1771,8 @@ function render(){
   S('fd-slide',`<div class="kick">${TOP?'Для учредителя и совета':'Если вы отправляете сотрудника'}</div><h2>Что получит компания</h2>
     <div class="fd-rows">${gainGrp.map(g=>`<div class="fd-grp${g?'':' no-tag'}" style="flex:${GAIN.filter(r=>r[0]===g).length}">${g?`<span class="fd-tag">${g}</span>`:''}<div class="fd-list">${GAIN.filter(r=>r[0]===g).map(r=>`<div class="fd-row"><b>${r[1]}</b><ul class="fd-res">${r[2].map(x=>`<li><i>→</i>${x}</li>`).join('')}</ul></div>`).join('')}</div></div>`).join('')}</div>`);
 
-  // 18 · закрывающий слайд — как обложка
-  out+=COVER;
+  // закрывающий слайд: призыв и контакты менеджера, редактируются на слайде (код и данные — перед render())
+  out+=closingSlide();
   d.innerHTML=out;
   updateCount();
 }
