@@ -858,10 +858,14 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .blk-slide [data-m]{cursor:pointer}
 .blk-slide .why-row{transition:background .15s}
 .blk-slide .why-row.on{background:rgba(255,255,255,.06)}
-.mod-chips{display:flex;align-items:center;gap:10px;margin-top:1%;font-size:16px;color:var(--tx2)}
+.mod-chips{display:flex;align-items:center;gap:10px;margin-top:1%;font-size:17px;color:var(--tx2)}
 .mod-chips span{margin-right:4px}
-.mod-chips button{font:inherit;font-size:16px;color:#fff;background:none;border:1px solid #484848;border-radius:999px;padding:3px 12px;cursor:pointer}
+.mod-chips button{font:inherit;font-size:17px;color:#fff;background:none;border:1px solid #484848;border-radius:999px;padding:3px 12px;cursor:pointer}
 .mod-chips button:hover,.mod-chips button.on{border-color:var(--red);color:var(--red)}
+.mod-chips{flex-wrap:wrap;row-gap:8px}
+.mod-chips button::before{content:'+';color:var(--red);margin-right:6px;font-weight:600}
+.send-slide .mod-chips{flex-wrap:nowrap;gap:8px;margin-top:8px}
+.send-slide .mod-chips button{font-size:16px;padding:2px 10px;white-space:nowrap}
 .mod-pop{position:absolute;z-index:5;left:60%;right:4%;top:15%;bottom:9%;display:none;flex-direction:column;background:rgba(12,12,12,.95);border:1px solid #333;border-top:2px solid var(--red);border-radius:6px;padding:26px 30px}
 .blk-slide.mod-open .mod-pop{display:flex}
 .mod-pop .mp-k{color:var(--red);font-size:16px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
@@ -872,7 +876,136 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .mod-pop .mp-who{margin-top:auto;padding-top:14px;font-size:17px;color:var(--tx2)}
 .mod-pop .mp-x{position:absolute;top:12px;right:14px;background:none;border:0;color:#999;font-size:30px;line-height:1;cursor:pointer}
 @media print{.mod-pop{display:none!important}}
+/* 18 · «Как MBA помогает расти»: за счёт чего — без строки-источника */
+/* 19 · календарь модулей списком по месяцам: месяц слева, модули месяца в строку, ряды заполняют высоту */
+.ag{display:flex;flex-direction:column;flex:1;min-height:0;margin:1.2% 0 3.4%}
+.ag-r{display:grid;grid-template-columns:21% 1fr 1fr;gap:0 3%;align-items:center;flex:1;border-top:1px solid #2e2e2e;padding:0 1.6%}
+.ag-m{display:flex;align-items:baseline;gap:12px;white-space:nowrap}
+.ag-n{font-family:var(--serif);font-size:30px;line-height:1;color:var(--red)}
+.ag-mm{font-size:20px;font-weight:600;color:#fff}
+.ag-mm small{font-size:16px;font-weight:400;color:var(--tx3);margin-left:6px}
+.ag-ev b{display:block;font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.15;color:#fff;white-space:nowrap}
+.ag-ev span{display:block;margin-top:3px;font-size:18px;line-height:1.25;color:var(--tx2)}
+.ag-ev b.tbc{font-family:inherit;font-weight:400;font-size:18px;color:var(--tx2)}
+.ag-r.dxb{background:linear-gradient(90deg,rgba(255,0,61,.12),rgba(255,0,61,0));border-top-color:var(--red)}
+.ag-r.dxb .ag-ev{grid-column:2/4;display:flex;align-items:baseline;gap:18px}
+.ag-r.dxb .ag-ev span{margin:0;color:#fff;font-size:19px}
+.ag-tag{font-size:15px;font-weight:600;letter-spacing:.04em;padding:3px 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--red);color:var(--red);white-space:nowrap}
+.ag-r.s2{border-top:1px dashed #444;flex:.7}
+.ag-r.s2 .ag-mm{color:var(--tx2)}
+.ag-r.s2 .ag-ev{grid-column:2/4}
+.ag-r.s2 .ag-ev span{margin:0}
+/* 23 · у топ-менеджеров: что вы получите в конце программы (как слайд для собственника, с фото и модулями) */
+.fin-lead{font-size:22px;color:var(--tx2);margin:-1% 0 1.2%;line-height:1.35}
+/* 3 · подсветка задач заметнее: неактивные приглушены, активная крупнее, иконка пульсирует, линия ярче */
+.pick-hub.live .hub-t{color:rgba(255,255,255,.38);transition:color .5s ease,transform .5s ease}
+.pick-hub.live .hub-t.on{color:#fff;transform:scale(1.1)}
+.pick-hub.live .hub-b{opacity:.55;transition:background-color .5s ease,color .5s ease,box-shadow .5s ease,opacity .5s ease,transform .5s ease}
+.pick-hub.live .hub-b.on{opacity:1;transform:scale(1.12);animation:hubPulse 1.6s ease-out infinite}
+@keyframes hubPulse{0%{box-shadow:0 0 0 0 rgba(237,19,28,.55)}70%{box-shadow:0 0 0 18px rgba(237,19,28,0)}100%{box-shadow:0 0 0 0 rgba(237,19,28,0)}}
+.pick-hub.live .hub-lines line{stroke:rgba(255,0,61,.22);transition:stroke .5s ease,stroke-width .5s ease}
+.pick-hub.live .hub-lines line.on{stroke:var(--red);stroke-width:3}
+@media print,(prefers-reduced-motion:reduce){.pick-hub .hub-b,.pick-hub .hub-b.on{opacity:1!important;transform:none!important;animation:none!important}}
+/* 5 · иконка в одной строке с цифрой, подпись под ними */
+.concept-slide .cn{display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:center}
+.concept-slide .cn .ico{margin:0;font-size:40px}
+.concept-slide .cn b{grid-column:2}
+.concept-slide .cn span{grid-column:1/-1;margin-top:3%}
 /* @@kicker4-end */
+/* @@k4portrait-begin */
+/* 6 · портрет участников: подписи и список сфер крупнее — читаемо с ноутбука (основной текст от 22 px, метка-капслок 20 px);
+   карточка «Позиция в компании» шире, иконка в строку с подписью, легенда двумя строками с метками под цвет полосы — иначе в 22 px рвалась на 3 строки */
+.slide.portrait-slide .pt-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1fr)}
+.slide.portrait-slide .ptc b{white-space:nowrap}
+.slide.portrait-slide .ptc>span{font-size:24px;line-height:1.3}
+.slide.portrait-slide .ptc:nth-child(2){display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:14px;align-content:start}
+.slide.portrait-slide .ptc:nth-child(2) .ico{margin:0}
+.slide.portrait-slide .ptc .lbl{font-size:24px;line-height:1.3;margin:0}
+.slide.portrait-slide .ptc:nth-child(2) .pbar,.slide.portrait-slide .ptc:nth-child(2) .pleg{grid-column:1/-1}
+.slide.portrait-slide .ptc:nth-child(2) .pbar{margin-top:20px;background:#3a3a3a}
+.slide.portrait-slide .pleg{flex-direction:column;gap:6px;font-size:22px;line-height:1.3;margin-top:16px}
+.slide.portrait-slide .pleg span{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.slide.portrait-slide .pleg span::before{content:'';flex:none;width:12px;height:12px;border-radius:3px;background:var(--red)}
+.slide.portrait-slide .pleg span+span::before{background:#3a3a3a}
+.slide.portrait-slide .pt-sec .lbl{font-size:20px;letter-spacing:.1em}
+.slide.portrait-slide .pt-list span{font-size:24px;line-height:1.25}
+/* @@k4portrait-end */
+/* @@k4fmt-begin */
+/* 15 · как проходит обучение: короткие пункты крупнее — заголовок 27 px, подпись 21 px, всё в одну строку.
+   Колонку текста расширили на 8 px наружу (к краю слайда), расстояние до иконок и круга прежнее */
+.slide.fmt-hub .fmh-n{width:405px}
+.slide.fmt-hub .fmh-n.l{left:48px}
+.slide.fmt-hub .fmh-t b{font-size:27px;line-height:1.12}
+.slide.fmt-hub .fmh-t>span{font-size:21px;line-height:1.26;margin-top:6px}
+/* @@k4fmt-end */
+/* @@k4tch-begin */
+/* 16 · преподаватели: сетка в 5 колонок на всю высоту слайда, листается ВНИЗ внутри слайда (колесо, тачпад, клавиши, кнопка ↓);
+   пока есть продолжение — снизу затухание и круглая кнопка ↓ по центру, долистали до конца — их нет.
+   Только экран: в PDF как раньше, первые карточки статично (@media print в @@teachers) */
+@media screen{
+  .slide.tch-slide{padding-bottom:3.4%}
+  .tch-slide .tch-wrap{margin-top:16px}
+  .tch-slide .tch-track{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px 22px;align-content:start;height:100%;
+    overflow-x:hidden;overflow-y:auto;scroll-snap-type:none;overscroll-behavior:auto;scroll-behavior:smooth}
+  .tch-slide .tch-wrap:not(.at-end) .tch-track{-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 120px),transparent);mask-image:linear-gradient(180deg,#000 calc(100% - 120px),transparent)}
+  .tch-slide .tch-card{flex:none;scroll-snap-align:none}
+  .tch-slide .tch-ph{aspect-ratio:1/1;margin-bottom:12px}
+  .slide.tch-slide .tch-card b{font-size:20px;line-height:1.15;margin-bottom:6px}
+  .slide.tch-slide .tch-r{display:block;overflow:visible;font-size:18px;line-height:1.3}
+  .tch-more{position:absolute;left:50%;bottom:8px;margin-left:-24px;width:48px;height:48px;border:0;border-radius:50%;background:rgba(18,18,18,.82);
+    box-shadow:0 0 0 1px rgba(255,255,255,.32),0 4px 14px rgba(0,0,0,.5);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:opacity .2s,background-color .15s,box-shadow .15s}
+  .tch-more svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .tch-more:hover{background:var(--red);box-shadow:none}
+  .tch-wrap.at-end .tch-more{opacity:0;pointer-events:none}
+}
+/* @@k4tch-end */
+/* @@k4cal-begin */
+/* 19 · календарь модулей таблицей: колонки общие для всех рядов (subgrid) и по ширине самого длинного названия — названия в одну строку; ряды равной высоты до низа слайда */
+.cal-slide .ag{display:grid;grid-template-columns:max-content auto auto;grid-template-rows:repeat(6,minmax(0,1fr)) minmax(0,.62fr);column-gap:34px;margin:2px 0 0}
+.cal-slide .ag-r{grid-column:1/-1;display:grid;grid-template-columns:subgrid;gap:normal;align-items:center;padding:0 14px;border-top:1px solid #343434}
+.cal-slide .ag-m{display:flex;align-items:center;gap:14px}
+.cal-slide .ag-n{min-width:38px;font-size:31px;font-weight:300}
+.cal-slide .ag-mm{display:flex;flex-direction:column;font-size:21px;font-weight:600;line-height:1.15}
+.cal-slide .ag-mm small{margin:3px 0 0;font-size:16px;font-weight:400;color:#9a9a9a}
+.cal-slide .ag-ev b{font-family:var(--sans);font-size:22px;font-weight:600;line-height:26px;color:#fff;letter-spacing:.01em}
+.cal-slide .ag-ev b.tbc{font-size:19px;font-weight:400;color:var(--tx2);letter-spacing:0}
+.cal-slide .ag-ev span{margin-top:5px;font-size:20px;font-weight:400;line-height:1.25;color:#d4d4d4;text-wrap:balance}
+.cal-slide .ag-r.dxb{background:linear-gradient(90deg,rgba(237,19,28,.17),rgba(237,19,28,.04) 75%,rgba(237,19,28,0));border-top-color:var(--red)}
+.cal-slide .ag-r.dxb .ag-ev{grid-column:auto;display:block}
+.cal-slide .ag-r.dxb .ag-ev span{margin-top:5px;color:#fff;font-size:20px}
+.cal-slide .ag-r.dxb .ag-ev .ag-tag{display:inline-block;vertical-align:2px;margin:0 0 0 16px;padding:4px 11px 3px;border-radius:4px;background:var(--red);box-shadow:none;color:#fff;font-size:15px;font-weight:600;font-style:normal;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;white-space:nowrap}
+.cal-slide .ag-r.s2{border-top:1px dashed #4a4a4a}
+.cal-slide .ag-r.s2 .ag-ev span{margin:0;font-size:20px;color:var(--tx2)}
+/* @@k4cal-end */
+/* @@k4hub-begin */
+/* 3 · подсветка задач на круге, итог: активная задача белая и чуть крупнее, иконка — красный круг с мягким свечением
+   и одной спокойной волной при включении; линия к фото и точка на круге ярче. Неактивные — серые, но читаемые.
+   Двигаются только transform/цвет/тень (без сдвига соседей), переходы 0.6 с; бесконечной пульсации нет */
+.pick-hub{--hub-t:.6s cubic-bezier(.33,0,.2,1)}
+.pick-hub .hub-b{position:relative}
+.pick-hub.live .hub-t{color:rgba(255,255,255,.55);transform:none;transition:color var(--hub-t),transform var(--hub-t)}
+.pick-hub.live .hub-n.l .hub-t{transform-origin:calc(100% + 51px) 50%}
+.pick-hub.live .hub-n.r .hub-t{transform-origin:-51px 50%}
+.pick-hub.live .hub-t.on{color:#fff;transform:scale(1.08)}
+.pick-hub.live .hub-b{opacity:.6;transform:none;animation:none;box-shadow:0 0 0 0 rgba(237,19,28,0),0 0 0 0 rgba(237,19,28,0);transition:background-color var(--hub-t),color var(--hub-t),box-shadow var(--hub-t),opacity var(--hub-t),transform var(--hub-t)}
+.pick-hub.live .hub-b.on{opacity:1;transform:scale(1.14);animation:none;box-shadow:0 0 0 7px rgba(237,19,28,.16),0 0 32px 6px rgba(237,19,28,.42)}
+.pick-hub.live .hub-b::after{content:'';position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--red);opacity:0;pointer-events:none}
+.pick-hub.live .hub-b.on::after{animation:hubWave 1.8s cubic-bezier(.2,.6,.35,1) .2s 1 both}
+@keyframes hubWave{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.55)}}
+.pick-hub.live .hub-lines line{stroke:rgba(255,0,61,.3);stroke-width:1.5;filter:drop-shadow(0 0 0 rgba(237,19,28,0));transition:stroke var(--hub-t),stroke-width var(--hub-t),filter var(--hub-t)}
+.pick-hub.live .hub-lines line.on{stroke:var(--red);stroke-width:3;filter:drop-shadow(0 0 5px rgba(237,19,28,.85))}
+.pick-hub.live .hub-lines circle{opacity:.5;r:4.5px;transition:opacity var(--hub-t),r var(--hub-t)}
+.pick-hub.live .hub-lines circle.on{opacity:1;r:7px}
+/* в PDF и при «меньше движения»: все задачи одинаковые, без свечения, волны и масштаба */
+@media print,(prefers-reduced-motion:reduce){
+  .pick-hub .hub-t,.pick-hub .hub-t.on{color:#fff!important;transform:none!important;transition:none!important}
+  .pick-hub .hub-b,.pick-hub .hub-b.on{opacity:1!important;transform:none!important;animation:none!important;box-shadow:none!important;transition:none!important}
+  .pick-hub .hub-b::after{content:none!important;animation:none!important}
+  .pick-hub .hub-lines line,.pick-hub .hub-lines line.on{stroke:rgba(255,0,61,.6)!important;stroke-width:1.5!important;filter:none!important;transition:none!important}
+  .pick-hub .hub-lines circle,.pick-hub .hub-lines circle.on{opacity:1!important;r:4.5px!important;transition:none!important}
+}
+/* @@k4hub-end */
 /* · */
 /* · */
 /* · */
@@ -1179,13 +1312,14 @@ const TCH=[
 ];
 const TCH_PRINT=3; // в PDF и при печати: первые три карточки галереи
 const TCH_KIND={p:'Практик',l:'Лектор'};
-const TCH_ARR=d=>`<button class="tch-nav" type="button" aria-label="${d<0?'Назад':'Вперёд'}"${d<0?' disabled':''} onclick="tchGo(this,${d})"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d<0?'M15 5l-7 7 7 7':'M9 5l7 7-7 7'}"/></svg></button>`;
-const tchCard=(t,i)=>`<div class="tch-card p${i<TCH_PRINT?' pr':''}"><div class="tch-ph"><img src="design-img/teachers/teachers-${t[2]}.jpg" alt="${t[0]}"><i>Практик</i></div><div class="tch-tx"><b>${t[0]}</b><span class="tch-r">${t[1]}</span></div></div>`;
-const tchSlide=()=>`<div class="tch-head"><div><div class="kick">С кем вы будете работать</div><h2>Преподаватели-практики</h2></div><div class="tch-navs noprint">${TCH_ARR(-1)}${TCH_ARR(1)}</div></div>
-    <div class="tch-wrap"><div class="tch-track" tabindex="0">${TCH.map(tchCard).join('')}</div></div>`;
-// листание вбок: стрелки сдвигают на три карточки, жест на тачпаде и свайп пальцем работают штатно (scroll-snap)
-function tchSync(tr){const m=tr.scrollWidth-tr.clientWidth-2,s=tr.closest('.slide');tr.parentNode.classList.toggle('at-end',tr.scrollLeft>=m);s.querySelector('.tch-nav:first-child').disabled=tr.scrollLeft<=2;s.querySelector('.tch-nav:last-child').disabled=tr.scrollLeft>=m}
-function tchGo(btn,dir){const tr=btn.closest('.slide').querySelector('.tch-track'),c=tr.querySelectorAll('.tch-card'),p=c.length>1?c[1].offsetLeft-c[0].offsetLeft:tr.clientWidth;tr.scrollBy({left:dir*p*3,behavior:'smooth'})}
+const TCH_DOWN=`<button class="tch-more noprint" type="button" aria-label="Листать вниз" onclick="tchGo(this,1)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>`;
+const tchCard=(t,i)=>`<div class="tch-card p${i<TCH_PRINT?' pr':''}"><div class="tch-ph"><img src="design-img/teachers/teachers-${t[2]}.jpg" alt="${t[0]}"></div><div class="tch-tx"><b>${t[0]}</b><span class="tch-r">${t[1]}</span></div></div>`;
+const tchSlide=()=>`<div class="tch-head"><div><div class="kick">С кем вы будете работать</div><h2>Преподаватели-практики</h2></div></div>
+    <div class="tch-wrap"><div class="tch-track" tabindex="0">${TCH.map(tchCard).join('')}</div>${TCH_DOWN}</div>`;
+// листание вниз: сетка карточек прокручивается внутри слайда колесом, тачпадом, клавишами; кнопка ↓ внизу сдвигает на ряд;
+// пока есть что листать — снизу затухание и кнопка, долистали до конца — затухание и кнопка исчезают
+function tchSync(tr){tr.parentNode.classList.toggle('at-end',tr.scrollTop>=tr.scrollHeight-tr.clientHeight-2)}
+function tchGo(btn,dir){const tr=btn.closest('.slide').querySelector('.tch-track'),c=[...tr.querySelectorAll('.tch-card')],nx=c.find(e=>e.offsetTop>c[0].offsetTop+2),p=nx?nx.offsetTop-c[0].offsetTop:tr.clientHeight*.8;tr.scrollBy({top:dir*p,behavior:'smooth'})}
 document.addEventListener('scroll',e=>{if(e.target.classList&&e.target.classList.contains('tch-track'))tchSync(e.target)},true);
 
 // школа в цифрах — со слайда «Школе бизнеса 38 лет» в презентации школы
@@ -1671,10 +1805,10 @@ const chunks=(xs,size)=>Array.from({length:Math.ceil(xs.length/size)},(_,i)=>xs.
 function ft(n){return `<div class="ft"><span>${n}</span></div><img class="hd-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»">`}
 const src=i=>`<section class="slide source-slide"><img src="${SOURCE_SLIDES[i][0]}" alt="${SOURCE_SLIDES[i][1]}"></section>`;
 
-const WHY=[TOP?'MBA для карьерного роста':'MBA для роста бизнеса','Разбираем задачу вашей компании','Всё, что вы разбираете на модулях, применимо к бизнесу в текущих реалиях.',
- [['Определяем задачи компании','Что сейчас тормозит прибыль, рост или команду.'],
-  ['Разбираем решение с практиками','На модулях с преподавателями-практиками прорабатываете варианты решения вашей задачи.'],
-  ['Готовим план внедрения','С учётом всех вводных вашей компании: ответственные и контрольные точки.']]];
+const WHY=[TOP?'MBA для карьерного роста':'MBA для роста бизнеса','Разбираем задачу вашей компании',`Идея обучения — разобрать актуальные задачи ${TOP?'вашей компании':'вашего бизнеса'} на своём примере и на примере других участников.`,
+ [['Изучаете инструменты на модулях','Финансы, команда, продажи и стратегия — сразу на задачах вашей компании и других участников.'],
+  ['Разбираете решения с практиками','Преподаватели — собственники и руководители бизнеса — помогают подобрать решение под вашу задачу.'],
+  ['Внедряете уже во время обучения','Первые результаты получаете до выпуска, а не после.']]];
 const BLOCKS=[
  {h:{top:'Управляете рентабельностью, чтобы расти в карьере',own:'Управляете прибылью, чтобы бизнес зарабатывал больше'},img:'design-img/photos/result-profit.jpg',
   feat:[[5,'Видите, где компания теряет деньги: разбираетесь в отчётах и марже'],[5,{top:'Приходите к собственнику с расчётом окупаемости — ваши проекты утверждают',own:'Считаете окупаемость до вложений и вкладываете только в то, что окупится'}],[9,'Находите потери в процессах и возвращаете прибыль в бизнес']],
@@ -1694,6 +1828,8 @@ const BLOCKS=[
   case:{k:'kuzyakov',a:'Найти, где ещё расти: фабрика уже продаёт по всей России и экспортирует в 12 стран',did:'Составил план оптимизации всей производственной цепочки фабрики',fig:'+5–7%',b:'маржинальности после модуля по стратегии'}}
 ];
 // 7–13 · карточки модулей: что разбирают и кто ведёт (по программе «Foundation MBA.pdf», стр. 8–45)
+// короткие названия модулей на кнопках (полное название и программа — в карточке)
+const MODCHIP={1:'Лидерство',2:'Тренды и экономика',3:'Маркетинг',4:'HR-стратегия',5:'Финансы',6:'Дубай',7:'Стратегия',8:'Анализ рынка и проекты',9:'Бизнес-процессы',10:'Делегирование',11:'Продажи и ИИ',12:'Выступления'};
 const MODINFO={
  1:{t:['Деловая игра «Москва Сити»: управляете строительной компанией','Модель компетенций современного руководителя','Мотивация людей разных поколений','Управление командой на разных этапах развития компании','Эмоциональный интеллект в управлении'],w:'Антон Емельянов, Владислава Друтько'},
  2:{t:['Тренд-радар своей отрасли и видение будущего на 10 лет','Инфляция, ключевая ставка, санкции: как влияют на бизнес','Управление бизнесом в неопределённости, базовый риск-менеджмент','Решения с учётом макроэкономических рисков'],w:'Ольга Еремина, Дмитрий Богданов'},
@@ -1723,9 +1859,9 @@ const MODINFO={
   });
   document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.blk-slide.mod-open').forEach(close)});
 })();
-// 3 · автоподсветка задач на слайде 3: по очереди, каждые 3 с, пока слайд виден на экране; render() не трогает, сама следит за #deck
+// 3 · автоподсветка задач на слайде 3: по очереди, каждые 4 с (STEP), пока слайд виден на экране; вид подсветки — CSS @@k4hub; render() не трогает, сама следит за #deck
 (()=>{
-  const STEP=3000,deck=document.getElementById('deck'),still=matchMedia('(prefers-reduced-motion: reduce)');
+  const STEP=4000,deck=document.getElementById('deck'),still=matchMedia('(prefers-reduced-motion: reduce)');
   let slide=null,io=null,timer=0,seen=false,printing=false;
   const paint=i=>slide.querySelectorAll('[data-h]').forEach(e=>e.classList.toggle('on',+e.dataset.h===i));
   const stop=()=>{clearInterval(timer);timer=0;if(slide){slide.classList.remove('live');paint(-1)}};
@@ -1811,7 +1947,7 @@ function render(){
 
   // 6 · портрет участников: возраст и доли — данные Ксении; сферы — по списку участников FMBA (work/portrait/analysis.md)
   const PT_SECTORS=['Торговля и дистрибуция','IT и цифровые платформы','Промышленность и энергетика','Банки и брокерские услуги','Рестораны и гастрономия','Юридические услуги','Логистика и ВЭД','Строительство','Образование','Фарма','Лизинг'];
-  S('portrait-slide',`${pic('design-img/photos/participant-portrait.jpg',30,'participant-photo')}<div class="body"><div class="kick">Кто учится рядом с вами</div><h2>Портрет участников</h2>
+  S('portrait-slide',`${pic('design-img/photos/kicker4-participant-class.jpg',30,'participant-photo')}<div class="body"><div class="kick">Кто учится рядом с вами</div><h2>Портрет участников</h2>
     <div class="pt-grid">
       <div class="ptc">${ico('users')}<b>35–55<small>лет</small></b><span>возраст участников</span></div>
       <div class="ptc">${ico('briefcase')}<span class="lbl">Позиция в компании</span><div class="pbar"><i style="width:55%"></i></div><div class="pleg"><span>55% собственники бизнеса</span><span>45% топ-менеджеры и директора</span></div></div>
@@ -1825,7 +1961,7 @@ function render(){
     const h=typeof b.h==='string'?b.h:(TOP?b.h.top:b.h.own);
     S('why2 blk-slide',`${pic(b.img,46)}<div class="body"><div class="kick">Задача ${i+1} из ${BLOCKS.length}</div><h2>${h}</h2>
       <div class="why-rows">${b.feat.map(([n,t],j)=>`<div class="why-row" data-m="${n}"><span class="why-num">0${j+1}</span><div><b>${typeof t==='string'?t:(TOP?t.top:t.own)}</b></div></div>`).join('')}</div>
-      <div class="mod-chips"><span>Модули программы</span>${[...new Set(b.feat.map(f=>f[0]))].map(n=>`<button type="button" data-m="${n}">${String(n).padStart(2,'0')}</button>`).join('')}</div></div><div class="mod-pop"></div>`);
+      <div class="mod-chips"><span>Программа модулей:</span>${[...new Set(b.feat.map(f=>f[0]))].map(n=>`<button type="button" data-m="${n}" title="Открыть программу модуля">${MODCHIP[n]}</button>`).join('')}</div></div><div class="mod-pop"></div>`);
     const c=byCase.get(b.case.k);
     const panel=c.ph?`<div class="pic r" style="--w:32%"><img src="${c.ph}" alt="${c.n}"></div>`:`<div class="pic r flat mono-panel" style="--w:32%"><div class="mono">${initials(c.n)}</div></div>`;
     // кейс: с какой задачей пришли (a) → как решили на программе (did), под ним результат (fig + b); тексты в BLOCKS[].case
@@ -1837,12 +1973,12 @@ function render(){
 
   // 8 · формат обучения: шесть главных пунктов крупно (иконка, заголовок, одна короткая строка)
   const FMT_ITEMS=[
-    ['layers','Фреймворки управления','Классические и современные инструменты'],
-    ['file','Разбор актуальных кейсов','Ситуации крупных российских компаний'],
-    ['briefcase','Работа с реальным бизнесом','На компаниях участников'],
-    ['cpu','Симуляции и стратегические игры','Сложные системы и неопределённость'],
-    ['usercheck','Индивидуальный коучинг','Цель — изменение управленческих паттернов'],
-    ['users','Коллективная экспертиза','Сильные группы из собственников и <span style="white-space:nowrap">топ-менеджеров</span>']];
+    ['layers','Фреймворки управления','Классические и современные'],
+    ['file','Разбор кейсов','Крупные российские компании'],
+    ['briefcase','Реальный бизнес','На компаниях участников'],
+    ['cpu','Стратегические игры','Симуляции сложных систем'],
+    ['usercheck','Личный коучинг','Смена паттернов управления'],
+    ['users','Сильная группа','Собственники и <span style="white-space:nowrap">топ-менеджеры</span>']];
   // схема как на слайде 3: в центре круг «Трансформация…», слева первые три пункта, справа остальные, линии от иконок к кругу
   S('fmt-slide fmt-hub',`<div class="kick">Формат обучения</div><h2>Как проходит обучение</h2>
     ${(()=>{const CX=640,CY=430,R=155,GAP=165,h=FMT_ITEMS.length/2;
@@ -1850,7 +1986,7 @@ function render(){
       const ln=n=>{const dx=n.ex-CX,dy=n.y-CY,d=Math.hypot(dx,dy),tx=(CX+dx/d*R).toFixed(1),ty=(CY+dy/d*R).toFixed(1);return `<line x1="${n.ex}" y1="${n.y}" x2="${tx}" y2="${ty}"/><circle cx="${tx}" cy="${ty}" r="4.5"/>`};
       return `<svg class="fmh-lines" viewBox="0 0 1280 720">${nodes.map(ln).join('')}</svg><div class="fmh-c" style="left:${CX-R}px;top:${CY-R}px;width:${2*R}px;height:${2*R}px"><b>Трансформация руководителя и его бизнеса</b></div>${nodes.map(n=>n.html).join('')}`})()}`);
 
-  // 10 · преподаватели: один слайд, сначала практики, потом лекторы; на сайте листается вбок, в PDF первые 3 карточки каждой группы
+  // 10 · преподаватели: один слайд, сначала практики, потом лекторы; на сайте сетка листается вниз, в PDF первые 3 карточки
   S('tch-slide',tchSlide());
 
   // 11 · кто у нас учился: фото, компания и одна строка о ней (поля phs, cn, co в CASES)
@@ -1860,19 +1996,18 @@ function render(){
 
   // 12 · почему MBA актуален в 2027 году: свои формулировки для топ-менеджеров и собственников
   const OBJ=TOP?[
-      ['Прежние решения перестали работать','Прогноз ЦБ на 2027 год: рост ВВП 1–2%, ключевая ставка 12,5–13,5%. Ценятся решения, посчитанные в деньгах.'],
-      ['Учат те, кто управляет бизнесом сейчас','Разбираете задачу вашей компании и приходите к собственнику с расчётом.'],
-      ['Программа обновляется каждый поток','Содержание меняется вместе с рынком.'],
+      ['Актуальная программа','Обновляется каждый поток с учётом реалий рынка.'],
+      ['Преподают практики','Собственники и руководители действующего бизнеса: разбираете то, что работает сейчас.'],
+      ['Работаете над задачей своей компании','Приходите к собственнику с готовым расчётом, а не с идеей.'],
       ['Рядом собственники бизнеса','Больше половины группы — собственники: видите бизнес их глазами.']
     ]:[
-      ['Прежние решения перестали работать','Прогноз ЦБ на 2027 год: рост ВВП 1–2%, ключевая ставка 12,5–13,5%. Деньги дорогие, каждое решение надо считать.'],
-      ['Учат те, кто управляет бизнесом сейчас','Разбираете задачу вашей компании на нынешнем рынке.'],
-      ['Программа обновляется каждый поток','Содержание меняется вместе с рынком.'],
+      ['Актуальная программа','Обновляется каждый поток с учётом реалий рынка.'],
+      ['Преподают практики','Собственники и руководители действующего бизнеса: разбираете то, что работает сейчас.'],
+      ['Работаете над задачей своей компании','Решения проверяете на своём бизнесе, а не на учебных кейсах.'],
       ['Рядом такие же собственники','Больше половины группы — собственники, остальные — топ-менеджеры. Решения обсуждаете с равными.']
     ];
   S('obj-slide',`<div class="kick">Почему сейчас</div><h2>${TOP?'Как MBA помогает расти в карьере в 2027 году':'Как MBA помогает расти бизнесу в 2027 году'}</h2>
-    <div class="obj-rows">${OBJ.map((r,i)=>`<div class="orow"><span class="or-n">0${i+1}</span><b>${r[0]}</b><p>${r[1]}</p></div>`).join('')}</div>
-    <p class="obj-src">Прогноз: Банк России, «Основные направления денежно-кредитной политики на 2027–2029 годы», базовый сценарий, 28.10.2026</p>`);
+    <div class="obj-rows">${OBJ.map((r,i)=>`<div class="orow"><span class="or-n">0${i+1}</span><b>${r[0]}</b><p>${r[1]}</p></div>`).join('')}</div>`);
 
   // 13а · календарь модулей: расписание 1 семестра (группа MBA-1026, набор октябрь 2026)
   // [месяц, год, номер месяца от старта, платёж, выезд, [[даты, модуль, преподаватель, коротко для карточки]]]; 2 семестр школа пока не прислала
@@ -1884,11 +2019,10 @@ function render(){
     ['Февраль',2027,5,0,1,[['даты уточняются','Международный бизнес (Дубай, ОАЭ)','по отдельной программе','Международный бизнес']]],
     ['Март',2027,6,0,0,[['25–27 мар','Стратегическое управление в условиях изменений','Сергей Макшанов'],['28 мар','Интернет-стратегия (Бизнес и Digital)','Григорий Карлышев']]]
   ];
-  const calEv=r=>{const t=r[0][0]==='д';return `<div class="c2-ev"><div class="c2-dl"><span class="c2-d${t?' tbc':''}">${r[0]}</span></div><span class="c2-t">${r[3]||r[1]}</span></div>`};
-  const calCard=g=>`<div class="mc${g[4]?' dxb':''}"><div class="c2-hd"><span class="mn">${String(g[2]).padStart(2,'0')}</span><span class="mm">${g[0]} ${g[1]}</span></div>${g[5].map(calEv).join('')}${g[4]?'<span class="tag">выезд в Дубай, ОАЭ</span>':''}</div>`;
-  S('cal-slide',`<div class="kick">Календарь</div><h2>Календарь модулей</h2>
-    <div class="cal">${CAL.map(calCard).join('')}</div>
-    <div class="c2-s2"><b>2 семестр:</b><span>даты и модули уточняются</span></div>`);
+  const calEv=(r,tag='')=>`<div class="ag-ev"><b${r[0][0]==='д'?' class="tbc"':''}>${r[0]}</b><span>${r[3]||r[1]}${tag}</span></div>`;
+  const calRow=g=>`<div class="ag-r${g[4]?' dxb':''}"><div class="ag-m"><span class="ag-n">${String(g[2]).padStart(2,'0')}</span><span class="ag-mm">${g[0]}<small>${g[1]}</small></span></div>${g[5].map(r=>calEv(r,g[4]?'<span class="ag-tag">Выезд в Дубай, ОАЭ</span>':'')).join('')}</div>`;
+  S('cal-slide ag-slide',`<div class="kick">Календарь</div><h2>Календарь модулей</h2>
+    <div class="ag">${CAL.map(calRow).join('')}<div class="ag-r s2"><div class="ag-m"><span class="ag-mm">2 семестр</span></div><div class="ag-ev"><span>Даты и модули уточняются</span></div></div></div>`);
 
   // 13 · форматы участия
   const fmIco=k=>FM_ICON[k]?`<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${FM_ICON[k]}</svg>`:ico(k);
@@ -1929,10 +2063,14 @@ function render(){
   const SEND=[[[5,9],'Финансовые решения приходят к вам с расчётом окупаемости'],[[1,4,10,12],'Операционное управление переходит к команде'],
     [[3,11,6],'Продажи работают как система'],[[2,7,8],'Сотрудник становится вашим советником по стратегии'],
     [[],'Первые результаты — уже во время обучения, направление работы согласуется с вами']];
-  if(TOP)S('fd-slide',`<div class="kick">${TOP?'Для учредителя и совета':'Что получит компания'}</div><h2>${TOP?'Что получит компания':'Если вы отправляете сотрудника на MBA'}</h2>
-    <div class="fd-rows">${gainGrp.map(g=>`<div class="fd-grp${g?'':' no-tag'}" style="flex:${GAIN.filter(r=>r[0]===g).length}">${g?`<span class="fd-tag">${g}</span>`:''}<div class="fd-list">${GAIN.filter(r=>r[0]===g).map(r=>`<div class="fd-row"><b>${r[1]}</b><ul class="fd-res">${r[2].map(x=>`<li><i>→</i>${x}</li>`).join('')}</ul></div>`).join('')}</div></div>`).join('')}</div>`);
+  // у топ-менеджеров вместо «Что получит компания»: что вы получите в конце программы — по работам топа (карьера), модули по клику
+  const FIN=[[[2,7,8],'Видите компанию целиком и готовы к общему управлению'],[[5,9],'Говорите с собственником на языке денег'],
+    [[1,4,10,12],'Команда работает без вашего ручного контроля'],[[],'Выпускной проект, который можно показать собственнику и будущему работодателю'],
+    [[],'Диплом MBA и круг собственников и топ-менеджеров']];
+  if(TOP)S('why2 blk-slide send-slide fin-slide',`${pic('design-img/photos/group-mic.jpg',46)}<div class="body"><h2>Что вы получите в конце программы</h2><p class="fin-lead">Вы выходите управленцем, которого ищет рынок</p>
+    <div class="why-rows">${FIN.map(([ms,t],j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${t}</b>${ms.length?`<div class="mod-chips">${ms.map(n=>`<button type="button" data-m="${n}" title="Открыть программу модуля">${MODCHIP[n]}</button>`).join('')}</div>`:''}</div></div>`).join('')}</div></div><div class="mod-pop"></div>`);
   else S('why2 blk-slide send-slide',`${pic('design-img/photos/blk-team.jpg',46)}<div class="body"><h2>Направляя сотрудника на MBA, вы получаете</h2>
-    <div class="why-rows">${SEND.map(([ms,t],j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${t}</b>${ms.length?`<div class="mod-chips">${ms.map(n=>`<button type="button" data-m="${n}">${String(n).padStart(2,'0')}</button>`).join('')}</div>`:''}</div></div>`).join('')}</div></div><div class="mod-pop"></div>`);
+    <div class="why-rows">${SEND.map(([ms,t],j)=>`<div class="why-row"><span class="why-num">0${j+1}</span><div><b>${t}</b>${ms.length?`<div class="mod-chips">${ms.map(n=>`<button type="button" data-m="${n}" title="Открыть программу модуля">${MODCHIP[n]}</button>`).join('')}</div>`:''}</div></div>`).join('')}</div></div><div class="mod-pop"></div>`);
 
   // закрывающий слайд: призыв и контакты менеджера, редактируются на слайде (код и данные — перед render())
   out+=closingSlide();
