@@ -334,8 +334,8 @@
   .btn{font-family:'Synergy Sans',Arial,sans-serif;background:var(--accent);color:#fff;border-radius:4px;box-shadow:none;padding:18px 28px;font-size:18px;font-weight:600;letter-spacing:0;transition:background-color .18s ease,transform .18s cubic-bezier(.2,0,0,1)}
   .btn:hover{background:#ff2831;transform:translateY(-2px);box-shadow:none}
   .btn:focus-visible,.opt:focus-visible,.back:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:3px}
-  .hero .btn,#q-intro .btn,#cards .btn,#q-result form .btn{animation:pulseSoft 2.8s ease-in-out infinite}
-  .hero .btn:hover,#q-intro .btn:hover,#cards .btn:hover,#q-result form .btn:hover{animation-play-state:paused}
+  .hero .btn,#q-intro .btn,#cards .btn,#q-result form .btn,.result-cta{animation:pulseSoft 2.8s ease-in-out infinite}
+  .hero .btn:hover,#q-intro .btn:hover,#cards .btn:hover,#q-result form .btn:hover,.result-cta:hover{animation-play-state:paused}
 
   #quiz{background:#f3f3f1;border:0}
   #quiz-box{--ink:#171717;--ink2:#555;--line:#d9d9d5;--card:#fff;max-width:920px;margin:0 auto;padding:clamp(28px,4vw,48px);background:#fff;color:#171717;border:1px solid #d9d9d5;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.1)}
@@ -349,12 +349,16 @@
   .opt{min-height:60px;font-family:'Synergy Sans',Arial,sans-serif;font-size:18px;font-weight:500;color:#171717;background:#f4f4f2;border:1.5px solid #d5d5d1;border-radius:4px;padding:16px 18px}
   .opt:hover{border-color:#888;background:#fff;transform:translateX(3px)}
   .opt.sel{border-color:var(--accent);background:var(--accent);color:#fff}
+  #q-step.answered .opt:not(.sel){display:none}
+  .change-answer{display:inline-block;margin:4px 0 2px;padding:8px 0;border:0;background:none;color:#555;font:500 15px 'Synergy Sans',Arial,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
   .after{margin:16px 0 10px;padding:14px 16px;background:#fff2f2;border:1px solid #f2caca;border-radius:4px;color:#3b2020;font-size:17px;line-height:1.5}
   .after b{color:#171717}
   details.case{display:block;background:#f5f5f3;border:1px solid #d9d9d5;border-radius:4px;color:#333;padding:0;margin:10px 0 0;font-size:17px;line-height:1.55}
   details.case summary{cursor:pointer;padding:14px 16px;color:#171717;font-size:17px;font-weight:600;list-style:none}
   details.case summary::-webkit-details-marker{display:none}
   details.case summary::after{content:'+';float:right;color:var(--accent);font-size:24px;font-weight:500;line-height:1}
+  details.case[open]{background:#fff0f0;border-color:var(--accent);box-shadow:0 10px 28px rgba(237,19,28,.1)}
+  details.case[open] summary{color:#9e1016;font-weight:700}
   details.case[open] summary::after{content:'−'}
   details.case .case-body{padding:0 16px 16px;max-width:66ch}
   details.case .lbl{display:none}
@@ -372,14 +376,21 @@
   form input::placeholder{color:#666}
   .btn.ghost{color:#171717;border-color:#777}
   .btn.ghost:hover{background:#171717;color:#fff}
+  .result-cta{display:flex;width:100%;min-height:72px;margin:24px 0 28px;align-items:center;justify-content:center;text-align:center;font-size:21px}
+  #consultation-form{margin-top:30px;padding:26px;background:#f5f5f3;border:1px solid #d9d9d5;border-radius:6px;scroll-margin-top:88px}
 
   .muted{background:#f3f3f1;color:#171717}
   .muted h2{color:#171717}
   .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#d9d9d5;border:1px solid #d9d9d5}
-  .card{min-height:280px;padding:32px;background:#fff;border:0;border-radius:0;display:flex;flex-direction:column;justify-content:space-between}
+  .card{min-height:280px;padding:32px;background:#fff;border:0;border-radius:0;display:flex;flex-direction:column;justify-content:space-between;animation:cardFocus 9s cubic-bezier(.4,0,.2,1) infinite}
+  .card:nth-child(2){animation-delay:3s}
+  .card:nth-child(3){animation-delay:6s}
   .card b{font-size:clamp(26px,2.6vw,36px);font-weight:600;line-height:1.15;color:#171717;text-wrap:balance}
   .card p{font-size:18px;font-weight:400;line-height:1.6;color:#444;max-width:38ch}
+  .card strong{font-weight:700;color:#171717}
+  @keyframes cardFocus{0%,100%{background:#fff;box-shadow:none}10%,28%{background:#fff1f1;box-shadow:inset 0 0 0 2px var(--accent)}36%{background:#fff;box-shadow:none}}
   #cards > .wrap > p{text-align:center;margin-top:40px!important}
+  #cards .btn{display:inline-flex;min-width:min(560px,100%);min-height:76px;align-items:center;justify-content:center;padding:22px 32px;font-size:22px;box-shadow:0 12px 30px rgba(237,19,28,.32)}
   footer{background:#0a0a0a;color:#858585;border-top:1px solid #242424}
 
   @media(max-width:820px){
@@ -405,7 +416,8 @@
     .btn{width:100%;max-width:100%;padding:17px 20px;white-space:normal}
     #quiz{padding:0;scroll-margin-top:64px}
     #quiz .wrap{padding:0}
-    #quiz-box{min-height:calc(100svh - 64px);padding:24px 20px 92px;border:0;border-radius:0;box-shadow:none}
+    #quiz-box{min-height:0;padding:24px 20px 92px;border:0;border-radius:0;box-shadow:none}
+    #quiz-box:has(#q-step:not(.hidden)),#quiz-box:has(#q-result:not(.hidden)){min-height:calc(100svh - 64px)}
     .q-zone{font-size:14px;margin-bottom:8px}
     .q-title{font-size:26px;line-height:1.22;margin-bottom:8px}
     .q-hint{font-size:17px;line-height:1.5;margin-bottom:16px}
@@ -413,6 +425,8 @@
     .after{font-size:16px;margin:12px 0 8px;padding:12px 14px}
     details.case{margin-top:8px;font-size:17px}
     details.case summary{padding:13px 14px;font-size:17px}
+    .result-cta{min-height:68px;margin:20px 0 24px;font-size:19px}
+    #consultation-form{margin:24px -4px 0;padding:20px 16px}
     .q-nav{background:#fff;border-top-color:#d9d9d5}
     .cards{display:grid}
     .card{padding:26px 22px}
@@ -478,9 +492,9 @@
   <div class="wrap">
     <h2 class="display">Что покажет карта компетенций</h2>
     <div class="cards">
-      <div class="card"><b>Насколько вы соответствуете C-level</b><p>Оценка в процентах: насколько вы соответствуете тому, кого собственники рассматривают на место генерального.</p></div>
-      <div class="card"><b>Почему вас не повышают в компании</b><p>Где вас читают как исполнителя: влияние на прибыль, работа с людьми, решения, от которых зависит, куда развивается компания, разговор с советом, связи и известность на рынке.</p></div>
-      <div class="card"><b>Что сейчас мешает повышению</b><p>С чего начать, чтобы претендовать на з/п 50–100% выше.</p></div>
+      <div class="card"><b>Насколько вы соответствуете C-level</b><p>Увидите <strong>процент соответствия</strong> профилю кандидата на место генерального.</p></div>
+      <div class="card"><b>Почему вас не повышают в компании</b><p>Поймёте, где вас пока видят как исполнителя: <strong>прибыль, команда, стратегия, совет директоров и видимость на рынке</strong>.</p></div>
+      <div class="card"><b>Что сейчас мешает повышению</b><p>Получите первые шаги, чтобы претендовать на <strong>доход на 50–100% выше</strong>.</p></div>
     </div>
     <p style="margin-top:26px"><a href="#quiz" class="btn kviz-top-c-level-start" data-goal="kviz-top-c-level-start" onclick="startQuiz();return false;">Забрать карту компетенций</a></p>
   </div>
@@ -509,7 +523,7 @@ var Q = [
   {
     type:'choice', zone:'Финансы C-level', label:'Ситуация 1 из 6',
     title:'Собственник спрашивает: «Выручка растёт, а прибыль падает — почему и что делать?» Насколько уверенно ответите?',
-    hint:'На C-level этот вопрос ваш, из какой бы функции вы ни пришли.',
+    hint:'На C-level этот вопрос ваш, из какого бы функционала вы ни пришли.',
     opts:[
       {t:'Разложу по цифрам сам', s:2},
       {t:'Отвечу по сути, детали соберу у финансистов', s:1},
@@ -540,7 +554,7 @@ var Q = [
       {t:'Иду с цифрами: что узнали, сколько ещё стоит проверить, при каких условиях выходим и когда честно закрываем', s:2}
     ],
     after:'<b>Акционера успокаивает не оправдание, а управляемость:</b> что сделали, почему не получилось и что предлагаете, чтобы исправить. Кто пришёл не с решением, а с причинами, тот уже проиграл.',
-    case:'<span class="lbl">Пример нашего выпускника</span>Владелец «ФК Гранд Капитал» <b>(оборот 250 млрд) назвал обучение апгрейдом управленческой операционной системы.</b><br>Стратегию <b>электронной коммерции</b> для своей фармы он собрал из разбора с однокурсником, директором завода канатов.<br><b>После поездки на заводы Китая пересмотрел скорость принятия решений во всей компании.</b><br>«Такого не добиться даже от дорогих отраслевых консультантов».'
+    case:'<span class="lbl">Пример нашего выпускника</span>Владелец «ФК Гранд Капитал» <b>назвал обучение апгрейдом управленческой операционной системы.</b><br>Стратегию <b>электронной коммерции</b> для своей фармы он собрал из разбора с однокурсником, директором завода канатов.<br><b>После поездки на заводы Китая пересмотрел скорость принятия решений во всей компании.</b><br>«Такого не добиться даже от дорогих отраслевых консультантов».'
   },
   {
     type:'choice', zone:'Ответственность перед советом', label:'Ситуация 4 из 6',
@@ -552,7 +566,7 @@ var Q = [
       {t:'Говорю: «ошибка была в такой-то предпосылке — вот что исправлено, чтобы это не повторилось»', s:2}
     ],
     after:'<b>На C-level ценят не тех, кто не ошибается, а тех, кто понимает причину ошибки и приходит с решением.</b> Ошибку простят. Не простят, если после неё в компании ничего не изменилось.',
-    case:'<span class="lbl">Пример нашего выпускника</span>Врач без управленческого образования построил сеть медицинских лабораторий (диагностика, анализы) с выручкой 2,7 млрд и упёрся в потолок ручного управления.<br>На программе MBA пересобрал компанию как систему: <b>переставил найм и KPI по технологиям с курса, вывел процессы на новый уровень и снял бизнес с ручника.</b>'
+    case:'<span class="lbl">Пример нашего выпускника</span>Врач без управленческого образования построил сеть медицинских лабораторий и упёрся в потолок ручного управления.<br>На программе MBA пересобрал компанию как систему: <b>переставил найм и KPI по технологиям с курса, вывел процессы на новый уровень и снял бизнес с ручника.</b>'
   },
   {
     type:'choice', zone:'Связи с теми, кто решает', label:'Ситуация 5 из 6',
@@ -582,7 +596,7 @@ var Q = [
 
 var ZONES = ['Финансы C-level','Управление управленцами','Мышление собственника','Ответственность перед советом','Связи с теми, кто решает','Видимость на рынке'];
 var ZONE_ADVICE = {
-  'Финансы C-level':'финансы, с которыми вас ставят на прибыль всей компании, а не функции',
+  'Финансы C-level':'финансы, с которыми вас ставят на прибыль всей компании, а не отдельного функционала',
   'Управление управленцами':'управление руководителями, а не задачами, чтобы команда решала без вас',
   'Мышление собственника':'язык управляемости: что узнали, сколько ещё стоит, где стоп',
   'Ответственность перед советом':'разговор с советом директоров: ошибка в предпосылке, а не в людях',
@@ -590,7 +604,7 @@ var ZONE_ADVICE = {
   'Видимость на рынке':'видимость на рынке, чтобы звали вас, а не вы просили'
 };
 var ZONE_PRAISE = {
-  'Финансы C-level':'Вы уже говорите с собственником на языке прибыли, а не своей функции. Это редкость среди директоров.',
+  'Финансы C-level':'Вы уже говорите с собственником на языке прибыли, а не своего функционала. Это редкость среди директоров.',
   'Управление управленцами':'Вы уже управляете руководителями, а не задачами. Команда у вас решает сама.',
   'Мышление собственника':'Вы уже мыслите как акционер: управляемость вместо оправданий.',
   'Ответственность перед советом':'Вы умеете говорить с советом директоров об ошибках так, что вам доверяют дальше.',
@@ -620,7 +634,9 @@ function jumpToQuizTop(){
 
 function renderQ(){
   var q = Q[cur];
-  (function(s){s.style.animation='none';s.offsetHeight;s.style.animation='';})(document.getElementById('q-step'));
+  var step = document.getElementById('q-step');
+  step.classList.remove('answered');
+  (function(s){s.style.animation='none';s.offsetHeight;s.style.animation='';})(step);
   document.getElementById('q-zone').textContent = q.label + (q.zone ? ' · ' + q.zone : '');
   document.getElementById('q-title').textContent = q.title;
   document.getElementById('q-hint').textContent = q.hint || '';
@@ -645,7 +661,7 @@ function renderQ(){
     b.onclick = function(){ pick(i); };
     box.appendChild(b);
   });
-  if (answers[cur] !== undefined) showAfter();
+  if (answers[cur] !== undefined){ step.classList.add('answered'); showAfter(); next.disabled = false; }
 }
 
 function onSlide(v){ document.getElementById('sl-val').textContent = v; answers[cur] = parseInt(v,10); }
@@ -654,12 +670,14 @@ function pick(i){
   answers[cur] = i;
   var btns = document.querySelectorAll('#q-opts .opt');
   btns.forEach(function(b, j){ b.classList.toggle('sel', j === i); });
+  document.getElementById('q-step').classList.add('answered');
   showAfter();
   document.getElementById('q-next').disabled = false;
 }
 
 function showAfter(){
   var q = Q[cur], o = q.opts[answers[cur]], html = '';
+  html += '<button class="change-answer" type="button" onclick="changeAnswer()">Изменить ответ</button>';
   if (o.kase) html += caseDetails(o.kase);
   if (q.after) html += '<div class="after">' + q.after + '</div>';
   if (q.case) html += caseDetails(q.case);
@@ -667,7 +685,12 @@ function showAfter(){
 }
 
 function caseDetails(content){
-  return '<details class="case"><summary>Посмотреть пример выпускника</summary><div class="case-body">' + content + '</div></details>';
+  return '<details class="case" open><summary>Пример выпускника</summary><div class="case-body">' + content + '</div></details>';
+}
+
+function changeAnswer(){
+  document.getElementById('q-step').classList.remove('answered');
+  document.getElementById('q-after').innerHTML = '';
 }
 
 function nextQ(){
@@ -686,10 +709,10 @@ function showResult(){
   var pct = Math.round(total / (ZONES.length * 2) * 100);
 
   var diag, diagSub;
-  if (pct >= 75){ diag = 'Готов к C-level'; diagSub = 'Осталось подтвердить уровень там, где о вас решают.'; }
-  else if (pct >= 50){ diag = 'Кандидат без билета'; diagSub = 'Компетенции есть, а знакомств и известности, которые приводят в роль, — нет.'; }
-  else if (pct >= 25){ diag = 'Капитал без упаковки'; diagSub = 'Опыт на миллионы, о котором знает только текущий работодатель.'; }
-  else { diag = 'Карьера на паузе'; diagSub = 'Не падение, а плато: каждый год увереннее в том же кресле.'; }
+  if (pct >= 75){ diag = 'Готов к C-level'; diagSub = 'Вы уже решаете задачи уровня C-level. Теперь важно сделать этот уровень заметным для собственников и рынка.'; }
+  else if (pct >= 50){ diag = 'Кандидат без билета'; diagSub = 'Вы уже способны решать задачи C-level, но вас пока недостаточно знают люди, которые решают, кого пригласить на такую роль.'; }
+  else if (pct >= 25){ diag = 'Капитал без упаковки'; diagSub = 'У вас есть сильный опыт, но его ценность видит в основном текущий работодатель. Для следующей ступени нужно усилить часть управленческих компетенций и показать себя рынку.'; }
+  else { diag = 'Карьера на паузе'; diagSub = 'Вы уверенно справляетесь с текущей ролью, но для перехода в C-level пока не хватает нескольких ключевых компетенций. Карта ниже покажет, с чего начать.'; }
 
   var goalText = {ceo:'генерального директора', own:'своего бизнеса или партнёрства', bigger:'той же роли в структуре крупнее', unknown:'роли C-level'}[goalKey];
   var goalAim = {ceo:'кресла генерального', own:'своего бизнеса или партнёрства', bigger:'роли в структуре крупнее', unknown:'следующей ступени'}[goalKey];
@@ -717,6 +740,7 @@ function showResult(){
     + '<div class="score"><div class="num">' + pct + '%</div><div class="diag">' + diag + '<span>' + diagSub + '</span></div></div>'
     + map
     + '<div class="praise">' + ZONE_PRAISE[praiseZone] + '</div>'
+    + '<a class="btn result-cta kviz-top-c-level-consult-link" data-goal="kviz-top-c-level-consult-link" href="#consultation-form">Записаться на карьерный разбор</a>'
     + '<div class="res-block"><h3>Каких компетенций не хватает, чтобы дорасти до ' + goalAim + ' и претендовать на доход на 50–100% выше</h3>' + adviceHtml + '</div>'
     + '<div class="res-block"><h3>Что уже сделали наши выпускники во время обучения</h3><p style="margin-bottom:8px">Вы окупаете обучение ещё во время прохождения, а не получаете диплом для галочки.</p><ul>'
     + '<li>Крупный контракт заключён прямо на выездном модуле, обучение окупилось одной сделкой</li>'
@@ -725,10 +749,10 @@ function showResult(){
     + '</ul></div>'
     + '<h2 class="display" style="font-size:clamp(22px,3.6vw,32px);margin:26px 0 8px">Разберём ваш маршрут до цели</h2>'
     + '<p style="font-size:16px;color:var(--ink2);margin-bottom:6px">30 минут с экспертом школы: что добрать первым и с чего начать. Уйдёте с планом, даже если программа не подойдёт.</p>'
-    + '<form onsubmit="submitForm(event)">'
+    + '<form id="consultation-form" onsubmit="submitForm(event)">'
     + '<label for="f-name">Имя</label><input id="f-name" type="text" required>'
     + '<label for="f-phone">Телефон</label><input id="f-phone" type="tel" required placeholder="+7 …"><label for="f-email">Почта</label><input id="f-email" type="email" required placeholder="you@company.ru">'
-    + '<div style="margin-top:18px"><button class="btn kviz-top-c-level-consult" data-goal="kviz-top-c-level-consult" type="submit">Записаться на консультацию</button></div>'
+    + '<div style="margin-top:18px"><button class="btn kviz-top-c-level-consult" data-goal="kviz-top-c-level-consult" type="submit">Записаться на карьерный разбор</button></div>'
     + ''
     + '</form>'
     + '<p style="margin-top:22px"><button class="back" onclick="restart()">Пройти заново</button></p>';
