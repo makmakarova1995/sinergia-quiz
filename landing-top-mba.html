@@ -254,17 +254,25 @@ h1,h2{font-weight:700;letter-spacing:0}
 .hero-logo{display:block;width:min(190px,52vw);height:auto}
 
 /* Листаемый блок ситуаций. */
-#career-situations .slide{cursor:pointer;min-height:330px}
-#career-situations .hint{appearance:none;border:0;background:none;padding:0;color:var(--red);font:inherit;font-weight:700;text-align:left;cursor:pointer}
+#career-situations .slide{cursor:pointer;min-height:250px;height:auto;padding:0;border:0;background:transparent;overflow:visible;perspective:1200px}
+#career-situations .flip-card-inner{position:relative;width:100%;min-height:250px;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+#career-situations .toggle-card.open .flip-card-inner{transform:rotateY(180deg)}
+#career-situations .flip-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;padding:24px 26px;background:var(--cream);border:1px solid #d8d0bc;border-radius:10px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+#career-situations .flip-front p{margin-top:8px}
+#career-situations .hint{appearance:none;border:0;background:none;margin-top:auto;padding:16px 0 0;color:var(--red);font:inherit;font-weight:700;text-align:left;cursor:pointer}
+#career-situations .flip-back{justify-content:center;transform:rotateY(180deg)}
+#career-situations .flip-back .a{display:block;margin:0;padding:0;border:0;font-size:15.5px}
+#career-situations .flip-back-hint{display:block;margin-top:16px;color:var(--red);font-size:13.5px;font-weight:600}
 @media(min-width:760px){#career-situations .slide{flex-basis:calc((100% - 32px)/3)}}
 
 .photo-story{background:#0b0b0b;color:#fff;padding-top:80px;padding-bottom:80px;overflow:hidden}
 .photo-story h2{max-width:15ch;margin-bottom:28px}
-.photo-strip{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px}
-.photo-strip figure{position:relative;aspect-ratio:16/10;overflow:hidden;background:#222;margin:0;border-radius:10px}
-.photo-strip img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.8) contrast(1.05);transition:transform .7s cubic-bezier(.22,.61,.36,1),filter .4s}
-.photo-strip figure:hover img{transform:scale(1.035);filter:saturate(1) contrast(1.02)}
-.photo-strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:46px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:15px;font-weight:600;color:#fff}
+.photo-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.photo-strip figure{position:relative;aspect-ratio:4/3;overflow:hidden;background:#222;margin:0;border-radius:10px}
+.photo-strip img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.8) brightness(.68) contrast(1.05);transition:transform .7s cubic-bezier(.22,.61,.36,1),filter .4s}
+.photo-strip figure:hover img{transform:scale(1.035);filter:saturate(.9) brightness(.62) contrast(1.02)}
+.photo-strip figcaption{position:absolute;z-index:1;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:linear-gradient(180deg,rgba(0,0,0,.08) 20%,rgba(0,0,0,.82) 100%);font-size:15px;font-weight:400;line-height:1.45;color:#fff}
+.photo-strip figcaption strong{display:block;margin-bottom:6px;font-size:18px;line-height:1.2;color:#fff}
 
 @media(max-width:760px){
   .hero::before{inset:-3%;background-position:50% 34%;animation-duration:22s}
@@ -272,19 +280,16 @@ h1,h2{font-weight:700;letter-spacing:0}
   .hero-top,.hero-body{min-width:0}
   .hero h1{overflow-wrap:anywhere}
   .btn{white-space:normal}
-  .photo-story{padding-left:0;padding-right:0}
-  .photo-story .wrap>h2{padding:0 18px}
-  .photo-strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px 10px;scrollbar-width:none}
-  .photo-strip::-webkit-scrollbar{display:none}
-  .photo-strip figure{flex:0 0 82vw;scroll-snap-align:center}
+  .photo-strip{grid-template-columns:1fr;gap:12px}
+  .photo-strip figure{aspect-ratio:4/3}
 }
 @media(max-width:380px){
-  .photo-story .wrap>h2{padding:0 14px}
-  .photo-strip{padding-left:14px;padding-right:14px}
+  .photo-strip figcaption{padding:20px}
 }
 @media(prefers-reduced-motion:reduce){
   .hero::before{animation:none;transform:scale(1.08)}
   .photo-strip img{transition:none}
+  #career-situations .flip-card-inner{transition:none}
 }
 
 /* ===== липкая кнопка на мобильных =====
@@ -366,28 +371,56 @@ h1,h2{font-weight:700;letter-spacing:0}
     <div class="slider" id="career-situations">
       <div class="slides">
       <div class="slide card toggle-card mba-top-test-card" data-goal="mba-top-test-card">
-        <h3>Повышение снова ушло другому</h3>
-        <p>Хотя вы тянете направление не&nbsp;первый год.</p>
-        <button type="button" class="hint" aria-expanded="false">Это про меня</button>
-        <div class="a">Решение о&nbsp;назначении принимают не&nbsp;по&nbsp;результатам направления, а&nbsp;по&nbsp;компетенциям первого лица: финансы, стратегия, P&amp;L. Пока их&nbsp;не&nbsp;видно — выбирают другого.</div>
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front">
+            <h3>Повышение снова ушло другому</h3>
+            <p>Хотя вы тянете направление не&nbsp;первый год.</p>
+            <button type="button" class="hint" aria-expanded="false">Это про меня</button>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="a">Решение о&nbsp;назначении принимают не&nbsp;по&nbsp;результатам направления, а&nbsp;по&nbsp;компетенциям первого лица: финансы, стратегия, P&amp;L. Пока их&nbsp;не&nbsp;видно — выбирают другого.</div>
+            <span class="flip-back-hint">Нажмите ещё раз, чтобы вернуться</span>
+          </div>
+        </div>
       </div>
       <div class="slide card toggle-card mba-top-test-card" data-goal="mba-top-test-card">
-        <h3>Позиции выше не&nbsp;появляются</h3>
-        <p>В&nbsp;вашей компании их&nbsp;нет. А&nbsp;на&nbsp;рынке их&nbsp;не&nbsp;публикуют.</p>
-        <button type="button" class="hint" aria-expanded="false">Это про меня</button>
-        <div class="a">Топ-позиции закрываются через круг: собственники зовут тех, кого знают лично. В&nbsp;этот круг нельзя откликнуться — в&nbsp;него можно только войти.</div>
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front">
+            <h3>Позиции выше не&nbsp;появляются</h3>
+            <p>В&nbsp;вашей компании их&nbsp;нет. А&nbsp;на&nbsp;рынке их&nbsp;не&nbsp;публикуют.</p>
+            <button type="button" class="hint" aria-expanded="false">Это про меня</button>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="a">Топ-позиции закрываются через круг: собственники зовут тех, кого знают лично. В&nbsp;этот круг нельзя откликнуться — в&nbsp;него можно только войти.</div>
+            <span class="flip-back-hint">Нажмите ещё раз, чтобы вернуться</span>
+          </div>
+        </div>
       </div>
       <div class="slide card toggle-card mba-top-test-card" data-goal="mba-top-test-card">
-        <h3>Пришел оффер с&nbsp;повышением, а&nbsp;вы сомневаетесь</h3>
-        <p>Боитесь, что не&nbsp;потянете — и&nbsp;потеряете текущее место.</p>
-        <button type="button" class="hint" aria-expanded="false">Это про меня</button>
-        <div class="a">Сомнение честное: опыта первого лица нет, а&nbsp;проверить себя в&nbsp;этой роли негде. MBA дает прожить ее&nbsp;на&nbsp;своих рабочих задачах — до&nbsp;того, как вы поставите на&nbsp;кон карьеру.</div>
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front">
+            <h3>Пришел оффер с&nbsp;повышением, а&nbsp;вы сомневаетесь</h3>
+            <p>Боитесь, что не&nbsp;потянете — и&nbsp;потеряете текущее место.</p>
+            <button type="button" class="hint" aria-expanded="false">Это про меня</button>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="a">Сомнение честное: опыта первого лица нет, а&nbsp;проверить себя в&nbsp;этой роли негде. MBA дает прожить ее&nbsp;на&nbsp;своих рабочих задачах — до&nbsp;того, как вы поставите на&nbsp;кон карьеру.</div>
+            <span class="flip-back-hint">Нажмите ещё раз, чтобы вернуться</span>
+          </div>
+        </div>
       </div>
       <div class="slide card toggle-card mba-top-test-card" data-goal="mba-top-test-card">
-        <h3>10 лет результатов — а&nbsp;вас «не&nbsp;видят»</h3>
-        <p>Компетенции сами по&nbsp;себе не&nbsp;прибавляют зарплату.</p>
-        <button type="button" class="hint" aria-expanded="false">Это про меня</button>
-        <div class="a">Зарплату прибавляет доказанная в&nbsp;деньгах ценность. Пока вы не&nbsp;показываете, сколько бизнес зарабатывает на&nbsp;ваших решениях, — торговаться не&nbsp;с&nbsp;чем.</div>
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front">
+            <h3>10 лет результатов — а&nbsp;вас «не&nbsp;видят»</h3>
+            <p>Компетенции сами по&nbsp;себе не&nbsp;прибавляют зарплату.</p>
+            <button type="button" class="hint" aria-expanded="false">Это про меня</button>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="a">Зарплату прибавляет доказанная в&nbsp;деньгах ценность. Пока вы не&nbsp;показываете, сколько бизнес зарабатывает на&nbsp;ваших решениях, — торговаться не&nbsp;с&nbsp;чем.</div>
+            <span class="flip-back-hint">Нажмите ещё раз, чтобы вернуться</span>
+          </div>
+        </div>
       </div>
       </div>
       <div class="slider-nav">
@@ -458,34 +491,22 @@ h1,h2{font-weight:700;letter-spacing:0}
   </div>
 </section>
 
-<!-- РАБОЧИЙ ПРОЕКТ -->
-<section class="dark">
-  <div class="wrap narrow">
-    <h2>На&nbsp;программе вы будете работать над своими рабочими задачами</h2>
-    <ul class="clean" style="margin:18px 0">
-      <li><b>С&nbsp;чем работаете на&nbsp;программе:</b> с&nbsp;горящими задачами своей компании.</li>
-      <li><b>Как идет обучение:</b> решаете задачу модуль за&nbsp;модулем с&nbsp;преподавателями-практиками и&nbsp;закрепленным экспертом.</li>
-      <li><b>Что получаете:</b> внедренное решение и&nbsp;посчитанный эффект в&nbsp;деньгах до&nbsp;диплома, а&nbsp;не&nbsp;после.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- АТМОСФЕРА ПРОГРАММЫ -->
+<!-- КАК ПРОХОДИТ ОБУЧЕНИЕ -->
 <section class="photo-story" aria-labelledby="photo-story-title">
   <div class="wrap">
     <h2 id="photo-story-title">Как проходит обучение</h2>
     <div class="photo-strip">
       <figure>
         <img src="design-img/photos/team-board.jpg" alt="Участники MBA разбирают рабочую задачу у доски" loading="lazy">
-        <figcaption>Работа над задачами своей компании</figcaption>
+        <figcaption><strong>С&nbsp;чем работаете на&nbsp;программе</strong>С&nbsp;горящими задачами своей компании.</figcaption>
       </figure>
       <figure>
         <img src="design-img/photos/group-mic.jpg" alt="Участники программы обсуждают решение в группе" loading="lazy">
-        <figcaption>Разборы с преподавателями и группой</figcaption>
+        <figcaption><strong>Как идет обучение</strong>Решаете задачу модуль за&nbsp;модулем с&nbsp;преподавателями-практиками и&nbsp;закрепленным экспертом.</figcaption>
       </figure>
       <figure>
-        <img src="design-img/photos/duo-graduates.jpg" alt="Выпускники MBA после завершения программы" loading="lazy">
-        <figcaption>Среда руководителей и собственников</figcaption>
+        <img src="design-img/photos/school-graduate.jpg" alt="Выпускники MBA после завершения программы" loading="lazy">
+        <figcaption><strong>Что получаете</strong>Внедренное решение и&nbsp;посчитанный эффект в&nbsp;деньгах до&nbsp;диплома, а&nbsp;не&nbsp;после.</figcaption>
       </figure>
     </div>
   </div>
@@ -576,8 +597,8 @@ h1,h2{font-weight:700;letter-spacing:0}
     <div style="margin-top:20px;display:grid;gap:14px">
       <div class="card"><h3>«У&nbsp;меня нет времени»</h3><p style="margin-top:8px;font-size:15.5px">Обучение проходит по&nbsp;выходным и&nbsp;вечерам, нужно выделить 4&nbsp;дня в&nbsp;полтора месяца. Мы&nbsp;продумали программу так, чтобы вы не&nbsp;выпадали из&nbsp;рабочих процессов.</p></div>
       <div class="card"><h3>«У&nbsp;меня уже есть MBA»</h3><p style="margin-top:8px;font-size:15.5px">Если вы учились 2–3&nbsp;года назад, инструменты и&nbsp;рынок уже поменялись: старые подходы не&nbsp;помогут сделать рывок в&nbsp;карьере.</p></div>
-      <div class="card"><h3>«Работодатель не&nbsp;согласится оплатить обучение»</h3><p style="margin-top:8px;font-size:15.5px">Для компании это дешевле внешних консультантов. Вы&nbsp;берете в&nbsp;работу задачу своей компании и&nbsp;предлагаете решения уже во&nbsp;время обучения — на&nbsp;втором-третьем модуле, а&nbsp;не&nbsp;после диплома.</p></div>
-      <div class="card"><h3>«Лучше отложу эти деньги»</h3><p style="margin-top:8px;font-size:15.5px">Переход на&nbsp;следующую позицию — обычно +50–100% к&nbsp;доходу. Инвестиция возвращается за&nbsp;6&nbsp;месяцев на&nbsp;новой позиции.</p></div>
+      <div class="card"><h3>«Работодатель не&nbsp;согласится оплатить обучение»</h3><p style="margin-top:8px;font-size:15.5px">Для компании это дешевле внешних консультантов. Вы&nbsp;берете в&nbsp;работу задачу своей компании и&nbsp;предлагаете решения уже во&nbsp;время обучения, а&nbsp;не&nbsp;после получения диплома MBA.</p></div>
+      <div class="card"><h3>«Лучше отложу эти деньги»</h3><p style="margin-top:8px;font-size:15.5px">Переход на&nbsp;следующую позицию — обычно +50–100% к&nbsp;доходу. Инвестиция возвращается за&nbsp;6–12&nbsp;месяцев на&nbsp;новой позиции.</p></div>
     </div>
   </div>
 </section>
