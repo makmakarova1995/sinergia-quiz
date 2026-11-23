@@ -79,6 +79,7 @@ mark{background:#f5d94e66;border-bottom:1px dashed #b39b00;padding:0 3px;font-st
 .objection summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);color:var(--red);font-size:28px;font-weight:400;line-height:1}
 .objection[open] summary::after{content:"−"}
 .objection p{margin:0 22px;padding:0 0 20px;border-top:1px solid #444;padding-top:16px;font-size:15.5px;line-height:1.55}
+.objection p strong{color:#fff}
 .stat{font-family:Oswald;font-size:40px;color:var(--red);line-height:1}
 .stat-label{font-size:14px;color:var(--muted);margin-top:6px}
 .dark .stat-label{color:#b9b3a5}
@@ -376,7 +377,6 @@ h1,h2{font-weight:700;letter-spacing:0}
   </div>
   <div class="wrap hero-body">
     <h1>Через 2 года — из топ-менеджера в&nbsp;генерального директора <span class="hl">с&nbsp;зарплатой выше рынка</span></h1>
-    <p class="lead">Ваш опыт уже приносит результаты компании. MBA превращает его в&nbsp;<b>ваш капитал</b>: доход выше рынка и&nbsp;развитие до&nbsp;CEO, совета директоров или своего бизнеса.</p>
     <a href="#form" class="btn mba-top-hero-cta" data-goal="mba-top-hero-cta">Разобрать мою карьеру с&nbsp;экспертом&nbsp;↗</a>
   </div>
 </div>
@@ -612,15 +612,15 @@ h1,h2{font-weight:700;letter-spacing:0}
     <div class="objections">
       <details class="objection">
         <summary>«У&nbsp;меня нет времени»</summary>
-        <p>Обучение проходит по&nbsp;выходным и&nbsp;вечерам, нужно выделить 4&nbsp;дня в&nbsp;полтора месяца. Мы&nbsp;продумали программу так, чтобы вы не&nbsp;выпадали из&nbsp;рабочих процессов.</p>
+        <p><strong>4&nbsp;учебных дня раз в&nbsp;полтора месяца.</strong> Занятия проходят по&nbsp;вечерам и&nbsp;выходным.</p>
       </details>
       <details class="objection">
         <summary>«У&nbsp;меня уже есть MBA»</summary>
-        <p>Если вы учились 2–3&nbsp;года назад, инструменты и&nbsp;рынок уже поменялись: старые подходы не&nbsp;помогут сделать рывок в&nbsp;карьере.</p>
+        <p><strong>За&nbsp;2–3&nbsp;года рынок меняется.</strong> Обновите практику на&nbsp;реальных задачах своей компании.</p>
       </details>
       <details class="objection">
         <summary>«Лучше отложу эти деньги»</summary>
-        <p>Переход на&nbsp;следующую позицию — обычно +50–100% к&nbsp;доходу. Инвестиция возвращается за&nbsp;6–12&nbsp;месяцев на&nbsp;новой позиции.</p>
+        <p><strong>Новая позиция обычно даёт +50–100% к&nbsp;доходу.</strong> Ориентир окупаемости — 6–12&nbsp;месяцев после повышения.</p>
       </details>
     </div>
   </div>
@@ -638,15 +638,6 @@ h1,h2{font-weight:700;letter-spacing:0}
       <input id="f-phone" type="tel" placeholder="+7 …" required>
       <label for="f-mail">Почта</label>
       <input id="f-mail" type="email" placeholder="you@company.ru" required>
-      <label for="f-role">Текущая позиция</label>
-      <select id="f-role">
-        <option>Выберите</option>
-        <option>Директор направления / департамента</option>
-        <option>CFO / COO / CCO / CMO</option>
-        <option>Директор по ИБ / CISO</option>
-        <option>Генеральный директор</option>
-        <option>Другое</option>
-      </select>
       <input type="hidden" id="f-calc" name="calc" value="">
       <button type="submit" class="btn mba-top-form-submit" data-goal="mba-top-form-submit" style="width:100%">Записаться на&nbsp;разбор</button>
     </form>
@@ -670,6 +661,15 @@ function goal(name){ if(YM_ID && window.ym){ ym(YM_ID,'reachGoal',name); } }
 document.addEventListener('click', function(e){
   var g = e.target.closest('[data-goal]');
   if(g) goal(g.getAttribute('data-goal'));
+});
+// В блоке сомнений держим открытым только один короткий ответ.
+document.querySelectorAll('.objection').forEach(function(item){
+  item.addEventListener('toggle', function(){
+    if(!item.open) return;
+    document.querySelectorAll('.objection').forEach(function(other){
+      if(other!==item) other.open=false;
+    });
+  });
 });
 // Фотографии первого экрана: плавная смена по кругу.
 (function(){
