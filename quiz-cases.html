@@ -298,14 +298,14 @@
   }
 
   html{scroll-padding-top:72px;background:#111}
-  body{font-family:'Synergy Sans',Arial,sans-serif;background:#111;color:var(--ink);font-weight:300;line-height:1.55;overflow-x:hidden}
+  body{font-family:'Synergy Sans',Arial,sans-serif;background:#111;color:var(--ink);font-weight:400;line-height:1.55;overflow-x:hidden}
   .wrap{width:100%;max-width:1180px;min-width:0;padding-inline:clamp(20px,4vw,56px)}
   section{padding:clamp(64px,8vw,104px) 0}
 
   .display{font-family:'Synergy Sans',Arial,sans-serif;font-weight:600;line-height:1.02;letter-spacing:-.025em}
   h1.display{font-size:clamp(44px,6vw,76px);max-width:790px;text-wrap:balance}
   h2.display{font-size:clamp(36px,5vw,64px);max-width:820px;margin-bottom:44px;text-wrap:balance}
-  .sub{max-width:650px;font-size:clamp(18px,2vw,24px);line-height:1.45;color:#d0d0d0;text-wrap:pretty}
+  .sub{max-width:650px;font-size:clamp(18px,2vw,24px);font-weight:400;line-height:1.5;color:#f0f0f0;text-wrap:pretty}
   .eyebrow{color:var(--accent)}
 
   header.top{background:rgba(17,17,17,.94);border-bottom:1px solid #292929;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
@@ -316,19 +316,25 @@
   header.top .tag{font-size:14px;color:#c8c8c8;letter-spacing:.02em}
 
   .hero{position:relative;isolation:isolate;overflow:hidden;min-height:calc(100svh - 72px);display:flex;align-items:center;padding:clamp(64px,7vw,96px) 0;background:#111}
-  .hero::before{content:"";position:absolute;z-index:-2;inset:0 0 0 47%;background:url('design-img/fmba-cover.jpg') 56% center/cover no-repeat;filter:saturate(.72) contrast(1.05)}
-  .hero::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#111 0%,#111 43%,rgba(17,17,17,.92) 53%,rgba(17,17,17,.38) 76%,rgba(17,17,17,.72) 100%)}
+  .hero::before{content:"";position:absolute;z-index:-2;inset:0;background:url('design-img/photos/group-mic.jpg') center 42%/cover no-repeat;filter:saturate(.72) contrast(1.04)}
+  .hero::after{content:"";position:absolute;z-index:-1;inset:0;background:rgba(0,0,0,.76)}
   .hero .wrap{width:100%}
   .hero h1{color:#fff}
   .hero .accent{color:var(--accent)}
-  .hero ul.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 34px;max-width:780px;margin:40px 0 44px;border-top:1px solid #343434}
-  .hero ul.checks li{width:auto;max-width:none;padding:18px 8px 18px 24px;border-bottom:1px solid #343434;border-radius:0;color:#e5e5e5;font-size:17px;line-height:1.42;animation:none}
-  .hero ul.checks li::before{left:0;top:27px;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:none}
+  .hero ul.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:980px;margin:34px 0 0;border:0}
+  .hero ul.checks li{width:auto;max-width:none;padding:18px 18px 18px 38px;border:1px solid rgba(255,255,255,.22);border-radius:4px;color:#fff;font-size:17px;font-weight:500;line-height:1.42;animation:heroPointGlow 9s cubic-bezier(.4,0,.2,1) infinite}
+  .hero ul.checks li::before{left:18px;top:28px;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:heroPointDot 9s cubic-bezier(.4,0,.2,1) infinite}
+  .hero ul.checks li:nth-child(1),.hero ul.checks li:nth-child(1)::before{animation-delay:0s}
+  .hero ul.checks li:nth-child(2),.hero ul.checks li:nth-child(2)::before{animation-delay:3s}
+  .hero ul.checks li:nth-child(3),.hero ul.checks li:nth-child(3)::before{animation-delay:6s}
+  @keyframes heroPointGlow{0%,100%{background:rgba(0,0,0,.22);border-color:rgba(255,255,255,.22)}10%,28%{background:rgba(237,19,28,.92);border-color:#ED131C}36%{background:rgba(0,0,0,.22);border-color:rgba(255,255,255,.22)}}
+  @keyframes heroPointDot{0%,100%{background:var(--accent)}10%,28%{background:#fff}36%{background:var(--accent)}}
 
   .btn{font-family:'Synergy Sans',Arial,sans-serif;background:var(--accent);color:#fff;border-radius:4px;box-shadow:none;padding:18px 28px;font-size:18px;font-weight:600;letter-spacing:0;transition:background-color .18s ease,transform .18s cubic-bezier(.2,0,0,1)}
   .btn:hover{background:#ff2831;transform:translateY(-2px);box-shadow:none}
   .btn:focus-visible,.opt:focus-visible,.back:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:3px}
-  .hero .btn,#q-intro .btn,#cards .btn,#q-result form .btn{animation:none}
+  .hero .btn,#q-intro .btn,#cards .btn,#q-result form .btn{animation:pulseSoft 2.8s ease-in-out infinite}
+  .hero .btn:hover,#q-intro .btn:hover,#cards .btn:hover,#q-result form .btn:hover{animation-play-state:paused}
 
   #quiz{background:#0a0a0a;border-top:1px solid #252525;border-bottom:1px solid #252525}
   #quiz-box{max-width:920px;margin:0 auto;padding:clamp(28px,4vw,48px);background:#1c1c1c;border:1px solid #2c2c2c;border-radius:6px;box-shadow:0 28px 80px rgba(0,0,0,.38)}
@@ -338,8 +344,8 @@
   .progress i{background:var(--accent)}
   .q-count,.q-zone{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.08em}
   .q-title{font-size:clamp(24px,3vw,34px);font-weight:500;color:#fff;line-height:1.25;text-wrap:pretty}
-  .q-hint{font-size:16px;line-height:1.5;color:#b8b8b8;max-width:68ch}
-  .opt{min-height:58px;font-family:'Synergy Sans',Arial,sans-serif;font-size:17px;font-weight:400;color:#e8e8e8;background:#252525;border:1px solid #383838;border-radius:4px;padding:16px 18px}
+  .q-hint{font-size:17px;font-weight:400;line-height:1.55;color:#d0d0d0;max-width:68ch}
+  .opt{min-height:58px;font-family:'Synergy Sans',Arial,sans-serif;font-size:17px;font-weight:500;color:#f2f2f2;background:#252525;border:1px solid #454545;border-radius:4px;padding:16px 18px}
   .opt:hover{border-color:#666;background:#2a2a2a;transform:translateX(3px)}
   .opt.sel{border-color:var(--accent);background:#291416;color:#fff}
   .after{border-left:2px solid var(--accent);color:#c8c8c8}
@@ -365,14 +371,14 @@
   .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#343434;border:1px solid #343434}
   .card{min-height:280px;padding:32px;background:#171717;border:0;border-radius:0;display:flex;flex-direction:column;justify-content:space-between}
   .card b{font-size:clamp(24px,2.6vw,34px);font-weight:500;line-height:1.12;color:#fff;text-wrap:balance}
-  .card p{font-size:16px;line-height:1.55;color:#aaa;max-width:38ch}
+  .card p{font-size:17px;font-weight:400;line-height:1.6;color:#d0d0d0;max-width:38ch}
   #cards > .wrap > p{text-align:center;margin-top:40px!important}
   footer{background:#0a0a0a;color:#858585;border-top:1px solid #242424}
 
   @media(max-width:820px){
     .hero{min-height:auto}
-    .hero::before{inset:0;background-position:62% center;opacity:.3}
-    .hero::after{background:linear-gradient(180deg,rgba(17,17,17,.5),#111 72%)}
+    .hero::before{inset:0;background-position:54% center;opacity:1}
+    .hero::after{background:rgba(0,0,0,.8)}
     .hero ul.checks{grid-template-columns:1fr}
     .cards{grid-template-columns:1fr}
     .card{min-height:0;gap:20px}
@@ -380,13 +386,15 @@
   @media(max-width:560px){
     header.top .wrap{min-height:64px}
     header.top svg{height:29px}
-    .hero{padding:64px 0 72px}
-    h1.display{width:100%;max-width:calc(100vw - 40px);font-size:clamp(34px,10vw,40px);letter-spacing:-.025em;line-height:1.04;overflow-wrap:anywhere;text-wrap:wrap}
+    .hero{min-height:calc(100svh - 64px);align-items:flex-start;padding:28px 0 44px}
+    h1.display{width:100%;max-width:calc(100vw - 40px);font-size:clamp(32px,9.2vw,37px);letter-spacing:-.02em;line-height:1.04;overflow-wrap:anywhere;text-wrap:wrap}
     .hero h1 .accent{display:block;margin-top:4px}
     h2.display{font-size:clamp(34px,10vw,48px)}
-    .hero ul.checks{margin:32px 0}
-    .hero ul.checks li{font-size:16px;padding:15px 4px 15px 20px}
-    .hero ul.checks li::before{top:24px}
+    .hero .sub{font-size:17px;line-height:1.45;margin-top:18px}
+    .hero .btn{margin-top:24px}
+    .hero ul.checks{margin:32px 0 0}
+    .hero ul.checks li{font-size:16px;padding:15px 14px 15px 36px}
+    .hero ul.checks li::before{left:16px;top:24px}
     .btn{width:100%;max-width:100%;padding:17px 20px;white-space:normal}
     #quiz-box{padding:24px 18px}
     .q-nav{background:#1c1c1c;border-top-color:#333}
@@ -409,13 +417,12 @@
   <div class="wrap">
     <h1 class="display">Кого позовут на&nbsp;место генерального — <span class="accent">вас или человека со&nbsp;стороны?</span></h1>
     <p class="sub">За 6 ситуаций увидите, чего вам не хватает, чтобы позвали вас: по компетенциям и связям на рынке.</p>
+    <a href="#quiz" class="btn kviz-top-c-level-start" data-goal="kviz-top-c-level-start" onclick="startQuiz();return false;">Хочу узнать, как вырасти до&nbsp;C-level</a>
     <ul class="checks">
-      <li>Почему на&nbsp;освободившееся место генерального берут человека со&nbsp;стороны, а&nbsp;не&nbsp;вас</li>
       <li>Чего вам не&nbsp;хватает, чтобы пройти отбор на&nbsp;C-level и&nbsp;просить в&nbsp;1,5–2 раза больше</li>
       <li>Что в&nbsp;вашем опыте уже соответствует C-level, а&nbsp;что читается как «просто исполнитель»</li>
       <li>Как стать заметным на&nbsp;рынке, чтобы вас хантили и&nbsp;выходили по&nbsp;рекомендациям</li>
     </ul>
-    <a href="#quiz" class="btn kviz-top-c-level-start" data-goal="kviz-top-c-level-start" onclick="startQuiz();return false;">Хочу узнать, как вырасти до&nbsp;C-level</a>
   </div>
 </section>
 
