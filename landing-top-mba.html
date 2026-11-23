@@ -21,9 +21,13 @@
   Плейсхолдеры для данных школы помечены желтым: [так].
   ═══════════════════════════════════════════════════════════════
 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-SemiBold.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Synergy Sans';src:url('assets/fonts/SynergySans-Black.otf') format('opentype');font-weight:900;font-style:normal;font-display:swap}
 :root{
   --dark:#262626; --dark2:#1e1e1e; --beige:#e7e0d0; --cream:#f1ece1;
   --red:#e63a2e; --ink:#242424; --muted:#6f6a5e; --white:#fff;
@@ -234,6 +238,99 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
   .cta{margin-top:16px}
 }
 
+/* ===== фирменный стиль презентации MBA Foundation ===== */
+:root{
+  --dark:#111;--dark2:#090909;--beige:#f0f0ec;--cream:#fff;
+  --red:#ed131c;--ink:#151515;--muted:#656565;--white:#fff;
+  --line:#d8d8d3;--dark-line:#303030;
+}
+body{font-family:'Synergy Sans',Arial,sans-serif;font-weight:400;background:var(--beige);color:var(--ink)}
+html,body{max-width:100%;overflow-x:hidden}
+h1,h2,.disp{font-family:'Synergy Sans',Arial,sans-serif;font-weight:700;letter-spacing:-.025em}
+h1{font-size:clamp(42px,5.7vw,76px);line-height:.98;text-wrap:balance}
+h2{font-size:clamp(30px,4vw,50px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h3{font-weight:600;letter-spacing:-.01em}
+section{padding:88px 24px}
+.wrap{max-width:1160px}
+.narrow{max-width:760px}
+.lead{font-size:20px;line-height:1.5;max-width:64ch}
+.kicker{font-weight:700;color:var(--red)}
+.dark{background:var(--dark);color:#e3e3e3}
+.dark h2{color:#fff}
+.dark .note,.dark .btn-note,.dark .path .tag{color:#aaa}
+
+.hero{isolation:isolate;overflow:hidden;min-height:100svh;padding:36px 24px 72px;background:#090909;color:#fff}
+.hero::before{content:"";position:absolute;z-index:-2;inset:-6%;background:url('design-img/photos/group-mic.jpg') 54% 48%/cover no-repeat;filter:saturate(.72) contrast(1.06);transform:scale(1.06);animation:hero-breathe 18s cubic-bezier(.37,0,.2,1) infinite alternate;will-change:transform}
+.hero::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.87) 46%,rgba(5,5,5,.6) 76%,rgba(5,5,5,.72) 100%),linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.12) 50%,rgba(0,0,0,.34))}
+@keyframes hero-breathe{from{transform:scale(1.06) translate3d(-.6%,0,0)}to{transform:scale(1.14) translate3d(1.2%,-.8%,0)}}
+.hero-top{max-width:1160px;margin:0 auto 44px}
+.hero-logo{display:block;width:min(220px,52vw);height:auto}
+.hero-body{width:100%;max-width:1160px}
+.hero h1{max-width:16ch;line-height:1.02}
+.hero h1 .hl{display:inline;padding:.01em .15em .05em;background:var(--red);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .lead{max-width:62ch;margin:30px 0 34px;color:#d5d5d5;font-size:21px}
+.hero .lead b{color:#fff}
+
+.btn{font-family:'Synergy Sans',Arial,sans-serif;font-weight:700;font-size:18px;letter-spacing:.025em;border-radius:4px;background:var(--red);box-shadow:none;animation:none;transition:transform .2s cubic-bezier(.22,.61,.36,1),background-color .2s}
+.btn:hover{background:#ff2630;box-shadow:none;transform:translateY(-2px)}
+.card,.slide,.calc{border-radius:6px}
+.card{background:#fff;border:1px solid var(--line);border-top:3px solid #b8b8b2;padding:28px}
+.card:hover{border-top-color:var(--red)}
+.dark .card{background:#191919;border-color:var(--dark-line);border-top-color:#444;color:#ddd}
+.dark .card:hover{border-top-color:var(--red)}
+.grid2,.grid3{gap:20px}
+.toggle-card{transition:transform .2s,border-color .2s,box-shadow .2s}
+.toggle-card:hover{transform:translateY(-3px);box-shadow:0 16px 35px rgba(0,0,0,.08)}
+.toggle-card .a{border-top-color:var(--line)}
+.vs{border:0;border-top:2px solid #454545;border-radius:0;background:#181818;color:#ddd;padding:24px 0}
+.vs.win{border-top-color:var(--red)}
+.slide{background:#fff;border:1px solid var(--line);border-top:3px solid #bbb;padding:30px}
+.slide .s-num{font-family:'Synergy Sans',Arial,sans-serif;font-weight:700;color:var(--red)}
+.slide h3{font-family:'Synergy Sans',Arial,sans-serif;font-weight:700;letter-spacing:-.015em}
+.path .st,.path .st:last-child{border-radius:0}
+.calc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);box-shadow:none}
+.chip{border-radius:4px}
+input,select,textarea{border-radius:4px;border-color:#c9c9c3}
+
+.photo-story{background:#0b0b0b;color:#fff;padding-top:80px;padding-bottom:80px;overflow:hidden}
+.photo-story h2{max-width:15ch;margin-bottom:28px}
+.photo-strip{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px}
+.photo-strip figure{position:relative;aspect-ratio:16/10;overflow:hidden;background:#222;margin:0}
+.photo-strip img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.8) contrast(1.05);transition:transform .7s cubic-bezier(.22,.61,.36,1),filter .4s}
+.photo-strip figure:hover img{transform:scale(1.035);filter:saturate(1) contrast(1.02)}
+.photo-strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:46px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:15px;font-weight:600;color:#fff}
+
+footer{background:#090909;color:#8f8f8f}
+@media(max-width:760px){
+  section{padding:58px 18px}
+  .hero{min-height:auto;padding:24px 18px 56px}
+  .hero::before{inset:-3%;background-position:62% 50%;animation-duration:22s}
+  .hero::after{background:linear-gradient(90deg,rgba(5,5,5,.92),rgba(5,5,5,.72)),linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.18) 55%,rgba(0,0,0,.38))}
+  .hero-top{margin-bottom:54px}
+  .hero-logo{width:184px}
+  .hero-top,.hero-body{min-width:0}
+  .hero h1{font-size:clamp(31px,9.4vw,42px);max-width:100%;overflow-wrap:anywhere}
+  .hero .lead{font-size:18px;max-width:100%;margin:24px 0 28px}
+  .btn{font-size:15px;line-height:1.25;white-space:normal}
+  .photo-story{padding-left:0;padding-right:0}
+  .photo-story .wrap>h2{padding:0 18px}
+  .photo-strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 18px 10px;scrollbar-width:none}
+  .photo-strip::-webkit-scrollbar{display:none}
+  .photo-strip figure{flex:0 0 82vw;scroll-snap-align:center}
+}
+@media(max-width:380px){
+  section{padding:48px 14px}
+  .hero{padding:20px 14px 46px}
+  .hero h1{font-size:30px}
+  .hero .lead{font-size:17px}
+  .photo-story .wrap>h2{padding:0 14px}
+  .photo-strip{padding-left:14px;padding-right:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero::before{animation:none;transform:scale(1.08)}
+  .photo-strip img{transition:none}
+}
+
 /* ===== липкая кнопка на мобильных =====
    Блоки с четырьмя карточками выше экрана: кнопка под последней карточкой
    уходила под сгиб. Держим CTA внизу экрана, пока первый экран прокручен
@@ -295,8 +392,7 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
 <!-- ГЕРОЙ -->
 <div class="hero">
   <div class="wrap hero-top">
-    <div class="logo-sq">С</div>
-    <div class="logo-tx">Синергия<small>школа бизнеса</small></div>
+    <img class="hero-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»">
   </div>
   <div class="wrap hero-body">
     <h1>Через 2 года — из топ-менеджера в&nbsp;генерального директора <span class="hl">с&nbsp;зарплатой выше рынка</span></h1>
@@ -316,7 +412,7 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
         <h3>Повышение снова ушло другому</h3>
         <p>Хотя вы тянете направление не&nbsp;первый год.</p>
         <div class="hint">Это про меня&nbsp;→</div>
-        <div class="a">Решение о&nbsp;назначении принимают не&nbsp;по&nbsp;результатам направления, а&nbsp;по&nbsp;компетенциям первого лица: финансы, стратегия, P&L. Пока их&nbsp;не&nbsp;видно — выбирают другого.</div>
+        <div class="a">Решение о&nbsp;назначении принимают не&nbsp;по&nbsp;результатам направления, а&nbsp;по&nbsp;компетенциям первого лица: финансы, стратегия, P&amp;L. Пока их&nbsp;не&nbsp;видно — выбирают другого.</div>
       </div>
       <div class="card toggle-card mba-top-test-card" data-goal="mba-top-test-card">
         <h3>Позиции выше не&nbsp;появляются</h3>
@@ -368,7 +464,7 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
           <h3>Вести компанию, а&nbsp;не&nbsp;направление</h3>
           <ul class="clean">
             <li>защищать стратегию и&nbsp;бюджет перед собственником на&nbsp;языке цифр;</li>
-            <li>читать P&L всего бизнеса и&nbsp;находить, где он&nbsp;теряет деньги;</li>
+            <li>читать P&amp;L всего бизнеса и&nbsp;находить, где он&nbsp;теряет деньги;</li>
             <li>принимать решения уровня первого лица: финансы, слияния и&nbsp;поглощения, команда.</li>
           </ul>
         </div>
@@ -408,6 +504,27 @@ footer{background:var(--dark);color:#8f897c;font-size:13.5px;padding:26px 20px;t
       <li><b>Как идет обучение:</b> решаете задачу модуль за&nbsp;модулем с&nbsp;преподавателями-практиками и&nbsp;закрепленным экспертом.</li>
       <li><b>Что получаете:</b> внедренное решение и&nbsp;посчитанный эффект в&nbsp;деньгах до&nbsp;диплома, а&nbsp;не&nbsp;после.</li>
     </ul>
+  </div>
+</section>
+
+<!-- АТМОСФЕРА ПРОГРАММЫ -->
+<section class="photo-story" aria-labelledby="photo-story-title">
+  <div class="wrap">
+    <h2 id="photo-story-title">Как проходит обучение</h2>
+    <div class="photo-strip">
+      <figure>
+        <img src="design-img/photos/team-board.jpg" alt="Участники MBA разбирают рабочую задачу у доски" loading="lazy">
+        <figcaption>Работа над задачами своей компании</figcaption>
+      </figure>
+      <figure>
+        <img src="design-img/photos/group-mic.jpg" alt="Участники программы обсуждают решение в группе" loading="lazy">
+        <figcaption>Разборы с преподавателями и группой</figcaption>
+      </figure>
+      <figure>
+        <img src="design-img/photos/duo-graduates.jpg" alt="Выпускники MBA после завершения программы" loading="lazy">
+        <figcaption>Среда руководителей и собственников</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
