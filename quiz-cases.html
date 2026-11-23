@@ -431,6 +431,16 @@
     .cards{display:grid}
     .card{padding:26px 22px}
   }
+
+  /* Режим встраивания в Tilda: высотой управляет родительская страница,
+     поэтому vh здесь не используем — иначе получится цикл авторастяжения iframe. */
+  html.tilda-embed .hero{min-height:700px}
+  html.tilda-embed #quiz-box{min-height:0}
+  @media(max-width:560px){
+    html.tilda-embed .hero{min-height:720px}
+    html.tilda-embed #quiz-box:has(#q-step:not(.hidden)),
+    html.tilda-embed #quiz-box:has(#q-result:not(.hidden)){min-height:0}
+  }
 </style>
 </head>
 <body>
@@ -630,6 +640,9 @@ function jumpToQuizTop(){
   root.style.scrollBehavior = 'auto';
   window.scrollTo(0, 0);
   root.style.scrollBehavior = previous;
+  if (root.classList.contains('tilda-embed')){
+    window.parent.postMessage({type:'synergy-quiz-scroll-top'}, '*');
+  }
 }
 
 function renderQ(){
@@ -771,6 +784,32 @@ function submitForm(e){
 }
 
 function restart(){ answers = {}; cur = 0; document.getElementById('top').classList.remove('hidden'); document.getElementById('cards').classList.remove('hidden'); document.getElementById('q-result').classList.add('hidden'); document.getElementById('q-step').classList.remove('hidden'); renderQ(); }
+
+// ===== Автовысота для iframe в Tilda =====
+(function initTildaEmbed(){
+  if (new URLSearchParams(window.location.search).get('embed') !== 'tilda') return;
+  document.documentElement.classList.add('tilda-embed');
+  var framePending = false;
+  function reportHeight(){
+    if (framePending) return;
+    framePending = true;
+    requestAnimationFrame(function(){
+      framePending = false;
+      var height = Array.prototype.reduce.call(document.body.children, function(max, node){
+        if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || getComputedStyle(node).display === 'none') return max;
+        var rect = node.getBoundingClientRect();
+        return Math.max(max, rect.bottom + window.scrollY);
+      }, 0);
+      window.parent.postMessage({type:'synergy-quiz-height', height:height}, '*');
+    });
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  new ResizeObserver(reportHeight).observe(document.body);
+  new MutationObserver(reportHeight).observe(document.body, {subtree:true, childList:true, attributes:true});
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(reportHeight);
+  reportHeight();
+})();
 
 /* ===== Цели Метрики для заведения руками (имя = class = data-goal) =====
    kviz-top-c-level-start        — старт теста (кнопка на первом экране и в блоке)

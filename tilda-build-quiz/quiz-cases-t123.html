@@ -1,0 +1,33 @@
+<style>
+#synergy-quiz-tilda{display:block;width:100vw;margin:0 0 0 calc(50% - 50vw);padding:0;background:#f3f3f1;overflow:clip}
+#synergy-quiz-tilda-frame{display:block;width:100%;height:100vh;min-height:700px;margin:0;border:0;background:#f3f3f1}
+@media(max-width:560px){#synergy-quiz-tilda-frame{min-height:720px}}
+</style>
+<div id="synergy-quiz-tilda">
+  <iframe
+    id="synergy-quiz-tilda-frame"
+    src="https://makmakarova1995.github.io/sinergia-quiz/quiz-cases.html?embed=tilda"
+    title="Карта компетенций C-level"
+    loading="eager"
+    scrolling="no"
+    allow="clipboard-write"
+  ></iframe>
+</div>
+<script>
+(function(){
+  var frame = document.getElementById('synergy-quiz-tilda-frame');
+  if (!frame) return;
+  window.addEventListener('message', function(event){
+    if (event.origin !== 'https://makmakarova1995.github.io' || event.source !== frame.contentWindow || !event.data) return;
+    if (event.data.type === 'synergy-quiz-height'){
+      var height = Number(event.data.height);
+      if (Number.isFinite(height) && height >= 400 && height <= 12000){
+        frame.style.height = Math.ceil(height) + 'px';
+      }
+    }
+    if (event.data.type === 'synergy-quiz-scroll-top'){
+      document.getElementById('synergy-quiz-tilda').scrollIntoView({behavior:'auto', block:'start'});
+    }
+  });
+})();
+</script>
