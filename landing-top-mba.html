@@ -245,11 +245,12 @@ h1,h2,.disp,.slide h3,.slide .s-num{font-family:'Synergy Sans',Arial,sans-serif}
 h1,h2{font-weight:700;letter-spacing:0}
 .btn{font-family:'Synergy Sans',Arial,sans-serif}
 
-/* Живой фотофон первого экрана: отдельное решение лендинга, не калька презентации. */
+/* Живой фотофон первого экрана: пять кадров из презентации меняются по кругу. */
 .hero{isolation:isolate;overflow:hidden;background:#171717}
-.hero::before{content:"";position:absolute;z-index:-2;inset:-6%;background:url('design-img/photos/grad.jpg') 50% 42%/cover no-repeat;filter:saturate(.75) contrast(1.04);transform:scale(1.06);animation:hero-breathe 18s cubic-bezier(.37,0,.2,1) infinite alternate;will-change:transform}
-.hero::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.9) 0%,rgba(20,20,20,.78) 58%,rgba(20,20,20,.62) 100%),linear-gradient(0deg,rgba(0,0,0,.38),rgba(0,0,0,.12))}
-@keyframes hero-breathe{from{transform:scale(1.06) translate3d(-.6%,0,0)}to{transform:scale(1.13) translate3d(1%,-.7%,0)}}
+.hero-slideshow{position:absolute;z-index:-2;inset:0;overflow:hidden;pointer-events:none}
+.hero-slide{position:absolute;inset:-5%;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;transform:scale(1.04);filter:saturate(.78) contrast(1.04);transition:opacity 1.2s ease,transform 7.2s cubic-bezier(.2,.65,.3,1);will-change:opacity,transform}
+.hero-slide.active{opacity:1;transform:scale(1.13)}
+.hero::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.91) 0%,rgba(20,20,20,.8) 58%,rgba(20,20,20,.64) 100%),linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.14))}
 .hero-top,.hero-body{position:relative;z-index:1}
 .hero-logo{display:block;width:min(190px,52vw);height:auto}
 
@@ -275,7 +276,7 @@ h1,h2{font-weight:700;letter-spacing:0}
 .photo-strip figcaption strong{display:block;margin-bottom:6px;font-size:18px;line-height:1.2;color:#fff}
 
 @media(max-width:760px){
-  .hero::before{inset:-3%;background-position:50% 34%;animation-duration:22s}
+  .hero-slide{inset:-3%;background-position:58% center}
   .hero::after{background:linear-gradient(90deg,rgba(20,20,20,.88),rgba(20,20,20,.7)),linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,.12))}
   .hero-top,.hero-body{min-width:0}
   .hero h1{overflow-wrap:anywhere}
@@ -287,7 +288,7 @@ h1,h2{font-weight:700;letter-spacing:0}
   .photo-strip figcaption{padding:20px}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero::before{animation:none;transform:scale(1.08)}
+  .hero-slide{transition:none;transform:scale(1.08)}
   .photo-strip img{transition:none}
   #career-situations .flip-card-inner{transition:none}
 }
@@ -352,6 +353,13 @@ h1,h2{font-weight:700;letter-spacing:0}
 
 <!-- ГЕРОЙ -->
 <div class="hero">
+  <div class="hero-slideshow" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('design-img/photos/blk-markets.jpg');background-position:52% center"></div>
+    <div class="hero-slide" style="background-image:url('design-img/photos/result-team.jpg');background-position:55% center"></div>
+    <div class="hero-slide" style="background-image:url('design-img/photos/task-company.jpg');background-position:60% center"></div>
+    <div class="hero-slide" style="background-image:url('design-img/photos/result-profit.jpg');background-position:58% center"></div>
+    <div class="hero-slide" style="background-image:url('design-img/photos/blk-trends.jpg');background-position:57% center"></div>
+  </div>
   <div class="wrap hero-top">
     <img class="hero-logo" src="assets/brand/synergy-business-school-inversion.svg" alt="Школа бизнеса «Синергия»">
   </div>
@@ -644,6 +652,17 @@ document.addEventListener('click', function(e){
   var g = e.target.closest('[data-goal]');
   if(g) goal(g.getAttribute('data-goal'));
 });
+// Фотографии первого экрана: плавная смена по кругу.
+(function(){
+  var slides=document.querySelectorAll('.hero-slide');
+  if(slides.length<2||window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var current=0;
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current=(current+1)%slides.length;
+    slides[current].classList.add('active');
+  },6000);
+})();
 // карточки мини-теста
 document.querySelectorAll('.toggle-card').forEach(function(c){
   c.addEventListener('click', function(){
