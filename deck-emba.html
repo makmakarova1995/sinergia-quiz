@@ -889,6 +889,64 @@ body{background:#dedede;color:var(--tx);font-weight:400}
 .program-mba-metric strong{font-size:22px;font-weight:600;margin-top:7px}
 .program-mba-metric span{font-size:19px;line-height:1.22;margin-top:7px}
 .program-mba-world{display:none}
+
+/* School proof slide: readable at sales-call scale, not as footnotes. */
+.emba-facts-school h2{font-size:46px;line-height:1;max-width:62%}
+.emba-facts-school .photo-facts-layout{grid-template-columns:1.04fr .96fr;gap:24px;margin-top:12px}
+.emba-facts-school .photo-facts-grid{gap:8px 24px}
+.emba-facts-school .photo-fact{padding-top:8px;justify-content:center}
+.emba-facts-school .photo-fact b{font-size:82px;line-height:.88}
+.emba-facts-school .photo-fact span{font-size:27px;line-height:1.13;margin-top:13px;max-width:95%}
+.emba-facts-school .photo-facts-caption{font-size:24px;line-height:1.18;padding:105px 24px 22px}
+
+/* Final readable hierarchy for the opening story. */
+.emba-facts-school h2{font-size:42px;max-width:78%}
+.emba-facts-school .photo-facts-layout{grid-template-columns:1.06fr .94fr;gap:26px;margin-top:18px}
+.emba-facts-school .photo-facts-grid{gap:14px 24px}
+.emba-facts-school .photo-fact b{font-size:60px;font-weight:500}
+.emba-facts-school .photo-fact span{font-size:20px;line-height:1.18;margin-top:11px}
+.emba-facts-school .photo-facts-caption{font-size:19px;padding:84px 22px 20px}
+
+.jobs-slide h2{font-size:36px;max-width:84%;margin-bottom:12px}
+.jobs-diagram{display:grid;grid-template-columns:1fr 250px 1fr;grid-template-rows:repeat(3,minmax(0,1fr));column-gap:30px;row-gap:4px;flex:1;min-height:0;align-items:center;position:relative}
+.jobs-slide .jobs-center{grid-column:2;grid-row:1/4;width:215px;height:215px;aspect-ratio:1;border:5px solid var(--red);border-radius:50%;overflow:hidden;margin:auto;position:relative;z-index:2;background:#111;box-shadow:0 0 0 14px rgba(255,255,255,.035)}
+.jobs-slide .jobs-center img{width:100%;height:100%;object-fit:cover;object-position:51% 52%;display:block;filter:none}
+.job-node{position:relative;border-top:3px solid #555;padding:6px 12px 5px 0;min-width:0}
+.job-node::after{content:'';position:absolute;top:-3px;width:34px;height:3px;background:var(--red)}
+.job-node:nth-child(odd)::after{left:0}.job-node:nth-child(even)::after{right:0}
+.job-node span{display:block;color:var(--red);font-size:14px;font-weight:700;letter-spacing:.1em;margin-bottom:4px}
+.job-node b{display:block;font-size:20px;line-height:1.06;color:#fff}
+.job-node p{font-size:15px;line-height:1.16;color:#c8c8c8;margin-top:4px}
+.job-n1{grid-column:1;grid-row:1}.job-n2{grid-column:3;grid-row:1}.job-n3{grid-column:1;grid-row:2}.job-n4{grid-column:3;grid-row:2}.job-n5{grid-column:1/4;grid-row:3;width:43%;justify-self:center;text-align:center;padding-right:0}
+.job-n5::after{left:50%!important;right:auto!important;transform:translateX(-50%)}
+
+/* The three rows are the main content, not service labels. */
+.task-action{grid-template-columns:165px 1fr;padding:2.5% 40px 2.5% 0}
+.task-action small,.task-block-slide .task-action small,#emba-block-sys .task-action small{font-size:15px;line-height:1.12}
+.task-action b{font-size:21px;line-height:1.14;font-weight:600}
+.task-block-slide .block-head h2{font-size:34px;line-height:1}
+
+/* One consistent case system: large evidence, one explanation, no logo patch on white. */
+.block-case-slide .mark{display:none}
+.block-case-slide .block-head>div:last-child{padding-right:0}
+.block-case-slide .block-head h2{font-size:34px}
+.multi-case-grid{gap:20px}
+.multi-case-card{border-top:7px solid #171717}
+.multi-case-card:nth-child(2){border-top-color:var(--red)}
+.multi-case-photo{height:41%}
+.multi-case-copy{padding:14px 18px 17px}
+.multi-case-result{font-size:34px;line-height:.94}
+.multi-case-person{padding-top:10px}
+.multi-case-person b{font-size:20px}.multi-case-person small{font-size:15px}
+.multi-case-change{font-size:16px;line-height:1.18;margin-top:8px}
+.proof-case-card b{font-size:74px}.proof-case-card span{font-size:25px}
+.proof-case-stage{grid-template-columns:145px 1fr;padding:18px 22px}
+.proof-case-stage b{font-size:25px}.proof-case-stage p{font-size:20px;line-height:1.2}
+
+.program-mba-metric b{font-size:72px}
+.program-mba-metric strong{font-size:25px}
+.program-mba-metric span{font-size:21px}
+.emba-program-clean h2{font-size:44px}
 @media print{
   .teacher-slide .teach-track{overflow:hidden}
   .teacher-slide .teach-card{flex-basis:23.875%}
@@ -1007,62 +1065,59 @@ const cs=k=>CASES.find(c=>c.k===k);
 
 const BLOCK_ORDER=['proj','growth','sys','know','circle'];
 const BLOCK_META={
-  proj:{no:'01',title:'Выбираете сценарий роста до вложений',summary:'Сценарий и дорожная карта',photo:'design-img/photos/blk-trends.jpg',pos:'53% 54%'},
-  growth:{no:'02',title:'Выходите на новые рынки и растите продажи',summary:'Рынок и план первых действий',photo:'design-img/photos/blk-markets.jpg',pos:'50% 52%'},
-  sys:{no:'03',title:'Компания работает без вашего постоянного участия',summary:'Модель управления и правила решений',photo:'design-img/photos/blk-team.jpg',pos:'57% 48%'},
-  know:{no:'04',title:'Масштабируете прибыль, а не затраты',summary:'Сокращаете потери и считаете отдачу до вложений',photo:'design-img/photos/blk-money.jpg',pos:'55% 46%'},
-  circle:{no:'05',title:'Не принимаете решения на миллионы в одиночку',summary:'Решение с альтернативами и рисками',photo:'design-img/emba-intensive/networking.jpg',pos:'50% 46%'}
+  proj:{no:'01',title:'Построить систему управления',summary:'Роли, KPI и решения без замыкания на собственнике',photo:'design-img/photos/blk-team.jpg',pos:'57% 48%'},
+  growth:{no:'02',title:'Найти диверсификацию и новые рынки',summary:'Приоритетный рынок и план первых действий',photo:'design-img/photos/blk-markets.jpg',pos:'50% 52%'},
+  sys:{no:'03',title:'Усилить финансы, ИИ и антикризис',summary:'Инициативы с посчитанным эффектом',photo:'design-img/photos/blk-money.jpg',pos:'55% 46%'},
+  know:{no:'04',title:'Попасть в группу равных',summary:'Собственники сопоставимого масштаба и разных отраслей',photo:'design-img/emba-intensive/networking.jpg',pos:'50% 46%'},
+  circle:{no:'05',title:'Вынести свою систему на разбор практикам',summary:'Проверенное решение с альтернативами и рисками',photo:'design-img/emba-intensive/systems.jpg',pos:'51% 52%'}
 };
 const BLOCK_ACTIONS={
   proj:[
-    {label:'Разбираете с практиками',text:'Сергей Макшанов, Юрий Сапрыкин и эксперты: рынок, макротренды, риски, сценарии',mods:[1,4,11]},
-    {label:'Применяете на своей компании',text:'Собираете три сценария и считаете ресурсы на данных компании',mods:[1,4,11,16]},
-    {label:'Проверяете и забираете',text:'Защищаете логику перед преподавателями и собственниками, забираете сценарий и дорожную карту',mods:[1,16]}
+    {label:'Разбираете с практиками',text:'Роли, KPI, процессы и корпоративное управление',mods:[8,13,14]},
+    {label:'Применяете в компании',text:'Находите решения, которые сейчас замыкаются на вас',mods:[8,13,14]},
+    {label:'Результат',text:'Модель управления и правила принятия решений',mods:[8,14]}
   ],
   growth:[
     {label:'Разбираете с практиками',text:'Практики продаж и продукта, местные компании: актуальные модели выхода',mods:[5,7,3,15]},
     {label:'Применяете на своей компании',text:'Проверяете аудиторию, спрос, продукт, каналы и экономику выхода',mods:[5,7,3,15]},
-    {label:'Проверяете и забираете',text:'Обсуждаете гипотезу с практиками и собственниками, выбираете приоритетный рынок и забираете план первых действий',mods:[0,5,7,16]}
+    {label:'Результат',text:'Приоритетный рынок и план первых действий',mods:[0,5,7,16]}
   ],
   sys:[
-    {label:'Разбираете с практиками',text:'Марк Розин и эксперты: роли, KPI, процессы, корпоративное управление',mods:[8,13,14]},
-    {label:'Применяете на своей компании',text:'Находите решения, замкнутые на вас, перераспределяете полномочия',mods:[13,14]},
-    {label:'Проверяете и забираете',text:'Проверяете схему с владельцами, забираете модель управления и правила решений',mods:[8,14]}
+    {label:'Разбираете с практиками',text:'Финмодель, риски, антикризис и экономика применения ИИ',mods:[2,11,14]},
+    {label:'Применяете в компании',text:'Считаете потери по продуктам, клиентам и процессам',mods:[5,7,11,14]},
+    {label:'Результат',text:'Набор инициатив с посчитанным эффектом и приоритетами',mods:[11,14,16]}
   ],
   know:[
-    {label:'Разбираете с практиками',text:'Софья Донец, Андрей Комиссаров и эксперты: финмодель, риски, ИИ, экономика процессов',mods:[2,11,14]},
-    {label:'Применяете на своей компании',text:'Считаете потери по продуктам, клиентам, процессам и затратам',mods:[5,7,11,14]},
-    {label:'Проверяете и забираете',text:'Сокращаете потери, считаете отдачу до вложений, забираете набор инициатив с посчитанным эффектом',mods:[11,14,16]}
+    {label:'Состав группы',text:'100% участников текущей группы управляют своим бизнесом',mods:[0,8,9]},
+    {label:'Как работаете',text:'Разбираете решения в пятёрках, на модулях и между ними',mods:[0,8,9]},
+    {label:'Результат',text:'Сравниваете подходы собственников из разных отраслей',mods:[0,8,9]}
   ],
   circle:[
-    {label:'Разбираете с практиками',text:'Приносите решение, которое нельзя обсудить с командой',mods:[0,9]},
-    {label:'Применяете на своей компании',text:'Разбираете его в пятёрках, на модулях и в клубе с собственниками вашего масштаба',mods:[0,8,9]},
-    {label:'Проверяете и забираете',text:'Сравниваете опыт, забираете решение с альтернативами, рисками и следующими шагами',mods:[0,1,11,16]}
+    {label:'Разбираете с практиками',text:'Практики показывают свои методики и решения из бизнеса',mods:[0,1,11]},
+    {label:'Применяете в компании',text:'Приносите свою задачу, расчёты и ограничения своей компании',mods:[0,1,11,16]},
+    {label:'Результат',text:'Проверенное решение, альтернативы, риски и дорожная карта',mods:[0,1,11,16]}
   ]
 };
 const BLOCK_CASES={
   proj:[
-    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'12 филиалов за год',desc:'Развитие компании превратилось в управляемую программу масштабирования.',img:'design-img/photos/alumni-remenyako-forbes.jpg',pos:'50% 43%'},
-    {name:'Николай Кузяков',company:'«Ванюшкины сладости»',fig:'+42% выручки',desc:'Стратегические решения связали с производством, маркетингом и продажами.',img:'design-img/photos/alumni-kuzyakov-event.jpg',pos:'50% 42%'},
-    {name:'Евгений Капьев',company:'«Эксмо-АСТ»',fig:'24 страны',desc:'Проект выхода российских авторов на зарубежные рынки сделан на программе.',img:'design-img/photos/alumni-kapyev-forbes.jpg',pos:'54% 45%'}
+    {name:'Николай Кузяков',company:'«Ванюшкины сладости»',fig:'90% → 10–20%',desc:'Снизил личное участие в операционных совещаниях.',img:'design-img/photos/alumni-kuzyakov-casual.jpg',pos:'50% 43%'},
+    {name:'Андрей Исаев',company:'ДНКОМ',fig:'3 руководителя',desc:'Собственник и два руководителя вместе внедряли изменения.',img:'design-img/photos/alumni-isaev-forbes.jpg',pos:'50% 50%',fit:'contain'}
   ],
   growth:[
-    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'1,5 → 10 млрд ₽',desc:'Рост тендерного оборота после перестройки коммерческого направления.',img:'design-img/photos/alumni-remenyako-event.jpg',pos:'50% 46%'},
-    {name:'Анастасия Юдицкая',company:'Pirouette',fig:'Новый рынок — Дубай',desc:'Оценила зарубежный рынок и открыла направление школы в ОАЭ.',img:'design-img/photos/alumni-yuditskaya.jpg',pos:'50% 50%',fit:'contain'},
-    {name:'Евгений Капьев',company:'«Эксмо-АСТ»',fig:'24 страны',desc:'Собрал стратегию позиционирования продукта для зарубежных партнёров.',img:'design-img/case-kapyev.jpg',pos:'50% 48%',fit:'contain'}
+    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'1,5 → 10 млрд ₽',desc:'Перестроил коммерческое направление.',img:'design-img/photos/alumni-remenyako-event.jpg',pos:'50% 46%'},
+    {name:'Анастасия Юдицкая',company:'Pirouette',fig:'Филиал за рубежом',desc:'Оценила рынок ОАЭ и открыла филиал Pirouette в Дубае.',img:'design-img/photos/alumni-yuditskaya.jpg',pos:'50% 50%',fit:'contain'},
+    {name:'Евгений Капьев',company:'«Эксмо-АСТ»',fig:'24 страны',desc:'Права на российских авторов проданы в 24 странах.',img:'design-img/case-kapyev.jpg',pos:'50% 48%',fit:'contain'}
   ],
   sys:[
-    {name:'Николай Кузяков',company:'«Ванюшкины сладости»',fig:'90% → 10–20%',desc:'Снизил личное участие в операционных совещаниях.',img:'design-img/photos/alumni-kuzyakov-casual.jpg',pos:'50% 43%'},
-    {name:'Андрей Исаев',company:'ДНКОМ',fig:'3 руководителя',desc:'Топ-команда училась вместе и внедряла изменения по ходу программы.',img:'design-img/photos/alumni-isaev-forbes.jpg',pos:'50% 50%',fit:'contain'}
+    {name:'Сергей Нищев',company:'«Башинформсвязь»',fig:'200 млн ₽ в год',desc:'Экономия от выпускного проекта по оптимизации процессов.',img:'design-img/photos/alumni-nishchev.jpg',pos:'50% 50%',fit:'contain'},
+    {name:'Николай Кузяков',company:'«Ванюшкины сладости»',fig:'+5–7% маржи',desc:'Собрал план оптимизации производственной цепочки.',img:'design-img/photos/alumni-kuzyakov.jpg',pos:'50% 50%',fit:'contain'},
+    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'В 2 раза',desc:'Снизил ставку страхования после пересмотра рисков.',img:'design-img/photos/alumni-remenyako-forbes.jpg',pos:'50% 43%'}
   ],
-  know:[
-    {name:'Сергей Нищев',company:'«Башинформсвязь»',fig:'200 млн ₽ в год',desc:'Экономия от проекта оптимизации бизнес-процессов.',img:'design-img/photos/alumni-nishchev.jpg',pos:'50% 50%',fit:'contain'},
-    {name:'Николай Кузяков',company:'«Ванюшкины сладости»',fig:'+5–7%',desc:'Рост маржинальности после плана оптимизации производства.',img:'design-img/photos/alumni-kuzyakov.jpg',pos:'50% 50%',fit:'contain'},
-    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'×2 ниже ставка',desc:'Снизил стоимость страхования после пересмотра рисков.',img:'design-img/photos/alumni-remenyako-ellipse.png',pos:'50% 50%',fit:'contain'}
-  ],
+  know:[],
   circle:[
-    {name:'Андрей Исаев',company:'ДНКОМ',fig:'Топ-команда вместе',desc:'Собственник и руководители синхронно меняли систему управления.',img:'design-img/photos/result-team.jpg',pos:'50% 43%'},
-    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'Новые деловые связи',desc:'Круг программы стал средой для обсуждения решений и партнёрств.',img:'design-img/photos/group-mic.jpg',pos:'50% 44%'}
+    {name:'Денис Ременяко',company:'«ФК Гранд Капитал»',fig:'1 → 12 филиалов',desc:'За год собрал управляемую программу масштабирования.',img:'design-img/photos/alumni-remenyako-forbes.jpg',pos:'50% 43%'},
+    {name:'Николай Кузяков',company:'«Ванюшкины сладости»',fig:'+42% выручки',desc:'Перешёл от выпуска под марками сетей к собственному бренду.',img:'design-img/photos/alumni-kuzyakov-event.jpg',pos:'50% 42%'},
+    {name:'Евгений Капьев',company:'«Эксмо-АСТ»',fig:'24 страны',desc:'Проект выхода российских авторов на зарубежные рынки.',img:'design-img/photos/alumni-kapyev-forbes.jpg',pos:'54% 45%'}
   ]
 };
 
@@ -1232,40 +1287,40 @@ const RESULTS=[
 // задачи собственников — сегменты из разбора звонков (S1–S5) и работы «не быть съеденным», «вырасти кратно».
 // q — слова клиентов из звонков. Модули — по номерам слайдов школы. «Практики» — из состава преподавателей презентации школы.
 const ITEMS=[
-{k:'proj',s:'Выбрать сценарий роста до вложений',count:'4 из 29',t:'Выбрать сценарий роста до вложений',
- ask:'Куда расти, расти ли сейчас или выжидать?',
+{k:'proj',s:'Построить систему управления',count:'4 из 29',t:'Построить систему управления',
+ ask:'Какие решения всё ещё замыкаются лично на вас?',
  q:'«Это больше для себя определиться, нам нужно расти или нет»',
  ch:[['Сценарии','базовый, пессимистичный и предпочитаемый варианты развития вашей компании'],
      ['Расчёт','ресурсы, риски и экономика выбранного сценария до крупных вложений'],
      ['Решение','выбранный сценарий и дорожная карта ключевых факторов успеха']],
  mods:[1,4,11,16],who:[['Макшанов','стратегия'],['Сапрыкин','Сколково'],['Евгения Михайлова','коуч PCC ICF']],case:'nishchev',res:{d:1}},
 
-{k:'growth',s:'Выйти на новые рынки и увеличить продажи',count:'7 из 29',t:'Выйти на новые рынки и увеличить продажи',
- ask:'Какие аудитории, регионы и каналы дадут следующий рост?',
+{k:'growth',s:'Найти диверсификацию и новые рынки',count:'7 из 29',t:'Найти диверсификацию и новые рынки',
+ ask:'Где найти стабильный сбыт и долгосрочные контракты?',
  q:'«Хотим больше зарабатывать»',
  ch:[['Разбираете','актуальные модели выхода с практиками продаж, продукта и местными компаниями'],
      ['Применяете','проверяете аудиторию, спрос, продукт, каналы и экономику на данных компании'],
      ['Остаётся у вас','приоритетный рынок и план первых действий']],
  mods:[3,5,7,15],who:[['Ремыга','рынок Китая'],['Джеф Янг Джи','Чжэцзянский университет'],['Щепин','ex-ВкусВилл'],['Артемий Лебедев','студия Лебедева']],case:'yuditskaya',res:{d:2}},
 
-{k:'sys',s:'Снять операционные решения с собственника',count:'9 из 29',t:'Снять операционные решения с собственника',
- ask:'Какие решения всё ещё замыкаются лично на вас?',
+{k:'sys',s:'Усилить финансы, ИИ и антикризис',count:'9 из 29',t:'Усилить финансы, ИИ и антикризис',
+ ask:'Где бизнес теряет деньги и какие вложения окупятся?',
  q:'«Раньше все оперативные задачи… проходили через меня»',
  ch:[['Разбираете','роли, ответственность, KPI, процессы и корпоративное управление'],
      ['Применяете','находите решения, замкнутые на собственнике, и перераспределяете полномочия'],
      ['Остаётся у вас','модель управления и правила принятия решений']],
  mods:[1,8,13,14],who:[['Толмаков','Институт Адизеса'],['Розин','ЭКОПСИ'],['Зуев','Силовые машины'],['Коновалов','операционное управление']],case:'isaev',res:{d:2}},
 
-{k:'know',s:'Увеличить прибыль через сокращение потерь и расчет отдачи',count:'6 из 29',t:'Увеличить прибыль через сокращение потерь и расчет отдачи',
- ask:'Где бизнес теряет деньги и какие вложения окупятся?',
+{k:'know',s:'Попасть в группу равных',count:'6 из 29',t:'Попасть в группу равных',
+ ask:'С кем обсуждать решения, которые нельзя вынести внутрь команды?',
  q:'«Работать приходится в два раза больше, а выхлоп в два раза меньше»',
  ch:[['Разбираете','финансовую модель, риски, ИИ и экономику процессов'],
      ['Применяете','считаете потери по продуктам, клиентам, процессам и затратам'],
      ['Остаётся у вас','набор инициатив с посчитанным эффектом']],
  mods:[2,4,9,11,12],who:[['Шевлюга','PhD Finance'],['Донец','Т-Инвестиции'],['Комиссаров','Chief AI Officer'],['Толчельников','кибербезопасность']],case:'kuzyakov',res:{d:2}},
 
-{k:'circle',s:'Проверять дорогие решения с собственниками и практиками',count:'7 из 29',t:'Проверять дорогие решения с собственниками и практиками',
- ask:'С кем вы проверяете решение, если цена ошибки слишком высока?',
+{k:'circle',s:'Вынести свою систему на разбор практикам',count:'7 из 29',t:'Вынести свою систему на разбор практикам',
+ ask:'Как проверить свою логику до дорогого внедрения?',
  q:'«Во-первых, мне нужно пообщаться с себе подобными. Вернуться в мир»',
  ch:[['Что проверяете','реальное дорогое решение, которое нельзя вынести внутрь команды'],
      ['Как проверяете','сравниваете опыт, альтернативы и риски в кругу собственников и практиков'],
@@ -1347,15 +1402,20 @@ function render(){
     <div class="cv"><div class="big">Executive<br>MBA</div><p>Программа по стратегическому развитию бизнеса в России и за рубежом</p></div></section>`;
   add(()=>cover());
 
-  // Сначала доверие к школе, затем — узнаваемые задачи собственника.
+  // Сначала доверие к школе и состав группы, затем — узнаваемые задачи собственника.
   add(n=>`<section class="slide dark-slide school-slide emba-facts-school">${ft(n)}
-    <div class="school-facts-body"><h2>Школа бизнеса в цифрах</h2>
-      <div class="photo-facts-layout"><div class="photo-facts-main"><div class="photo-facts-grid"><div class="photo-fact"><b>38 лет</b><span>в бизнес-образовании</span></div><div class="photo-fact"><b>50 000+</b><span>выпускников</span></div><div class="photo-fact"><b>400+</b><span>преподавателей и экспертов</span></div><div class="photo-fact"><b>7</b><span>аккредитаций AMBA</span></div></div><div class="photo-facts-note">Собственный кампус в ОАЭ. Выпускники работают в компаниях: <b>${CLIENTS}</b></div></div><figure class="photo-facts-visual"><img src="design-img/photos/school-graduate.jpg" alt="Выпускник Школы бизнеса"><figcaption class="photo-facts-caption">Первая частная бизнес-школа в России и СНГ, основана в 1988 году</figcaption></figure></div>
+    <div class="school-facts-body"><h2>Школа бизнеса «Синергия» в цифрах</h2>
+      <div class="photo-facts-layout"><div class="photo-facts-main"><div class="photo-facts-grid"><div class="photo-fact"><b>38 лет</b><span>Готовим собственников и руководителей с 1988 года</span></div><div class="photo-fact"><b>50 000+</b><span>Выпускников из разных отраслей</span></div><div class="photo-fact"><b>400+</b><span>Преподавателей и экспертов-практиков</span></div><div class="photo-fact"><b>7</b><span>Аккредитаций AMBA</span></div></div></div><figure class="photo-facts-visual"><img src="design-img/photos/school-graduate.jpg" alt="Выпускник Школы бизнеса"><figcaption class="photo-facts-caption">Первая частная бизнес-школа в России и СНГ, основана в 1988 году</figcaption></figure></div>
+    </div></section>`);
+
+  add(n=>`<section class="slide dark-slide group-slide emba-portrait-clean">${ft(n)}
+    <div class="portrait-clean-body"><h2>Портрет участников EMBA</h2>
+      <div class="portrait-photo-layout"><figure class="portrait-photo"><img src="design-img/photos/participant-portrait.jpg" alt="Участник Executive MBA"></figure><div class="portrait-stats"><div class="portrait-stat"><b>100%</b><span>собственники бизнеса</span></div><div class="portrait-stat"><b>45</b><span>участников</span></div><div class="portrait-stat"><b>42</b><span>года, средний возраст</span></div><div class="portrait-stat range"><b>400 млн–<br>722 млрд ₽</b><span>годовой оборот компаний</span></div><div class="portrait-sectors-large"><strong>Сферы компаний</strong><p>Промышленность · фармацевтика · IT · финансы · логистика · строительство · транспорт · розница</p></div></div></div>
     </div></section>`);
 
   add(n=>`<section class="slide dark-slide jobs-slide">${ft(n)}
-    <h2>Пять работ программы для собственника</h2>
-    <div class="jobs-mba-layout"><div class="jobs-mba-list"><div class="jobs-mba-point"><span>01</span><b>Построить систему управления</b></div><div class="jobs-mba-point"><span>02</span><b>Найти идеи диверсификации и новых рынков</b></div><div class="jobs-mba-point"><span>03</span><b>Усилить компетенции: финансы, ИИ, антикризис</b></div><div class="jobs-mba-point"><span>04</span><b>Попасть в группу равных</b></div><div class="jobs-mba-point"><span>05</span><b>Вынести свою систему на разбор практикам</b></div></div><figure class="jobs-mba-photo"><img src="design-img/emba-intensive/systems.jpg" alt="Работа собственников на программе"></figure></div></section>`);
+    <h2>Если вы решаете такие задачи в своём бизнесе</h2>
+    <div class="jobs-diagram"><div class="job-node job-n1"><span>01</span><b>Построить систему управления</b><p>Снять с себя операционные решения</p></div><div class="job-node job-n2"><span>02</span><b>Найти новые рынки</b><p>Удержать показатели и снизить зависимость от одного рынка</p></div><figure class="jobs-center"><img src="design-img/emba-intensive/systems.jpg" alt="Разбор бизнес-задачи на Executive MBA"></figure><div class="job-node job-n3"><span>03</span><b>Усилить финансы, ИИ и антикризис</b><p>Считать потери и отдачу до вложений</p></div><div class="job-node job-n4"><span>04</span><b>Попасть в группу равных</b><p>Обсуждать решения с другими собственниками</p></div><div class="job-node job-n5"><span>05</span><b>Вынести свою систему на разбор</b><p>Проверить решение с преподавателями-практиками</p></div></div></section>`);
 
   const clubSlide=n=>`<section class="slide club-slide">${ft(n)}
     <div class="club-layout">
@@ -1373,14 +1433,6 @@ function render(){
       <div class="club-visual"><img src="design-img/photos/hall.jpg" alt="Участники клуба MBA на встрече" style="object-position:52% 42%"><div class="club-photo-note"><b>Общение продолжается между учебными модулями</b><span>Чтобы продолжать общение и обмен опытом вне учебной аудитории</span></div></div>
     </div></section>`;
 
-  add(n=>`<section class="slide dark-slide block-map-slide">${ft(n)}
-    <h2>Пять блоков программы EMBA для развития вашего бизнеса</h2>
-    <div class="block-intro">Каждый блок заканчивается решением для вашей компании. Нажмите на блок, чтобы перейти к результатам и модулям.</div>
-    <div class="block-map">
-      ${BLOCK_ORDER.map(k=>{const m=BLOCK_META[k];return `<button class="block-item" type="button" onclick="goEmbaBlock('${k}')"><small>Блок ${m.no}</small><b>${m.title}</b><span>${m.summary}</span><em>Перейти к блоку</em></button>`}).join('')}
-    </div>
-    </section>`);
-
   // Пять блоков: сначала задача и результат, сразу следом — кейсы именно этого блока.
   list.forEach(it=>{
     const meta=BLOCK_META[it.k];
@@ -1392,16 +1444,10 @@ function render(){
         <div class="task-copy"><div class="task-actions">${BLOCK_ACTIONS[it.k].map((a,i)=>`<button class="task-action${i===2?' result':''}" type="button" onclick="showModules(this,'${a.mods.join(',')}')"><small>${a.label}</small><b>${a.text}</b><span>Нажмите, чтобы увидеть модули</span></button>`).join('')}</div></div>
       </div></section>`);
     add(n=>`<section class="slide block-case-slide">${ft(n)}
-      <div class="block-head"><div class="block-no">${meta.no}</div><div><span>${meta.title}</span><h2>${it.k==='circle'?'Как участники проверяют решения':'Кейсы выпускников EMBA Synergy'}</h2></div></div>
-      ${it.k==='circle'?`<div class="proof-case-grid"><article class="proof-case-card"><b>100%</b><span>участников группы — собственники бизнеса</span></article><div class="proof-case-stages">${[['Пятёрки','Разбор решения на задаче своей компании'],['Модули','Проверка с преподавателями-практиками'],['Клуб EMBA','Обсуждение с собственниками из разных отраслей']].map(s=>`<div class="proof-case-stage"><b>${s[0]}</b><p>${s[1]}</p></div>`).join('')}</div></div>`:`<div class="multi-case-grid ${blockCases.length===2?'cases-2':''}">${blockCases.map(c=>`<article class="multi-case-card"><div class="multi-case-photo"><img src="${c.img}" alt="${c.name}" style="object-position:${c.pos||'50% 45%'};object-fit:${c.fit||'cover'}"></div><div class="multi-case-copy"><div class="multi-case-result">${c.fig}</div><div class="multi-case-person"><b>${c.name}</b><small>${c.company}</small></div><p class="multi-case-change">${c.desc}</p></div></article>`).join('')}</div>`}
+      <div class="block-head"><div class="block-no">${meta.no}</div><div><span>${meta.title}</span><h2>${it.k==='know'?'Как группа помогает проверять решения':'Результаты выпускников EMBA Synergy'}</h2></div></div>
+      ${it.k==='know'?`<div class="proof-case-grid"><article class="proof-case-card"><b>100%</b><span>участников группы управляют своим бизнесом</span></article><div class="proof-case-stages">${[['Пятёрки','Разбор решений на задачах своих компаний'],['Модули','Сравнение подходов с другими собственниками'],['Клуб EMBA','Обсуждение решений между учебными модулями']].map(s=>`<div class="proof-case-stage"><b>${s[0]}</b><p>${s[1]}</p></div>`).join('')}</div></div>`:`<div class="multi-case-grid ${blockCases.length===2?'cases-2':''}">${blockCases.map(c=>`<article class="multi-case-card"><div class="multi-case-photo"><img src="${c.img}" alt="${c.name}" style="object-position:${c.pos||'50% 45%'};object-fit:${c.fit||'cover'}"></div><div class="multi-case-copy"><div class="multi-case-result">${c.fig}</div><div class="multi-case-person"><b>${c.name}</b><small>${c.company}</small></div><p class="multi-case-change">${c.desc}</p></div></article>`).join('')}</div>`}
     </section>`);
   });
-
-  // Формат и состав группы — после смысловых блоков, чтобы не разрывать вход через задачи.
-  add(n=>`<section class="slide dark-slide group-slide emba-portrait-clean">${ft(n)}
-    <div class="portrait-clean-body"><h2>Портрет участников EMBA</h2>
-      <div class="portrait-photo-layout"><figure class="portrait-photo"><img src="design-img/photos/participant-portrait.jpg" alt="Участник Executive MBA"></figure><div class="portrait-stats"><div class="portrait-stat"><b>100%</b><span>собственники бизнеса</span></div><div class="portrait-stat"><b>45</b><span>участников</span></div><div class="portrait-stat"><b>42</b><span>года, средний возраст</span></div><div class="portrait-stat range"><b>400 млн–<br>722 млрд ₽</b><span>годовой оборот компаний</span></div><div class="portrait-sectors-large"><strong>Сферы компаний участников</strong><p>Промышленность · фармацевтика · IT · финансы · логистика · строительство · транспорт · розничная торговля</p></div></div></div>
-    </div></section>`);
 
   add(n=>`<section class="slide dark-slide program-slide emba-program-clean">${ft(n)}
     <div class="program-clean-body"><h2>Как устроена программа</h2>
@@ -1487,9 +1533,9 @@ function render(){
 
   const EARLY_OFF=.11, DUO_OFF=.23;
   const early=PRICE*(1-EARLY_OFF), duo=PRICE*(1-DUO_OFF);
-  add(n=>`<section class="slide dark-slide discount-slide">${ft(n)}<div class="discount-layout"><figure class="discount-photo"><img src="design-img/photos/kicker4-early-group.jpg" alt="Участники ближайшего потока" style="object-position:50% 43%"></figure><div class="discount-copy"><div class="kick">Стоимость</div><h2>Ближайший поток — скидка 11%</h2><div class="discount-old">${rub(PRICE)}</div><div class="discount-new">${rub(early)}</div><div class="discount-saving">Экономия ${rub(PRICE-early)}</div><p class="discount-note">Скидка не суммируется со скидкой «вдвоём с коллегой».</p></div></div></section>`);
+  add(n=>`<section class="slide dark-slide discount-slide">${ft(n)}<div class="discount-layout"><figure class="discount-photo"><img src="design-img/photos/kicker4-early-group.jpg" alt="Участники ближайшего потока" style="object-position:50% 43%"></figure><div class="discount-copy"><div class="kick">Стоимость</div><h2>Ближайший поток — скидка 11%</h2><div class="discount-old">${rub(PRICE)}</div><div class="discount-new">${rub(early)}</div><div class="discount-saving">Экономия ${rub(PRICE-early)}</div><p class="discount-note">Скидка не суммируется со скидкой «с бизнес-партнёром».</p></div></div></section>`);
 
-  add(n=>`<section class="slide dark-slide discount-slide">${ft(n)}<div class="discount-layout"><figure class="discount-photo"><img src="design-img/photos/duo-graduates.jpg" alt="Участники программы" style="object-position:50% 38%"></figure><div class="discount-copy"><div class="kick">Стоимость</div><h2>Вдвоём с коллегой — скидка 23%</h2><div class="discount-old">${rub(PRICE)}</div><div class="discount-new">${rub(duo)}</div><div class="discount-saving">Стоимость на одного участника · экономия ${rub(PRICE-duo)}</div></div></div></section>`);
+  add(n=>`<section class="slide dark-slide discount-slide">${ft(n)}<div class="discount-layout"><figure class="discount-photo"><img src="design-img/photos/duo-graduates.jpg" alt="Бизнес-партнёры на программе" style="object-position:50% 38%"></figure><div class="discount-copy"><div class="kick">Стоимость</div><h2>С бизнес-партнёром — скидка 23%</h2><div class="discount-old">${rub(PRICE)}</div><div class="discount-new">${rub(duo)}</div><div class="discount-saving">Стоимость на одного участника · экономия ${rub(PRICE-duo)}</div></div></div></section>`);
 
   add(n=>`<section class="slide dark-slide contact-slide">${ft(n)}<div class="contact-layout">
     <div><div class="kick">Следующий шаг</div><div class="contact-title">Ответим на ваши вопросы</div></div>
